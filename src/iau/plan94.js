@@ -20,7 +20,7 @@ function iauPlan94(date1, date2, np)
 **                             5=Jupiter, 6=Saturn, 7=Uranus, 8=Neptune)
 **
 **  Returned (argument):
-**     pv     double[2][3] planet p,v (heliocentric, J2000.0, AU,AU/d)
+**     pv     double[2][3] planet p,v (heliocentric, J2000.0, au,au/d)
 **
 **  Returned (function value):
 **            int          status: -1 = illegal NP (outside 1-8)
@@ -61,11 +61,11 @@ function iauPlan94(date1, date2, np)
 **  4) On successful return, the array pv contains the following:
 **
 **        pv[0][0]   x      }
-**        pv[0][1]   y      } heliocentric position, AU
+**        pv[0][1]   y      } heliocentric position, au
 **        pv[0][2]   z      }
 **
 **        pv[1][0]   xdot   }
-**        pv[1][1]   ydot   } heliocentric velocity, AU/d
+**        pv[1][1]   ydot   } heliocentric velocity, au/d
 **        pv[1][2]   zdot   }
 **
 **     The reference frame is equatorial and is with respect to the
@@ -158,13 +158,13 @@ function iauPlan94(date1, date2, np)
 **
 **  Reference:  Simon, J.L, Bretagnon, P., Chapront, J.,
 **              Chapront-Touze, M., Francou, G., and Laskar, J.,
-**              Astron. Astrophys. 282, 663 (1994).
+**              Astron.Astrophys., 282, 663 (1994).
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 October 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var pv = [ [0,0,0], [0,0,0] ];;
@@ -196,7 +196,7 @@ function iauPlan94(date1, date2, np)
 /*
 ** Tables giving the mean Keplerian elements, limited to t^2 terms:
 **
-**   a       semi-major axis (AU)
+**   a       semi-major axis (au)
 **   dlm     mean longitude (degree and arcsecond)
 **   e       eccentricity
 **   pi      longitude of the perihelion (degree and arcsecond)
@@ -423,7 +423,7 @@ function iauPlan94(date1, date2, np)
       at = 2.0 * Math.atan2(Math.sqrt((1.0 + de) / (1.0 - de)) * Math.sin(ae2),
                                                        Math.cos(ae2));
 
-   /* Distance (AU) and speed (radians per day). */
+   /* Distance (au) and speed (radians per day). */
       r = da * (1.0 - de * Math.cos(ae));
       v = GK * Math.sqrt((1.0 + 1.0 / amas[np]) / (da * da * da));
 
@@ -440,7 +440,7 @@ function iauPlan94(date1, date2, np)
       xmc = (de * Math.cos(dp) + xcw) * xf;
       xpxq2 = 2 * xp * xq;
 
-   /* Position (J2000.0 ecliptic x,y,z in AU). */
+   /* Position (J2000.0 ecliptic x,y,z in au). */
       x = r * (xcw - xm2 * xp);
       y = r * (xsw + xm2 * xq);
       z = r * (-xm2 * ci2);
@@ -450,7 +450,7 @@ function iauPlan94(date1, date2, np)
       pv[0][1] = y * COSEPS - z * SINEPS;
       pv[0][2] = y * SINEPS + z * COSEPS;
 
-   /* Velocity (J2000.0 ecliptic xdot,ydot,zdot in AU/d). */
+   /* Velocity (J2000.0 ecliptic xdot,ydot,zdot in au/d). */
       x = v * (( -1.0 + 2.0 * xp * xp) * xms + xpxq2 * xmc);
       y = v * ((  1.0 - 2.0 * xq * xq) * xmc - xpxq2 * xms);
       z = v * (2.0 * ci2 * (xp * xms + xq * xmc));

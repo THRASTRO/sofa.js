@@ -71,6 +71,6 @@ Greenwich apparent sidereal time, IAU 2006, given the NPB matrix.
 
 This revision:  2013 June 18
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

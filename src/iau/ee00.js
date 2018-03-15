@@ -65,9 +65,9 @@ function iauEe00(date1, date2, epsa, dpsi)
 **
 **  This revision:  2008 May 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ee;

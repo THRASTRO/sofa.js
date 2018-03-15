@@ -9,7 +9,7 @@ function iauG2icrs( dl, db)
 **  This function is part of the International Astronomical Union's
 **  SOFA (Standards of Fundamental Astronomy) software collection.
 **
-**  Status:  support routine.
+**  Status:  support function.
 **
 **  Given:
 **     dl     double      galactic longitude (radians)
@@ -64,11 +64,11 @@ function iauG2icrs( dl, db)
 **     derived from the ESA Hipparcos Space Astrometry Mission.  ESA
 **     Publications Division, Noordwijk, Netherlands.
 **
-**  This revision:   2015 January 20
+**  This revision:   2018 January 2
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dr = 0.0;;

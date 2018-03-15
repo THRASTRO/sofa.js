@@ -69,9 +69,9 @@ function iauEe00b(date1, date2)
 **
 **  This revision:  2008 May 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var _rv1, _rv3;

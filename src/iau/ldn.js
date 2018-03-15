@@ -80,17 +80,17 @@ function iauLdn(n, b, ob, sc)
 **     iauPn        decompose p-vector into modulus and direction
 **     iauLd        light deflection by a solar-system body
 **
-**  This revision:   2013 October 9
+**  This revision:   2017 March 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var sn = [0, 0, 0];;
    var _rv3;
 
-/* Light time for 1 AU (days) */
+/* Light time for 1 au (days) */
    var CR = AULT/DAYSEC;
 
    var i;

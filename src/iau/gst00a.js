@@ -74,9 +74,9 @@ function iauGst00a(uta, utb, tta, ttb)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var gmst00, ee00a, gst;

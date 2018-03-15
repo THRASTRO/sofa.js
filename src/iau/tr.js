@@ -25,9 +25,9 @@ function iauTr(r)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rt = [ [0,0,0], [0,0,0], [0,0,0] ];;

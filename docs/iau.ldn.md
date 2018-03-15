@@ -86,8 +86,8 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    iauLd        light deflection by a solar-system body
 ```
 
-This revision:   2013 October 9
+This revision:   2017 March 16
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

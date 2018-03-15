@@ -9,7 +9,7 @@ int main()
 {
   double t0;
   printf("var anp_results = [\n");
-  for (t0 = - 10000; t0 <= + 10000; t0 += 10000 / 24.0) {
+  for (t0 = - 10000; t0 <= + 10000; t0 += 10000 / 32.0) {
 
 
     printf("  [");

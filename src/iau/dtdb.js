@@ -40,7 +40,7 @@ function iauDtdb(date1, date2, ut, elong, u, v)
 **  This function is part of the International Astronomical Union's
 **  SOFA (Standards Of Fundamental Astronomy) software collection.
 **
-**  Status:  support routine.
+**  Status:  support function.
 **
 **  Given:
 **     date1,date2   double  date, TDB (Notes 1-3)
@@ -159,11 +159,11 @@ function iauDtdb(date1, date2, ut, elong, u, v)
 **     Simon, J.L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G. & Laskar, J., Astron.Astrophys., 282, 663-683 (1994).
 **
-**  This revision:  2013 June 18
+**  This revision:  2018 January 2
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var t, tsol, w, elsun, emsun, d, elj, els, wt, w0, w1, w2, w3, w4, wf, wj;

@@ -36,13 +36,13 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 3) The TDB date date1+date2 is a Julian Date, apportioned in any
    convenient way between the two arguments.  For example,
-   JD(TDB)=2450123.8g could be expressed in any of these ways, among
+   JD(TDB)=2450123.7 could be expressed in any of these ways, among
    others:
 
 ```
           date1          date2
 
-       2450123.8g           0.0       (JD method)
+       2450123.7           0.0       (JD method)
        2451545.0       -1421.3       (J2000 method)
        2400000.5       50123.2       (MJD method)
        2450123.5           0.2       (date & time method)
@@ -85,8 +85,8 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    iauAtciq     quick ICRS to CIRS
 ```
 
-This revision:   2013 October 9
+This revision:   2017 March 12
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

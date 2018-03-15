@@ -123,11 +123,11 @@ function iauApcs(date1, date2, pv, ebpv, ehp, astrom)
 **     iauPn        decompose p-vector into modulus and direction
 **     iauIr        initialize r-matrix to identity
 **
-**  This revision:   2013 October 9
+**  This revision:   2017 March 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    if (typeof astrom == 'undefined') {
@@ -137,7 +137,7 @@ function iauApcs(date1, date2, pv, ebpv, ehp, astrom)
 /* au/d to m/s */
    var AUDMS = DAU/DAYSEC;
 
-/* Light time for 1 AU (day) */
+/* Light time for 1 au (day) */
    var CR = AULT/DAYSEC;
 
    var i;

@@ -168,8 +168,8 @@ Conventions (McCarthy & Petit 2003).
    Simon, J.L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
    Francou, G. & Laskar, J., Astron.Astrophys., 282, 663-683 (1994).
 
-This revision:  2013 June 18
+This revision:  2018 January 2
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

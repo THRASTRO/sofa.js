@@ -19,9 +19,9 @@ function iauPm(p)
 **
 **  This revision:  2013 August 7
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    return Math.sqrt( p[0]*p[0] + p[1]*p[1] + p[2]*p[2] );

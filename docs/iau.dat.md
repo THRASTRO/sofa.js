@@ -4,7 +4,7 @@
 [rv, deltat] = IAU.dat(iy, im, id, fd)
 ```
 
-For a given UTC date, calculate delta(AT) = TAI-UTC.
+For a given UTC date, calculate Delta(AT) = TAI-UTC.
 
    :------------------------------------------:
 ```
@@ -83,9 +83,9 @@ For a given UTC date, calculate delta(AT) = TAI-UTC.
    so early that JD could not be computed.
 
 2) If the specified date is for a day which ends with a leap second,
-   the UTC-TAI value returned is for the period leading up to the
+   the TAI-UTC value returned is for the period leading up to the
    leap second.  If the date is for a day which begins as a leap
-   second ends, the UTC-TAI returned is for the period following the
+   second ends, the TAI-UTC returned is for the period following the
    leap second.
 
 3) The day number must be in the normal calendar range, for example
@@ -123,8 +123,8 @@ For a given UTC date, calculate delta(AT) = TAI-UTC.
    iauCal2jd    Gregorian calendar to JD
 ```
 
-This revision:  2016 July 7
+This revision:  2017 October 7
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

@@ -23,7 +23,7 @@ function iauJd2cal(dj1, dj2)
 **  Returned (function value):
 **               int      status:
 **                           0 = OK
-**                          -1 = unacceptable date (Note 3)
+**                          -1 = unacceptable date (Note 1)
 **
 **  Notes:
 **
@@ -52,11 +52,11 @@ function iauJd2cal(dj1, dj2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 12.92 (p604).
 **
-**  This revision:  2013 August 7
+**  This revision:  2017 January 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var iy = 0;;
@@ -92,8 +92,8 @@ function iauJd2cal(dj1, dj2)
    f2 = ((d2) % (1.0));
    f = ((f1 + f2) % (1.0));
    if (f < 0.0) f += 1.0;
-   d = Math.floor(d1 - f1) + Math.floor(d2 - f2) + Math.floor(f1 + f2 - f);
-   jd = ~~(~~Math.floor(d) + 1);
+   d = dnint(d1-f1) + dnint(d2-f2) + dnint(f1+f2-f);
+   jd = ~~(~~dnint(d) + 1);
 
 /* Express day in Gregorian calendar. */
    l = ~~(jd + 68569);

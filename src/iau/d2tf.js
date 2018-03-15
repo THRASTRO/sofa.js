@@ -53,9 +53,9 @@ function iauD2tf(ndp, days)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var sign = 0;;
@@ -80,7 +80,7 @@ function iauD2tf(ndp, days)
       }
       rs = nrs;
       w = a / rs;
-      a = rs * Math.round(w);
+      a = rs * dnint(w);
    }
 
 /* Express the unit of each field in resolution units. */
@@ -93,7 +93,7 @@ function iauD2tf(ndp, days)
    rh = rm * 60.0;
 
 /* Round the interval and express in resolution units. */
-   a = Math.round(rs * a);
+   a = dnint(rs * a);
 
 /* Break into fields. */
    ah = a / rh;

@@ -23,7 +23,7 @@ Julian Date to Gregorian year, month, day, and fraction of a day.
 ```
              int      status:
                          0 = OK
-                        -1 = unacceptable date (Note 3)
+                        -1 = unacceptable date (Note 1)
 ```
 
 ## Notes:
@@ -55,8 +55,8 @@ Julian Date to Gregorian year, month, day, and fraction of a day.
    P. Kenneth Seidelmann (ed), University Science Books (1992),
    Section 12.92 (p604).
 
-This revision:  2013 August 7
+This revision:  2017 January 12
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

@@ -63,6 +63,6 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 This revision:  2014 November 7
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

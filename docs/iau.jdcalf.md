@@ -63,8 +63,8 @@ for formatting messages:  rounded to a specified precision.
    P. Kenneth Seidelmann (ed), University Science Books (1992),
    Section 12.92 (p604).
 
-This revision:  2013 June 18
+This revision:  2016 December 2
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

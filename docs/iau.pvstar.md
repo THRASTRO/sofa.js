@@ -8,7 +8,7 @@ Convert star position+velocity vector to catalog coordinates.
 
 ## Given (Note 1):
 ```
-   pv     double[2][3]   pv-vector (AU, AU/day)
+   pv     double[2][3]   pv-vector (au, au/day)
 ```
 
 ## Returned (Note 2):
@@ -70,7 +70,7 @@ Convert star position+velocity vector to catalog coordinates.
 3) Care is needed with units.  The star coordinates are in radians
    and the proper motions in radians per Julian year, but the
    parallax is in arcseconds; the radial velocity is in km/s, but
-   the pv-vector result is in AU and AU/day.
+   the pv-vector result is in au and au/day.
 
 4) The proper motions are the rate of change of the right ascension
    and declination at the catalog epoch and are in radians per Julian
@@ -100,8 +100,8 @@ Convert star position+velocity vector to catalog coordinates.
 
    Stumpff, P., 1985, Astron.Astrophys. 144, 232-240.
 
-This revision:  2013 June 18
+This revision:  2017 March 16
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

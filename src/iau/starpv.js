@@ -20,7 +20,7 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
 **     rv     double        radial velocity (km/s, positive = receding)
 **
 **  Returned (Note 2):
-**     pv     double[2][3]  pv-vector (AU, AU/day)
+**     pv     double[2][3]  pv-vector (au, au/day)
 **
 **  Returned (function value):
 **            int           status:
@@ -54,7 +54,7 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
 **     direction", where the object was located at the catalog epoch, be
 **     required, it may be obtained by calculating the magnitude of the
 **     position vector pv[0][0-2] dividing by the speed of light in
-**     AU/day to give the light-time, and then multiplying the space
+**     au/day to give the light-time, and then multiplying the space
 **     velocity pv[1][0-2] by this light-time and adding the result to
 **     pv[0][0-2].
 **
@@ -73,7 +73,7 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
 **  3) Care is needed with units.  The star coordinates are in radians
 **     and the proper motions in radians per Julian year, but the
 **     parallax is in arcseconds; the radial velocity is in km/s, but
-**     the pv-vector result is in AU and AU/day.
+**     the pv-vector result is in au and au/day.
 **
 **  4) The RA proper motion is in terms of coordinate angle, not true
 **     angle.  If the catalog uses arcseconds for both RA and Dec proper
@@ -114,11 +114,11 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
 **
 **     Stumpff, P., 1985, Astron.Astrophys. 144, 232-240.
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 March 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var pv = [ [0,0,0], [0,0,0] ];;
@@ -139,7 +139,7 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
           od = 0.0, odel = 0.0;     /* warnings   */
 
 
-/* Distance (AU). */
+/* Distance (au). */
    if (px >= PXMIN) {
       w = px;
       iwarn = 0;
@@ -149,14 +149,14 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
    }
    r = DR2AS / w;
 
-/* Radial velocity (AU/day). */
+/* Radial velocity (au/day). */
    rd = DAYSEC * rv * 1e3 / DAU;
 
 /* Proper motion (radian/day). */
    rad = pmr / DJY;
    decd = pmd / DJY;
 
-/* To pv-vector (AU,AU/day). */
+/* To pv-vector (au,au/day). */
    pv = iauS2pv(ra, dec, r, rad, decd, rd);
 
 /* If excessive velocity, arbitrarily set it to zero. */
@@ -166,14 +166,14 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
       iwarn += 2;
    }
 
-/* Isolate the radial component of the velocity (AU/day). */
+/* Isolate the radial component of the velocity (au/day). */
    (_rv4 = iauPn(pv[0]))[0];
    w = _rv4[0];
    x = _rv4[1];
    vsr = iauPdp(x, pv[1]);
    usr = iauSxp(vsr, x);
 
-/* Isolate the transverse component of the velocity (AU/day). */
+/* Isolate the transverse component of the velocity (au/day). */
    ust = iauPmp(pv[1], usr);
    vst = iauPm(ust);
 
@@ -186,7 +186,8 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
    betr = betsr;
    for (i = 0; i < IMAX; i++) {
       d = 1.0 + betr;
-      del = Math.sqrt(1.0 - betr*betr - bett*bett) - 1.0;
+      w = betr*betr + bett*bett;
+      del = - w / (Math.sqrt(1.0 - w) + 1.0);
       betr = d * betsr + del;
       bett = d * betst;
       if (i > 0) {

@@ -58,11 +58,11 @@ function iauJdcalf(ndp, dj1, dj2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 12.92 (p604).
 **
-**  This revision:  2013 June 18
+**  This revision:  2016 December 2
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var iymdf = [0,0,0,0];;
@@ -94,11 +94,11 @@ function iauJdcalf(ndp, dj1, dj2)
 /* Separate days and fractions. */
    f1 = ((d1) % (1.0));
    f2 = ((d2) % (1.0));
-   d1 = Math.floor(d1 - f1);
-   d2 = Math.floor(d2 - f2);
+   d1 = dnint(d1-f1);
+   d2 = dnint(d2-f2);
 
 /* Round the total fraction to the specified number of places. */
-   f = Math.floor((f1+f2)*denom + 0.5) / denom;
+   f = dnint((f1+f2)*denom) / denom;
 
 /* Re-assemble the rounded date and re-align to noon. */
    d2 += f + 0.5;

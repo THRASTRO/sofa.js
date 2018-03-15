@@ -64,10 +64,10 @@ Universal Time to Greenwich mean sidereal time (IAU 1982 model).
    Transactions of the International Astronomical Union,
    XVIII B, 67 (1983).
 
-   Aoki et al., Astron. Astrophys. 105, 359-361 (1982).
+   Aoki et al., Astron.Astrophys., 105, 359-361 (1982).
 
-This revision:  2013 June 18
+This revision:  2017 October 12
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

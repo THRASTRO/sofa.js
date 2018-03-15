@@ -18,7 +18,7 @@ Neptune (but not the Earth itself).
 
 ## Returned (argument):
 ```
-   pv     double[2][3] planet p,v (heliocentric, J2000.0, AU,AU/d)
+   pv     double[2][3] planet p,v (heliocentric, J2000.0, au,au/d)
 ```
 
 ## Returned (function value):
@@ -65,11 +65,11 @@ Neptune (but not the Earth itself).
 
 ```
       pv[0][0]   x      }
-      pv[0][1]   y      } heliocentric position, AU
+      pv[0][1]   y      } heliocentric position, au
       pv[0][2]   z      }
 
       pv[1][0]   xdot   }
-      pv[1][1]   ydot   } heliocentric velocity, AU/d
+      pv[1][1]   ydot   } heliocentric velocity, au/d
       pv[1][2]   zdot   }
 ```
 
@@ -171,10 +171,10 @@ Neptune (but not the Earth itself).
 
 Reference:  Simon, J.L, Bretagnon, P., Chapront, J.,
             Chapront-Touze, M., Francou, G., and Laskar, J.,
-            Astron. Astrophys. 282, 663 (1994).
+            Astron.Astrophys., 282, 663 (1994).
 
-This revision:  2013 June 18
+This revision:  2017 October 12
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

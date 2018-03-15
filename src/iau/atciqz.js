@@ -67,9 +67,9 @@ function iauAtciqz(rc, dc, astrom)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ri = 0.0;;

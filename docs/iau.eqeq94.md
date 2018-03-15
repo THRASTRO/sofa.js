@@ -56,11 +56,11 @@ Equation of the equinoxes, IAU 1994 model.
 
    IAU Resolution C7, Recommendation 3 (1994).
 
-   Capitaine, N. & Gontier, A.-M., 1993, Astron. Astrophys., 275,
+   Capitaine, N. & Gontier, A.-M., 1993, Astron.Astrophys., 275,
    645-650.
 
-This revision:  2013 August 31
+This revision:  2017 October 12
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

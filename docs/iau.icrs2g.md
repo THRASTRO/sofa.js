@@ -69,8 +69,8 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    derived from the ESA Hipparcos Space Astrometry Mission.  ESA
    Publications Division, Noordwijk, Netherlands.
 
-This revision:   2015 January 20
+This revision:   2018 January 2
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

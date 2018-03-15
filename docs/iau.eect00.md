@@ -91,20 +91,20 @@ IAU 2000 resolutions.
 
 ## References:
 
-   Capitaine, N. & Gontier, A.-M., Astron. Astrophys., 275,
+   Capitaine, N. & Gontier, A.-M., Astron.Astrophys., 275,
    645-650 (1993)
 
    Capitaine, N., Wallace, P.T. and McCarthy, D.D., "Expressions to
-   implement the IAU 2000 definition of UT1", Astronomy &
-   Astrophysics, 406, 1135-1149 (2003)
+   implement the IAU 2000 definition of UT1", Astron.Astrophys., 406,
+   1135-1149 (2003)
 
    IAU Resolution C7, Recommendation 3 (1994)
 
    McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
    IERS Technical Note No. 32, BKG (2004)
 
-This revision:  2013 June 18
+This revision:  2017 October 12
 
-SOFA release 2016-05-03
+SOFA release 2018-01-30
 
-Copyright (C) 2016 IAU SOFA Board.
+Copyright (C) 2018 IAU SOFA Board.

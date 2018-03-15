@@ -12,7 +12,7 @@ function iauPvstar(pv)
 **  Status:  support function.
 **
 **  Given (Note 1):
-**     pv     double[2][3]   pv-vector (AU, AU/day)
+**     pv     double[2][3]   pv-vector (au, au/day)
 **
 **  Returned (Note 2):
 **     ra     double         right ascension (radians)
@@ -67,7 +67,7 @@ function iauPvstar(pv)
 **  3) Care is needed with units.  The star coordinates are in radians
 **     and the proper motions in radians per Julian year, but the
 **     parallax is in arcseconds; the radial velocity is in km/s, but
-**     the pv-vector result is in AU and AU/day.
+**     the pv-vector result is in au and au/day.
 **
 **  4) The proper motions are the rate of change of the right ascension
 **     and declination at the catalog epoch and are in radians per Julian
@@ -95,11 +95,11 @@ function iauPvstar(pv)
 **
 **     Stumpff, P., 1985, Astron.Astrophys. 144, 232-240.
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 March 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ra = 0.0;;
@@ -113,14 +113,14 @@ function iauPvstar(pv)
    var r, x = [], vr, ur = [], vt, ut = [], bett, betr, d, w, del, usr = [], ust = [], a, rad, decd, rd;
 
 
-/* Isolate the radial component of the velocity (AU/day, inertial). */
+/* Isolate the radial component of the velocity (au/day, inertial). */
    (_rv1 = iauPn(pv[0]))[0];
    r = _rv1[0];
    x = _rv1[1];
    vr = iauPdp(x, pv[1]);
    ur = iauSxp(vr, x);
 
-/* Isolate the transverse component of the velocity (AU/day, inertial). */
+/* Isolate the transverse component of the velocity (au/day, inertial). */
    ut = iauPmp(pv[1], ur);
    vt = iauPm(ut);
 
@@ -130,9 +130,9 @@ function iauPvstar(pv)
 
 /* The inertial-to-observed correction terms. */
    d = 1.0 + betr;
-   w = 1.0 - betr*betr - bett*bett;
-   if (d == 0.0 || w < 0) return [ -1, ra, dec, pmr, pmd, px, rv ];
-   del = Math.sqrt(w) - 1.0;
+   w = betr*betr + bett*bett;
+   if (d == 0.0 || w > 1.0) return [ -1, ra, dec, pmr, pmd, px, rv ];
+   del = - w / (Math.sqrt(1.0-w) + 1.0);
 
 /* Apply relativistic correction factor to radial velocity component. */
    w = (betr != 0) ? (betr - del) / (betr * d) : 1.0;
@@ -142,7 +142,7 @@ function iauPvstar(pv)
 /* component.                                                  */
    ust = iauSxp(1.0/d, ut);
 
-/* Combine the two to obtain the observed velocity vector (AU/day). */
+/* Combine the two to obtain the observed velocity vector (au/day). */
    pv[1] = iauPpp(usr, ust);
 
 /* Cartesian to spherical. */
