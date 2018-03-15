@@ -56,7 +56,7 @@ Hipparcos catalogue, assuming zero Hipparcos proper motion.
 4) The position returned by this function is in the Hipparcos
    reference system but at date date1+date2.
 
-5) See also iauFk52h, iauH2fk5, iauHfk5z.
+5) See also [iauFk52h][1], [iauH2fk5][2], [iauHfk5z][3].
 
 ## Called:
 ```
@@ -79,3 +79,7 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.fk52h.md
+[2]: iau.h2fk5.md
+[3]: iau.hfk5z.md

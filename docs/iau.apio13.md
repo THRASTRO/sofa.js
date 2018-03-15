@@ -8,8 +8,6 @@ For a terrestrial observer, prepare star-independent astrometry
 parameters for transformations between CIRS and observed
 coordinates.  The caller supplies UTC, site coordinates, ambient air
 conditions and observing wavelength.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -28,7 +26,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 ## Returned:
 ```
-   astrom iauASTROM*  star-independent astrometry parameters:
+   astrom ASTROM*  star-independent astrometry parameters:
     pmt    double       unchanged
     eb     double[3]    unchanged
     eh     double[3]    unchanged
@@ -65,14 +63,14 @@ SOFA (Standards of Fundamental Astronomy) software collection.
     present function is that the JD day represents UTC days whether
     the length is 86399, 86400 or 86401 SI seconds.
 
-    Applications should use the function iauDtf2d to convert from
+    Applications should use the function [iauDtf2d][1] to convert from
     calendar date and time of day into 2-part quasi Julian Date, as
     it implements the leap-second-ambiguity convention just
     described.
 
 2)  The warning status "dubious year" flags UTCs that predate the
     introduction of the time scale or that are too far in the future
-    to be trusted.  See iauDat for further details.
+    to be trusted.  See [iauDat][2] for further details.
 
 3)  UT1-UTC is tabulated in IERS bulletins.  It increases by exactly
     one second at the end of each positive UTC leap second,
@@ -126,7 +124,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 9)  In cases where the caller wishes to supply his own Earth
     rotation information and refraction constants, the function
-    iauApc can be used instead of the present function.
+    Apc can be used instead of the present function.
 
 10) This is one of several functions that inserts into the astrom
     structure star-independent parameters needed for the chain of
@@ -158,7 +156,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 ```
 
 11) The context structure astrom produced by this function is used
-    by iauAtioq and iauAtoiq.
+    by [iauAtioq][15] and [iauAtoiq][16].
 
 ## Called:
 ```
@@ -176,3 +174,8 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.dtf2d.md
+[2]: iau.dat.md
+[15]: iau.atioq.md
+[16]: iau.atoiq.md

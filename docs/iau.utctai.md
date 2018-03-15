@@ -6,8 +6,6 @@
 
 Time scale transformation:  Coordinated Universal Time, UTC, to
 International Atomic Time, TAI.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -42,9 +40,9 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 3) The warning status "dubious year" flags UTCs that predate the
    introduction of the time scale or that are too far in the future
-   to be trusted.  See iauDat for further details.
+   to be trusted.  See [iauDat][1] for further details.
 
-4) The function iauDtf2d converts from calendar date and time of day
+4) The function [iauDtf2d][2] converts from calendar date and time of day
    into 2-part Julian Date, and in the case of UTC implements the
    leap-second-ambiguity convention described above.
 
@@ -71,3 +69,6 @@ This revision:  2013 July 26
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.dat.md
+[2]: iau.dtf2d.md

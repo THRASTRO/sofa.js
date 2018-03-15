@@ -5,8 +5,6 @@ pv = IAU.pvtob(elong, phi, hm, xp, yp, sp, theta)
 ```
 
 Position and velocity of a terrestrial observing station.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -46,7 +44,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    era.
 
 5) No validation is performed on the arguments.  Error cases that
-   could lead to arithmetic exceptions are trapped by the iauGd2gc
+   could lead to arithmetic exceptions are trapped by the [iauGd2gc][1]
    function, and the result set to zeros.
 
 ## References:
@@ -70,3 +68,5 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.gd2gc.md

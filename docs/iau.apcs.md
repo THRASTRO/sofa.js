@@ -12,8 +12,6 @@ caller.
 The parameters produced by this function are required in the space
 motion, parallax, light deflection and aberration parts of the
 astrometric transformation chain.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -26,7 +24,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 ## Returned:
 ```
-   astrom iauASTROM*   star-independent astrometry parameters:
+   astrom ASTROM*   star-independent astrometry parameters:
     pmt    double       PM time interval (SSB, Julian years)
     eb     double[3]    SSB to observer (vector, au)
     eh     double[3]    Sun to observer (unit vector)
@@ -88,9 +86,9 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 ```
 
 4) In cases where the caller does not wish to provide the Earth
-   ephemeris, the function iauApcs13 can be used instead of the
+   ephemeris, the function [iauApcs13][1] can be used instead of the
    present function.  This computes the Earth ephemeris using the
-   SOFA function iauEpv00.
+   SOFA function [iauEpv00][2].
 
 5) This is one of several functions that inserts into the astrom
    structure star-independent parameters needed for the chain of
@@ -122,7 +120,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    transformation), and atmospheric refraction.
 
 6) The context structure astrom produced by this function is used by
-   iauAtciq* and iauAticq*.
+   [iauAtciq][14]* and [iauAticq][15]*.
 
 ## Called:
 ```
@@ -137,3 +135,8 @@ This revision:   2017 March 16
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.apcs13.md
+[2]: iau.epv00.md
+[14]: iau.atciq.md
+[15]: iau.aticq.md

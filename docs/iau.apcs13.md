@@ -11,8 +11,6 @@ between ICRS and GCRS.  The Earth ephemeris is from SOFA models.
 The parameters produced by this function are required in the space
 motion, parallax, light deflection and aberration parts of the
 astrometric transformation chain.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -23,7 +21,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 ## Returned:
 ```
-   astrom iauASTROM*   star-independent astrometry parameters:
+   astrom ASTROM*   star-independent astrometry parameters:
     pmt    double       PM time interval (SSB, Julian years)
     eb     double[3]    SSB to observer (vector, au)
     eh     double[3]    Sun to observer (unit vector)
@@ -79,7 +77,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    terrestrial.
 
 4) In cases where the caller wishes to supply his own Earth
-   ephemeris, the function iauApcs can be used instead of the present
+   ephemeris, the function [iauApcs][1] can be used instead of the present
    function.
 
 5) This is one of several functions that inserts into the astrom
@@ -112,7 +110,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    transformation), and atmospheric refraction.
 
 6) The context structure astrom produced by this function is used by
-   iauAtciq* and iauAticq*.
+   [iauAtciq][13]* and [iauAticq][14]*.
 
 ## Called:
 ```
@@ -125,3 +123,7 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.apcs.md
+[13]: iau.atciq.md
+[14]: iau.aticq.md

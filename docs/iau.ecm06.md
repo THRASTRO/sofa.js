@@ -5,8 +5,6 @@ rm = IAU.ecm06(date1, date2)
 ```
 
 ICRS equatorial to ecliptic rotation matrix, IAU 2006.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

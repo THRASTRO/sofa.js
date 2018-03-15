@@ -5,8 +5,6 @@
 ```
 
 Convert degrees, arcminutes, arcseconds to radians.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

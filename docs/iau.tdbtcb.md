@@ -6,8 +6,6 @@
 
 Time scale transformation:  Barycentric Dynamical Time, TDB, to
 Barycentric Coordinate Time, TCB.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

@@ -5,8 +5,6 @@
 ```
 
 Convert hours, minutes, seconds to radians.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

@@ -6,8 +6,6 @@
 
 Transformation from ecliptic coordinates (mean equinox and ecliptic
 of date) to ICRS RA,Dec, using a long-term precession model.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

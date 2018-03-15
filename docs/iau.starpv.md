@@ -101,7 +101,7 @@ Convert star catalog coordinates to position+velocity vector.
    iterations, 4 is added to the status.
 
 9) The inverse transformation is performed by the function
-   iauPvstar.
+   [iauPvstar][1].
 
 ## Called:
 ```
@@ -124,3 +124,5 @@ This revision:  2017 March 16
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.pvstar.md

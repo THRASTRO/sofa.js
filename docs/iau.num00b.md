@@ -45,7 +45,7 @@ Form the matrix of nutation for a given date, IAU 2000B model.
    equatorial triad of date.
 
 3) The present function is faster, but slightly less accurate (about
-   1 mas), than the iauNum00a function.
+   1 mas), than the [iauNum00a][1] function.
 
 ## Called:
 ```
@@ -63,3 +63,5 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.num00a.md

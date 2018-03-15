@@ -5,8 +5,6 @@ rv = IAU.hd2pa(ha, dec, phi)
 ```
 
 Parallactic angle for a given hour angle and declination.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

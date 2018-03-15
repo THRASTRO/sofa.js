@@ -5,8 +5,6 @@ p1 = IAU.ldsun(p, e, em)
 ```
 
 Deflection of starlight by the Sun.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

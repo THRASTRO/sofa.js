@@ -50,7 +50,7 @@ indirectly.
 2)  The nutation components (luni-solar + planetary, IAU 2000A) in
     longitude and obliquity are in radians and with respect to the
     equinox and ecliptic of date.  Free core nutation is omitted;
-    for the utmost accuracy, use the iauPn06 function, where the
+    for the utmost accuracy, use the [iauPn06][1] function, where the
     nutation components are caller-specified.
 
 3)  The mean obliquity is consistent with the IAU 2006 precession.
@@ -93,3 +93,5 @@ This revision:  2013 November 13
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.pn06.md

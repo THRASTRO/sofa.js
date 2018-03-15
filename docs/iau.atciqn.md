@@ -11,15 +11,13 @@ deflecting bodies.
 Use of this function is appropriate when efficiency is important and
 where many star positions are to be transformed for one date.  The
 star-independent parameters can be obtained by calling one of the
-functions iauApci[13], iauApcg[13], iauApco[13] or iauApcs[13].
+functions [iauApci][1], [iauApcg][2], [iauApco][3] or [iauApcs][4].
 
 
 If the only light-deflecting body to be taken into account is the
-Sun, the iauAtciq function can be used instead.  If in addition the
-parallax and proper motions are zero, the iauAtciqz function can be
+Sun, the [iauAtciq][5] function can be used instead.  If in addition the
+parallax and proper motions are zero, the [iauAtciqz][6] function can be
 used.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -28,7 +26,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    pd     double       Dec proper motion (radians/year)
    px     double       parallax (arcsec)
    rv     double       radial velocity (km/s, +ve if receding)
-   astrom iauASTROM*   star-independent astrometry parameters:
+   astrom ASTROM*   star-independent astrometry parameters:
     pmt    double       PM time interval (SSB, Julian years)
     eb     double[3]    SSB to observer (vector, au)
     eh     double[3]    Sun to observer (unit vector)
@@ -46,7 +44,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
     refa   double       refraction constant A (radians)
     refb   double       refraction constant B (radians)
     n     int           number of bodies (Note 3)
-    b     iauLDBODY[n] data for each of the n bodies (Notes 3,4):
+    b     LDBODY[n] data for each of the n bodies (Notes 3,4):
      bm    double        mass of the body (solar masses, Note 5)
      dl    double        deflection limiter (Note 6)
      pv    [2][3]        barycentric PV of the body (au, au/day)
@@ -61,7 +59,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 1) Star data for an epoch other than J2000.0 (for example from the
    Hipparcos catalog, which has an epoch of J1991.25) will require a
-   preliminary call to iauPmsafe before use.
+   preliminary call to [iauPmsafe][7] before use.
 
 2) The proper motion in RA is dRA/dt rather than cos(Dec)*dRA/dt.
 
@@ -112,3 +110,11 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.apci.md
+[2]: iau.apcg.md
+[3]: iau.apco.md
+[4]: iau.apcs.md
+[5]: iau.atciq.md
+[6]: iau.atciqz.md
+[7]: iau.pmsafe.md

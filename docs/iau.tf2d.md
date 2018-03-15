@@ -5,8 +5,6 @@
 ```
 
 Convert hours, minutes, seconds to days.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

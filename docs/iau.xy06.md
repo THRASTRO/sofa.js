@@ -49,7 +49,7 @@ on IAU 2006 precession and IAU 2000A nutation.
    (1999).
 
 4) This is an alternative to the angles-based method, via the SOFA
-   function iauFw2xy and as used in iauXys06a for example.  The two
+   function [iauFw2xy][1] and as used in [iauXys06a][2] for example.  The two
    methods agree at the 1 microarcsecond level (at present), a
    negligible amount compared with the intrinsic accuracy of the
    models.  However, it would be unwise to mix the two methods
@@ -96,3 +96,6 @@ This revision:  2013 August 21
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.fw2xy.md
+[2]: iau.xys06a.md

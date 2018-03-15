@@ -55,7 +55,7 @@ IAU 2000B precession-nutation model.
    Rotation Angle and RPOM is the polar motion matrix.
 
 3) The present function is faster, but slightly less accurate (about
-   1 mas), than the iauC2i00a function.
+   1 mas), than the [iauC2i00a][1] function.
 
 ## Called:
 ```
@@ -81,3 +81,5 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.c2i00a.md

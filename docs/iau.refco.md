@@ -10,8 +10,6 @@ dZ = A tan Z + B tan^3 Z.
 Z is the "observed" zenith distance (i.e. affected by refraction)
 and dZ is what to add to Z to give the "topocentric" (i.e. in vacuo)
 zenith distance.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
   phpa   double    pressure at the observer (hPa = millibar)

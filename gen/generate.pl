@@ -882,6 +882,38 @@ EOTST
 ################################################################################
 ################################################################################
 
+sub create_lnk {
+	my $i = scalar(keys %{$_[1]}) + 1;
+	return $_[0] unless exists $config{lc $_[0]};
+	unless (exists $_[1]->{$_[0]}) {
+		$_[1]->{$_[0]} = {
+			idx => $i,
+			use => 0,
+			txt => sprintf("[iau%s][%d]", $_[0], $i),
+			lnk => sprintf("[%d]: iau.%s.md", $i, lc $_[0])
+		}
+	}
+	$_[1]->{$_[0]}->{'use'} += 1;
+	return $_[1]->{$_[0]}->{'txt'};
+}
+
+sub remove_lnk {
+	if (exists $_[1]->{$_[0]}) {
+		$_[1]->{$_[0]}->{'use'} -= 1;
+		if ($_[1]->{$_[0]}->{'use'} == 0) {
+			delete $_[1]->{$_[0]};
+		}
+	}
+	return "iau" . $_[0];
+}
+
+sub remove_lnks {
+	my $txt = $_[0];
+	my $lnks = $_[1];
+	$txt =~ s/\[iau([^\]]+)\]\[(\d+)\]/remove_lnk($1, $lnks, $2)/eg;
+	return '```' . $txt . '```';
+}
+
 sub create_docu {
 	my ($name, $config, $text, $rnames, $args, $rets, $groups) = @_;
 
@@ -889,6 +921,7 @@ sub create_docu {
 
 	my $ret = "";
 	my @outv;
+	my $links = {};
 
 	my $group = "";
 	my $extract = "";
@@ -897,8 +930,10 @@ sub create_docu {
 	$text =~ s/^\*\* {0,2}//gm;
 	$text =~ s/\*\/\s*\z//;
 
-	$text =~ s/\nThis function is part of the International Astronomical Union\'s\n//;
-	$text =~ s/SOFA \(Standards Of Fundamental Astronomy\) software collection.\n\n//;
+	$text =~ s/\nThis function is part of the International Astronomical Union\'s\n//i;
+	$text =~ s/SOFA \(Standards Of Fundamental Astronomy\) software collection.\n\n//i;
+
+	$text =~ s/iau([A-Z][a-zA-Z0-9]+)(?:\[\d+\])?/create_lnk($1, $links)/eg;
 
 	if ($text =~ s/^Status:\s*(.*?)\s*$//m) {
 		$group = $1;
@@ -945,6 +980,18 @@ sub create_docu {
 
 	$text =~ s/^([A-Za-z0-9][A-Za-z0-9 \(\)]+:\n)/## $1/gm;
 	$text =~ s/## Status:/Status:/g;
+
+	# links dont work in code sections
+	$text =~ s/```([^`]+)```/remove_lnks($1, $links)/eg;
+
+	if (scalar(keys %{$links})) {
+		$text .= "\n\n";
+		my @lnks = values %{$links};
+		@lnks = sort { $a->{idx} <=> $b->{idx} } @lnks;
+		foreach my $lnk (@lnks) {
+			$text .= $lnk->{'lnk'} . "\n";
+		}
+	}
 
 	print "write $root/docs/iau.$name.md\n";
 	my $rv = open(my $fh, ">", "$root/docs/iau.$name.md");

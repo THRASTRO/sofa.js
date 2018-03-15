@@ -10,7 +10,7 @@ parameters.
 Use of this function is appropriate when efficiency is important and
 where many star positions are all to be transformed for one date.
 The star-independent astrometry parameters can be obtained by
-calling iauApio[13] or iauApco[13].
+calling [iauApio][1] or [iauApco][2].
 
 
 ## Given:
@@ -18,7 +18,7 @@ calling iauApio[13] or iauApco[13].
    type   char[]     type of coordinates: "R", "H" or "A" (Note 1)
    ob1    double     observed Az, HA or RA (radians; Az is N=0,E=90)
    ob2    double     observed ZD or Dec (radians)
-   astrom iauASTROM* star-independent astrometry parameters:
+   astrom ASTROM* star-independent astrometry parameters:
     pmt    double       PM time interval (SSB, Julian years)
     eb     double[3]    SSB to observer (vector, au)
     eh     double[3]    Sun to observer (unit vector)
@@ -74,8 +74,8 @@ calling iauApio[13] or iauApco[13].
    than 30 arcsec (optical or radio) at 85 degrees and better than
    20 arcmin (optical) or 30 arcmin (radio) at the horizon.
 
-   Without refraction, the complementary functions iauAtioq and
-   iauAtoiq are self-consistent to better than 1 microarcsecond all
+   Without refraction, the complementary functions [iauAtioq][3] and
+   [iauAtoiq][4] are self-consistent to better than 1 microarcsecond all
    over the celestial sphere.  With refraction included, consistency
    falls off at high zenith distances, but is still better than
    0.05 arcsec at 85 degrees.
@@ -96,3 +96,8 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.apio.md
+[2]: iau.apco.md
+[3]: iau.atioq.md
+[4]: iau.atoiq.md

@@ -12,8 +12,6 @@ to predict the Earth ephemeris and CIP/CIO.
 The parameters produced by this function are required in the
 parallax, light deflection, aberration, and bias-precession-nutation
 parts of the astrometric transformation chain.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -23,7 +21,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 ## Returned:
 ```
-   astrom iauASTROM*  star-independent astrometry parameters:
+   astrom ASTROM*  star-independent astrometry parameters:
     pmt    double       PM time interval (SSB, Julian years)
     eb     double[3]    SSB to observer (vector, au)
     eh     double[3]    Sun to observer (unit vector)
@@ -74,7 +72,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 2) All the vectors are with respect to BCRS axes.
 
 3) In cases where the caller wishes to supply his own Earth
-   ephemeris and CIP/CIO, the function iauApci can be used instead
+   ephemeris and CIP/CIO, the function [iauApci][1] can be used instead
    of the present function.
 
 4) This is one of several functions that inserts into the astrom
@@ -107,7 +105,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    transformation), and atmospheric refraction.
 
 5) The context structure astrom produced by this function is used by
-   iauAtciq* and iauAticq*.
+   [iauAtciq][13]* and [iauAticq][14]*.
 
 ## Called:
 ```
@@ -124,3 +122,7 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.apci.md
+[13]: iau.atciq.md
+[14]: iau.aticq.md

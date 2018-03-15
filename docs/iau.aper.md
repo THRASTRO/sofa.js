@@ -6,13 +6,11 @@
 
 In the star-independent astrometry parameters, update only the
 Earth rotation angle, supplied by the caller explicitly.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
    theta   double      Earth rotation angle (radians, Note 2)
-   astrom  iauASTROM*  star-independent astrometry parameters:
+   astrom  ASTROM*  star-independent astrometry parameters:
     pmt    double       not used
     eb     double[3]    not used
     eh     double[3]    not used
@@ -33,7 +31,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 ## Returned:
 ```
-   astrom  iauASTROM*  star-independent astrometry parameters:
+   astrom  ASTROM*  star-independent astrometry parameters:
     pmt    double       unchanged
     eb     double[3]    unchanged
     eh     double[3]    unchanged
@@ -63,7 +61,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    Greenwich apparent sidereal time rather than Earth rotation
    angle.
 
-3) The function iauAper13 can be used instead of the present
+3) The function [iauAper13][1] can be used instead of the present
    function, and starts from UT1 rather than ERA itself.
 
 4) This is one of several functions that inserts into the astrom
@@ -100,3 +98,5 @@ This revision:   2013 September 25
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.aper13.md

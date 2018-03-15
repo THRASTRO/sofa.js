@@ -5,8 +5,6 @@
 ```
 
 Transform star RA,Dec from geocentric CIRS to ICRS astrometric.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -50,8 +48,8 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    accuracy.
 
 2) Iterative techniques are used for the aberration and light
-   deflection corrections so that the functions iauAtic13 (or
-   iauAticq) and iauAtci13 (or iauAtciq) are accurate inverses;
+   deflection corrections so that the functions [iauAtic13][1] (or
+   [iauAticq][2]) and [iauAtci13][3] (or [iauAtciq][4]) are accurate inverses;
    even at the edge of the Sun's disk the discrepancy is only about
    1 nanoarcsecond.
 
@@ -61,7 +59,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    errors of up to several milliarcseconds can occur because of
    unmodeled light deflection;  however, the Sun's contribution is
    taken into account, to first order.  The accuracy limitations of
-   the SOFA function iauEpv00 (used to compute Earth position and
+   the SOFA function [iauEpv00][5] (used to compute Earth position and
    velocity) can contribute aberration errors of up to
    5 microarcseconds.  Light deflection at the Sun's limb is
    uncertain at the 0.4 mas level.
@@ -85,3 +83,9 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.atic13.md
+[2]: iau.aticq.md
+[3]: iau.atci13.md
+[4]: iau.atciq.md
+[5]: iau.epv00.md

@@ -6,8 +6,6 @@
 
 Observed place to CIRS.  The caller supplies UTC, site coordinates,
 ambient air conditions and observing wavelength.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -69,14 +67,14 @@ SOFA (Standards of Fundamental Astronomy) software collection.
     present function is that the JD day represents UTC days whether
     the length is 86399, 86400 or 86401 SI seconds.
 
-    Applications should use the function iauDtf2d to convert from
+    Applications should use the function [iauDtf2d][1] to convert from
     calendar date and time of day into 2-part quasi Julian Date, as
     it implements the leap-second-ambiguity convention just
     described.
 
 4)  The warning status "dubious year" flags UTCs that predate the
     introduction of the time scale or that are too far in the
-    future to be trusted.  See iauDat for further details.
+    future to be trusted.  See [iauDat][2] for further details.
 
 5)  UT1-UTC is tabulated in IERS bulletins.  It increases by exactly
     one second at the end of each positive UTC leap second,
@@ -130,8 +128,8 @@ SOFA (Standards of Fundamental Astronomy) software collection.
     than 30 arcsec (optical or radio) at 85 degrees and better
     than 20 arcmin (optical) or 30 arcmin (radio) at the horizon.
 
-    Without refraction, the complementary functions iauAtio13 and
-    iauAtoi13 are self-consistent to better than 1 microarcsecond
+    Without refraction, the complementary functions [iauAtio13][3] and
+    [iauAtoi13][4] are self-consistent to better than 1 microarcsecond
     all over the celestial sphere.  With refraction included,
     consistency falls off at high zenith distances, but is still
     better than 0.05 arcsec at 85 degrees.
@@ -151,3 +149,8 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.dtf2d.md
+[2]: iau.dat.md
+[3]: iau.atio13.md
+[4]: iau.atoi13.md

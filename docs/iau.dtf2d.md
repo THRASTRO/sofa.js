@@ -7,8 +7,6 @@
 Encode date and time fields into 2-part Julian Date (or in the case
 of UTC a quasi-JD form that includes special provision for leap
 seconds).
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -43,7 +41,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    case) is significant, and enables handling of leap seconds (see
    Note 4).
 
-2) For calendar conventions and limitations, see iauCal2jd.
+2) For calendar conventions and limitations, see [iauCal2jd][1].
 
 3) The sum of the results, d1+d2, is Julian Date, where normally d1
    is the Julian Day Number and d2 is the fraction of a day.  In the
@@ -65,7 +63,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 6) The warning status "dubious year" flags UTCs that predate the
    introduction of the time scale or that are too far in the future
-   to be trusted.  See iauDat for further details.
+   to be trusted.  See [iauDat][2] for further details.
 
 7) Only in the case of continuous and regular time scales (TAI, TT,
    TCG, TCB and TDB) is the result d1+d2 a Julian Date, strictly
@@ -86,3 +84,6 @@ This revision:  2013 July 26
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.cal2jd.md
+[2]: iau.dat.md

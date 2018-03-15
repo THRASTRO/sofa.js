@@ -46,7 +46,7 @@ frame bias), equinox-based, IAU 2000A model.
    the Geocentric Celestial Reference System (IAU, 2000).
 
 3) A faster, but slightly less accurate result (about 1 mas), can be
-   obtained by using instead the iauPnm00b function.
+   obtained by using instead the [iauPnm00b][1] function.
 
 ## Called:
 ```
@@ -64,3 +64,5 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.pnm00b.md

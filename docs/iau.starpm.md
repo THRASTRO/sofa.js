@@ -89,15 +89,15 @@ Star proper motion:  update star catalog data for space motion.
 
 6) An extremely small (or zero or negative) parallax is interpreted
    to mean that the object is on the "celestial sphere", the radius
-   of which is an arbitrary (large) value (see the iauStarpv
+   of which is an arbitrary (large) value (see the [iauStarpv][1]
    function for the value used).  When the distance is overridden in
    this way, the status, initially zero, has 1 added to it.
 
 7) If the space velocity is a significant fraction of c (see the
-   constant VMAX in the function iauStarpv), it is arbitrarily set
+   constant VMAX in the function [iauStarpv][1]), it is arbitrarily set
    to zero.  When this action occurs, 2 is added to the status.
 
-8) The relativistic adjustment carried out in the iauStarpv function
+8) The relativistic adjustment carried out in the [iauStarpv][1] function
    involves an iterative calculation.  If the process fails to
    converge within a set number of iterations, 4 is added to the
    status.
@@ -115,3 +115,5 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.starpv.md

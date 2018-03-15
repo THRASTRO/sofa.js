@@ -5,8 +5,6 @@ rpb = IAU.ltpb(epj)
 ```
 
 Long-term precession matrix, including ICRS frame bias.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

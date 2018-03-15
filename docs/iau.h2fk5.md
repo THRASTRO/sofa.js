@@ -38,7 +38,7 @@ Returned (all FK5, equinox J2000.0, epoch J2000.0):
    rotation and spin;  zonal errors in the FK5 catalog are not
    taken into account.
 
-4) See also iauFk52h, iauFk5hz, iauHfk5z.
+4) See also [iauFk52h][1], [iauFk5hz][2], [iauHfk5z][3].
 
 ## Called:
 ```
@@ -61,3 +61,7 @@ This revision:  2017 October 12
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.fk52h.md
+[2]: iau.fk5hz.md
+[3]: iau.hfk5z.md

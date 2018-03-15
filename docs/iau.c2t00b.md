@@ -65,7 +65,7 @@ the polar motion, using the IAU 2000B nutation model.
    angle and RPOM is the polar motion matrix.
 
 4) The present function is faster, but slightly less accurate (about
-   1 mas), than the iauC2t00a function.
+   1 mas), than the [iauC2t00a][1] function.
 
 ## Called:
 ```
@@ -85,3 +85,5 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.c2t00a.md

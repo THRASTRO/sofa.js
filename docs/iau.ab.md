@@ -6,8 +6,6 @@ IAU.ab(pnat, v, s, bm1)
 
 Apply aberration to transform natural direction into proper
 direction.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
   pnat    double[3]   natural direction to the source (unit vector)
@@ -34,7 +32,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
       0.4 microarcsecond.
 
 2) In almost all cases, the maximum accuracy will be limited by the
-   supplied velocity.  For example, if the SOFA iauEpv00 function is
+   supplied velocity.  For example, if the SOFA [iauEpv00][1] function is
    used, errors of up to 5 microarcseconds could occur.
 
 ## References:
@@ -56,3 +54,5 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.epv00.md

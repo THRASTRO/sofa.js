@@ -30,7 +30,7 @@ Form the matrix of polar motion for a given date, IAU 2000.
    integration, and so is in essence unpredictable.  However, it is
    dominated by a secular drift of about 47 microarcseconds per
    century, and so can be taken into account by using s' = -47*t,
-   where t is centuries since J2000.0.  The function iauSp00
+   where t is centuries since J2000.0.  The function [iauSp00][1]
    implements this approximation.
 
 3) The matrix operates in the sense V(TRS) = rpom * V(CIP), meaning
@@ -55,3 +55,5 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.sp00.md

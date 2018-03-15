@@ -6,8 +6,6 @@ p1 = IAU.ld(bm, p, q, e, em, dlim)
 
 Apply light deflection by a solar-system body, as part of
 transforming coordinate direction into natural direction.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

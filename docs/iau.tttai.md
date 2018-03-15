@@ -6,8 +6,6 @@
 
 Time scale transformation:  Terrestrial Time, TT, to International
 Atomic Time, TAI.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

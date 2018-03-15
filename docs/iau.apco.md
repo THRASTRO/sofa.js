@@ -9,8 +9,6 @@ parameters for transformations between ICRS and observed
 coordinates.  The caller supplies the Earth ephemeris, the Earth
 rotation information and the refraction constants as well as the
 site coordinates.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -32,7 +30,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 ## Returned:
 ```
-   astrom iauASTROM*   star-independent astrometry parameters:
+   astrom ASTROM*   star-independent astrometry parameters:
     pmt    double       PM time interval (SSB, Julian years)
     eb     double[3]    SSB to observer (vector, au)
     eh     double[3]    Sun to observer (unit vector)
@@ -110,7 +108,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 7) In cases where the caller does not wish to provide the Earth
    Ephemeris, the Earth rotation information and refraction
-   constants, the function iauApco13 can be used instead of the
+   constants, the function [iauApco13][1] can be used instead of the
    present function.  This starts from UTC and weather readings etc.
    and computes suitable values using other SOFA functions.
 
@@ -144,7 +142,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    transformation), and atmospheric refraction.
 
 9) The context structure astrom produced by this function is used by
-   iauAtioq, iauAtoiq, iauAtciq* and iauAticq*.
+   [iauAtioq][13], [iauAtoiq][14], [iauAtciq][15]* and [iauAticq][16]*.
 
 ## Called:
 ```
@@ -161,3 +159,9 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.apco13.md
+[13]: iau.atioq.md
+[14]: iau.atoiq.md
+[15]: iau.atciq.md
+[16]: iau.aticq.md

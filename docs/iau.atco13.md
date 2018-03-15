@@ -9,8 +9,6 @@ coordinates, ambient air conditions and observing wavelength.
 
 SOFA models are used for the Earth ephemeris, bias-precession-
 nutation, Earth orientation and refraction.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -53,7 +51,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 1)  Star data for an epoch other than J2000.0 (for example from the
     Hipparcos catalog, which has an epoch of J1991.25) will require
-    a preliminary call to iauPmsafe before use.
+    a preliminary call to [iauPmsafe][1] before use.
 
 2)  The proper motion in RA is dRA/dt rather than cos(Dec)*dRA/dt.
 
@@ -66,14 +64,14 @@ SOFA (Standards of Fundamental Astronomy) software collection.
     present function is that the JD day represents UTC days whether
     the length is 86399, 86400 or 86401 SI seconds.
 
-    Applications should use the function iauDtf2d to convert from
+    Applications should use the function [iauDtf2d][2] to convert from
     calendar date and time of day into 2-part quasi Julian Date, as
     it implements the leap-second-ambiguity convention just
     described.
 
 4)  The warning status "dubious year" flags UTCs that predate the
     introduction of the time scale or that are too far in the
-    future to be trusted.  See iauDat for further details.
+    future to be trusted.  See [iauDat][3] for further details.
 
 5)  UT1-UTC is tabulated in IERS bulletins.  It increases by exactly
     one second at the end of each positive UTC leap second,
@@ -127,8 +125,8 @@ SOFA (Standards of Fundamental Astronomy) software collection.
     than 30 arcsec (optical or radio) at 85 degrees and better
     than 20 arcmin (optical) or 30 arcmin (radio) at the horizon.
 
-    Without refraction, the complementary functions iauAtco13 and
-    iauAtoc13 are self-consistent to better than 1 microarcsecond
+    Without refraction, the complementary functions [iauAtco13][4] and
+    [iauAtoc13][5] are self-consistent to better than 1 microarcsecond
     all over the celestial sphere.  With refraction included,
     consistency falls off at high zenith distances, but is still
     better than 0.05 arcsec at 85 degrees.
@@ -160,3 +158,9 @@ This revision:   2016 February 2
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.pmsafe.md
+[2]: iau.dtf2d.md
+[3]: iau.dat.md
+[4]: iau.atco13.md
+[5]: iau.atoc13.md

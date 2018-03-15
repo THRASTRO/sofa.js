@@ -88,9 +88,9 @@ Precession angles, IAU 2006, equinox based.
    . iauXy06  contains the polynomial parts of the X and Y series.
 ```
 
-   . iauS06  contains the polynomial part of the s+XY/2 series.
+   . [iauS06][2]  contains the polynomial part of the s+XY/2 series.
 
-   . iauPfw06  implements the series for the Fukushima-Williams
+   . [iauPfw06][3]  implements the series for the Fukushima-Williams
      angles that are with respect to the GCRS pole (i.e. the variants
      that include frame bias).
 
@@ -101,9 +101,9 @@ Precession angles, IAU 2006, equinox based.
 
 5) The parameterization used by SOFA is the version of the Fukushima-
    Williams angles that refers directly to the GCRS pole.  These
-   angles may be calculated by calling the function iauPfw06.  SOFA
+   angles may be calculated by calling the function [iauPfw06][3].  SOFA
    also supports the direct computation of the CIP GCRS X,Y by
-   series, available by calling iauXy06.
+   series, available by calling [iauXy06][1].
 
 6) The agreement between the different parameterizations is at the
    1 microarcsecond level in the present era.
@@ -130,3 +130,7 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.xy06.md
+[2]: iau.s06.md
+[3]: iau.pfw06.md

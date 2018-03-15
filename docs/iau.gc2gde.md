@@ -6,8 +6,6 @@
 
 Transform geocentric coordinates to geodetic for a reference
 ellipsoid of specified form.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -49,10 +47,10 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    unchanged.
 
 6) The inverse transformation is performed in the function
-   iauGd2gce.
+   [iauGd2gce][1].
 
 7) The transformation for a standard ellipsoid (such as WGS84) can
-   more conveniently be performed by calling iauGc2gd, which uses a
+   more conveniently be performed by calling [iauGc2gd][2], which uses a
    numerical code to identify the required A and F values.
 
 ## Reference:
@@ -66,3 +64,6 @@ This revision:  2014 November 7
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.gd2gce.md
+[2]: iau.gc2gd.md

@@ -7,8 +7,6 @@ IAU.tpsts(xi, eta, a0, b0)
 In the tangent plane projection, given the star's rectangular
 coordinates and the spherical coordinates of the tangent point,
 solve for the spherical coordinates of the star.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

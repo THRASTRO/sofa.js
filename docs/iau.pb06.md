@@ -60,7 +60,7 @@ bias (the offset between ICRS and mean J2000.0) is included.
 
 4) Should zeta_A, z_A, theta_A angles be required that do not
    contain frame bias, they are available by calling the SOFA
-   function iauP06e.
+   function [iauP06e][1].
 
 ## Called:
 ```
@@ -73,3 +73,5 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.p06e.md

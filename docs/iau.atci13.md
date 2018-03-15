@@ -5,8 +5,6 @@
 ```
 
 Transform ICRS star data, epoch J2000.0, to CIRS.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -30,7 +28,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 1) Star data for an epoch other than J2000.0 (for example from the
    Hipparcos catalog, which has an epoch of J1991.25) will require a
-   preliminary call to iauPmsafe before use.
+   preliminary call to [iauPmsafe][1] before use.
 
 2) The proper motion in RA is dRA/dt rather than cos(Dec)*dRA/dt.
 
@@ -66,7 +64,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    errors of up to several milliarcseconds can occur because of
    unmodeled light deflection;  however, the Sun's contribution is
    taken into account, to first order.  The accuracy limitations of
-   the SOFA function iauEpv00 (used to compute Earth position and
+   the SOFA function [iauEpv00][2] (used to compute Earth position and
    velocity) can contribute aberration errors of up to
    5 microarcseconds.  Light deflection at the Sun's limb is
    uncertain at the 0.4 mas level.
@@ -90,3 +88,6 @@ This revision:   2017 March 12
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.pmsafe.md
+[2]: iau.epv00.md

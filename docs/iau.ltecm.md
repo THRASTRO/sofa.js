@@ -5,8 +5,6 @@ rm = IAU.ltecm(epj)
 ```
 
 ICRS equatorial to ecliptic rotation matrix, long-term.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

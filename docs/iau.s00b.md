@@ -51,14 +51,14 @@ precession-nutation model.
    are the x and y components of the CIP unit vector;  this series
    is more compact than a direct series for s would be.  The present
    function uses the IAU 2000B truncated nutation model when
-   predicting the CIP position.  The function iauS00a uses instead
+   predicting the CIP position.  The function [iauS00a][1] uses instead
    the full IAU 2000A model, but with no significant increase in
    accuracy and at some cost in speed.
 
 ## Called:
 ```
    iauPnm00b    classical NPB matrix, IAU 2000B
-   iauBnp2xy    extract CIP X,Y from the BPN matrix
+   Bnp2xy    extract CIP X,Y from the BPN matrix
    iauS00       the CIO locator s, given X,Y, IAU 2000A
 ```
 
@@ -80,3 +80,5 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.s00a.md

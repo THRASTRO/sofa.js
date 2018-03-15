@@ -6,8 +6,6 @@ IAU.hd2ae(ha, dec, phi)
 
 Equatorial to horizon coordinates:  transform hour angle and
 declination to azimuth and altitude.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

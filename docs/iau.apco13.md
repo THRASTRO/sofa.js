@@ -13,8 +13,6 @@ obtain the Earth ephemeris, CIP/CIO and refraction constants.
 The parameters produced by this function are required in the
 parallax, light deflection, aberration, and bias-precession-nutation
 parts of the ICRS/CIRS transformations.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -33,7 +31,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 ## Returned:
 ```
-   astrom iauASTROM* star-independent astrometry parameters:
+   astrom ASTROM* star-independent astrometry parameters:
     pmt    double       PM time interval (SSB, Julian years)
     eb     double[3]    SSB to observer (vector, au)
     eh     double[3]    Sun to observer (unit vector)
@@ -71,14 +69,14 @@ SOFA (Standards of Fundamental Astronomy) software collection.
     present function is that the JD day represents UTC days whether
     the length is 86399, 86400 or 86401 SI seconds.
 
-    Applications should use the function iauDtf2d to convert from
+    Applications should use the function [iauDtf2d][1] to convert from
     calendar date and time of day into 2-part quasi Julian Date, as
     it implements the leap-second-ambiguity convention just
     described.
 
 2)  The warning status "dubious year" flags UTCs that predate the
     introduction of the time scale or that are too far in the
-    future to be trusted.  See iauDat for further details.
+    future to be trusted.  See [iauDat][2] for further details.
 
 3)  UT1-UTC is tabulated in IERS bulletins.  It increases by exactly
     one second at the end of each positive UTC leap second,
@@ -132,7 +130,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 9)  In cases where the caller wishes to supply his own Earth
     ephemeris, Earth rotation information and refraction constants,
-    the function iauApco can be used instead of the present function.
+    the function [iauApco][3] can be used instead of the present function.
 
 10) This is one of several functions that inserts into the astrom
     structure star-independent parameters needed for the chain of
@@ -164,7 +162,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 ```
 
 11) The context structure astrom produced by this function is used
-    by iauAtioq, iauAtoiq, iauAtciq* and iauAticq*.
+    by [iauAtioq][15], [iauAtoiq][16], [iauAtciq][17]* and [iauAticq][18]*.
 
 ## Called:
 ```
@@ -187,3 +185,11 @@ This revision:   2013 December 5
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.dtf2d.md
+[2]: iau.dat.md
+[3]: iau.apco.md
+[15]: iau.atioq.md
+[16]: iau.atoiq.md
+[17]: iau.atciq.md
+[18]: iau.aticq.md

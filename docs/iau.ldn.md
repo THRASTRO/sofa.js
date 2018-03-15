@@ -7,13 +7,11 @@ sn = IAU.ldn(n, b, ob, sc)
 
 For a star, apply light deflection by multiple solar-system bodies,
 as part of transforming coordinate direction into natural direction.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
    n    int           number of bodies (note 1)
-   b    iauLDBODY[n]  data for each of the n bodies (Notes 1,2):
+   b    LDBODY[n]  data for each of the n bodies (Notes 1,2):
     bm   double         mass of the body (solar masses, Note 3)
     dl   double         deflection limiter (Note 4)
     pv   [2][3]         barycentric PV of the body (au, au/day)
@@ -58,7 +56,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    the light time from that point to the observer.  For cases where
    the body is "behind" the observer no such shift is applied.  If
    a different treatment is preferred, the user has the option of
-   instead using the iauLd function.  Similarly, iauLd can be used
+   instead using the [iauLd][1] function.  Similarly, [iauLd][1] can be used
    for cases where the source is nearby, not a star.
 
 6) The returned vector sn is not normalized, but the consequential
@@ -91,3 +89,5 @@ This revision:   2017 March 16
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.ld.md

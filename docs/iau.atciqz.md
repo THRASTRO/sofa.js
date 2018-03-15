@@ -11,17 +11,15 @@ proper motion.
 Use of this function is appropriate when efficiency is important and
 where many star positions are to be transformed for one date.  The
 star-independent parameters can be obtained by calling one of the
-functions iauApci[13], iauApcg[13], iauApco[13] or iauApcs[13].
+functions [iauApci][1], [iauApcg][2], [iauApco][3] or [iauApcs][4].
 
 The corresponding function for the case of non-zero parallax and
-proper motion is iauAtciq.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
+proper motion is [iauAtciq][5].
 
 ## Given:
 ```
    rc,dc  double     ICRS astrometric RA,Dec (radians)
-   astrom iauASTROM* star-independent astrometry parameters:
+   astrom ASTROM* star-independent astrometry parameters:
     pmt    double       PM time interval (SSB, Julian years)
     eb     double[3]    SSB to observer (vector, au)
     eh     double[3]    Sun to observer (unit vector)
@@ -75,3 +73,9 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.apci.md
+[2]: iau.apcg.md
+[3]: iau.apco.md
+[4]: iau.apcs.md
+[5]: iau.atciq.md

@@ -6,8 +6,6 @@
 
 Star proper motion:  update star catalog data for space motion, with
 special handling to handle the zero parallax case.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -97,10 +95,10 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    status of 1 is added to the status if this action has been taken.
 
 7) If the space velocity is a significant fraction of c (see the
-   constant VMAX in the function iauStarpv), it is arbitrarily set
+   constant VMAX in the function [iauStarpv][1]), it is arbitrarily set
    to zero.  When this action occurs, 2 is added to the status.
 
-8) The relativistic adjustment carried out in the iauStarpv function
+8) The relativistic adjustment carried out in the [iauStarpv][1] function
    involves an iterative calculation.  If the process fails to
    converge within a set number of iterations, 4 is added to the
    status.
@@ -116,3 +114,5 @@ This revision:   2014 July 1
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.starpv.md

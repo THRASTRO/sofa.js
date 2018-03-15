@@ -6,8 +6,6 @@
 
 Time scale transformation:  International Atomic Time, TAI, to
 Coordinated Universal Time, UTC.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -43,13 +41,13 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    linear UTC(TAI) expression was changed, and these "mini-leaps"
    are also included in the SOFA convention.
 
-3) The function iauD2dtf can be used to transform the UTC quasi-JD
+3) The function [iauD2dtf][1] can be used to transform the UTC quasi-JD
    into calendar date and clock time, including UTC leap second
    handling.
 
 4) The warning status "dubious year" flags UTCs that predate the
    introduction of the time scale or that are too far in the future
-   to be trusted.  See iauDat for further details.
+   to be trusted.  See [iauDat][2] for further details.
 
 ## Called:
 ```
@@ -69,3 +67,6 @@ This revision:  2013 September 12
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.d2dtf.md
+[2]: iau.dat.md

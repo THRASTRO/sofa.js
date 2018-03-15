@@ -5,8 +5,6 @@ veq = IAU.ltpequ(epj)
 ```
 
 Long-term precession of the equator.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

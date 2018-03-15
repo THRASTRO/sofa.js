@@ -7,8 +7,6 @@ rv = IAU.tpxes(a, b, a0, b0)
 In the tangent plane projection, given celestial spherical
 coordinates for a star and the tangent point, solve for the star's
 rectangular coordinates in the tangent plane.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

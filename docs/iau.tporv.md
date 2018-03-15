@@ -7,8 +7,6 @@
 In the tangent plane projection, given the rectangular coordinates
 of a star and its direction cosines, determine the direction
 cosines of the tangent point.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

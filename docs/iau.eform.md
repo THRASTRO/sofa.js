@@ -5,8 +5,6 @@
 ```
 
 Earth reference ellipsoids.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

@@ -5,8 +5,6 @@ vec = IAU.ltpecl(epj)
 ```
 
 Long-term precession of the ecliptic.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

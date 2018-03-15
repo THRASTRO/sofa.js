@@ -59,7 +59,7 @@ Neptune (but not the Earth itself).
 
 3) For np=3 the result is for the Earth-Moon Barycenter.  To obtain
    the heliocentric position and velocity of the Earth, use instead
-   the SOFA function iauEpv00.
+   the SOFA function [iauEpv00][1].
 
 4) On successful return, the array pv contains the following:
 
@@ -178,3 +178,5 @@ This revision:  2017 October 12
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.epv00.md

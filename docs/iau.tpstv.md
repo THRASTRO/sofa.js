@@ -7,8 +7,6 @@ v = IAU.tpstv(xi, eta, v0)
 In the tangent plane projection, given the star's rectangular
 coordinates and the direction cosines of the tangent point, solve
 for the direction cosines of the star.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

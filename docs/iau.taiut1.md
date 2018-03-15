@@ -6,8 +6,6 @@
 
 Time scale transformation:  International Atomic Time, TAI, to
 Universal Time, UT1.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

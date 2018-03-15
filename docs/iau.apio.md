@@ -8,8 +8,6 @@ For a terrestrial observer, prepare star-independent astrometry
 parameters for transformations between CIRS and observed
 coordinates.  The caller supplies the Earth orientation information
 and the refraction constants as well as the site coordinates.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -25,7 +23,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 ## Returned:
 ```
-   astrom iauASTROM*  star-independent astrometry parameters:
+   astrom ASTROM*  star-independent astrometry parameters:
     pmt    double       unchanged
     eb     double[3]    unchanged
     eh     double[3]    unchanged
@@ -48,7 +46,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 1) sp, the TIO locator s', is a tiny quantity needed only by the
    most precise applications.  It can either be set to zero or
-   predicted using the SOFA function iauSp00.
+   predicted using the SOFA function [iauSp00][1].
 
 2) The geographical coordinates are with respect to the WGS84
    reference ellipsoid.  TAKE CARE WITH THE LONGITUDE SIGN:  the
@@ -76,7 +74,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 6) In cases where the caller does not wish to provide the Earth
    rotation information and refraction constants, the function
-   iauApio13 can be used instead of the present function.  This
+   [iauApio13][2] can be used instead of the present function.  This
    starts from UTC and weather readings etc. and computes suitable
    values using other SOFA functions.
 
@@ -110,7 +108,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    transformation), and atmospheric refraction.
 
 8) The context structure astrom produced by this function is used by
-   iauAtioq and iauAtoiq.
+   [iauAtioq][14] and [iauAtoiq][15].
 
 ## Called:
 ```
@@ -123,3 +121,8 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.sp00.md
+[2]: iau.apio13.md
+[14]: iau.atioq.md
+[15]: iau.atoiq.md

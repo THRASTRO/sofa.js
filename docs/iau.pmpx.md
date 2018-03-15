@@ -5,8 +5,6 @@ pco = IAU.pmpx(rc, dc, pr, pd, px, rv, pmt, pob)
 ```
 
 Proper motion and parallax.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

@@ -10,15 +10,13 @@ independent astrometry parameters.
 Use of this function is appropriate when efficiency is important and
 where many star positions are all to be transformed for one date.
 The star-independent astrometry parameters can be obtained by
-calling one of the functions iauApci[13], iauApcg[13], iauApco[13]
-or iauApcs[13].
-SOFA (Standards of Fundamental Astronomy) software collection.
-
+calling one of the functions [iauApci][1], [iauApcg][2], [iauApco][3]
+or [iauApcs][4].
 
 ## Given:
 ```
    ri,di  double     CIRS RA,Dec (radians)
-   astrom iauASTROM* star-independent astrometry parameters:
+   astrom ASTROM* star-independent astrometry parameters:
     pmt    double       PM time interval (SSB, Julian years)
     eb     double[3]    SSB to observer (vector, au)
     eh     double[3]    Sun to observer (unit vector)
@@ -48,8 +46,8 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    correction.
 
 2) Iterative techniques are used for the aberration and light
-   deflection corrections so that the functions iauAtic13 (or
-   iauAticq) and iauAtci13 (or iauAtciq) are accurate inverses;
+   deflection corrections so that the functions [iauAtic13][5] (or
+   [iauAticq][6]) and [iauAtci13][7] (or [iauAtciq][8]) are accurate inverses;
    even at the edge of the Sun's disk the discrepancy is only about
    1 nanoarcsecond.
 
@@ -69,3 +67,12 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.apci.md
+[2]: iau.apcg.md
+[3]: iau.apco.md
+[4]: iau.apcs.md
+[5]: iau.atic13.md
+[6]: iau.aticq.md
+[7]: iau.atci13.md
+[8]: iau.atciq.md

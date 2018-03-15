@@ -6,8 +6,6 @@
 
 Time scale transformation:  Terrestrial Time, TT, to Barycentric
 Dynamical Time, TDB.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -37,7 +35,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    adopted solar-system ephemeris, and can be obtained by numerical
    integration, by interrogating a precomputed time ephemeris or by
    evaluating a model such as that implemented in the SOFA function
-   iauDtdb.   The quantity is dominated by an annual term of 1.7 ms
+   [iauDtdb][1].   The quantity is dominated by an annual term of 1.7 ms
    amplitude.
 
 3) TDB is essentially the same as Teph, the time argument for the JPL
@@ -55,3 +53,5 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.dtdb.md

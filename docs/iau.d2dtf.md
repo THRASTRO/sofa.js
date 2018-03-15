@@ -6,8 +6,6 @@
 
 Format for output a 2-part Julian Date (or in the case of UTC a
 quasi-JD form that includes special provision for leap seconds).
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -68,9 +66,9 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 5) The warning status "dubious year" flags UTCs that predate the
    introduction of the time scale or that are too far in the future
-   to be trusted.  See iauDat for further details.
+   to be trusted.  See [iauDat][1] for further details.
 
-6) For calendar conventions and limitations, see iauCal2jd.
+6) For calendar conventions and limitations, see [iauCal2jd][2].
 
 ## Called:
 ```
@@ -84,3 +82,6 @@ This revision:  2014 February 15
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.dat.md
+[2]: iau.cal2jd.md

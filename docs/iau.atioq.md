@@ -9,15 +9,13 @@ Quick CIRS to observed place transformation.
 Use of this function is appropriate when efficiency is important and
 where many star positions are all to be transformed for one date.
 The star-independent astrometry parameters can be obtained by
-calling iauApio[13] or iauApco[13].
-SOFA (Standards of Fundamental Astronomy) software collection.
-
+calling [iauApio][1] or [iauApco][2].
 
 ## Given:
 ```
    ri     double     CIRS right ascension
    di     double     CIRS declination
-   astrom iauASTROM* star-independent astrometry parameters:
+   astrom ASTROM* star-independent astrometry parameters:
     pmt    double       PM time interval (SSB, Julian years)
     eb     double[3]    SSB to observer (vector, au)
     eh     double[3]    Sun to observer (unit vector)
@@ -60,8 +58,8 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    than 30 arcsec (optical or radio) at 85 degrees and better
    than 20 arcmin (optical) or 30 arcmin (radio) at the horizon.
 
-   Without refraction, the complementary functions iauAtioq and
-   iauAtoiq are self-consistent to better than 1 microarcsecond all
+   Without refraction, the complementary functions [iauAtioq][3] and
+   [iauAtoiq][4] are self-consistent to better than 1 microarcsecond all
    over the celestial sphere.  With refraction included, consistency
    falls off at high zenith distances, but is still better than
    0.05 arcsec at 85 degrees.
@@ -74,7 +72,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    allowing for space motion, parallax, the Sun's gravitational lens
    effect, annual aberration and precession-nutation.  For star
    positions in the ICRS, these effects can be applied by means of
-   the iauAtci13 (etc.) functions.  Starting from classical "mean
+   the [iauAtci13][5] (etc.) functions.  Starting from classical "mean
    place" systems, additional transformations will be needed first.
 
 5) "Observed" Az,El means the position that would be seen by a
@@ -88,8 +86,8 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    obtained by subtracting the HA from the local ERA.
 
 6) The star-independent CIRS-to-observed-place parameters in ASTROM
-   may be computed with iauApio[13] or iauApco[13].  If nothing has
-   changed significantly except the time, iauAper[13] may be used to
+   may be computed with [iauApio][1] or [iauApco][2].  If nothing has
+   changed significantly except the time, [iauAper][6] may be used to
    perform the requisite adjustment to the astrom structure.
 
 ## Called:
@@ -104,3 +102,10 @@ This revision:   2016 March 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.apio.md
+[2]: iau.apco.md
+[3]: iau.atioq.md
+[4]: iau.atoiq.md
+[5]: iau.atci13.md
+[6]: iau.aper.md

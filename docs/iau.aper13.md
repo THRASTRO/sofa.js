@@ -6,14 +6,12 @@
 
 In the star-independent astrometry parameters, update only the
 Earth rotation angle.  The caller provides UT1, (n.b. not UTC).
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
    ut11    double      UT1 as a 2-part...
    ut12    double      ...Julian Date (Note 1)
-   astrom  iauASTROM*  star-independent astrometry parameters:
+   astrom  ASTROM*  star-independent astrometry parameters:
     pmt    double       not used
     eb     double[3]    not used
     eh     double[3]    not used
@@ -34,7 +32,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 
 ## Returned:
 ```
-   astrom  iauASTROM*  star-independent astrometry parameters:
+   astrom  ASTROM*  star-independent astrometry parameters:
     pmt    double       unchanged
     eb     double[3]    unchanged
     eh     double[3]    unchanged
@@ -79,7 +77,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    versa.
 
 2) If the caller wishes to provide the Earth rotation angle itself,
-   the function iauAper can be used instead.  One use of this
+   the function [iauAper][1] can be used instead.  One use of this
    technique is to substitute Greenwich apparent sidereal time and
    thereby to support equinox based transformations directly.
 
@@ -123,3 +121,5 @@ This revision:   2013 September 25
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.aper.md

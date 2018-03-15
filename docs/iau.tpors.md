@@ -7,8 +7,6 @@ rv = IAU.tpors(xi, eta, a, b)
 In the tangent plane projection, given the rectangular coordinates
 of a star and its spherical coordinates, determine the spherical
 coordinates of the tangent point.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

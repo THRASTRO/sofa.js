@@ -6,8 +6,6 @@
 
 Time scale transformation:  Universal Time, UT1, to Terrestrial
 Time, TT.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

@@ -5,8 +5,6 @@ rp = IAU.ltp(epj)
 ```
 
 Long-term precession matrix.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

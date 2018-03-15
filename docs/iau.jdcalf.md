@@ -47,7 +47,7 @@ for formatting messages:  rounded to a specified precision.
    the Gregorian Calendar, nor is the AD/BC numbering convention
    observed.
 
-3) Refer to the function iauJd2cal.
+3) Refer to the function [iauJd2cal][1].
 
 4) NDP should be 4 or less if internal overflows are to be
    avoided on machines which use 16-bit integers.
@@ -68,3 +68,5 @@ This revision:  2016 December 2
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.jd2cal.md

@@ -11,18 +11,16 @@ bodies.
 Use of this function is appropriate when efficiency is important and
 where many star positions are all to be transformed for one date.
 The star-independent astrometry parameters can be obtained by
-calling one of the functions iauApci[13], iauApcg[13], iauApco[13]
-or iauApcs[13].
+calling one of the functions [iauApci][1], [iauApcg][2], [iauApco][3]
+or [iauApcs][4].
 *
 *  If the only light-deflecting body to be taken into account is the
-*  Sun, the iauAticq function can be used instead.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
+*  Sun, the [iauAticq][5] function can be used instead.
 
 ## Given:
 ```
    ri,di  double      CIRS RA,Dec (radians)
-   astrom iauASTROM*  star-independent astrometry parameters:
+   astrom ASTROM*  star-independent astrometry parameters:
     pmt    double       PM time interval (SSB, Julian years)
     eb     double[3]    SSB to observer (vector, au)
     eh     double[3]    Sun to observer (unit vector)
@@ -40,7 +38,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
     refa   double       refraction constant A (radians)
     refb   double       refraction constant B (radians)
     n     int           number of bodies (Note 3)
-    b     iauLDBODY[n] data for each of the n bodies (Notes 3,4):
+    b     LDBODY[n] data for each of the n bodies (Notes 3,4):
      bm    double       mass of the body (solar masses, Note 5)
      dl    double       deflection limiter (Note 6)
      pv    [2][3]       barycentric PV of the body (au, au/day)
@@ -54,12 +52,12 @@ SOFA (Standards of Fundamental Astronomy) software collection.
 ## Notes:
 
 1) Iterative techniques are used for the aberration and light
-   deflection corrections so that the functions iauAticqn and
-   iauAtciqn are accurate inverses; even at the edge of the Sun's
+   deflection corrections so that the functions [iauAticqn][6] and
+   [iauAtciqn][7] are accurate inverses; even at the edge of the Sun's
    disk the discrepancy is only about 1 nanoarcsecond.
 
 2) If the only light-deflecting body to be taken into account is the
-   Sun, the iauAticq function can be used instead.
+   Sun, the [iauAticq][5] function can be used instead.
 
 3) The struct b contains n entries, one for each body to be
    considered.  If n = 0, no gravitational light deflection will be
@@ -109,3 +107,11 @@ This revision:   2013 October 9
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.apci.md
+[2]: iau.apcg.md
+[3]: iau.apco.md
+[4]: iau.apcs.md
+[5]: iau.aticq.md
+[6]: iau.aticqn.md
+[7]: iau.atciqn.md

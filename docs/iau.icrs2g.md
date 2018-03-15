@@ -5,8 +5,6 @@
 ```
 
 Transformation from ICRS to Galactic Coordinates.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```
@@ -52,7 +50,7 @@ SOFA (Standards of Fundamental Astronomy) software collection.
    recomputed from the canonical three angles and are given to 30
    decimal places.
 
-2) The inverse transformation is performed by the function iauG2icrs.
+2) The inverse transformation is performed by the function [iauG2icrs][1].
 
 ## Called:
 ```
@@ -74,3 +72,5 @@ This revision:   2018 January 2
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.g2icrs.md

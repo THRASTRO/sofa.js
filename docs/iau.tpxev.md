@@ -7,8 +7,6 @@ rv = IAU.tpxev(v, v0)
 In the tangent plane projection, given celestial direction cosines
 for a star and the tangent point, solve for the star's rectangular
 coordinates in the tangent plane.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

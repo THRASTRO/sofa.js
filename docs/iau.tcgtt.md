@@ -6,8 +6,6 @@
 
 Time scale transformation:  Geocentric Coordinate Time, TCG, to
 Terrestrial Time, TT.
-SOFA (Standards of Fundamental Astronomy) software collection.
-
 
 ## Given:
 ```

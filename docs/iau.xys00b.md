@@ -50,7 +50,7 @@ precession-nutation model.
    Intermediate Origin on the equator of the CIP.
 
 4) The present function is faster, but slightly less accurate (about
-   1 mas in X,Y), than the iauXys00a function.
+   1 mas in X,Y), than the [iauXys00a][1] function.
 
 ## Called:
 ```
@@ -69,3 +69,5 @@ This revision:  2013 June 18
 SOFA release 2018-01-30
 
 Copyright (C) 2018 IAU SOFA Board.
+
+[1]: iau.xys00a.md
