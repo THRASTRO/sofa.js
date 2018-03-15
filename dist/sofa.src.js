@@ -197,6 +197,9 @@ var SRS = 1.97412574336e-8;
 /* dsign(A,B) - magnitude of A with sign of B (double) */
 function dsign(A,B) { return ((B)<0.0?-Math.abs(A):Math.abs(A)); }
 
+/* dsign(A,B) - round "up" while ignoring signum (e.g -1.5 to -2) */
+function dnint(X) { return X < 0 ? Math.ceil(X-.5) : Math.floor(X+.5); }
+
 /* Reference ellipsoids */
 var WGS84 = 1;
 var GRS80 = 2;
@@ -280,9 +283,9 @@ function iauA2af(ndp, angle)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var sign = 0;;
@@ -471,9 +474,9 @@ function iauA2tf(ndp, angle)
 **
 **  This revision:  2013 July 31
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var sign = 0;;
@@ -654,9 +657,9 @@ function iauAb(pnat, v, s, bm1)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ppr = [0, 0, 0];;
@@ -836,9 +839,9 @@ function iauAf2a(s, ideg, iamin, asec)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rad = 0.0;;
@@ -990,9 +993,9 @@ function iauAnp(a)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var w;
@@ -1137,9 +1140,9 @@ function iauAnpm(a)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var w;
@@ -1370,9 +1373,9 @@ function iauApcg(date1, date2, ebpv, ehp)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var astrom = {pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};;
@@ -1615,9 +1618,9 @@ function iauApcg13(date1, date2)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var astrom = {pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};;
@@ -1868,9 +1871,9 @@ function iauApci(date1, date2, ebpv, ehp, x, y, s)
 **
 **  This revision:   2013 September 25
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var astrom = {pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};;
@@ -2116,9 +2119,9 @@ function iauApci13(date1, date2)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var astrom = {pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};;
@@ -2421,9 +2424,9 @@ function iauApco(date1, date2, ebpv, ehp, x, y, s, theta, elong, phi, hm, xp, yp
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var astrom = {pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};;
@@ -2765,9 +2768,9 @@ function iauApco13(utc1, utc2, dut1, elong, phi, hm, xp, yp, phpa, tc, rh, wl)
 **
 **  This revision:   2013 December 5
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var astrom = {pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};;
@@ -3070,11 +3073,11 @@ function iauApcs(date1, date2, pv, ebpv, ehp, astrom)
 **     iauPn        decompose p-vector into modulus and direction
 **     iauIr        initialize r-matrix to identity
 **
-**  This revision:   2013 October 9
+**  This revision:   2017 March 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    if (typeof astrom == 'undefined') {
@@ -3084,7 +3087,7 @@ function iauApcs(date1, date2, pv, ebpv, ehp, astrom)
 /* au/d to m/s */
    var AUDMS = DAU/DAYSEC;
 
-/* Light time for 1 AU (day) */
+/* Light time for 1 au (day) */
    var CR = AULT/DAYSEC;
 
    var i;
@@ -3356,9 +3359,9 @@ function iauApcs13(date1, date2, pv)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var astrom = {pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};;
@@ -3589,9 +3592,9 @@ function iauAper(theta, astrom)
 **
 **  This revision:   2013 September 25
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    if (typeof astrom == 'undefined') {
@@ -3831,9 +3834,9 @@ function iauAper13(ut11, ut12)
 **
 **  This revision:   2013 September 25
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var astrom = {pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};;
@@ -4076,9 +4079,9 @@ function iauApio(sp, theta, elong, phi, hm, xp, yp, refa, refb)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var astrom = {pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};;
@@ -4397,9 +4400,9 @@ function iauApio13(utc1, utc2, dut1, elong, phi, hm, xp, yp, phpa, tc, rh, wl)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var astrom = {pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};;
@@ -4594,12 +4597,12 @@ function iauAtci13(rc, dc, pr, pd, px, rv, date1, date2)
 **
 **  3) The TDB date date1+date2 is a Julian Date, apportioned in any
 **     convenient way between the two arguments.  For example,
-**     JD(TDB)=2450123.8g could be expressed in any of these ways, among
+**     JD(TDB)=2450123.7 could be expressed in any of these ways, among
 **     others:
 **
 **            date1          date2
 **
-**         2450123.8g           0.0       (JD method)
+**         2450123.7           0.0       (JD method)
 **         2451545.0       -1421.3       (J2000 method)
 **         2400000.5       50123.2       (MJD method)
 **         2450123.5           0.2       (date & time method)
@@ -4637,11 +4640,11 @@ function iauAtci13(rc, dc, pr, pd, px, rv, date1, date2)
 **     iauApci13    astrometry parameters, ICRS-CIRS, 2013
 **     iauAtciq     quick ICRS to CIRS
 **
-**  This revision:   2013 October 9
+**  This revision:   2017 March 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ri = 0.0;;
@@ -4848,9 +4851,9 @@ function iauAtciq(rc, dc, pr, pd, px, rv, astrom)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ri = 0.0;;
@@ -5100,9 +5103,9 @@ function iauAtciqn(rc, dc, pr, pd, px, rv, astrom, n, b)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ri = 0.0;;
@@ -5315,9 +5318,9 @@ function iauAtciqz(rc, dc, astrom)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ri = 0.0;;
@@ -5613,9 +5616,9 @@ function iauAtco13(rc, dc, pr, pd, px, rv, utc1, utc2, dut1, elong, phi, hm, xp,
 **
 **  This revision:   2016 February 2
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var aob = 0.0;;
@@ -5848,9 +5851,9 @@ function iauAtic13(ri, di, date1, date2)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc = 0.0;;
@@ -6053,9 +6056,9 @@ function iauAticq(ri, di, astrom)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc = 0.0;;
@@ -6351,9 +6354,9 @@ function iauAticqn(ri, di, astrom, n, b)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc = 0.0;;
@@ -6682,9 +6685,9 @@ function iauAtio13(ri, di, utc1, utc2, dut1, elong, phi, hm, xp, yp, phpa, tc, r
 **
 **  This revision:   2016 February 2 
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var aob = 0.0;;
@@ -6932,9 +6935,9 @@ function iauAtioq(ri, di, astrom)
 **
 **  This revision:   2016 March 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var aob = 0.0;;
@@ -7281,9 +7284,9 @@ function iauAtoc13(type, ob1, ob2, utc1, utc2, dut1, elong, phi, hm, xp, yp, php
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc = 0.0;;
@@ -7575,9 +7578,9 @@ function iauAtoi13(type, ob1, ob2, utc1, utc2, dut1, elong, phi, hm, xp, yp, php
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ri = 0.0;;
@@ -7809,9 +7812,9 @@ function iauAtoiq(type, ob1, ob2, astrom)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ri = 0.0;;
@@ -8082,9 +8085,9 @@ function iauBi00()
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dpsibi = 0.0;;
@@ -8296,9 +8299,9 @@ function iauBp00(date1, date2)
 **
 **  This revision:  2013 August 21
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rb = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -8541,9 +8544,9 @@ function iauBp06(date1, date2)
 **
 **  This revision:  2013 August 21
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rb = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -8734,9 +8737,9 @@ function iauBpn2xy(rbpn)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var x = 0.0;;
@@ -8937,9 +8940,9 @@ function iauC2i00a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2i = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -9146,9 +9149,9 @@ function iauC2i00b(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2i = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -9346,9 +9349,9 @@ function iauC2i06a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2i = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -9565,9 +9568,9 @@ function iauC2ibpn(date1, date2, rbpn)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2i = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -9772,9 +9775,9 @@ function iauC2ixy(date1, date2, x, y)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 
 {
@@ -9955,9 +9958,9 @@ function iauC2ixys(x, y, s)
 **
 **  This revision:  2014 November 7
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2i = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -10124,9 +10127,9 @@ function iauC2s(p)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var theta = 0.0;;
@@ -10339,9 +10342,9 @@ function iauC2t00a(tta, ttb, uta, utb, xp, yp)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2t = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -10561,9 +10564,9 @@ function iauC2t00b(tta, ttb, uta, utb, xp, yp)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2t = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -10779,9 +10782,9 @@ function iauC2t06a(tta, ttb, uta, utb, xp, yp)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2t = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -10980,9 +10983,9 @@ function iauC2tcio(rc2i, era, rpom)
 **
 **  This revision:  2013 August 24
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2t = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -11171,9 +11174,9 @@ function iauC2teqx(rbpn, gst, rpom)
 **
 **  This revision:  2013 August 24
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2t = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -11392,9 +11395,9 @@ function iauC2tpe(tta, ttb, uta, utb, dpsi, deps, xp, yp)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2t = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -11628,9 +11631,9 @@ function iauC2txy(tta, ttb, uta, utb, x, y, xp, yp)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rc2t = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -11821,9 +11824,9 @@ function iauCal2jd(iy, im, id)
 **
 **  This revision:  2013 August 7
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var djm0 = 0.0;;
@@ -11999,9 +12002,9 @@ function iauCp(p)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var c = [0, 0, 0];;
@@ -12150,9 +12153,9 @@ function iauCpv(pv)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var c = [ [0,0,0], [0,0,0] ];;
@@ -12300,9 +12303,9 @@ function iauCr(r)
 **
 **  This revision:  2016 May 19
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var c = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -12505,9 +12508,9 @@ function iauD2dtf(scale, ndp, d1, d2)
 **
 **  This revision:  2014 February 15
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var iy = 0;;
@@ -12806,9 +12809,9 @@ function iauD2tf(ndp, days)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var sign = 0;;
@@ -12833,7 +12836,7 @@ function iauD2tf(ndp, days)
       }
       rs = nrs;
       w = a / rs;
-      a = rs * Math.round(w);
+      a = rs * dnint(w);
    }
 
 /* Express the unit of each field in resolution units. */
@@ -12846,7 +12849,7 @@ function iauD2tf(ndp, days)
    rh = rm * 60.0;
 
 /* Round the interval and express in resolution units. */
-   a = Math.round(rs * a);
+   a = dnint(rs * a);
 
 /* Break into fields. */
    ah = a / rh;
@@ -12986,7 +12989,7 @@ function iauDat(iy, im, id, fd)
 **   i a u D a t
 **  - - - - - - -
 **
-**  For a given UTC date, calculate delta(AT) = TAI-UTC.
+**  For a given UTC date, calculate Delta(AT) = TAI-UTC.
 **
 **     :------------------------------------------:
 **     :                                          :
@@ -13023,7 +13026,7 @@ function iauDat(iy, im, id, fd)
 **  This function is part of the International Astronomical Union's
 **  SOFA (Standards Of Fundamental Astronomy) software collection.
 **
-**  Status:  support function.
+**  Status:  user-replaceable support function.
 **
 **  Given:
 **     iy     int      UTC:  year (Notes 1 and 2)
@@ -13062,9 +13065,9 @@ function iauDat(iy, im, id, fd)
 **     so early that JD could not be computed.
 **
 **  2) If the specified date is for a day which ends with a leap second,
-**     the UTC-TAI value returned is for the period leading up to the
+**     the TAI-UTC value returned is for the period leading up to the
 **     leap second.  If the date is for a day which begins as a leap
-**     second ends, the UTC-TAI returned is for the period following the
+**     second ends, the TAI-UTC returned is for the period following the
 **     leap second.
 **
 **  3) The day number must be in the normal calendar range, for example
@@ -13100,18 +13103,18 @@ function iauDat(iy, im, id, fd)
 **  Called:
 **     iauCal2jd    Gregorian calendar to JD
 **
-**  This revision:  2016 July 7
+**  This revision:  2017 October 7
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var deltat = 0.0;;
    var _rv1;
 
 /* Release year for this version of iauDat */
-   var IYV = 2016;
+   var IYV = 2017;
 
 /* Reference dates (MJD) and drift rates (s/day), pre leap seconds */
    var                 drift = [
@@ -13342,6 +13345,7 @@ function iauDat(iy, im, id, fd)
  *
  *-----------------------------------------------------------------------
 */
+
 }
 ;
 function iauDtdb(date1, date2, ut, elong, u, v)
@@ -13386,7 +13390,7 @@ function iauDtdb(date1, date2, ut, elong, u, v)
 **  This function is part of the International Astronomical Union's
 **  SOFA (Standards Of Fundamental Astronomy) software collection.
 **
-**  Status:  support routine.
+**  Status:  support function.
 **
 **  Given:
 **     date1,date2   double  date, TDB (Notes 1-3)
@@ -13505,11 +13509,11 @@ function iauDtdb(date1, date2, ut, elong, u, v)
 **     Simon, J.L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G. & Laskar, J., Astron.Astrophys., 282, 663-683 (1994).
 **
-**  This revision:  2013 June 18
+**  This revision:  2018 January 2
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var t, tsol, w, elsun, emsun, d, elj, els, wt, w0, w1, w2, w3, w4, wf, wj;
@@ -14700,9 +14704,9 @@ function iauDtf2d(scale, iy, im, id, ihr, imn, sec)
 **
 **  This revision:  2013 July 26
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var d1 = 0.0;;
@@ -14966,9 +14970,9 @@ function iauEe00(date1, date2, epsa, dpsi)
 **
 **  This revision:  2008 May 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ee;
@@ -15157,9 +15161,9 @@ function iauEe00a(date1, date2)
 **
 **  This revision:  2008 May 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var _rv1, _rv3;
@@ -15369,9 +15373,9 @@ function iauEe00b(date1, date2)
 **
 **  This revision:  2008 May 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var _rv1, _rv3;
@@ -15567,9 +15571,9 @@ function iauEe06a(date1, date2)
 **
 **  This revision:  2008 May 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var gst06a, gmst06, ee;
@@ -15781,23 +15785,23 @@ function iauEect00(date1, date2)
 **
 **  References:
 **
-**     Capitaine, N. & Gontier, A.-M., Astron. Astrophys., 275,
+**     Capitaine, N. & Gontier, A.-M., Astron.Astrophys., 275,
 **     645-650 (1993)
 **
 **     Capitaine, N., Wallace, P.T. and McCarthy, D.D., "Expressions to
-**     implement the IAU 2000 definition of UT1", Astronomy &
-**     Astrophysics, 406, 1135-1149 (2003)
+**     implement the IAU 2000 definition of UT1", Astron.Astrophys., 406,
+**     1135-1149 (2003)
 **
 **     IAU Resolution C7, Recommendation 3 (1994)
 **
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 October 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
 /* Time since J2000.0, in Julian centuries */
@@ -16103,9 +16107,9 @@ function iauEform( n)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a = 0.0;;
@@ -16317,9 +16321,9 @@ function iauEo06a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var _rv2;
@@ -16496,9 +16500,9 @@ function iauEors(rnpb, s)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var x, ax, xs, ys, zs, p, q, eo;
@@ -16662,9 +16666,9 @@ function iauEpb(dj1, dj2)
 **
 **  This revision:  2013 August 21
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
 /* J2000.0-B1900.0 (2415019.81352) in days */
@@ -16818,9 +16822,9 @@ function iauEpb2jd(epb)
 **
 **  This revision:  2013 August 13
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var djm0 = 0.0;;
@@ -16978,9 +16982,9 @@ function iauEpj(dj1, dj2)
 **
 **  This revision:  2013 August 7
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var epj;
@@ -17136,9 +17140,9 @@ function iauEpj2jd(epj)
 **
 **  This revision:  2013 August 7
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var djm0 = 0.0;;
@@ -17317,19 +17321,19 @@ function iauEpv00(date1, date2)
 **  2) On return, the arrays pvh and pvb contain the following:
 **
 **        pvh[0][0]  x       }
-**        pvh[0][1]  y       } heliocentric position, AU
+**        pvh[0][1]  y       } heliocentric position, au
 **        pvh[0][2]  z       }
 **
 **        pvh[1][0]  xdot    }
-**        pvh[1][1]  ydot    } heliocentric velocity, AU/d
+**        pvh[1][1]  ydot    } heliocentric velocity, au/d
 **        pvh[1][2]  zdot    }
 **
 **        pvb[0][0]  x       }
-**        pvb[0][1]  y       } barycentric position, AU
+**        pvb[0][1]  y       } barycentric position, au
 **        pvb[0][2]  z       }
 **
 **        pvb[1][0]  xdot    }
-**        pvb[1][1]  ydot    } barycentric velocity, AU/d
+**        pvb[1][1]  ydot    } barycentric velocity, au/d
 **        pvb[1][2]  zdot    }
 **
 **     The vectors are with respect to the Barycentric Celestial
@@ -17361,11 +17365,11 @@ function iauEpv00(date1, date2)
 **  5) It is permissible to use the same array for pvh and pvb, which
 **     will receive the barycentric values.
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 March 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var pvh = [ [0,0,0], [0,0,0] ];;
@@ -19966,14 +19970,14 @@ function iauEqeq94(date1, date2)
 **
 **     IAU Resolution C7, Recommendation 3 (1994).
 **
-**     Capitaine, N. & Gontier, A.-M., 1993, Astron. Astrophys., 275,
+**     Capitaine, N. & Gontier, A.-M., 1993, Astron.Astrophys., 275,
 **     645-650.
 **
-**  This revision:  2013 August 31
+**  This revision:  2017 October 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var _rv2;
@@ -20175,9 +20179,9 @@ function iauEra00(dj1, dj2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var d1, d2, t, f, theta;
@@ -20353,9 +20357,9 @@ function iauFad03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -20524,9 +20528,9 @@ function iauFae03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -20689,9 +20693,9 @@ function iauFaf03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -20862,9 +20866,9 @@ function iauFaju03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -21026,9 +21030,9 @@ function iauFal03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -21194,9 +21198,9 @@ function iauFalp03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -21365,9 +21369,9 @@ function iauFama03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -21532,9 +21536,9 @@ function iauFame03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -21696,9 +21700,9 @@ function iauFane03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -21860,9 +21864,9 @@ function iauFaom03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -22033,9 +22037,9 @@ function iauFapa03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -22200,9 +22204,9 @@ function iauFasa03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -22364,9 +22368,9 @@ function iauFaur03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -22531,9 +22535,9 @@ function iauFave03(t)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var a;
@@ -22710,13 +22714,13 @@ function iauFk52h(r5, d5, dr5, dd5, px5, rv5)
 **
 **  Reference:
 **
-**     F.Mignard & M.Froeschle, Astron. Astrophys. 354, 732-739 (2000).
+**     F.Mignard & M.Froeschle, Astron.Astrophys., 354, 732-739 (2000).
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 October 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rh = 0.0;;
@@ -22916,13 +22920,13 @@ function iauFk5hip(r5h)
 **
 **  Reference:
 **
-**     F.Mignard & M.Froeschle, Astron. Astrophys. 354, 732-739 (2000).
+**     F.Mignard & M.Froeschle, Astron.Astrophys., 354, 732-739 (2000).
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 October 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var s5h = [0, 0, 0];;
@@ -23146,9 +23150,9 @@ function iauFk5hz(r5, d5, date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rh = 0.0;;
@@ -23371,9 +23375,9 @@ function iauFw2m(gamb, phib, psi, eps)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var r = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -23559,9 +23563,9 @@ function iauFw2xy(gamb, phib, psi, eps)
 **
 **  This revision:  2013 September 2
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var x = 0.0;;
@@ -23751,9 +23755,9 @@ function iauGc2gd( n, xyz)
 **
 **  This revision:  2013 September 1
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var elong = 0.0;;
@@ -23965,9 +23969,9 @@ function iauGc2gde( a, f, xyz)
 **
 **  This revision:  2014 November 7
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var elong = 0.0;;
@@ -24230,9 +24234,9 @@ function iauGd2gc( n, elong, phi, height)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var xyz = [0, 0, 0];;
@@ -24435,9 +24439,9 @@ function iauGd2gce( a, f, elong, phi, height)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var xyz = [0, 0, 0];;
@@ -24654,9 +24658,9 @@ function iauGmst00(uta, utb, tta, ttb)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var t, gmst;
@@ -24854,9 +24858,9 @@ function iauGmst06(uta, utb, tta, ttb)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var t, gmst;
@@ -25053,13 +25057,13 @@ function iauGmst82(dj1, dj2)
 **     Transactions of the International Astronomical Union,
 **     XVIII B, 67 (1983).
 **
-**     Aoki et al., Astron. Astrophys. 105, 359-361 (1982).
+**     Aoki et al., Astron.Astrophys., 105, 359-361 (1982).
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 October 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
 /* Coefficients of IAU 1982 GMST-UT1 model */
@@ -25282,9 +25286,9 @@ function iauGst00a(uta, utb, tta, ttb)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var gmst00, ee00a, gst;
@@ -25493,9 +25497,9 @@ function iauGst00b(uta, utb)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var gmst00, ee00b, gst;
@@ -25690,9 +25694,9 @@ function iauGst06(uta, utb, tta, ttb, rnpb)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var _rv1;
@@ -25895,9 +25899,9 @@ function iauGst06a(uta, utb, tta, ttb)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rnpb = [[], [], []], gst;
@@ -26093,9 +26097,9 @@ function iauGst94(uta, utb)
 **
 **  This revision:  2008 May 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var gmst82, eqeq94, gst;
@@ -26275,13 +26279,13 @@ function iauH2fk5(rh, dh, drh, ddh, pxh, rvh)
 **
 **  Reference:
 **
-**     F.Mignard & M.Froeschle, Astron. Astrophys. 354, 732-739 (2000).
+**     F.Mignard & M.Froeschle, Astron.Astrophys., 354, 732-739 (2000).
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 October 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var r5 = 0.0;;
@@ -26525,9 +26529,9 @@ function iauHfk5z(rh, dh, date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var r5 = 0.0;;
@@ -26712,9 +26716,9 @@ function iauIr()
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var r = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -26872,7 +26876,7 @@ function iauJd2cal(dj1, dj2)
 **  Returned (function value):
 **               int      status:
 **                           0 = OK
-**                          -1 = unacceptable date (Note 3)
+**                          -1 = unacceptable date (Note 1)
 **
 **  Notes:
 **
@@ -26901,11 +26905,11 @@ function iauJd2cal(dj1, dj2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 12.92 (p604).
 **
-**  This revision:  2013 August 7
+**  This revision:  2017 January 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var iy = 0;;
@@ -26941,8 +26945,8 @@ function iauJd2cal(dj1, dj2)
    f2 = ((d2) % (1.0));
    f = ((f1 + f2) % (1.0));
    if (f < 0.0) f += 1.0;
-   d = Math.floor(d1 - f1) + Math.floor(d2 - f2) + Math.floor(f1 + f2 - f);
-   jd = ~~(~~Math.floor(d) + 1);
+   d = dnint(d1-f1) + dnint(d2-f2) + dnint(f1+f2-f);
+   jd = ~~(~~dnint(d) + 1);
 
 /* Express day in Gregorian calendar. */
    l = ~~(jd + 68569);
@@ -27132,11 +27136,11 @@ function iauJdcalf(ndp, dj1, dj2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 12.92 (p604).
 **
-**  This revision:  2013 June 18
+**  This revision:  2016 December 2
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var iymdf = [0,0,0,0];;
@@ -27168,11 +27172,11 @@ function iauJdcalf(ndp, dj1, dj2)
 /* Separate days and fractions. */
    f1 = ((d1) % (1.0));
    f2 = ((d2) % (1.0));
-   d1 = Math.floor(d1 - f1);
-   d2 = Math.floor(d2 - f2);
+   d1 = dnint(d1-f1);
+   d2 = dnint(d2-f2);
 
 /* Round the total fraction to the specified number of places. */
-   f = Math.floor((f1+f2)*denom + 0.5) / denom;
+   f = dnint((f1+f2)*denom) / denom;
 
 /* Re-assemble the rounded date and re-align to noon. */
    d2 += f + 0.5;
@@ -27379,9 +27383,9 @@ function iauLd(bm, p, q, e, em, dlim)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var p1 = [0, 0, 0];;
@@ -27607,17 +27611,17 @@ function iauLdn(n, b, ob, sc)
 **     iauPn        decompose p-vector into modulus and direction
 **     iauLd        light deflection by a solar-system body
 **
-**  This revision:   2013 October 9
+**  This revision:   2017 March 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var sn = [0, 0, 0];;
    var _rv3;
 
-/* Light time for 1 AU (days) */
+/* Light time for 1 au (days) */
    var CR = AULT/DAYSEC;
 
    var i;
@@ -27809,9 +27813,9 @@ function iauLdsun(p, e, em)
 **
 **  This revision:   2016 June 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var p1 = [0, 0, 0];;
@@ -28003,9 +28007,9 @@ function iauNum00a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rmatn = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -28201,9 +28205,9 @@ function iauNum00b(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rmatn = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -28398,9 +28402,9 @@ function iauNum06a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rmatn = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -28585,9 +28589,9 @@ function iauNumat(epsa, dpsi, deps)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rmatn = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -28871,9 +28875,9 @@ function iauNut00a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dpsi = 0.0;;
@@ -30932,9 +30936,9 @@ function iauNut00b(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dpsi = 0.0;;
@@ -31323,9 +31327,9 @@ function iauNut06a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dpsi = 0.0;;
@@ -31520,9 +31524,9 @@ function iauNut80(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dpsi = 0.0;;
@@ -31902,9 +31906,9 @@ function iauNutm80(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rmatn = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -32088,9 +32092,9 @@ function iauObl06(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var t, eps0;
@@ -32273,9 +32277,9 @@ function iauObl80(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var t, eps0;
@@ -32527,9 +32531,9 @@ function iauP06e(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var eps0 = 0.0;;
@@ -32829,9 +32833,9 @@ function iauP2pv(p)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var pv = [ [0,0,0], [0,0,0] ];;
@@ -32988,9 +32992,9 @@ function iauP2s(p)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var theta = 0.0;;
@@ -33162,9 +33166,9 @@ function iauPap(a, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var _rv1;
@@ -33359,9 +33363,9 @@ function iauPas(al, ap, bl, bp)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dl, x, y, pa;
@@ -33556,9 +33560,9 @@ function iauPb06(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var bzeta = 0.0;;
@@ -33722,9 +33726,9 @@ function iauPdp(a, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var w;
@@ -33928,9 +33932,9 @@ function iauPfw06(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var gamb = 0.0;;
@@ -34106,7 +34110,7 @@ function iauPlan94(date1, date2, np)
 **                             5=Jupiter, 6=Saturn, 7=Uranus, 8=Neptune)
 **
 **  Returned (argument):
-**     pv     double[2][3] planet p,v (heliocentric, J2000.0, AU,AU/d)
+**     pv     double[2][3] planet p,v (heliocentric, J2000.0, au,au/d)
 **
 **  Returned (function value):
 **            int          status: -1 = illegal NP (outside 1-8)
@@ -34147,11 +34151,11 @@ function iauPlan94(date1, date2, np)
 **  4) On successful return, the array pv contains the following:
 **
 **        pv[0][0]   x      }
-**        pv[0][1]   y      } heliocentric position, AU
+**        pv[0][1]   y      } heliocentric position, au
 **        pv[0][2]   z      }
 **
 **        pv[1][0]   xdot   }
-**        pv[1][1]   ydot   } heliocentric velocity, AU/d
+**        pv[1][1]   ydot   } heliocentric velocity, au/d
 **        pv[1][2]   zdot   }
 **
 **     The reference frame is equatorial and is with respect to the
@@ -34244,13 +34248,13 @@ function iauPlan94(date1, date2, np)
 **
 **  Reference:  Simon, J.L, Bretagnon, P., Chapront, J.,
 **              Chapront-Touze, M., Francou, G., and Laskar, J.,
-**              Astron. Astrophys. 282, 663 (1994).
+**              Astron.Astrophys., 282, 663 (1994).
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 October 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var pv = [ [0,0,0], [0,0,0] ];;
@@ -34282,7 +34286,7 @@ function iauPlan94(date1, date2, np)
 /*
 ** Tables giving the mean Keplerian elements, limited to t^2 terms:
 **
-**   a       semi-major axis (AU)
+**   a       semi-major axis (au)
 **   dlm     mean longitude (degree and arcsecond)
 **   e       eccentricity
 **   pi      longitude of the perihelion (degree and arcsecond)
@@ -34509,7 +34513,7 @@ function iauPlan94(date1, date2, np)
       at = 2.0 * Math.atan2(Math.sqrt((1.0 + de) / (1.0 - de)) * Math.sin(ae2),
                                                        Math.cos(ae2));
 
-   /* Distance (AU) and speed (radians per day). */
+   /* Distance (au) and speed (radians per day). */
       r = da * (1.0 - de * Math.cos(ae));
       v = GK * Math.sqrt((1.0 + 1.0 / amas[np]) / (da * da * da));
 
@@ -34526,7 +34530,7 @@ function iauPlan94(date1, date2, np)
       xmc = (de * Math.cos(dp) + xcw) * xf;
       xpxq2 = 2 * xp * xq;
 
-   /* Position (J2000.0 ecliptic x,y,z in AU). */
+   /* Position (J2000.0 ecliptic x,y,z in au). */
       x = r * (xcw - xm2 * xp);
       y = r * (xsw + xm2 * xq);
       z = r * (-xm2 * ci2);
@@ -34536,7 +34540,7 @@ function iauPlan94(date1, date2, np)
       pv[0][1] = y * COSEPS - z * SINEPS;
       pv[0][2] = y * SINEPS + z * COSEPS;
 
-   /* Velocity (J2000.0 ecliptic xdot,ydot,zdot in AU/d). */
+   /* Velocity (J2000.0 ecliptic xdot,ydot,zdot in au/d). */
       x = v * (( -1.0 + 2.0 * xp * xp) * xms + xpxq2 * xmc);
       y = v * ((  1.0 - 2.0 * xq * xq) * xmc - xpxq2 * xms);
       z = v * (2.0 * ci2 * (xp * xms + xq * xmc));
@@ -34685,9 +34689,9 @@ function iauPm(p)
 **
 **  This revision:  2013 August 7
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    return Math.sqrt( p[0]*p[0] + p[1]*p[1] + p[2]*p[2] );
@@ -34862,9 +34866,9 @@ function iauPmat00(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rbp = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -35054,9 +35058,9 @@ function iauPmat06(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rbp = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -35265,9 +35269,9 @@ function iauPmat76(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rmatp = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -35432,9 +35436,9 @@ function iauPmp(a, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var amb = [0, 0, 0];;
@@ -35610,9 +35614,9 @@ function iauPmpx(rc, dc, pr, pd, px, rv, pmt, pob)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var pco = [0, 0, 0];;
@@ -35880,9 +35884,9 @@ function iauPmsafe(ra1, dec1, pmr1, pmd1, px1, rv1, ep1a, ep1b, ep2a, ep2b)
 **
 **  This revision:   2014 July 1
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ra2 = 0.0;;
@@ -36077,9 +36081,9 @@ function iauPn(p)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var r = 0.0;;
@@ -36319,9 +36323,9 @@ function iauPn00(date1, date2, dpsi, deps)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var epsa = 0.0;;
@@ -36581,9 +36585,9 @@ function iauPn00a(date1, date2)
 **
 **  This revision:  2013 November 14
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dpsi = 0.0;;
@@ -36834,9 +36838,9 @@ function iauPn00b(date1, date2)
 **
 **  This revision:  2013 November 13
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dpsi = 0.0;;
@@ -37085,9 +37089,9 @@ function iauPn06(date1, date2, dpsi, deps)
 **
 **  This revision:  2013 November 14
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var epsa = 0.0;;
@@ -37352,9 +37356,9 @@ function iauPn06a(date1, date2)
 **
 **  This revision:  2013 November 13
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dpsi = 0.0;;
@@ -37566,9 +37570,9 @@ function iauPnm00a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rbpn = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -37765,9 +37769,9 @@ function iauPnm00b(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rbpn = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -37961,9 +37965,9 @@ function iauPnm06a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rnpb = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -38163,9 +38167,9 @@ function iauPnm80(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rmatpn = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -38353,9 +38357,9 @@ function iauPom00(xp, yp, sp)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rpom = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -38510,9 +38514,9 @@ function iauPpp(a, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var apb = [0, 0, 0];;
@@ -38667,9 +38671,9 @@ function iauPpsp(a, s, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var apsb = [0, 0, 0];;
@@ -38872,9 +38876,9 @@ function iauPr00(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dpsipr = 0.0;;
@@ -39082,9 +39086,9 @@ function iauPrec76(date01, date02, date11, date12)
 **
 **  This revision:  2013 November 19
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var zeta = 0.0;;
@@ -39251,9 +39255,9 @@ function iauPv2p(pv)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var p = [0, 0, 0];;
@@ -39415,9 +39419,9 @@ function iauPv2s(pv)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var theta = 0.0;;
@@ -39623,9 +39627,9 @@ function iauPvdpv(a, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var adb = [0, 0];;
@@ -39786,9 +39790,9 @@ function iauPvm(pv)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var r = 0.0;;
@@ -39945,9 +39949,9 @@ function iauPvmpv(a, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var amb = [ [0,0,0], [0,0,0] ];;
@@ -40100,9 +40104,9 @@ function iauPvppv(a, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var apb = [ [0,0,0], [0,0,0] ];;
@@ -40240,7 +40244,7 @@ function iauPvstar(pv)
 **  Status:  support function.
 **
 **  Given (Note 1):
-**     pv     double[2][3]   pv-vector (AU, AU/day)
+**     pv     double[2][3]   pv-vector (au, au/day)
 **
 **  Returned (Note 2):
 **     ra     double         right ascension (radians)
@@ -40295,7 +40299,7 @@ function iauPvstar(pv)
 **  3) Care is needed with units.  The star coordinates are in radians
 **     and the proper motions in radians per Julian year, but the
 **     parallax is in arcseconds; the radial velocity is in km/s, but
-**     the pv-vector result is in AU and AU/day.
+**     the pv-vector result is in au and au/day.
 **
 **  4) The proper motions are the rate of change of the right ascension
 **     and declination at the catalog epoch and are in radians per Julian
@@ -40323,11 +40327,11 @@ function iauPvstar(pv)
 **
 **     Stumpff, P., 1985, Astron.Astrophys. 144, 232-240.
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 March 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ra = 0.0;;
@@ -40341,14 +40345,14 @@ function iauPvstar(pv)
    var r, x = [], vr, ur = [], vt, ut = [], bett, betr, d, w, del, usr = [], ust = [], a, rad, decd, rd;
 
 
-/* Isolate the radial component of the velocity (AU/day, inertial). */
+/* Isolate the radial component of the velocity (au/day, inertial). */
    (_rv1 = iauPn(pv[0]))[0];
    r = _rv1[0];
    x = _rv1[1];
    vr = iauPdp(x, pv[1]);
    ur = iauSxp(vr, x);
 
-/* Isolate the transverse component of the velocity (AU/day, inertial). */
+/* Isolate the transverse component of the velocity (au/day, inertial). */
    ut = iauPmp(pv[1], ur);
    vt = iauPm(ut);
 
@@ -40358,9 +40362,9 @@ function iauPvstar(pv)
 
 /* The inertial-to-observed correction terms. */
    d = 1.0 + betr;
-   w = 1.0 - betr*betr - bett*bett;
-   if (d == 0.0 || w < 0) return [ -1, ra, dec, pmr, pmd, px, rv ];
-   del = Math.sqrt(w) - 1.0;
+   w = betr*betr + bett*bett;
+   if (d == 0.0 || w > 1.0) return [ -1, ra, dec, pmr, pmd, px, rv ];
+   del = - w / (Math.sqrt(1.0-w) + 1.0);
 
 /* Apply relativistic correction factor to radial velocity component. */
    w = (betr != 0) ? (betr - del) / (betr * d) : 1.0;
@@ -40370,7 +40374,7 @@ function iauPvstar(pv)
 /* component.                                                  */
    ust = iauSxp(1.0/d, ut);
 
-/* Combine the two to obtain the observed velocity vector (AU/day). */
+/* Combine the two to obtain the observed velocity vector (au/day). */
    pv[1] = iauPpp(usr, ust);
 
 /* Cartesian to spherical. */
@@ -40578,9 +40582,9 @@ function iauPvtob(elong, phi, hm, xp, yp, sp, theta)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var pv = [ [0,0,0], [0,0,0] ];;
@@ -40768,9 +40772,9 @@ function iauPvu(dt, pv)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var upv = [ [0,0,0], [0,0,0] ];;
@@ -40923,9 +40927,9 @@ function iauPvup(dt, pv)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var p = [0, 0, 0];;
@@ -41087,9 +41091,9 @@ function iauPvxpv(a, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var axb = [ [0,0,0], [0,0,0] ];;
@@ -41251,9 +41255,9 @@ function iauPxp(a, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var axb = [0, 0, 0];;
@@ -41538,9 +41542,9 @@ function iauRefco(phpa, tc, rh, wl)
 **
 **  This revision:   2013 October 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var refa = 0.0;;
@@ -41745,9 +41749,9 @@ function iauRm2v(r)
 **
 **  This revision:  2015 January 30
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var w = [0, 0, 0];;
@@ -41921,9 +41925,9 @@ function iauRv2m(w, r)
 **
 **  This revision:  2015 January 30
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    if (typeof r == 'undefined') {
@@ -42110,9 +42114,9 @@ function iauRx(phi, r)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    if (typeof r == 'undefined') {
@@ -42282,9 +42286,9 @@ function iauRxp(r, p)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rp = [0, 0, 0];;
@@ -42449,9 +42453,9 @@ function iauRxpv(r, pv)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rpv = [ [0,0,0], [0,0,0] ];;
@@ -42604,9 +42608,9 @@ function iauRxr(a, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var atb = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -42779,9 +42783,9 @@ function iauRy(theta, r)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    if (typeof r == 'undefined') {
@@ -42958,9 +42962,9 @@ function iauRz(psi, r)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    if (typeof r == 'undefined') {
@@ -43185,9 +43189,9 @@ function iauS00(date1, date2, x, y)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
 /* Time since J2000.0, in Julian centuries */
@@ -43614,9 +43618,9 @@ function iauS00a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var _rv2;
@@ -43826,9 +43830,9 @@ function iauS00b(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var _rv2;
@@ -44042,9 +44046,9 @@ function iauS06(date1, date2, x, y)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
 /* Time since J2000.0, in Julian centuries */
@@ -44473,9 +44477,9 @@ function iauS06a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var _rv2;
@@ -44631,9 +44635,9 @@ function iauS2c(theta, phi)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var c = [0, 0, 0];;
@@ -44789,9 +44793,9 @@ function iauS2p(theta, phi, r)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var p = [0, 0, 0];;
@@ -44944,9 +44948,9 @@ function iauS2pv(theta, phi, r, td, pd, rd)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var pv = [ [0,0,0], [0,0,0] ];;
@@ -45116,9 +45120,9 @@ function iauS2xpv(s1, s2, pv)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var spv = [ [0,0,0], [0,0,0] ];;
@@ -45279,9 +45283,9 @@ function iauSepp(a, b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var axb = [], ss, cs, s;
@@ -45440,9 +45444,9 @@ function iauSeps(al, ap, bl, bp)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ac = [], bc = [], s;
@@ -45624,9 +45628,9 @@ function iauSp00(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var t, sp;
@@ -45862,9 +45866,9 @@ function iauStarpm(ra1, dec1, pmr1, pmd1, px1, rv1, ep1a, ep1b, ep2a, ep2b)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ra2 = 0.0;;
@@ -46055,7 +46059,7 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
 **     rv     double        radial velocity (km/s, positive = receding)
 **
 **  Returned (Note 2):
-**     pv     double[2][3]  pv-vector (AU, AU/day)
+**     pv     double[2][3]  pv-vector (au, au/day)
 **
 **  Returned (function value):
 **            int           status:
@@ -46089,7 +46093,7 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
 **     direction", where the object was located at the catalog epoch, be
 **     required, it may be obtained by calculating the magnitude of the
 **     position vector pv[0][0-2] dividing by the speed of light in
-**     AU/day to give the light-time, and then multiplying the space
+**     au/day to give the light-time, and then multiplying the space
 **     velocity pv[1][0-2] by this light-time and adding the result to
 **     pv[0][0-2].
 **
@@ -46108,7 +46112,7 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
 **  3) Care is needed with units.  The star coordinates are in radians
 **     and the proper motions in radians per Julian year, but the
 **     parallax is in arcseconds; the radial velocity is in km/s, but
-**     the pv-vector result is in AU and AU/day.
+**     the pv-vector result is in au and au/day.
 **
 **  4) The RA proper motion is in terms of coordinate angle, not true
 **     angle.  If the catalog uses arcseconds for both RA and Dec proper
@@ -46149,11 +46153,11 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
 **
 **     Stumpff, P., 1985, Astron.Astrophys. 144, 232-240.
 **
-**  This revision:  2013 June 18
+**  This revision:  2017 March 16
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var pv = [ [0,0,0], [0,0,0] ];;
@@ -46174,7 +46178,7 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
           od = 0.0, odel = 0.0;     /* warnings   */
 
 
-/* Distance (AU). */
+/* Distance (au). */
    if (px >= PXMIN) {
       w = px;
       iwarn = 0;
@@ -46184,14 +46188,14 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
    }
    r = DR2AS / w;
 
-/* Radial velocity (AU/day). */
+/* Radial velocity (au/day). */
    rd = DAYSEC * rv * 1e3 / DAU;
 
 /* Proper motion (radian/day). */
    rad = pmr / DJY;
    decd = pmd / DJY;
 
-/* To pv-vector (AU,AU/day). */
+/* To pv-vector (au,au/day). */
    pv = iauS2pv(ra, dec, r, rad, decd, rd);
 
 /* If excessive velocity, arbitrarily set it to zero. */
@@ -46201,14 +46205,14 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
       iwarn += 2;
    }
 
-/* Isolate the radial component of the velocity (AU/day). */
+/* Isolate the radial component of the velocity (au/day). */
    (_rv4 = iauPn(pv[0]))[0];
    w = _rv4[0];
    x = _rv4[1];
    vsr = iauPdp(x, pv[1]);
    usr = iauSxp(vsr, x);
 
-/* Isolate the transverse component of the velocity (AU/day). */
+/* Isolate the transverse component of the velocity (au/day). */
    ust = iauPmp(pv[1], usr);
    vst = iauPm(ust);
 
@@ -46221,7 +46225,8 @@ function iauStarpv(ra, dec, pmr, pmd, px, rv)
    betr = betsr;
    for (i = 0; i < IMAX; i++) {
       d = 1.0 + betr;
-      del = Math.sqrt(1.0 - betr*betr - bett*bett) - 1.0;
+      w = betr*betr + bett*bett;
+      del = - w / (Math.sqrt(1.0 - w) + 1.0);
       betr = d * betsr + del;
       bett = d * betst;
       if (i > 0) {
@@ -46387,9 +46392,9 @@ function iauSxp(s, p)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var sp = [0, 0, 0];;
@@ -46542,9 +46547,9 @@ function iauSxpv(s, pv)
 **
 **  This revision:  2013 August 7
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var spv = [ [0,0,0], [0,0,0] ];;
@@ -46707,9 +46712,9 @@ function iauTaitt(tai1, tai2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var tt1 = 0.0;;
@@ -46886,9 +46891,9 @@ function iauTaiut1(tai1, tai2, dta)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 **
 */
 {
@@ -47088,9 +47093,9 @@ function iauTaiutc(tai1, tai2)
 **
 **  This revision:  2013 September 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var utc1 = 0.0;;
@@ -47309,9 +47314,9 @@ function iauTcbtdb(tcb1, tcb2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var tdb1 = 0.0;;
@@ -47494,9 +47499,9 @@ function iauTcgtt(tcg1, tcg2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var tt1 = 0.0;;
@@ -47686,9 +47691,9 @@ function iauTdbtcb(tdb1, tdb2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var tcb1 = 0.0;;
@@ -47888,9 +47893,9 @@ function iauTdbtt(tdb1, tdb2, dtr)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 **
 */
 {
@@ -48067,9 +48072,9 @@ function iauTf2a(s, ihour, imin, sec)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rad = 0.0;;
@@ -48240,9 +48245,9 @@ function iauTf2d(s, ihour, imin, sec)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var days = 0.0;;
@@ -48400,9 +48405,9 @@ function iauTr(r)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rt = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -48565,9 +48570,9 @@ function iauTrxp(r, p)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var trp = [0, 0, 0];;
@@ -48726,9 +48731,9 @@ function iauTrxpv(r, pv)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var trpv = [ [0,0,0], [0,0,0] ];;
@@ -48898,9 +48903,9 @@ function iauTttai(tt1, tt2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var tai1 = 0.0;;
@@ -49075,9 +49080,9 @@ function iauTttcg(tt1, tt2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var tcg1 = 0.0;;
@@ -49267,9 +49272,9 @@ function iauTttdb(tt1, tt2, dtr)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var tdb1 = 0.0;;
@@ -49445,9 +49450,9 @@ function iauTtut1(tt1, tt2, dt)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ut11 = 0.0;;
@@ -49624,9 +49629,9 @@ function iauUt1tai(ut11, ut12, dta)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var tai1 = 0.0;;
@@ -49802,9 +49807,9 @@ function iauUt1tt(ut11, ut12, dt)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var tt1 = 0.0;;
@@ -50008,9 +50013,9 @@ function iauUt1utc(ut11, ut12, dut1)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var utc1 = 0.0;;
@@ -50275,9 +50280,9 @@ function iauUtctai(utc1, utc2)
 **
 **  This revision:  2013 July 26
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 **
 */
 {
@@ -50540,9 +50545,9 @@ function iauUtcut1(utc1, utc2, dut1)
 **
 **  This revision:  2013 August 12
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var ut11 = 0.0;;
@@ -50789,9 +50794,9 @@ function iauXy06(date1, date2)
 **
 **  This revision:  2013 August 21
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var x = 0.0;;
@@ -53587,9 +53592,9 @@ function iauXys00a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var x = 0.0;;
@@ -53791,9 +53796,9 @@ function iauXys00b(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var x = 0.0;;
@@ -53995,9 +54000,9 @@ function iauXys06a(date1, date2)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var x = 0.0;;
@@ -54152,9 +54157,9 @@ function iauZp(p)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    if (typeof p == 'undefined') {
@@ -54301,9 +54306,9 @@ function iauZpv(pv)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    if (typeof pv == 'undefined') {
@@ -54446,9 +54451,9 @@ function iauZr(r)
 **
 **  This revision:  2013 June 18
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    if (typeof r == 'undefined') {
@@ -54623,9 +54628,9 @@ function iauLtpequ(epj)
 **
 **  This revision:  2016 February 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var veq = [0, 0, 0];;
@@ -54860,9 +54865,9 @@ function iauLtpecl(epj)
 **
 **  This revision:  2016 February 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var vec = [0, 0, 0];;
@@ -55106,9 +55111,9 @@ function iauLtpb(epj)
 **
 **  This revision:  2015 December 6
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rpb = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -55303,9 +55308,9 @@ function iauLtp(epj)
 **
 **  This revision:  2015 December 6
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rp = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -55511,9 +55516,9 @@ function iauLteqec(epj, dr, dd)
 **
 **  This revision:  2016 February 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dl = 0.0;;
@@ -55718,9 +55723,9 @@ function iauLtecm(epj)
 **
 **  This revision:  2015 December 6
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rm = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -55933,9 +55938,9 @@ function iauLteceq(epj, dl, db)
 **
 **  This revision:  2016 February 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dr = 0.0;;
@@ -56088,7 +56093,7 @@ function iauIcrs2g( dr, dd)
 **  This function is part of the International Astronomical Union's
 **  SOFA (Standards of Fundamental Astronomy) software collection.
 **
-**  Status:  support routine.
+**  Status:  support function.
 **
 **  Given:
 **     dr     double      ICRS right ascension (radians)
@@ -56143,11 +56148,11 @@ function iauIcrs2g( dr, dd)
 **     derived from the ESA Hipparcos Space Astrometry Mission.  ESA
 **     Publications Division, Noordwijk, Netherlands.
 **
-**  This revision:   2015 January 20
+**  This revision:   2018 January 2
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dl = 0.0;;
@@ -56321,7 +56326,7 @@ function iauG2icrs( dl, db)
 **  This function is part of the International Astronomical Union's
 **  SOFA (Standards of Fundamental Astronomy) software collection.
 **
-**  Status:  support routine.
+**  Status:  support function.
 **
 **  Given:
 **     dl     double      galactic longitude (radians)
@@ -56376,11 +56381,11 @@ function iauG2icrs( dl, db)
 **     derived from the ESA Hipparcos Space Astrometry Mission.  ESA
 **     Publications Division, Noordwijk, Netherlands.
 **
-**  This revision:   2015 January 20
+**  This revision:   2018 January 2
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dr = 0.0;;
@@ -56603,9 +56608,9 @@ function iauEqec06(date1, date2, dr, dd)
 **
 **  This revision:  2016 February 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dl = 0.0;;
@@ -56813,9 +56818,9 @@ function iauEcm06(date1, date2)
 **
 **  This revision:  2015 December 11
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var rm = [ [0,0,0], [0,0,0], [0,0,0] ];;
@@ -57012,9 +57017,9 @@ function iauEceq06(date1, date2, dl, db)
 **
 **  This revision:  2016 February 9
 **
-**  SOFA release 2016-05-03
+**  SOFA release 2018-01-30
 **
-**  Copyright (C) 2016 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
 */
 {
    var dr = 0.0;;
@@ -57156,6 +57161,1947 @@ function iauEceq06(date1, date2, dl, db)
 
 return [dr, dd];
 };
+function iauAe2hd(az, el, phi)
+/*
+**  - - - - - - - - -
+**   i a u A e 2 h d
+**  - - - - - - - - -
+**
+**  Horizon to equatorial coordinates:  transform azimuth and altitude
+**  to hour angle and declination.
+**
+**  Given:
+**     az       double       azimuth
+**     el       double       altitude (informally, elevation)
+**     phi      double       site latitude
+**
+**  Returned:
+**     ha       double       hour angle (local)
+**     dec      double       declination
+**
+**  Notes:
+**
+**  1)  All the arguments are angles in radians.
+**
+**  2)  The sign convention for azimuth is north zero, east +pi/2.
+**
+**  3)  HA is returned in the range +/-pi.  Declination is returned in
+**      the range +/-pi/2.
+**
+**  4)  The latitude phi is pi/2 minus the angle between the Earth's
+**      rotation axis and the adopted zenith.  In many applications it
+**      will be sufficient to use the published geodetic latitude of the
+**      site.  In very precise (sub-arcsecond) applications, phi can be
+**      corrected for polar motion.
+**
+**  5)  The azimuth az must be with respect to the rotational north pole,
+**      as opposed to the ITRS pole, and an azimuth with respect to north
+**      on a map of the Earth's surface will need to be adjusted for
+**      polar motion if sub-arcsecond accuracy is required.
+**
+**  6)  Should the user wish to work with respect to the astronomical
+**      zenith rather than the geodetic zenith, phi will need to be
+**      adjusted for deflection of the vertical (often tens of
+**      arcseconds), and the zero point of ha will also be affected.
+**
+**  7)  The transformation is the same as Ve = Ry(phi-pi/2)*Rz(pi)*Vh,
+**      where Ve and Vh are lefthanded unit vectors in the (ha,dec) and
+**      (az,el) systems respectively and Rz and Ry are rotations about
+**      first the z-axis and then the y-axis.  (n.b. Rz(pi) simply
+**      reverses the signs of the x and y components.)  For efficiency,
+**      the algorithm is written out rather than calling other utility
+**      functions.  For applications that require even greater
+**      efficiency, additional savings are possible if constant terms
+**      such as functions of latitude are computed once and for all.
+**
+**  8)  Again for efficiency, no range checking of arguments is carried
+**      out.
+**
+**  Last revision:   2017 September 12
+**
+**  SOFA release 2018-01-30
+**
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+*/
+{
+   var ha = 0.0;;
+   var dec = 0.0;;
+
+
+   var sa, ca, se, ce, sp, cp, x, y, z, r;
+
+
+/* Useful trig functions. */
+   sa = Math.sin(az);
+   ca = Math.cos(az);
+   se = Math.sin(el);
+   ce = Math.cos(el);
+   sp = Math.sin(phi);
+   cp = Math.cos(phi);
+
+/* HA,Dec unit vector. */
+   x = - ca*ce*sp + se*cp;
+   y = - sa*ce;
+   z = ca*ce*cp + se*sp;
+
+/* To spherical. */
+   r = Math.sqrt(x*x + y*y);
+   ha = (r != 0.0) ? Math.atan2(y,x) : 0.0;
+   dec = Math.atan2(z,r);
+
+/* Finished. */
+
+/*
+ *+----------------------------------------------------------------------
+ *
+ *  IAU SOFA functions converted to JS
+ *  http:://www.github.com/mgreter/sofa.js
+ *  2016 by Marcel Greter
+ *
+ *  The conversion is done by a custom hacked perl script.
+ *  Automatically generates QUnit tests for all functions.
+ *
+ *  Please read notice below, as all rights go to the Standards
+ *  Of Fundamental Astronomy (SOFA) Review Board of the International
+ *  Astronomical Union, as far as applicable. There is no guarantee
+ *  that the conversion is bug free and I give no warranty of
+ *  usability or correctness whatsoever.
+ *
+ *  The agreement below (3c/d) says that functions should
+ *  be renamed. From the preface I guess this only applies
+ *  if the function behavior was changed in any way. Since
+ *  this is a one-to-one conversion, it shouldn't apply?
+ *
+ *+----------------------------------------------------------------------
+ * SOFA-Issue: 2016-05-03
+ *+----------------------------------------------------------------------
+ *
+ *  Copyright (C) 2016
+ *  Standards Of Fundamental Astronomy Review Board
+ *  of the International Astronomical Union.
+ *
+ *  =====================
+ *  SOFA Software License
+ *  =====================
+ *
+ *  NOTICE TO USER:
+ *
+ *  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING TERMS AND CONDITIONS
+ *  WHICH APPLY TO ITS USE.
+ *
+ *  1. The Software is owned by the IAU SOFA Review Board ("the Board").
+ *
+ *  2. Permission is granted to anyone to use the SOFA software for any
+ *     purpose, including commercial applications, free of charge and
+ *     without payment of royalties, subject to the conditions and
+ *     restrictions listed below.
+ *
+ *  3. You (the user) may copy and adapt the SOFA software and its
+ *     algorithms for your own purposes and you may copy and distribute
+ *     a resulting "derived work" to others on a world-wide, royalty-free
+ *     basis, provided that the derived work complies with the following
+ *     requirements:
+ *
+ *     a) Your work shall be marked or carry a statement that it (i) uses
+ *        routines and computations derived by you from software provided
+ *        by SOFA under license to you; and (ii) does not contain
+ *        software provided by SOFA or software that has been distributed
+ *        by or endorsed by SOFA.
+ *
+ *     b) The source code of your derived work must contain descriptions
+ *        of how the derived work is based upon and/or differs from the
+ *        original SOFA software.
+ *
+ *     c) The name(s) of all routine(s) that you distribute shall differ
+ *        from the SOFA names, even when the SOFA content has not been
+ *        otherwise changed.
+ *
+ *     d) The routine-naming prefix "iau" shall not be used.
+ *
+ *     e) The origin of the SOFA components of your derived work must not
+ *        be misrepresented;  you must not claim that you wrote the
+ *        original software, nor file a patent application for SOFA
+ *        software or algorithms embedded in the SOFA software.
+ *
+ *     f) These requirements must be reproduced intact in any source
+ *        distribution and shall apply to anyone to whom you have granted
+ *        a further right to modify the source code of your derived work.
+ *
+ *  4. In any published work or commercial products which includes
+ *     results achieved by using the SOFA software, you shall acknowledge
+ *     that the SOFA software was used in obtaining those results.
+ *
+ *  5. You shall not cause the SOFA software to be brought into
+ *     disrepute, either by misuse, or use for inappropriate tasks, or by
+ *     inappropriate modification.
+ *
+ *  6. The SOFA software is provided "as is" and the Board makes no
+ *     warranty as to its use or performance.   The Board does not and
+ *     cannot warrant the performance or results which the user may obtain
+ *     by using the SOFA software.  The Board makes no warranties, express
+ *     or implied, as to non-infringement of third party rights,
+ *     merchantability, or fitness for any particular purpose.  In no
+ *     event will the Board be liable to the user for any consequential,
+ *     incidental, or special damages, including any lost profits or lost
+ *     savings, even if a Board representative has been advised of such
+ *     damages, or for any claim by any third party.
+ *
+ *  7. The provision of any version of the SOFA software under the terms
+ *     and conditions specified herein does not imply that future
+ *     versions will also be made available under the same terms and
+ *     conditions.
+
+ *  Correspondence concerning SOFA software should be addressed as
+ *  follows:
+ *
+ *     Internet email: sofa@rl.ac.uk
+ *     Postal address: IAU SOFA Center
+ *                     Rutherford Appleton Laboratory
+ *                     Chilton, Didcot, Oxon OX11 0QX
+ *                     United Kingdom
+ *
+ *-----------------------------------------------------------------------
+*/
+
+return [ha, dec];
+};
+function iauHd2ae(ha, dec, phi)
+/*
+**  - - - - - - - - -
+**   i a u H d 2 a e
+**  - - - - - - - - -
+**
+**  Equatorial to horizon coordinates:  transform hour angle and
+**  declination to azimuth and altitude.
+**
+**  This function is part of the International Astronomical Union's
+**  SOFA (Standards of Fundamental Astronomy) software collection.
+**
+**  Status:  support function.
+**
+**  Given:
+**     ha       double       hour angle (local)
+**     dec      double       declination
+**     phi      double       site latitude
+**
+**  Returned:
+**     *az      double       azimuth
+**     *el      double       altitude (informally, elevation)
+**
+**  Notes:
+**
+**  1)  All the arguments are angles in radians.
+**
+**  2)  Azimuth is returned in the range 0-2pi;  north is zero, and east
+**      is +pi/2.  Altitude is returned in the range +/- pi/2.
+**
+**  3)  The latitude phi is pi/2 minus the angle between the Earth's
+**      rotation axis and the adopted zenith.  In many applications it
+**      will be sufficient to use the published geodetic latitude of the
+**      site.  In very precise (sub-arcsecond) applications, phi can be
+**      corrected for polar motion.
+**
+**  4)  The returned azimuth az is with respect to the rotational north
+**      pole, as opposed to the ITRS pole, and for sub-arcsecond
+**      accuracy will need to be adjusted for polar motion if it is to
+**      be with respect to north on a map of the Earth's surface.
+**
+**  5)  Should the user wish to work with respect to the astronomical
+**      zenith rather than the geodetic zenith, phi will need to be
+**      adjusted for deflection of the vertical (often tens of
+**      arcseconds), and the zero point of the hour angle ha will also
+**      be affected.
+**
+**  6)  The transformation is the same as Vh = Rz(pi)*Ry(pi/2-phi)*Ve,
+**      where Vh and Ve are lefthanded unit vectors in the (az,el) and
+**      (ha,dec) systems respectively and Ry and Rz are rotations about
+**      first the y-axis and then the z-axis.  (n.b. Rz(pi) simply
+**      reverses the signs of the x and y components.)  For efficiency,
+**      the algorithm is written out rather than calling other utility
+**      functions.  For applications that require even greater
+**      efficiency, additional savings are possible if constant terms
+**      such as functions of latitude are computed once and for all.
+**
+**  7)  Again for efficiency, no range checking of arguments is carried
+**      out.
+**
+**  Last revision:   2017 September 12
+**
+**  SOFA release 2018-01-30
+**
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+*/
+{
+   var az = 0.0;;
+   var el = 0.0;;
+
+
+   var sh, ch, sd, cd, sp, cp, x, y, z, r, a;
+
+
+/* Useful trig functions. */
+   sh = Math.sin(ha);
+   ch = Math.cos(ha);
+   sd = Math.sin(dec);
+   cd = Math.cos(dec);
+   sp = Math.sin(phi);
+   cp = Math.cos(phi);
+
+/* Az,Alt unit vector. */
+   x = - ch*cd*sp + sd*cp;
+   y = - sh*cd;
+   z = ch*cd*cp + sd*sp;
+
+/* To spherical. */
+   r = Math.sqrt(x*x + y*y);
+   a = (r != 0.0) ? Math.atan2(y,x) : 0.0;
+   az = (a < 0.0) ? a+D2PI : a;
+   el = Math.atan2(z,r);
+
+/* Finished. */
+
+/*
+ *+----------------------------------------------------------------------
+ *
+ *  IAU SOFA functions converted to JS
+ *  http:://www.github.com/mgreter/sofa.js
+ *  2016 by Marcel Greter
+ *
+ *  The conversion is done by a custom hacked perl script.
+ *  Automatically generates QUnit tests for all functions.
+ *
+ *  Please read notice below, as all rights go to the Standards
+ *  Of Fundamental Astronomy (SOFA) Review Board of the International
+ *  Astronomical Union, as far as applicable. There is no guarantee
+ *  that the conversion is bug free and I give no warranty of
+ *  usability or correctness whatsoever.
+ *
+ *  The agreement below (3c/d) says that functions should
+ *  be renamed. From the preface I guess this only applies
+ *  if the function behavior was changed in any way. Since
+ *  this is a one-to-one conversion, it shouldn't apply?
+ *
+ *+----------------------------------------------------------------------
+ * SOFA-Issue: 2016-05-03
+ *+----------------------------------------------------------------------
+ *
+ *  Copyright (C) 2016
+ *  Standards Of Fundamental Astronomy Review Board
+ *  of the International Astronomical Union.
+ *
+ *  =====================
+ *  SOFA Software License
+ *  =====================
+ *
+ *  NOTICE TO USER:
+ *
+ *  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING TERMS AND CONDITIONS
+ *  WHICH APPLY TO ITS USE.
+ *
+ *  1. The Software is owned by the IAU SOFA Review Board ("the Board").
+ *
+ *  2. Permission is granted to anyone to use the SOFA software for any
+ *     purpose, including commercial applications, free of charge and
+ *     without payment of royalties, subject to the conditions and
+ *     restrictions listed below.
+ *
+ *  3. You (the user) may copy and adapt the SOFA software and its
+ *     algorithms for your own purposes and you may copy and distribute
+ *     a resulting "derived work" to others on a world-wide, royalty-free
+ *     basis, provided that the derived work complies with the following
+ *     requirements:
+ *
+ *     a) Your work shall be marked or carry a statement that it (i) uses
+ *        routines and computations derived by you from software provided
+ *        by SOFA under license to you; and (ii) does not contain
+ *        software provided by SOFA or software that has been distributed
+ *        by or endorsed by SOFA.
+ *
+ *     b) The source code of your derived work must contain descriptions
+ *        of how the derived work is based upon and/or differs from the
+ *        original SOFA software.
+ *
+ *     c) The name(s) of all routine(s) that you distribute shall differ
+ *        from the SOFA names, even when the SOFA content has not been
+ *        otherwise changed.
+ *
+ *     d) The routine-naming prefix "iau" shall not be used.
+ *
+ *     e) The origin of the SOFA components of your derived work must not
+ *        be misrepresented;  you must not claim that you wrote the
+ *        original software, nor file a patent application for SOFA
+ *        software or algorithms embedded in the SOFA software.
+ *
+ *     f) These requirements must be reproduced intact in any source
+ *        distribution and shall apply to anyone to whom you have granted
+ *        a further right to modify the source code of your derived work.
+ *
+ *  4. In any published work or commercial products which includes
+ *     results achieved by using the SOFA software, you shall acknowledge
+ *     that the SOFA software was used in obtaining those results.
+ *
+ *  5. You shall not cause the SOFA software to be brought into
+ *     disrepute, either by misuse, or use for inappropriate tasks, or by
+ *     inappropriate modification.
+ *
+ *  6. The SOFA software is provided "as is" and the Board makes no
+ *     warranty as to its use or performance.   The Board does not and
+ *     cannot warrant the performance or results which the user may obtain
+ *     by using the SOFA software.  The Board makes no warranties, express
+ *     or implied, as to non-infringement of third party rights,
+ *     merchantability, or fitness for any particular purpose.  In no
+ *     event will the Board be liable to the user for any consequential,
+ *     incidental, or special damages, including any lost profits or lost
+ *     savings, even if a Board representative has been advised of such
+ *     damages, or for any claim by any third party.
+ *
+ *  7. The provision of any version of the SOFA software under the terms
+ *     and conditions specified herein does not imply that future
+ *     versions will also be made available under the same terms and
+ *     conditions.
+
+ *  Correspondence concerning SOFA software should be addressed as
+ *  follows:
+ *
+ *     Internet email: sofa@rl.ac.uk
+ *     Postal address: IAU SOFA Center
+ *                     Rutherford Appleton Laboratory
+ *                     Chilton, Didcot, Oxon OX11 0QX
+ *                     United Kingdom
+ *
+ *-----------------------------------------------------------------------
+*/
+
+return [az, el];
+};
+function iauHd2pa(ha, dec, phi)
+/*
+**  - - - - - - - - -
+**   i a u H d 2 p a
+**  - - - - - - - - -
+**
+**  Parallactic angle for a given hour angle and declination.
+**
+**  This function is part of the International Astronomical Union's
+**  SOFA (Standards of Fundamental Astronomy) software collection.
+**
+**  Status:  support function.
+**
+**  Given:
+**     ha     double     hour angle
+**     dec    double     declination
+**     phi    double     site latitude
+**
+**  Returned (function value):
+**            double     parallactic angle
+**
+**  Notes:
+**
+**  1)  All the arguments are angles in radians.
+**
+**  2)  The parallactic angle at a point in the sky is the position
+**      angle of the vertical, i.e. the angle between the directions to
+**      the north celestial pole and to the zenith respectively.
+**
+**  3)  The result is returned in the range -pi to +pi.
+**
+**  4)  At the pole itself a zero result is returned.
+**
+**  5)  The latitude phi is pi/2 minus the angle between the Earth's
+**      rotation axis and the adopted zenith.  In many applications it
+**      will be sufficient to use the published geodetic latitude of the
+**      site.  In very precise (sub-arcsecond) applications, phi can be
+**      corrected for polar motion.
+**
+**  6)  Should the user wish to work with respect to the astronomical
+**      zenith rather than the geodetic zenith, phi will need to be
+**      adjusted for deflection of the vertical (often tens of
+**      arcseconds), and the zero point of the hour angle ha will also
+**      be affected.
+**
+**  Reference:
+**     Smart, W.M., "Spherical Astronomy", Cambridge University Press,
+**     6th edition (Green, 1977), p49.
+**
+**  Last revision:   2017 September 12
+**
+**  SOFA release 2018-01-30
+**
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+*/
+{
+   var cp, cqsz, sqsz;
+
+
+   cp = Math.cos(phi);
+   sqsz = cp*Math.sin(ha);
+   cqsz = Math.sin(phi)*Math.cos(dec) - cp*Math.sin(dec)*Math.cos(ha);
+   return ( ( sqsz != 0.0 || cqsz != 0.0 ) ? Math.atan2(sqsz,cqsz) : 0.0 );
+
+/* Finished. */
+
+/*
+ *+----------------------------------------------------------------------
+ *
+ *  IAU SOFA functions converted to JS
+ *  http:://www.github.com/mgreter/sofa.js
+ *  2016 by Marcel Greter
+ *
+ *  The conversion is done by a custom hacked perl script.
+ *  Automatically generates QUnit tests for all functions.
+ *
+ *  Please read notice below, as all rights go to the Standards
+ *  Of Fundamental Astronomy (SOFA) Review Board of the International
+ *  Astronomical Union, as far as applicable. There is no guarantee
+ *  that the conversion is bug free and I give no warranty of
+ *  usability or correctness whatsoever.
+ *
+ *  The agreement below (3c/d) says that functions should
+ *  be renamed. From the preface I guess this only applies
+ *  if the function behavior was changed in any way. Since
+ *  this is a one-to-one conversion, it shouldn't apply?
+ *
+ *+----------------------------------------------------------------------
+ * SOFA-Issue: 2016-05-03
+ *+----------------------------------------------------------------------
+ *
+ *  Copyright (C) 2016
+ *  Standards Of Fundamental Astronomy Review Board
+ *  of the International Astronomical Union.
+ *
+ *  =====================
+ *  SOFA Software License
+ *  =====================
+ *
+ *  NOTICE TO USER:
+ *
+ *  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING TERMS AND CONDITIONS
+ *  WHICH APPLY TO ITS USE.
+ *
+ *  1. The Software is owned by the IAU SOFA Review Board ("the Board").
+ *
+ *  2. Permission is granted to anyone to use the SOFA software for any
+ *     purpose, including commercial applications, free of charge and
+ *     without payment of royalties, subject to the conditions and
+ *     restrictions listed below.
+ *
+ *  3. You (the user) may copy and adapt the SOFA software and its
+ *     algorithms for your own purposes and you may copy and distribute
+ *     a resulting "derived work" to others on a world-wide, royalty-free
+ *     basis, provided that the derived work complies with the following
+ *     requirements:
+ *
+ *     a) Your work shall be marked or carry a statement that it (i) uses
+ *        routines and computations derived by you from software provided
+ *        by SOFA under license to you; and (ii) does not contain
+ *        software provided by SOFA or software that has been distributed
+ *        by or endorsed by SOFA.
+ *
+ *     b) The source code of your derived work must contain descriptions
+ *        of how the derived work is based upon and/or differs from the
+ *        original SOFA software.
+ *
+ *     c) The name(s) of all routine(s) that you distribute shall differ
+ *        from the SOFA names, even when the SOFA content has not been
+ *        otherwise changed.
+ *
+ *     d) The routine-naming prefix "iau" shall not be used.
+ *
+ *     e) The origin of the SOFA components of your derived work must not
+ *        be misrepresented;  you must not claim that you wrote the
+ *        original software, nor file a patent application for SOFA
+ *        software or algorithms embedded in the SOFA software.
+ *
+ *     f) These requirements must be reproduced intact in any source
+ *        distribution and shall apply to anyone to whom you have granted
+ *        a further right to modify the source code of your derived work.
+ *
+ *  4. In any published work or commercial products which includes
+ *     results achieved by using the SOFA software, you shall acknowledge
+ *     that the SOFA software was used in obtaining those results.
+ *
+ *  5. You shall not cause the SOFA software to be brought into
+ *     disrepute, either by misuse, or use for inappropriate tasks, or by
+ *     inappropriate modification.
+ *
+ *  6. The SOFA software is provided "as is" and the Board makes no
+ *     warranty as to its use or performance.   The Board does not and
+ *     cannot warrant the performance or results which the user may obtain
+ *     by using the SOFA software.  The Board makes no warranties, express
+ *     or implied, as to non-infringement of third party rights,
+ *     merchantability, or fitness for any particular purpose.  In no
+ *     event will the Board be liable to the user for any consequential,
+ *     incidental, or special damages, including any lost profits or lost
+ *     savings, even if a Board representative has been advised of such
+ *     damages, or for any claim by any third party.
+ *
+ *  7. The provision of any version of the SOFA software under the terms
+ *     and conditions specified herein does not imply that future
+ *     versions will also be made available under the same terms and
+ *     conditions.
+
+ *  Correspondence concerning SOFA software should be addressed as
+ *  follows:
+ *
+ *     Internet email: sofa@rl.ac.uk
+ *     Postal address: IAU SOFA Center
+ *                     Rutherford Appleton Laboratory
+ *                     Chilton, Didcot, Oxon OX11 0QX
+ *                     United Kingdom
+ *
+ *-----------------------------------------------------------------------
+*/
+
+}
+;
+function iauTpors(xi, eta, a, b)
+/*
+**  - - - - - - - - -
+**   i a u T p o r s
+**  - - - - - - - - -
+**
+**  In the tangent plane projection, given the rectangular coordinates
+**  of a star and its spherical coordinates, determine the spherical
+**  coordinates of the tangent point.
+**
+**  This function is part of the International Astronomical Union's
+**  SOFA (Standards of Fundamental Astronomy) software collection.
+**
+**  Status:  support function.
+**
+**  Given:
+**     xi,eta     double  rectangular coordinates of star image (Note 2)
+**     a,b        double  star's spherical coordinates (Note 3)
+**
+**  Returned:
+**     *a01,*b01  double  tangent point's spherical coordinates, Soln. 1
+**     *a02,*b02  double  tangent point's spherical coordinates, Soln. 2
+**
+**  Returned (function value):
+**                int     number of solutions:
+**                        0 = no solutions returned (Note 5)
+**                        1 = only the first solution is useful (Note 6)
+**                        2 = both solutions are useful (Note 6)
+**
+**  Notes:
+**
+**  1) The tangent plane projection is also called the "gnomonic
+**     projection" and the "central projection".
+**
+**  2) The eta axis points due north in the adopted coordinate system.
+**     If the spherical coordinates are observed (RA,Dec), the tangent
+**     plane coordinates (xi,eta) are conventionally called the
+**     "standard coordinates".  If the spherical coordinates are with
+**     respect to a right-handed triad, (xi,eta) are also right-handed.
+**     The units of (xi,eta) are, effectively, radians at the tangent
+**     point.
+**
+**  3) All angular arguments are in radians.
+**
+**  4) The angles a01 and a02 are returned in the range 0-2pi.  The
+**     angles b01 and b02 are returned in the range +/-pi, but in the
+**     usual, non-pole-crossing, case, the range is +/-pi/2.
+**
+**  5) Cases where there is no solution can arise only near the poles.
+**     For example, it is clearly impossible for a star at the pole
+**     itself to have a non-zero xi value, and hence it is meaningless
+**     to ask where the tangent point would have to be to bring about
+**     this combination of xi and dec.
+**
+**  6) Also near the poles, cases can arise where there are two useful
+**     solutions.  The return value indicates whether the second of the
+**     two solutions returned is useful;  1 indicates only one useful
+**     solution, the usual case.
+**
+**  7) The basis of the algorithm is to solve the spherical triangle PSC,
+**     where P is the north celestial pole, S is the star and C is the
+**     tangent point.  The spherical coordinates of the tangent point are
+**     [a0,b0];  writing rho^2 = (xi^2+eta^2) and r^2 = (1+rho^2), side c
+**     is then (pi/2-b), side p is sqrt(xi^2+eta^2) and side s (to be
+**     found) is (pi/2-b0).  Angle C is given by sin(C) = xi/rho and
+**     cos(C) = eta/rho.  Angle P (to be found) is the longitude
+**     difference between star and tangent point (a-a0).
+**
+**  8) This function is a member of the following set:
+**
+**         spherical      vector         solve for
+**
+**         iauTpxes      iauTpxev         xi,eta
+**         iauTpsts      iauTpstv          star
+**       > iauTpors <    iauTporv         origin
+**
+**  Called:
+**     iauAnp       normalize angle into range 0 to 2pi
+**
+**  References:
+**
+**     Calabretta M.R. & Greisen, E.W., 2002, "Representations of
+**     celestial coordinates in FITS", Astron.Astrophys. 395, 1077
+**
+**     Green, R.M., "Spherical Astronomy", Cambridge University Press,
+**     1987, Chapter 13.
+**
+**  This revision:   2018 January 2
+**
+**  SOFA release 2018-01-30
+**
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+*/
+{
+   var a01 = 0.0;;
+   var b01 = 0.0;;
+   var a02 = 0.0;;
+   var b02 = 0.0;;
+
+
+   var xi2, r, sb, cb, rsb, rcb, w2, w, s, c;
+
+
+   xi2 = xi*xi;
+   r = Math.sqrt(1.0 + xi2 + eta*eta);
+   sb = Math.sin(b);
+   cb = Math.cos(b);
+   rsb = r*sb;
+   rcb = r*cb;
+   w2 = rcb*rcb - xi2;
+   if ( w2 >= 0.0 ) {
+      w = Math.sqrt(w2);
+      s = rsb - eta*w;
+      c = rsb*eta + w;
+      if ( xi == 0.0 && w == 0.0 ) w = 1.0;
+      a01 = iauAnp(a - Math.atan2(xi, w));
+      b01 = Math.atan2(s,c);
+      w = -w;
+      s = rsb - eta*w;
+      c = rsb*eta + w;
+      a02 = iauAnp(a - Math.atan2(xi, w));
+      b02 = Math.atan2(s,c);
+      return [ (Math.abs(rsb) < 1.0) ? 1 : 2, a01, b01, a02, b02 ];
+   } else {
+      return [ 0, a01, b01, a02, b02 ];
+   }
+
+/* Finished. */
+
+/*
+ *+----------------------------------------------------------------------
+ *
+ *  IAU SOFA functions converted to JS
+ *  http:://www.github.com/mgreter/sofa.js
+ *  2016 by Marcel Greter
+ *
+ *  The conversion is done by a custom hacked perl script.
+ *  Automatically generates QUnit tests for all functions.
+ *
+ *  Please read notice below, as all rights go to the Standards
+ *  Of Fundamental Astronomy (SOFA) Review Board of the International
+ *  Astronomical Union, as far as applicable. There is no guarantee
+ *  that the conversion is bug free and I give no warranty of
+ *  usability or correctness whatsoever.
+ *
+ *  The agreement below (3c/d) says that functions should
+ *  be renamed. From the preface I guess this only applies
+ *  if the function behavior was changed in any way. Since
+ *  this is a one-to-one conversion, it shouldn't apply?
+ *
+ *+----------------------------------------------------------------------
+ * SOFA-Issue: 2016-05-03
+ *+----------------------------------------------------------------------
+ *
+ *  Copyright (C) 2016
+ *  Standards Of Fundamental Astronomy Review Board
+ *  of the International Astronomical Union.
+ *
+ *  =====================
+ *  SOFA Software License
+ *  =====================
+ *
+ *  NOTICE TO USER:
+ *
+ *  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING TERMS AND CONDITIONS
+ *  WHICH APPLY TO ITS USE.
+ *
+ *  1. The Software is owned by the IAU SOFA Review Board ("the Board").
+ *
+ *  2. Permission is granted to anyone to use the SOFA software for any
+ *     purpose, including commercial applications, free of charge and
+ *     without payment of royalties, subject to the conditions and
+ *     restrictions listed below.
+ *
+ *  3. You (the user) may copy and adapt the SOFA software and its
+ *     algorithms for your own purposes and you may copy and distribute
+ *     a resulting "derived work" to others on a world-wide, royalty-free
+ *     basis, provided that the derived work complies with the following
+ *     requirements:
+ *
+ *     a) Your work shall be marked or carry a statement that it (i) uses
+ *        routines and computations derived by you from software provided
+ *        by SOFA under license to you; and (ii) does not contain
+ *        software provided by SOFA or software that has been distributed
+ *        by or endorsed by SOFA.
+ *
+ *     b) The source code of your derived work must contain descriptions
+ *        of how the derived work is based upon and/or differs from the
+ *        original SOFA software.
+ *
+ *     c) The name(s) of all routine(s) that you distribute shall differ
+ *        from the SOFA names, even when the SOFA content has not been
+ *        otherwise changed.
+ *
+ *     d) The routine-naming prefix "iau" shall not be used.
+ *
+ *     e) The origin of the SOFA components of your derived work must not
+ *        be misrepresented;  you must not claim that you wrote the
+ *        original software, nor file a patent application for SOFA
+ *        software or algorithms embedded in the SOFA software.
+ *
+ *     f) These requirements must be reproduced intact in any source
+ *        distribution and shall apply to anyone to whom you have granted
+ *        a further right to modify the source code of your derived work.
+ *
+ *  4. In any published work or commercial products which includes
+ *     results achieved by using the SOFA software, you shall acknowledge
+ *     that the SOFA software was used in obtaining those results.
+ *
+ *  5. You shall not cause the SOFA software to be brought into
+ *     disrepute, either by misuse, or use for inappropriate tasks, or by
+ *     inappropriate modification.
+ *
+ *  6. The SOFA software is provided "as is" and the Board makes no
+ *     warranty as to its use or performance.   The Board does not and
+ *     cannot warrant the performance or results which the user may obtain
+ *     by using the SOFA software.  The Board makes no warranties, express
+ *     or implied, as to non-infringement of third party rights,
+ *     merchantability, or fitness for any particular purpose.  In no
+ *     event will the Board be liable to the user for any consequential,
+ *     incidental, or special damages, including any lost profits or lost
+ *     savings, even if a Board representative has been advised of such
+ *     damages, or for any claim by any third party.
+ *
+ *  7. The provision of any version of the SOFA software under the terms
+ *     and conditions specified herein does not imply that future
+ *     versions will also be made available under the same terms and
+ *     conditions.
+
+ *  Correspondence concerning SOFA software should be addressed as
+ *  follows:
+ *
+ *     Internet email: sofa@rl.ac.uk
+ *     Postal address: IAU SOFA Center
+ *                     Rutherford Appleton Laboratory
+ *                     Chilton, Didcot, Oxon OX11 0QX
+ *                     United Kingdom
+ *
+ *-----------------------------------------------------------------------
+*/
+
+}
+;
+function iauTporv(xi, eta, v)
+/*
+**  - - - - - - - - -
+**   i a u T p o r v
+**  - - - - - - - - -
+**
+**  In the tangent plane projection, given the rectangular coordinates
+**  of a star and its direction cosines, determine the direction
+**  cosines of the tangent point.
+**
+**  This function is part of the International Astronomical Union's
+**  SOFA (Standards of Fundamental Astronomy) software collection.
+**
+**  Status:  support function.
+**
+**  Given:
+**     xi,eta   double    rectangular coordinates of star image (Note 2)
+**     v        double[3] star's direction cosines (Note 3)
+**
+**  Returned:
+**     v01      double[3] tangent point's direction cosines, Solution 1
+**     v02      double[3] tangent point's direction cosines, Solution 2
+**
+**  Returned (function value):
+**                int     number of solutions:
+**                        0 = no solutions returned (Note 4)
+**                        1 = only the first solution is useful (Note 5)
+**                        2 = both solutions are useful (Note 5)
+**
+**  Notes:
+**
+**  1) The tangent plane projection is also called the "gnomonic
+**     projection" and the "central projection".
+**
+**  2) The eta axis points due north in the adopted coordinate system.
+**     If the direction cosines represent observed (RA,Dec), the tangent
+**     plane coordinates (xi,eta) are conventionally called the
+**     "standard coordinates".  If the direction cosines are with
+**     respect to a right-handed triad, (xi,eta) are also right-handed.
+**     The units of (xi,eta) are, effectively, radians at the tangent
+**     point.
+**
+**  3) The vector v must be of unit length or the result will be wrong.
+**
+**  4) Cases where there is no solution can arise only near the poles.
+**     For example, it is clearly impossible for a star at the pole
+**     itself to have a non-zero xi value, and hence it is meaningless
+**     to ask where the tangent point would have to be.
+**
+**  5) Also near the poles, cases can arise where there are two useful
+**     solutions.  The return value indicates whether the second of the
+**     two solutions returned is useful;  1 indicates only one useful
+**     solution, the usual case.
+**
+**  6) The basis of the algorithm is to solve the spherical triangle
+**     PSC, where P is the north celestial pole, S is the star and C is
+**     the tangent point.  Calling the celestial spherical coordinates
+**     of the star and tangent point (a,b) and (a0,b0) respectively, and
+**     writing rho^2 = (xi^2+eta^2) and r^2 = (1+rho^2), and
+**     transforming the vector v into (a,b) in the normal way, side c is
+**     then (pi/2-b), side p is sqrt(xi^2+eta^2) and side s (to be
+**     found) is (pi/2-b0), while angle C is given by sin(C) = xi/rho
+**     and cos(C) = eta/rho;  angle P (to be found) is (a-a0).  After
+**     solving the spherical triangle, the result (a0,b0) can be
+**     expressed in vector form as v0.
+**
+**  7) This function is a member of the following set:
+**
+**         spherical      vector         solve for
+**
+**         iauTpxes      iauTpxev         xi,eta
+**         iauTpsts      iauTpstv          star
+**         iauTpors    > iauTporv <       origin
+**
+**  References:
+**
+**     Calabretta M.R. & Greisen, E.W., 2002, "Representations of
+**     celestial coordinates in FITS", Astron.Astrophys. 395, 1077
+**
+**     Green, R.M., "Spherical Astronomy", Cambridge University Press,
+**     1987, Chapter 13.
+**
+**  This revision:   2018 January 2
+**
+**  SOFA release 2018-01-30
+**
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+*/
+{
+   var v01 = [0, 0, 0];;
+   var v02 = [0, 0, 0];;
+
+
+   var x, y, z, rxy2, xi2, eta2p1, r, rsb, rcb, w2, w, c;
+
+
+   x = v[0];
+   y = v[1];
+   z = v[2];
+   rxy2 = x*x + y*y;
+   xi2 = xi*xi;
+   eta2p1 = eta*eta + 1.0;
+   r = Math.sqrt(xi2 + eta2p1);
+   rsb = r*z;
+   rcb = r*Math.sqrt(x*x + y*y);
+   w2 = rcb*rcb - xi2;
+   if ( w2 > 0.0 ) {
+      w = Math.sqrt(w2);
+      c = (rsb*eta + w) / (eta2p1*Math.sqrt(rxy2*(w2+xi2)));
+      v01[0] = c * (x*w + y*xi);
+      v01[1] = c * (y*w - x*xi);
+      v01[2] = (rsb - eta*w) / eta2p1;
+      w = - w;
+      c = (rsb*eta + w) / (eta2p1*Math.sqrt(rxy2*(w2+xi2)));
+      v02[0] = c * (x*w + y*xi);
+      v02[1] = c * (y*w - x*xi);
+      v02[2] = (rsb - eta*w) / eta2p1;
+      return [ (Math.abs(rsb) < 1.0) ? 1 : 2, v01, v02 ];
+   } else {
+      return [ 0, v01, v02 ];
+   }
+
+/* Finished. */
+
+/*
+ *+----------------------------------------------------------------------
+ *
+ *  IAU SOFA functions converted to JS
+ *  http:://www.github.com/mgreter/sofa.js
+ *  2016 by Marcel Greter
+ *
+ *  The conversion is done by a custom hacked perl script.
+ *  Automatically generates QUnit tests for all functions.
+ *
+ *  Please read notice below, as all rights go to the Standards
+ *  Of Fundamental Astronomy (SOFA) Review Board of the International
+ *  Astronomical Union, as far as applicable. There is no guarantee
+ *  that the conversion is bug free and I give no warranty of
+ *  usability or correctness whatsoever.
+ *
+ *  The agreement below (3c/d) says that functions should
+ *  be renamed. From the preface I guess this only applies
+ *  if the function behavior was changed in any way. Since
+ *  this is a one-to-one conversion, it shouldn't apply?
+ *
+ *+----------------------------------------------------------------------
+ * SOFA-Issue: 2016-05-03
+ *+----------------------------------------------------------------------
+ *
+ *  Copyright (C) 2016
+ *  Standards Of Fundamental Astronomy Review Board
+ *  of the International Astronomical Union.
+ *
+ *  =====================
+ *  SOFA Software License
+ *  =====================
+ *
+ *  NOTICE TO USER:
+ *
+ *  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING TERMS AND CONDITIONS
+ *  WHICH APPLY TO ITS USE.
+ *
+ *  1. The Software is owned by the IAU SOFA Review Board ("the Board").
+ *
+ *  2. Permission is granted to anyone to use the SOFA software for any
+ *     purpose, including commercial applications, free of charge and
+ *     without payment of royalties, subject to the conditions and
+ *     restrictions listed below.
+ *
+ *  3. You (the user) may copy and adapt the SOFA software and its
+ *     algorithms for your own purposes and you may copy and distribute
+ *     a resulting "derived work" to others on a world-wide, royalty-free
+ *     basis, provided that the derived work complies with the following
+ *     requirements:
+ *
+ *     a) Your work shall be marked or carry a statement that it (i) uses
+ *        routines and computations derived by you from software provided
+ *        by SOFA under license to you; and (ii) does not contain
+ *        software provided by SOFA or software that has been distributed
+ *        by or endorsed by SOFA.
+ *
+ *     b) The source code of your derived work must contain descriptions
+ *        of how the derived work is based upon and/or differs from the
+ *        original SOFA software.
+ *
+ *     c) The name(s) of all routine(s) that you distribute shall differ
+ *        from the SOFA names, even when the SOFA content has not been
+ *        otherwise changed.
+ *
+ *     d) The routine-naming prefix "iau" shall not be used.
+ *
+ *     e) The origin of the SOFA components of your derived work must not
+ *        be misrepresented;  you must not claim that you wrote the
+ *        original software, nor file a patent application for SOFA
+ *        software or algorithms embedded in the SOFA software.
+ *
+ *     f) These requirements must be reproduced intact in any source
+ *        distribution and shall apply to anyone to whom you have granted
+ *        a further right to modify the source code of your derived work.
+ *
+ *  4. In any published work or commercial products which includes
+ *     results achieved by using the SOFA software, you shall acknowledge
+ *     that the SOFA software was used in obtaining those results.
+ *
+ *  5. You shall not cause the SOFA software to be brought into
+ *     disrepute, either by misuse, or use for inappropriate tasks, or by
+ *     inappropriate modification.
+ *
+ *  6. The SOFA software is provided "as is" and the Board makes no
+ *     warranty as to its use or performance.   The Board does not and
+ *     cannot warrant the performance or results which the user may obtain
+ *     by using the SOFA software.  The Board makes no warranties, express
+ *     or implied, as to non-infringement of third party rights,
+ *     merchantability, or fitness for any particular purpose.  In no
+ *     event will the Board be liable to the user for any consequential,
+ *     incidental, or special damages, including any lost profits or lost
+ *     savings, even if a Board representative has been advised of such
+ *     damages, or for any claim by any third party.
+ *
+ *  7. The provision of any version of the SOFA software under the terms
+ *     and conditions specified herein does not imply that future
+ *     versions will also be made available under the same terms and
+ *     conditions.
+
+ *  Correspondence concerning SOFA software should be addressed as
+ *  follows:
+ *
+ *     Internet email: sofa@rl.ac.uk
+ *     Postal address: IAU SOFA Center
+ *                     Rutherford Appleton Laboratory
+ *                     Chilton, Didcot, Oxon OX11 0QX
+ *                     United Kingdom
+ *
+ *-----------------------------------------------------------------------
+*/
+
+}
+;
+function iauTpsts(xi, eta, a0, b0)
+/*
+**  - - - - - - - - -
+**   i a u T p s t s
+**  - - - - - - - - -
+**
+**  In the tangent plane projection, given the star's rectangular
+**  coordinates and the spherical coordinates of the tangent point,
+**  solve for the spherical coordinates of the star.
+**
+**  This function is part of the International Astronomical Union's
+**  SOFA (Standards of Fundamental Astronomy) software collection.
+**
+**  Status:  support function.
+**
+**  Given:
+**     xi,eta    double  rectangular coordinates of star image (Note 2)
+**     a0,b0     double  tangent point's spherical coordinates
+**
+**  Returned:
+**     *a,*b     double  star's spherical coordinates
+**
+**  1) The tangent plane projection is also called the "gnomonic
+**     projection" and the "central projection".
+**
+**  2) The eta axis points due north in the adopted coordinate system.
+**     If the spherical coordinates are observed (RA,Dec), the tangent
+**     plane coordinates (xi,eta) are conventionally called the
+**     "standard coordinates".  If the spherical coordinates are with
+**     respect to a right-handed triad, (xi,eta) are also right-handed.
+**     The units of (xi,eta) are, effectively, radians at the tangent
+**     point.
+**
+**  3) All angular arguments are in radians.
+**
+**  4) This function is a member of the following set:
+**
+**         spherical      vector         solve for
+**
+**         iauTpxes      iauTpxev         xi,eta
+**       > iauTpsts <    iauTpstv          star
+**         iauTpors      iauTporv         origin
+**
+**  Called:
+**     iauAnp       normalize angle into range 0 to 2pi
+**
+**  References:
+**
+**     Calabretta M.R. & Greisen, E.W., 2002, "Representations of
+**     celestial coordinates in FITS", Astron.Astrophys. 395, 1077
+**
+**     Green, R.M., "Spherical Astronomy", Cambridge University Press,
+**     1987, Chapter 13.
+**
+**  This revision:   2018 January 2
+**
+**  SOFA release 2018-01-30
+**
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+*/
+{
+   var a = 0.0;;
+   var b = 0.0;;
+
+
+   var sb0, cb0, d;
+
+   sb0 = Math.sin(b0);
+   cb0 = Math.cos(b0);
+   d = cb0 - eta*sb0;
+   a = iauAnp(Math.atan2(xi, d) + a0);
+   b = Math.atan2(sb0+eta*cb0, Math.sqrt(xi*xi+d*d));
+
+/* Finished. */
+
+/*
+ *+----------------------------------------------------------------------
+ *
+ *  IAU SOFA functions converted to JS
+ *  http:://www.github.com/mgreter/sofa.js
+ *  2016 by Marcel Greter
+ *
+ *  The conversion is done by a custom hacked perl script.
+ *  Automatically generates QUnit tests for all functions.
+ *
+ *  Please read notice below, as all rights go to the Standards
+ *  Of Fundamental Astronomy (SOFA) Review Board of the International
+ *  Astronomical Union, as far as applicable. There is no guarantee
+ *  that the conversion is bug free and I give no warranty of
+ *  usability or correctness whatsoever.
+ *
+ *  The agreement below (3c/d) says that functions should
+ *  be renamed. From the preface I guess this only applies
+ *  if the function behavior was changed in any way. Since
+ *  this is a one-to-one conversion, it shouldn't apply?
+ *
+ *+----------------------------------------------------------------------
+ * SOFA-Issue: 2016-05-03
+ *+----------------------------------------------------------------------
+ *
+ *  Copyright (C) 2016
+ *  Standards Of Fundamental Astronomy Review Board
+ *  of the International Astronomical Union.
+ *
+ *  =====================
+ *  SOFA Software License
+ *  =====================
+ *
+ *  NOTICE TO USER:
+ *
+ *  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING TERMS AND CONDITIONS
+ *  WHICH APPLY TO ITS USE.
+ *
+ *  1. The Software is owned by the IAU SOFA Review Board ("the Board").
+ *
+ *  2. Permission is granted to anyone to use the SOFA software for any
+ *     purpose, including commercial applications, free of charge and
+ *     without payment of royalties, subject to the conditions and
+ *     restrictions listed below.
+ *
+ *  3. You (the user) may copy and adapt the SOFA software and its
+ *     algorithms for your own purposes and you may copy and distribute
+ *     a resulting "derived work" to others on a world-wide, royalty-free
+ *     basis, provided that the derived work complies with the following
+ *     requirements:
+ *
+ *     a) Your work shall be marked or carry a statement that it (i) uses
+ *        routines and computations derived by you from software provided
+ *        by SOFA under license to you; and (ii) does not contain
+ *        software provided by SOFA or software that has been distributed
+ *        by or endorsed by SOFA.
+ *
+ *     b) The source code of your derived work must contain descriptions
+ *        of how the derived work is based upon and/or differs from the
+ *        original SOFA software.
+ *
+ *     c) The name(s) of all routine(s) that you distribute shall differ
+ *        from the SOFA names, even when the SOFA content has not been
+ *        otherwise changed.
+ *
+ *     d) The routine-naming prefix "iau" shall not be used.
+ *
+ *     e) The origin of the SOFA components of your derived work must not
+ *        be misrepresented;  you must not claim that you wrote the
+ *        original software, nor file a patent application for SOFA
+ *        software or algorithms embedded in the SOFA software.
+ *
+ *     f) These requirements must be reproduced intact in any source
+ *        distribution and shall apply to anyone to whom you have granted
+ *        a further right to modify the source code of your derived work.
+ *
+ *  4. In any published work or commercial products which includes
+ *     results achieved by using the SOFA software, you shall acknowledge
+ *     that the SOFA software was used in obtaining those results.
+ *
+ *  5. You shall not cause the SOFA software to be brought into
+ *     disrepute, either by misuse, or use for inappropriate tasks, or by
+ *     inappropriate modification.
+ *
+ *  6. The SOFA software is provided "as is" and the Board makes no
+ *     warranty as to its use or performance.   The Board does not and
+ *     cannot warrant the performance or results which the user may obtain
+ *     by using the SOFA software.  The Board makes no warranties, express
+ *     or implied, as to non-infringement of third party rights,
+ *     merchantability, or fitness for any particular purpose.  In no
+ *     event will the Board be liable to the user for any consequential,
+ *     incidental, or special damages, including any lost profits or lost
+ *     savings, even if a Board representative has been advised of such
+ *     damages, or for any claim by any third party.
+ *
+ *  7. The provision of any version of the SOFA software under the terms
+ *     and conditions specified herein does not imply that future
+ *     versions will also be made available under the same terms and
+ *     conditions.
+
+ *  Correspondence concerning SOFA software should be addressed as
+ *  follows:
+ *
+ *     Internet email: sofa@rl.ac.uk
+ *     Postal address: IAU SOFA Center
+ *                     Rutherford Appleton Laboratory
+ *                     Chilton, Didcot, Oxon OX11 0QX
+ *                     United Kingdom
+ *
+ *-----------------------------------------------------------------------
+*/
+
+return [a, b];
+};
+function iauTpstv(xi, eta, v0)
+/*
+**  - - - - - - - - -
+**   i a u T p s t v
+**  - - - - - - - - -
+**
+**  In the tangent plane projection, given the star's rectangular
+**  coordinates and the direction cosines of the tangent point, solve
+**  for the direction cosines of the star.
+**
+**  This function is part of the International Astronomical Union's
+**  SOFA (Standards of Fundamental Astronomy) software collection.
+**
+**  Status:  support function.
+**
+**  Given:
+**     xi,eta  double     rectangular coordinates of star image (Note 2)
+**     v0      double[3]  tangent point's direction cosines
+**
+**  Returned:
+**     v       double[3]  star's direction cosines
+**
+**  1) The tangent plane projection is also called the "gnomonic
+**     projection" and the "central projection".
+**
+**  2) The eta axis points due north in the adopted coordinate system.
+**     If the direction cosines represent observed (RA,Dec), the tangent
+**     plane coordinates (xi,eta) are conventionally called the
+**     "standard coordinates".  If the direction cosines are with
+**     respect to a right-handed triad, (xi,eta) are also right-handed.
+**     The units of (xi,eta) are, effectively, radians at the tangent
+**     point.
+**
+**  3) The method used is to complete the star vector in the (xi,eta)
+**     based triad and normalize it, then rotate the triad to put the
+**     tangent point at the pole with the x-axis aligned to zero
+**     longitude.  Writing (a0,b0) for the celestial spherical
+**     coordinates of the tangent point, the sequence of rotations is
+**     (b-pi/2) around the x-axis followed by (-a-pi/2) around the
+**     z-axis.
+**
+**  4) If vector v0 is not of unit length, the returned vector v will
+**     be wrong.
+**
+**  5) If vector v0 points at a pole, the returned vector v will be
+**     based on the arbitrary assumption that the longitude coordinate
+**     of the tangent point is zero.
+**
+**  6) This function is a member of the following set:
+**
+**         spherical      vector         solve for
+**
+**         iauTpxes      iauTpxev         xi,eta
+**         iauTpsts    > iauTpstv <        star
+**         iauTpors      iauTporv         origin
+**
+**  References:
+**
+**     Calabretta M.R. & Greisen, E.W., 2002, "Representations of
+**     celestial coordinates in FITS", Astron.Astrophys. 395, 1077
+**
+**     Green, R.M., "Spherical Astronomy", Cambridge University Press,
+**     1987, Chapter 13.
+**
+**  This revision:   2018 January 2
+**
+**  SOFA release 2018-01-30
+**
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+*/
+{
+   var v = [0, 0, 0];;
+
+
+   var x, y, z, f, r;
+
+
+/* Tangent point. */
+   x = v0[0];
+   y = v0[1];
+   z = v0[2];
+
+/* Deal with polar case. */
+   r = Math.sqrt(x*x + y*y);
+   if ( r == 0.0 ) {
+      r = 1e-20;
+      x = r;
+   }
+
+/* Star vector length to tangent plane. */
+   f = Math.sqrt(1.0 + xi*xi + eta*eta);
+
+/* Apply the transformation and normalize. */
+   v[0] = (x - (xi*y + eta*x*z) / r) / f;
+   v[1] = (y + (xi*x - eta*y*z) / r) / f;
+   v[2] = (z + eta*r) / f;
+
+/* Finished. */
+
+/*
+ *+----------------------------------------------------------------------
+ *
+ *  IAU SOFA functions converted to JS
+ *  http:://www.github.com/mgreter/sofa.js
+ *  2016 by Marcel Greter
+ *
+ *  The conversion is done by a custom hacked perl script.
+ *  Automatically generates QUnit tests for all functions.
+ *
+ *  Please read notice below, as all rights go to the Standards
+ *  Of Fundamental Astronomy (SOFA) Review Board of the International
+ *  Astronomical Union, as far as applicable. There is no guarantee
+ *  that the conversion is bug free and I give no warranty of
+ *  usability or correctness whatsoever.
+ *
+ *  The agreement below (3c/d) says that functions should
+ *  be renamed. From the preface I guess this only applies
+ *  if the function behavior was changed in any way. Since
+ *  this is a one-to-one conversion, it shouldn't apply?
+ *
+ *+----------------------------------------------------------------------
+ * SOFA-Issue: 2016-05-03
+ *+----------------------------------------------------------------------
+ *
+ *  Copyright (C) 2016
+ *  Standards Of Fundamental Astronomy Review Board
+ *  of the International Astronomical Union.
+ *
+ *  =====================
+ *  SOFA Software License
+ *  =====================
+ *
+ *  NOTICE TO USER:
+ *
+ *  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING TERMS AND CONDITIONS
+ *  WHICH APPLY TO ITS USE.
+ *
+ *  1. The Software is owned by the IAU SOFA Review Board ("the Board").
+ *
+ *  2. Permission is granted to anyone to use the SOFA software for any
+ *     purpose, including commercial applications, free of charge and
+ *     without payment of royalties, subject to the conditions and
+ *     restrictions listed below.
+ *
+ *  3. You (the user) may copy and adapt the SOFA software and its
+ *     algorithms for your own purposes and you may copy and distribute
+ *     a resulting "derived work" to others on a world-wide, royalty-free
+ *     basis, provided that the derived work complies with the following
+ *     requirements:
+ *
+ *     a) Your work shall be marked or carry a statement that it (i) uses
+ *        routines and computations derived by you from software provided
+ *        by SOFA under license to you; and (ii) does not contain
+ *        software provided by SOFA or software that has been distributed
+ *        by or endorsed by SOFA.
+ *
+ *     b) The source code of your derived work must contain descriptions
+ *        of how the derived work is based upon and/or differs from the
+ *        original SOFA software.
+ *
+ *     c) The name(s) of all routine(s) that you distribute shall differ
+ *        from the SOFA names, even when the SOFA content has not been
+ *        otherwise changed.
+ *
+ *     d) The routine-naming prefix "iau" shall not be used.
+ *
+ *     e) The origin of the SOFA components of your derived work must not
+ *        be misrepresented;  you must not claim that you wrote the
+ *        original software, nor file a patent application for SOFA
+ *        software or algorithms embedded in the SOFA software.
+ *
+ *     f) These requirements must be reproduced intact in any source
+ *        distribution and shall apply to anyone to whom you have granted
+ *        a further right to modify the source code of your derived work.
+ *
+ *  4. In any published work or commercial products which includes
+ *     results achieved by using the SOFA software, you shall acknowledge
+ *     that the SOFA software was used in obtaining those results.
+ *
+ *  5. You shall not cause the SOFA software to be brought into
+ *     disrepute, either by misuse, or use for inappropriate tasks, or by
+ *     inappropriate modification.
+ *
+ *  6. The SOFA software is provided "as is" and the Board makes no
+ *     warranty as to its use or performance.   The Board does not and
+ *     cannot warrant the performance or results which the user may obtain
+ *     by using the SOFA software.  The Board makes no warranties, express
+ *     or implied, as to non-infringement of third party rights,
+ *     merchantability, or fitness for any particular purpose.  In no
+ *     event will the Board be liable to the user for any consequential,
+ *     incidental, or special damages, including any lost profits or lost
+ *     savings, even if a Board representative has been advised of such
+ *     damages, or for any claim by any third party.
+ *
+ *  7. The provision of any version of the SOFA software under the terms
+ *     and conditions specified herein does not imply that future
+ *     versions will also be made available under the same terms and
+ *     conditions.
+
+ *  Correspondence concerning SOFA software should be addressed as
+ *  follows:
+ *
+ *     Internet email: sofa@rl.ac.uk
+ *     Postal address: IAU SOFA Center
+ *                     Rutherford Appleton Laboratory
+ *                     Chilton, Didcot, Oxon OX11 0QX
+ *                     United Kingdom
+ *
+ *-----------------------------------------------------------------------
+*/
+
+return v;
+};
+function iauTpxes(a, b, a0, b0)
+/*
+**  - - - - - - - - -
+**   i a u T p x e s
+**  - - - - - - - - -
+**
+**  In the tangent plane projection, given celestial spherical
+**  coordinates for a star and the tangent point, solve for the star's
+**  rectangular coordinates in the tangent plane.
+**
+**  This function is part of the International Astronomical Union's
+**  SOFA (Standards of Fundamental Astronomy) software collection.
+**
+**  Status:  support function.
+**
+**  Given:
+**     a,b       double  star's spherical coordinates
+**     a0,b0     double  tangent point's spherical coordinates
+**
+**  Returned:
+**     *xi,*eta  double  rectangular coordinates of star image (Note 2)
+**
+**  Returned (function value):
+**               int     status:  0 = OK
+**                                1 = star too far from axis
+**                                2 = antistar on tangent plane
+**                                3 = antistar too far from axis
+**
+**  Notes:
+**
+**  1) The tangent plane projection is also called the "gnomonic
+**     projection" and the "central projection".
+**
+**  2) The eta axis points due north in the adopted coordinate system.
+**     If the spherical coordinates are observed (RA,Dec), the tangent
+**     plane coordinates (xi,eta) are conventionally called the
+**     "standard coordinates".  For right-handed spherical coordinates,
+**     (xi,eta) are also right-handed.  The units of (xi,eta) are,
+**     effectively, radians at the tangent point.
+**
+**  3) All angular arguments are in radians.
+**
+**  4) This function is a member of the following set:
+**
+**         spherical      vector         solve for
+**
+**       > iauTpxes <    iauTpxev         xi,eta
+**         iauTpsts      iauTpstv          star
+**         iauTpors      iauTporv         origin
+**
+**  References:
+**
+**     Calabretta M.R. & Greisen, E.W., 2002, "Representations of
+**     celestial coordinates in FITS", Astron.Astrophys. 395, 1077
+**
+**     Green, R.M., "Spherical Astronomy", Cambridge University Press,
+**     1987, Chapter 13.
+**
+**  This revision:   2018 January 2
+**
+**  SOFA release 2018-01-30
+**
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+*/
+{
+   var xi = 0.0;;
+   var eta = 0.0;;
+
+
+   var TINY = 1e-6;
+   var j;
+   var sb0, sb, cb0, cb, da, sda, cda, d;
+
+
+/* Functions of the spherical coordinates. */
+   sb0 = Math.sin(b0);
+   sb = Math.sin(b);
+   cb0 = Math.cos(b0);
+   cb = Math.cos(b);
+   da = a - a0;
+   sda = Math.sin(da);
+   cda = Math.cos(da);
+
+/* Reciprocal of star vector length to tangent plane. */
+   d = sb*sb0 + cb*cb0*cda;
+
+/* Check for error cases. */
+   if ( d > TINY ) {
+      j = 0;
+   } else if ( d >= 0.0 ) {
+      j = 1;
+      d = TINY;
+   } else if ( d > -TINY ) {
+      j = 2;
+      d = -TINY;
+   } else {
+      j = 3;
+   }
+
+/* Return the tangent plane coordinates (even in dubious cases). */
+   xi = cb*sda / d;
+   eta = (sb*cb0 - cb*sb0*cda) / d;
+
+/* Return the status. */
+   return [ j, xi, eta ];
+
+/* Finished. */
+
+/*
+ *+----------------------------------------------------------------------
+ *
+ *  IAU SOFA functions converted to JS
+ *  http:://www.github.com/mgreter/sofa.js
+ *  2016 by Marcel Greter
+ *
+ *  The conversion is done by a custom hacked perl script.
+ *  Automatically generates QUnit tests for all functions.
+ *
+ *  Please read notice below, as all rights go to the Standards
+ *  Of Fundamental Astronomy (SOFA) Review Board of the International
+ *  Astronomical Union, as far as applicable. There is no guarantee
+ *  that the conversion is bug free and I give no warranty of
+ *  usability or correctness whatsoever.
+ *
+ *  The agreement below (3c/d) says that functions should
+ *  be renamed. From the preface I guess this only applies
+ *  if the function behavior was changed in any way. Since
+ *  this is a one-to-one conversion, it shouldn't apply?
+ *
+ *+----------------------------------------------------------------------
+ * SOFA-Issue: 2016-05-03
+ *+----------------------------------------------------------------------
+ *
+ *  Copyright (C) 2016
+ *  Standards Of Fundamental Astronomy Review Board
+ *  of the International Astronomical Union.
+ *
+ *  =====================
+ *  SOFA Software License
+ *  =====================
+ *
+ *  NOTICE TO USER:
+ *
+ *  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING TERMS AND CONDITIONS
+ *  WHICH APPLY TO ITS USE.
+ *
+ *  1. The Software is owned by the IAU SOFA Review Board ("the Board").
+ *
+ *  2. Permission is granted to anyone to use the SOFA software for any
+ *     purpose, including commercial applications, free of charge and
+ *     without payment of royalties, subject to the conditions and
+ *     restrictions listed below.
+ *
+ *  3. You (the user) may copy and adapt the SOFA software and its
+ *     algorithms for your own purposes and you may copy and distribute
+ *     a resulting "derived work" to others on a world-wide, royalty-free
+ *     basis, provided that the derived work complies with the following
+ *     requirements:
+ *
+ *     a) Your work shall be marked or carry a statement that it (i) uses
+ *        routines and computations derived by you from software provided
+ *        by SOFA under license to you; and (ii) does not contain
+ *        software provided by SOFA or software that has been distributed
+ *        by or endorsed by SOFA.
+ *
+ *     b) The source code of your derived work must contain descriptions
+ *        of how the derived work is based upon and/or differs from the
+ *        original SOFA software.
+ *
+ *     c) The name(s) of all routine(s) that you distribute shall differ
+ *        from the SOFA names, even when the SOFA content has not been
+ *        otherwise changed.
+ *
+ *     d) The routine-naming prefix "iau" shall not be used.
+ *
+ *     e) The origin of the SOFA components of your derived work must not
+ *        be misrepresented;  you must not claim that you wrote the
+ *        original software, nor file a patent application for SOFA
+ *        software or algorithms embedded in the SOFA software.
+ *
+ *     f) These requirements must be reproduced intact in any source
+ *        distribution and shall apply to anyone to whom you have granted
+ *        a further right to modify the source code of your derived work.
+ *
+ *  4. In any published work or commercial products which includes
+ *     results achieved by using the SOFA software, you shall acknowledge
+ *     that the SOFA software was used in obtaining those results.
+ *
+ *  5. You shall not cause the SOFA software to be brought into
+ *     disrepute, either by misuse, or use for inappropriate tasks, or by
+ *     inappropriate modification.
+ *
+ *  6. The SOFA software is provided "as is" and the Board makes no
+ *     warranty as to its use or performance.   The Board does not and
+ *     cannot warrant the performance or results which the user may obtain
+ *     by using the SOFA software.  The Board makes no warranties, express
+ *     or implied, as to non-infringement of third party rights,
+ *     merchantability, or fitness for any particular purpose.  In no
+ *     event will the Board be liable to the user for any consequential,
+ *     incidental, or special damages, including any lost profits or lost
+ *     savings, even if a Board representative has been advised of such
+ *     damages, or for any claim by any third party.
+ *
+ *  7. The provision of any version of the SOFA software under the terms
+ *     and conditions specified herein does not imply that future
+ *     versions will also be made available under the same terms and
+ *     conditions.
+
+ *  Correspondence concerning SOFA software should be addressed as
+ *  follows:
+ *
+ *     Internet email: sofa@rl.ac.uk
+ *     Postal address: IAU SOFA Center
+ *                     Rutherford Appleton Laboratory
+ *                     Chilton, Didcot, Oxon OX11 0QX
+ *                     United Kingdom
+ *
+ *-----------------------------------------------------------------------
+*/
+
+}
+;
+function iauTpxev(v, v0)
+/*
+**  - - - - - - - - -
+**   i a u T p x e v
+**  - - - - - - - - -
+**
+**  In the tangent plane projection, given celestial direction cosines
+**  for a star and the tangent point, solve for the star's rectangular
+**  coordinates in the tangent plane.
+**
+**  This function is part of the International Astronomical Union's
+**  SOFA (Standards of Fundamental Astronomy) software collection.
+**
+**  Status:  support function.
+**
+**  Given:
+**     v         double[3]  direction cosines of star (Note 4)
+**     v0        double[3]  direction cosines of tangent point (Note 4)
+**
+**  Returned:
+**     *xi,*eta  double     tangent plane coordinates of star
+**
+**  Returned (function value):
+**               int        status: 0 = OK
+**                                  1 = star too far from axis
+**                                  2 = antistar on tangent plane
+**                                  3 = antistar too far from axis
+**
+**  Notes:
+**
+**  1) The tangent plane projection is also called the "gnomonic
+**     projection" and the "central projection".
+**
+**  2) The eta axis points due north in the adopted coordinate system.
+**     If the direction cosines represent observed (RA,Dec), the tangent
+**     plane coordinates (xi,eta) are conventionally called the
+**     "standard coordinates".  If the direction cosines are with
+**     respect to a right-handed triad, (xi,eta) are also right-handed.
+**     The units of (xi,eta) are, effectively, radians at the tangent
+**     point.
+**
+**  3) The method used is to extend the star vector to the tangent
+**     plane and then rotate the triad so that (x,y) becomes (xi,eta).
+**     Writing (a,b) for the celestial spherical coordinates of the
+**     star, the sequence of rotations is (a+pi/2) around the z-axis
+**     followed by (pi/2-b) around the x-axis.
+**
+**  4) If vector v0 is not of unit length, or if vector v is of zero
+**     length, the results will be wrong.
+**
+**  5) If v0 points at a pole, the returned (xi,eta) will be based on
+**     the arbitrary assumption that the longitude coordinate of the
+**     tangent point is zero.
+**
+**  6) This function is a member of the following set:
+**
+**         spherical      vector         solve for
+**
+**         iauTpxes    > iauTpxev <       xi,eta
+**         iauTpsts      iauTpstv          star
+**         iauTpors      iauTporv         origin
+**
+**  References:
+**
+**     Calabretta M.R. & Greisen, E.W., 2002, "Representations of
+**     celestial coordinates in FITS", Astron.Astrophys. 395, 1077
+**
+**     Green, R.M., "Spherical Astronomy", Cambridge University Press,
+**     1987, Chapter 13.
+**
+**  This revision:   2018 January 2
+**
+**  SOFA release 2018-01-30
+**
+**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+*/
+{
+   var xi = 0.0;;
+   var eta = 0.0;;
+
+
+   var TINY = 1e-6;
+   var j;
+   var x, y, z, x0, y0, z0, r2, r, w, d;
+
+
+/* Star and tangent point. */
+   x = v[0];
+   y = v[1];
+   z = v[2];
+   x0 = v0[0];
+   y0 = v0[1];
+   z0 = v0[2];
+
+/* Deal with polar case. */
+   r2 = x0*x0 + y0*y0;
+   r = Math.sqrt(r2);
+   if ( r == 0.0 ) {
+      r = 1e-20;
+      x0 = r;
+   }
+
+/* Reciprocal of star vector length to tangent plane. */
+   w = x*x0 + y*y0;
+   d = w + z*z0;
+
+/* Check for error cases. */
+   if ( d > TINY ) {
+      j = 0;
+   } else if ( d >= 0.0 ) {
+      j = 1;
+      d = TINY;
+   } else if ( d > -TINY ) {
+      j = 2;
+      d = -TINY;
+   } else {
+      j = 3;
+   }
+
+/* Return the tangent plane coordinates (even in dubious cases). */
+   d *= r;
+   xi = (y*x0 - x*y0) / d;
+   eta = (z*r2 - z0*w) / d;
+
+/* Return the status. */
+   return [ j, xi, eta ];
+
+/* Finished. */
+
+/*
+ *+----------------------------------------------------------------------
+ *
+ *  IAU SOFA functions converted to JS
+ *  http:://www.github.com/mgreter/sofa.js
+ *  2016 by Marcel Greter
+ *
+ *  The conversion is done by a custom hacked perl script.
+ *  Automatically generates QUnit tests for all functions.
+ *
+ *  Please read notice below, as all rights go to the Standards
+ *  Of Fundamental Astronomy (SOFA) Review Board of the International
+ *  Astronomical Union, as far as applicable. There is no guarantee
+ *  that the conversion is bug free and I give no warranty of
+ *  usability or correctness whatsoever.
+ *
+ *  The agreement below (3c/d) says that functions should
+ *  be renamed. From the preface I guess this only applies
+ *  if the function behavior was changed in any way. Since
+ *  this is a one-to-one conversion, it shouldn't apply?
+ *
+ *+----------------------------------------------------------------------
+ * SOFA-Issue: 2016-05-03
+ *+----------------------------------------------------------------------
+ *
+ *  Copyright (C) 2016
+ *  Standards Of Fundamental Astronomy Review Board
+ *  of the International Astronomical Union.
+ *
+ *  =====================
+ *  SOFA Software License
+ *  =====================
+ *
+ *  NOTICE TO USER:
+ *
+ *  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING TERMS AND CONDITIONS
+ *  WHICH APPLY TO ITS USE.
+ *
+ *  1. The Software is owned by the IAU SOFA Review Board ("the Board").
+ *
+ *  2. Permission is granted to anyone to use the SOFA software for any
+ *     purpose, including commercial applications, free of charge and
+ *     without payment of royalties, subject to the conditions and
+ *     restrictions listed below.
+ *
+ *  3. You (the user) may copy and adapt the SOFA software and its
+ *     algorithms for your own purposes and you may copy and distribute
+ *     a resulting "derived work" to others on a world-wide, royalty-free
+ *     basis, provided that the derived work complies with the following
+ *     requirements:
+ *
+ *     a) Your work shall be marked or carry a statement that it (i) uses
+ *        routines and computations derived by you from software provided
+ *        by SOFA under license to you; and (ii) does not contain
+ *        software provided by SOFA or software that has been distributed
+ *        by or endorsed by SOFA.
+ *
+ *     b) The source code of your derived work must contain descriptions
+ *        of how the derived work is based upon and/or differs from the
+ *        original SOFA software.
+ *
+ *     c) The name(s) of all routine(s) that you distribute shall differ
+ *        from the SOFA names, even when the SOFA content has not been
+ *        otherwise changed.
+ *
+ *     d) The routine-naming prefix "iau" shall not be used.
+ *
+ *     e) The origin of the SOFA components of your derived work must not
+ *        be misrepresented;  you must not claim that you wrote the
+ *        original software, nor file a patent application for SOFA
+ *        software or algorithms embedded in the SOFA software.
+ *
+ *     f) These requirements must be reproduced intact in any source
+ *        distribution and shall apply to anyone to whom you have granted
+ *        a further right to modify the source code of your derived work.
+ *
+ *  4. In any published work or commercial products which includes
+ *     results achieved by using the SOFA software, you shall acknowledge
+ *     that the SOFA software was used in obtaining those results.
+ *
+ *  5. You shall not cause the SOFA software to be brought into
+ *     disrepute, either by misuse, or use for inappropriate tasks, or by
+ *     inappropriate modification.
+ *
+ *  6. The SOFA software is provided "as is" and the Board makes no
+ *     warranty as to its use or performance.   The Board does not and
+ *     cannot warrant the performance or results which the user may obtain
+ *     by using the SOFA software.  The Board makes no warranties, express
+ *     or implied, as to non-infringement of third party rights,
+ *     merchantability, or fitness for any particular purpose.  In no
+ *     event will the Board be liable to the user for any consequential,
+ *     incidental, or special damages, including any lost profits or lost
+ *     savings, even if a Board representative has been advised of such
+ *     damages, or for any claim by any third party.
+ *
+ *  7. The provision of any version of the SOFA software under the terms
+ *     and conditions specified herein does not imply that future
+ *     versions will also be made available under the same terms and
+ *     conditions.
+
+ *  Correspondence concerning SOFA software should be addressed as
+ *  follows:
+ *
+ *     Internet email: sofa@rl.ac.uk
+ *     Postal address: IAU SOFA Center
+ *                     Rutherford Appleton Laboratory
+ *                     Chilton, Didcot, Oxon OX11 0QX
+ *                     United Kingdom
+ *
+ *-----------------------------------------------------------------------
+*/
+
+}
+;
 
 // export functions
 iau.a2af    = iauA2af;
@@ -57389,6 +59335,16 @@ iau.g2icrs  = iauG2icrs;
 iau.eqec06  = iauEqec06;
 iau.ecm06   = iauEcm06;
 iau.eceq06  = iauEceq06;
+// added with release 14
+iau.ae2hd   = iauAe2hd;
+iau.hd2ae   = iauHd2ae;
+iau.hd2pa   = iauHd2pa;
+iau.tpors   = iauTpors;
+iau.tporv   = iauTporv;
+iau.tpsts   = iauTpsts;
+iau.tpstv   = iauTpstv;
+iau.tpxes   = iauTpxes;
+iau.tpxev   = iauTpxev;
 			;
 })(IAU)
-/* crc: FB7B0F6CC2B28FEA255F5D2AA7300D20 */
+/* crc: 46E8318F62FDCAF9D6F643F22749E91E */
