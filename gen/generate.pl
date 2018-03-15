@@ -4,7 +4,7 @@ use warnings;
 ################################################################################
 # IAU SOFA C functions to JS converter
 # http:://www.github.com/mgreter/sofa.js
-# (c) 2016 by Marcel Greter
+# (c) 2016-2018 by Marcel Greter
 ################################################################################
 # Software provided as is without any warranty!
 ################################################################################
@@ -28,7 +28,7 @@ my $root = '..';
 my %vtypes = (
 	'int' => {
 		'basic' => 1,
-		'assert' => 'close',
+		'assert' => 'equal',
 		'init' => '0',
 		'decl' => "int %s",
 		'c2json' => "printf(\"%%d\", %s)",
@@ -40,7 +40,8 @@ my %vtypes = (
 	},
 	'double' => {
 		'basic' => 1,
-		'assert' => 'close',
+		'assert' => 'close.percent',
+		'epsilon' => '1e-6',
 		'init' => '0.0',
 		'decl' => "double %s",
 		'c2json' => "printf(\"%%.28e\", %s)",
@@ -88,6 +89,7 @@ my %vtypes = (
 	},
 	'v2' => {
 		'assert' => 'V2',
+		'epsilon' => '1e-8',
 		'init' => "[0, 0]",
 		'decl' => "double %s[2]",
 		'c2json' => "exportV2(%s)",
@@ -99,6 +101,7 @@ my %vtypes = (
 	},
 	'v3' => {
 		'assert' => 'V3',
+		'epsilon' => '1e-8',
 		'init' => "[0, 0, 0]",
 		'decl' => "double %s[3]",
 		'c2json' => "exportV3(%s)",
@@ -110,6 +113,7 @@ my %vtypes = (
 	},
 	'pv3' => {
 		'assert' => 'PV3',
+		'epsilon' => '1e-8',
 		'init' => "[ [0,0,0], [0,0,0] ]",
 		'decl' => "double %s[2][3]",
 		'c2json' => "exportPV3(%s)",
@@ -121,6 +125,7 @@ my %vtypes = (
 	},
 	'dmsf' => {
 		'assert' => 'DMSF',
+		'epsilon' => '1e-8',
 		'init' => '[0,0,0,0]',
 		'decl' => "int %s[4]",
 		'c2json' => "exportDMSF(%s)",
@@ -132,6 +137,7 @@ my %vtypes = (
 	},
 	'mat33' => {
 		'assert' => 'MAT33',
+		'epsilon' => '1e-8',
 		'init' => "[ [0,0,0], [0,0,0], [0,0,0] ]",
 		'decl' => "double %s[3][3]",
 		'c2json' => "exportMAT33(%s)",
@@ -143,6 +149,7 @@ my %vtypes = (
 	},
 	'iauLDBODY' => {
 		'assert' => 'LDBODY',
+		'epsilon' => '1e-8',
 		'init' => '{bm:0,dl:0,pv:[]}',
 		# 'decl' => "iauLDBODY %s[100]",
 		'c2json' => "exportLDBODY(_%1\$s, %1\$s)",
@@ -154,6 +161,7 @@ my %vtypes = (
 	},
 	'iauASTROM' => {
 		'assert' => 'ASTROM',
+		'epsilon' => '1e-6',
 		'init' => '{pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0}',
 		'decl' => "iauASTROM %s",
 		'c2json' => "exportASTROM(%s)",
@@ -346,13 +354,13 @@ my %itypes = (
 		'vtype' => 'double',
 		'beg' => '- 10000',
 		'end' => '+ 10000',
-		'd' => '10000 / 24.0',
+		'd' => '10000 / 32.0',
 	},
 	'sangle' => {
 		'vtype' => 'double',
 		'beg' => '- 180',
 		'end' => '+ 180',
-		'd' => '180 / 2.0',
+		'd' => '180 / 3.0',
 	}
 );
 
@@ -385,9 +393,11 @@ our $re_nr = qr/(?:[+-]?\s*)(?:\d*\.\d+|\d+L?)(?:e[+-]?\d+)?/;
 our $re_var = qr/(?:[+\-]\s*)?[\&\*]?$re_vname(?:->$re_vname)?(?:\[(??{$re_op})\])*/;
 our $re_vars = qr/(?:$re_var|$re_nr|\'$re_apo\'|\"$re_quot\"|$re_vname\(\s*(??{$re_arg})\s*\))/;
 our $re_scl = qr/(?:$re_vars|[+-]?\(\s*(??{$re_ops})\s*\))/; # |(??{$re_op_ls})
-$re_op = qr/$re_scl(?:\s*[+\-*\/]\s*$re_scl)*/;
+$re_op = qr/$re_scl(?:\s*[+\-*\/\<\>]\s*$re_scl)*/;
 $re_ops = qr/(?:$re_op|[+-]?\(\s*(??{$re_ops})\s*\))/;
+$re_ops = qr/(?:$re_ops|\(\s*$re_ops\s*\))/;
 $re_arg = qr/$re_ops(?:\s*,\s*$re_ops)*/;
+$re_ops = qr/(?:$re_ops|$re_ops\s*\?\s*$re_ops\s*:\s*$re_ops\s*)/;
 our $re_va = qr/(?:$re_identifier(?:\s*=\s*$re_nr)?)/;
 our $re_itm = qr/(?:$re_nr|$re_identifier)/s;
 our $re_itm_list = qr/$re_itm(?:\s*,\s*$re_itm)*/s;
@@ -691,7 +701,7 @@ my %config = (
 	pvppv => { arg => ['pv3','pv3'], out => ['pv3'], mod => 4 },
 	pvstar => { arg => ['pv3'], out => [mt('double', 6)], rv => 'int' },
 	pvtob => { arg => [mt('sdouble', 7)], out => ['pv3'] },
-	pvu => { arg => ['double','pv3'], out => ['pv3'] },
+	pvu => { arg => ['sdouble','pv3'], out => ['pv3'] },
 	pvup => { arg => ['double','pv3'], out => ['v3'] },
 	pvxpv => { arg => ['pv3','pv3'], out => ['pv3'], mod => 10 },
 	pxp => { arg => ['v3','v3'], out => ['v3'] },
@@ -710,7 +720,7 @@ my %config = (
 	s2c => { arg => [mt('double', 2)], out => ['v3'] },
 	s2p => { arg => [mt('double', 3)], out => ['v3'] },
 	s2pv => { arg => [mt('sdouble', 6)], out => ['pv3'] },
-	s2xpv => { arg => [mt('double', 2), 'pv3'], out => ['pv3'] },
+	s2xpv => { arg => [mt('sdouble', 2), 'pv3'], out => ['pv3'] },
 	s06 => { arg => ['stime','stime','double','double'], rv => 'double' },
 	s06a => { arg => ['stime','stime'], rv => 'double' },
 	sepp => { arg => [mt('v3',2)], rv => 'double' },
@@ -759,7 +769,17 @@ my %config = (
 	g2icrs => { arg => [mt('double',2)], out => ['double','double'] },
 	eqec06 => { arg => [mt('stime',2),mt('double',2)], out => [mt('double',2)] },
 	ecm06 => { arg => [mt('stime',2)], out => ['mat33'] },
-	eceq06 => { arg => [mt('stime',2),mt('double',2)], out => [mt('double',2)] },
+	eceq06 => { arg => [mt('stime',2),'double','sdouble'], out => [mt('double',2)] },
+	# added with release 14
+	ae2hd => { arg => [mt('sangle',3)], out => [mt('double',2)] },
+	hd2ae => { arg => [mt('sangle',3)], out => [mt('double',2)] },
+	hd2pa => { arg => [mt('double',3)], out => [], rv => 'double' },
+	tpors => { arg => [mt('double',4)], out => [mt('double',4)], rv => 'int' },
+	tporv => { arg => [mt('sdouble',2),'v3'], out => [mt('v3',2)], rv => 'int' },
+	tpsts => { arg => [mt('double',4)], out => [mt('double',2)] },
+	tpstv => { arg => [mt('double',2),mt('v3',1)], out => [mt('v3',1)] },
+	tpxes => { arg => [mt('double',4)], out => [mt('double',2)], rv => 'int' },
+	tpxev => { arg => [mt('v3',2)], out => [mt('double',2)], rv => 'int' },
 );
 
 ################################################################################
@@ -815,15 +835,20 @@ sub create_test {
 
 		my $pfx = (scalar(@{$outs}) > 1) ? "[$n]" : "";
 
-		my $eps = '1e-8';
-
 		my $itype = $itypes{$outs->[$n]};
 		my $otype = $vtypes{$outs->[$n]};
 		$otype = $vtypes{$itype->{'vtype'}} unless $otype && $itype;
 		my $assert = $otype->{'assert'};
-		die "no assert $outs->[$n]" unless $assert;
+		die "no assert for $outs->[$n]" unless $assert;
 
-		$assertions .= "				assert.$assert(res${pfx}, tests[i][".($i++)."], $eps, $inargs + ' (" . $rnames->[$n] . ")');\n";
+		if ($assert eq "equal") {
+			$assertions .= "				assert.$assert(res${pfx}, tests[i][".($i++)."], $inargs + ' (" . $rnames->[$n] . ")');\n";
+		}
+		else {
+			my $eps = $otype->{'epsilon'};
+			die "no epsilon for $outs->[$n]" unless $eps;
+			$assertions .= "				assert.$assert(res${pfx}, tests[i][".($i++)."], $eps, $inargs + ' (" . $rnames->[$n] . ")');\n";
+		}
 	}
 
 	my $tmpl = <<EOTST;
@@ -880,6 +905,9 @@ sub create_docu {
 		$group =~ s/^\s*//;
 		$group =~ s/\.\s*$//;
 	}
+
+	$group = "support function" if ($name eq "ae2hd");
+
 	if ($text =~ m/- - -\n\n((?:[^\n]+\n)+)/) {
 		$extract = " - $1";
 		$extract =~ s/[\r\n\s]+/ /g;
@@ -1429,7 +1457,9 @@ sub convert_astro_fn
 
 	# convert some C integer functions to inline JS
 	$src =~ s/dint\s*\(\s*($re_ops)\s*\)/~~($1)/g;
-	$src =~ s/dnint\s*\(\s*($re_ops)\s*\)/Math.round($1)/g;
+	# this is a bit odd, seems dnint(-1.5) is -2 not -1;
+	# round will always round up, while dnint does not
+	# $src =~ s/dnint\s*\(\s*($re_ops)\s*\)/Math.round($1)/g;
 	# convert some C math functions to inline JS operations
 	$src =~ s/fmod\s*\(\s*($re_ops)\s*,\s*($re_ops)\s*\)/(($1) % ($2))/g;
 	$src =~ s/strcmp\s*\(\s*($re_ops)\s*,\s*($re_ops)\s*\)/(($1) !== ($2))/g;
@@ -1583,6 +1613,8 @@ foreach my $group (sort keys %groups) {
 		$fn->[1] =~ s/\s*$//;
 		$fn->[1] =~ s/Time scale transformation:\s*//;
 		$fn->[1] =~ s/Fundamental argument, IERS Conventions \(2003\):\s*/Fund\'Args IERS(2003): /;
+		$fn->[1] =~ s/\s+SOFA \(Standards of Fundamental.*//;
+		$fn->[1] =~ s/In the tangent plane projection/In tangent plane/g;
 		my $avail = 76 - length($fn->[0]);
 		print $ofh sprintf('  - [IAU.%1$s](docs/iau.%1$s.md)%2$s' . "\n", $fn->[0],
 			(length($fn->[1]) > $avail ? substr($fn->[1], 0, $avail - 3) . '...' : $fn->[1])

@@ -262,6 +262,17 @@
 			<input path="src/iau/eqec06.js" />
 			<input path="src/iau/ecm06.js" />
 			<input path="src/iau/eceq06.js" />
+			<!-- added with release 14 -->
+			<input path="src/iau/ae2hd.js" />
+			<input path="src/iau/hd2ae.js" />
+			<input path="src/iau/hd2pa.js" />
+			<input path="src/iau/tpors.js" />
+			<input path="src/iau/tporv.js" />
+			<input path="src/iau/tpsts.js" />
+			<input path="src/iau/tpstv.js" />
+			<input path="src/iau/tpxes.js" />
+			<input path="src/iau/tpxev.js" />
+
 			<append>
 // export functions
 iau.a2af    = iauA2af;
@@ -495,6 +506,16 @@ iau.g2icrs  = iauG2icrs;
 iau.eqec06  = iauEqec06;
 iau.ecm06   = iauEcm06;
 iau.eceq06  = iauEceq06;
+// added with release 14
+iau.ae2hd   = iauAe2hd;
+iau.hd2ae   = iauHd2ae;
+iau.hd2pa   = iauHd2pa;
+iau.tpors   = iauTpors;
+iau.tporv   = iauTporv;
+iau.tpsts   = iauTpsts;
+iau.tpstv   = iauTpstv;
+iau.tpxes   = iauTpxes;
+iau.tpxev   = iauTpxev;
 			</append>
 
 			<append>})(IAU)</append>

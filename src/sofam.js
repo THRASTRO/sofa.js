@@ -81,6 +81,9 @@ var SRS = 1.97412574336e-8;
 /* dsign(A,B) - magnitude of A with sign of B (double) */
 function dsign(A,B) { return ((B)<0.0?-Math.abs(A):Math.abs(A)); }
 
+/* dsign(A,B) - round "up" while ignoring signum (e.g -1.5 to -2) */
+function dnint(X) { return X < 0 ? Math.ceil(X-.5) : Math.floor(X+.5); }
+
 /* Reference ellipsoids */
 var WGS84 = 1;
 var GRS80 = 2;

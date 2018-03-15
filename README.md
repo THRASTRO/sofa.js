@@ -1,13 +1,13 @@
 # IAU SOFA JS functions (auto converted)
 
-[Original sources] [3] Copyright (C) 2016 -
+[Original sources][3] Copyright (C) 2018 -
 [Standards Of Fundamental Astronomy Board
-of the International Astronomical Union] [4].
+of the International Astronomical Union][4].
 
-Converted 2016 by Marcel Greter
+Converted 2018-03-15 by Marcel Greter (Release 14)
 
-- The conversion is done by a [custom hacked perl script] [5].
-- Automatically generates [QUnit tests] [6] for all functions.
+- The conversion is done by a [custom hacked perl script][5].
+- Automatically generates [QUnit tests][6] for all functions.
 
 If you encounter problems with this work, please open an
 issue on [github](https://github.com/mgreter/sofa.js/issues).
@@ -17,9 +17,9 @@ issue on [github](https://github.com/mgreter/sofa.js/issues).
 
 ## Preface
 
-The original SOFA distribution by the IAU SOFA Board consists of 230
-C (or Fortran) functions ([SOFA release 2016-05-03] [3]). All function are
-converted to JS by a [custom hacked perl script] [5] with a lot of regex magic.
+The original SOFA distribution by the IAU SOFA Board consists of 240
+C (or Fortran) functions ([SOFA release 14 2018-01-30][3]). All function are
+converted to JS by a [custom hacked perl script][5] with a lot of regex magic.
 JS and C are surprisingly similar in their basic syntax, if you leave out
 most of the C modifiers.
 
@@ -32,7 +32,7 @@ Future SOFA releases may or may not work without modifications to
 the converter script. For some cases I took a shortcut and added
 specific regular expressions for the correct conversion. The script
 is really just a hack that gets the job done. I have no intention
-to expand it into a [complete C99 or even C++ to JS converter] [1].
+to expand it into a [complete C99 or even C++ to JS converter][1].
 
 [1]: https://github.com/kripken/emscripten
 [3]: http://www.iausofa.org/current_C.html#Downloads
@@ -106,7 +106,7 @@ mat33[3][3] => [ v3, v3, v3 ]
 
 ## QUnit tests
 
-For each function the converter generates a [C program] [7] that produces
+For each function the converter generates a [C program][7] that produces
 the test data for the unit tests. This is done by calling the original
 C functions from the SOFA distribution. This is manually configured in
 the converter script for every function, since I needed to control how
@@ -194,6 +194,7 @@ from the source files provided by the IAU SOFA Board.
 ### Support function:
 
   - [IAU.ab](docs/iau.ab.md) - Apply aberration to transform natural direction into proper direction.
+  - [IAU.ae2hd](docs/iau.ae2hd.md) - Horizon to equatorial coordinates: transform azimuth and altitude...
   - [IAU.af2a](docs/iau.af2a.md) - Convert degrees, arcminutes, arcseconds to radians.
   - [IAU.apcg](docs/iau.apcg.md) - For a geocentric observer, prepare star-independent astrometry par...
   - [IAU.apcg13](docs/iau.apcg13.md) - For a geocentric observer, prepare star-independent astrometry p...
@@ -237,7 +238,7 @@ from the source files provided by the IAU SOFA Board.
   - [IAU.c2txy](docs/iau.c2txy.md) - Form the celestial to terrestrial matrix given the date, the UT1,...
   - [IAU.cal2jd](docs/iau.cal2jd.md) - Gregorian Calendar to Julian Date.
   - [IAU.d2dtf](docs/iau.d2dtf.md) - Format for output a 2-part Julian Date (or in the case of UTC a q...
-  - [IAU.dat](docs/iau.dat.md) - For a given UTC date, calculate delta(AT) = TAI-UTC.
+  - [IAU.dtdb](docs/iau.dtdb.md) - An approximation to TDB-TT, the difference between barycentric dyn...
   - [IAU.dtf2d](docs/iau.dtf2d.md) - Encode date and time fields into 2-part Julian Date (or in the ca...
   - [IAU.eceq06](docs/iau.eceq06.md) - Transformation from ecliptic coordinates (mean equinox and eclip...
   - [IAU.ecm06](docs/iau.ecm06.md) - ICRS equatorial to ecliptic rotation matrix, IAU 2006.
@@ -257,13 +258,17 @@ from the source files provided by the IAU SOFA Board.
   - [IAU.fk5hz](docs/iau.fk5hz.md) - Transform an FK5 (J2000.0) star position into the system of the H...
   - [IAU.fw2m](docs/iau.fw2m.md) - Form rotation matrix given the Fukushima-Williams angles.
   - [IAU.fw2xy](docs/iau.fw2xy.md) - CIP X,Y given Fukushima-Williams bias-precession-nutation angles.
+  - [IAU.g2icrs](docs/iau.g2icrs.md) - Transformation from Galactic Coordinates to ICRS.
   - [IAU.gc2gde](docs/iau.gc2gde.md) - Transform geocentric coordinates to geodetic for a reference ell...
   - [IAU.gd2gce](docs/iau.gd2gce.md) - Transform geodetic coordinates to geocentric for a reference ell...
   - [IAU.gst00b](docs/iau.gst00b.md) - Greenwich apparent sidereal time (consistent with IAU 2000 resol...
   - [IAU.gst06](docs/iau.gst06.md) - Greenwich apparent sidereal time, IAU 2006, given the NPB matrix.
   - [IAU.gst94](docs/iau.gst94.md) - Greenwich apparent sidereal time (consistent with IAU 1982/94 res...
   - [IAU.h2fk5](docs/iau.h2fk5.md) - Transform Hipparcos star data into the FK5 (J2000.0) system.
+  - [IAU.hd2ae](docs/iau.hd2ae.md) - Equatorial to horizon coordinates: transform hour angle and decli...
+  - [IAU.hd2pa](docs/iau.hd2pa.md) - Parallactic angle for a given hour angle and declination.
   - [IAU.hfk5z](docs/iau.hfk5z.md) - Transform a Hipparcos star position into FK5 J2000.0, assuming ze...
+  - [IAU.icrs2g](docs/iau.icrs2g.md) - Transformation from ICRS to Galactic Coordinates.
   - [IAU.jd2cal](docs/iau.jd2cal.md) - Julian Date to Gregorian year, month, day, and fraction of a day.
   - [IAU.jdcalf](docs/iau.jdcalf.md) - Julian Date to Gregorian Calendar, expressed in a form convenien...
   - [IAU.ld](docs/iau.ld.md) - Apply light deflection by a solar-system body, as part of transformi...
@@ -282,7 +287,7 @@ from the source files provided by the IAU SOFA Board.
   - [IAU.numat](docs/iau.numat.md) - Form the matrix of nutation.
   - [IAU.nutm80](docs/iau.nutm80.md) - Form the matrix of nutation for a given date, IAU 1980 model.
   - [IAU.pb06](docs/iau.pb06.md) - This function forms three Euler angles which implement general pre...
-  - [IAU.plan94](docs/iau.plan94.md) - This function is part of the International Astronomical Union's ...
+  - [IAU.plan94](docs/iau.plan94.md) - Approximate heliocentric position and velocity of a nominated ma...
   - [IAU.pmat00](docs/iau.pmat00.md) - Precession matrix (including frame bias) from GCRS to a specifie...
   - [IAU.pmat06](docs/iau.pmat06.md) - Precession matrix (including frame bias) from GCRS to a specifie...
   - [IAU.pmat76](docs/iau.pmat76.md) - Precession matrix from J2000.0 to a specified date, IAU 1976 model.
@@ -308,15 +313,19 @@ from the source files provided by the IAU SOFA Board.
   - [IAU.starpv](docs/iau.starpv.md) - Convert star catalog coordinates to position+velocity vector.
   - [IAU.tf2a](docs/iau.tf2a.md) - Convert hours, minutes, seconds to radians.
   - [IAU.tf2d](docs/iau.tf2d.md) - Convert hours, minutes, seconds to days.
+  - [IAU.tpors](docs/iau.tpors.md) - In tangent plane, given the rectangular coordinates of a star and...
+  - [IAU.tporv](docs/iau.tporv.md) - In tangent plane, given the rectangular coordinates of a star and...
+  - [IAU.tpsts](docs/iau.tpsts.md) - In tangent plane, given the star's rectangular coordinates and th...
+  - [IAU.tpstv](docs/iau.tpstv.md) - In tangent plane, given the star's rectangular coordinates and th...
+  - [IAU.tpxes](docs/iau.tpxes.md) - In tangent plane, given celestial spherical coordinates for a sta...
+  - [IAU.tpxev](docs/iau.tpxev.md) - In tangent plane, given celestial direction cosines for a star an...
   - [IAU.xys00a](docs/iau.xys00a.md) - For a given TT date, compute the X,Y coordinates of the Celestia...
   - [IAU.xys00b](docs/iau.xys00b.md) - For a given TT date, compute the X,Y coordinates of the Celestia...
   - [IAU.xys06a](docs/iau.xys06a.md) - For a given TT date, compute the X,Y coordinates of the Celestia...
 
-### Support routine:
+### User-replaceable support function:
 
-  - [IAU.dtdb](docs/iau.dtdb.md) - An approximation to TDB-TT, the difference between barycentric dyn...
-  - [IAU.g2icrs](docs/iau.g2icrs.md) - Transformation from Galactic Coordinates to ICRS.
-  - [IAU.icrs2g](docs/iau.icrs2g.md) - Transformation from ICRS to Galactic Coordinates.
+  - [IAU.dat](docs/iau.dat.md) - For a given UTC date, calculate Delta(AT) = TAI-UTC.
 
 ### Vector/matrix support function:
 
@@ -376,7 +385,7 @@ from the source files provided by the IAU SOFA Board.
 ## License
 
 I created and released this with the best intentions, hoping that I obeyed
-all rules set out by the [SOFA Software License] [2]. Since I am no laywer
+all rules set out by the [SOFA Software License][2]. Since I am no laywer
 I'm struggeling a bit with point 3c). The release function names are
 without the original 'iau' prefix, but I've put them all under a 'IAU'
 namespace in JS. I'm not sure if a strict conversion between languages

@@ -59,6 +59,10 @@
       actualDiff = 0;
       result = actualDiff <= maxPercentDifference;
     }
+    else if (Number.isNaN(actual) && Number.isNaN(expected)) {
+      actualDiff = 0;
+      result = actualDiff <= maxPercentDifference;
+    }
     else if (actual !== 0 && expected !== 0 && expected !== Infinity && expected !== -Infinity) {
       actualDiff = Math.abs(100 * (actual - expected) / expected);
       result = actualDiff <= maxPercentDifference;

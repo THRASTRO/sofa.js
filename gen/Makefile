@@ -13,11 +13,11 @@ LDFLAGS  += -Wl,-undefined,error
 CAT ?= $(if $(filter $(OS),Windows_NT),type,cat)
 
 lib/%.o: ../data/src/%.c
-	$(CC) -O3 -std=c99 $(CFLAGS) -I../data/src -I. -c -o $@ $<
+	$(CC) -O3 -std=c99 $(CFLAGS) -isystem . -I../data/src -I. -c -o $@ $<
 
 bin/%.exe: src/%.c
-	$(CC) -O3 -std=c99 $(CFLAGS) -I../data/src -I. lib/*.o -o $@ $<
-	$@ | perl clean-test.pl > ../test/iau/$*.rslt.js
+	$(CC) -O3 -std=c99 $(CFLAGS) -isystem . -I../data/src -I. lib/*.o -o $@ $<
+	"$@" | perl clean-test.pl > ../test/iau/$*.rslt.js
 
 libs: lib/a2af.o      lib/c2i06a.o    lib/fae03.o     lib/ldsun.o     lib/pnm80.o     lib/seps.o       \
       lib/a2tf.o      lib/c2ibpn.o    lib/faf03.o     lib/num00a.o    lib/pom00.o     lib/sp00.o       \
@@ -57,7 +57,9 @@ libs: lib/a2af.o      lib/c2i06a.o    lib/fae03.o     lib/ldsun.o     lib/pnm80.
       lib/c2i00a.o    lib/era00.o     lib/ld.o        lib/pnm00b.o    lib/s2xpv.o                      \
       lib/c2i00b.o    lib/fad03.o     lib/ldn.o       lib/pnm06a.o    lib/sepp.o                       \
       lib/ltpequ.o    lib/ltpecl.o    lib/ltpb.o      lib/ltp.o       lib/lteqec.o    lib/ltecm.o      \
-      lib/lteceq.o    lib/icrs2g.o    lib/g2icrs.o    lib/eqec06.o    lib/ecm06.o     lib/eceq06.o
+      lib/lteceq.o    lib/icrs2g.o    lib/g2icrs.o    lib/eqec06.o    lib/ecm06.o     lib/eceq06.o     \
+      lib/ae2hd.o     lib/hd2ae.o     lib/hd2pa.o     lib/tpors.o     lib/tporv.o     lib/tpsts.o      \
+      lib/tpstv.o     lib/tpxes.o     lib/tpxev.o
 
 bins: bin/a2af.exe    bin/c2i06a.exe  bin/fae03.exe   bin/ldsun.exe   bin/pnm80.exe   bin/seps.exe     \
       bin/a2tf.exe    bin/c2ibpn.exe  bin/faf03.exe   bin/num00a.exe  bin/pom00.exe   bin/sp00.exe     \
@@ -97,11 +99,16 @@ bins: bin/a2af.exe    bin/c2i06a.exe  bin/fae03.exe   bin/ldsun.exe   bin/pnm80.
       bin/c2i00a.exe  bin/era00.exe   bin/ld.exe      bin/pnm00b.exe  bin/s2xpv.exe                    \
       bin/c2i00b.exe  bin/fad03.exe   bin/ldn.exe     bin/pnm06a.exe  bin/sepp.exe                     \
       bin/ltpequ.exe  bin/ltpecl.exe  bin/ltpb.exe    bin/ltp.exe     bin/lteqec.exe  bin/ltecm.exe    \
-      bin/lteceq.exe  bin/icrs2g.exe  bin/g2icrs.exe  bin/eqec06.exe  bin/ecm06.exe   bin/eceq06.exe
+      bin/lteceq.exe  bin/icrs2g.exe  bin/g2icrs.exe  bin/eqec06.exe  bin/ecm06.exe   bin/eceq06.exe   \
+      bin/ae2hd.exe   bin/hd2ae.exe   bin/hd2pa.exe   bin/tpors.exe   bin/tporv.exe   bin/tpsts.exe    \
+      bin/tpstv.exe   bin/tpxes.exe   bin/tpxev.exe
 
 
 all: libs bins
 
-.PHONY: test specs clean sassc \
-        all build-static build-shared \
-        libsass libsass-static libsass-shared
+clean:
+	$(RM) bin/*.exe
+	$(RM) lib/*.o
+	$(RM) ../test/iau/*.js
+
+.PHONY: all clean
