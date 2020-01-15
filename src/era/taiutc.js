@@ -111,111 +111,73 @@ function eraTaiutc(tai1, tai2)
 /*
  *+----------------------------------------------------------------------
  *
- *  IAU SOFA functions converted to JS
+ *  ERFA/SOFA functions converted to JS
+ *  Copyright (C) 2019 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
- *  2016 by Marcel Greter
  *
  *  The conversion is done by a custom hacked perl script.
  *  Automatically generates QUnit tests for all functions.
  *
- *  Please read notice below, as all rights go to the Standards
- *  Of Fundamental Astronomy (SOFA) Review Board of the International
- *  Astronomical Union, as far as applicable. There is no guarantee
- *  that the conversion is bug free and I give no warranty of
- *  usability or correctness whatsoever.
- *
- *  The agreement below (3c/d) says that functions should
- *  be renamed. From the preface I guess this only applies
- *  if the function behavior was changed in any way. Since
- *  this is a one-to-one conversion, it shouldn't apply?
+ *  Conversion is made from liberfa sources:
+ *  https://github.com/liberfa/erfa
  *
  *+----------------------------------------------------------------------
- * SOFA-Issue: 2016-05-03
+ *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
  *+----------------------------------------------------------------------
  *
- *  Copyright (C) 2016
- *  Standards Of Fundamental Astronomy Review Board
- *  of the International Astronomical Union.
- *
- *  =====================
- *  SOFA Software License
- *  =====================
- *
- *  NOTICE TO USER:
- *
- *  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING TERMS AND CONDITIONS
- *  WHICH APPLY TO ITS USE.
- *
- *  1. The Software is owned by the IAU SOFA Review Board ("the Board").
- *
- *  2. Permission is granted to anyone to use the SOFA software for any
- *     purpose, including commercial applications, free of charge and
- *     without payment of royalties, subject to the conditions and
- *     restrictions listed below.
- *
- *  3. You (the user) may copy and adapt the SOFA software and its
- *     algorithms for your own purposes and you may copy and distribute
- *     a resulting "derived work" to others on a world-wide, royalty-free
- *     basis, provided that the derived work complies with the following
- *     requirements:
- *
- *     a) Your work shall be marked or carry a statement that it (i) uses
- *        routines and computations derived by you from software provided
- *        by SOFA under license to you; and (ii) does not contain
- *        software provided by SOFA or software that has been distributed
- *        by or endorsed by SOFA.
- *
- *     b) The source code of your derived work must contain descriptions
- *        of how the derived work is based upon and/or differs from the
- *        original SOFA software.
- *
- *     c) The name(s) of all routine(s) that you distribute shall differ
- *        from the SOFA names, even when the SOFA content has not been
- *        otherwise changed.
- *
- *     d) The routine-naming prefix "iau" shall not be used.
- *
- *     e) The origin of the SOFA components of your derived work must not
- *        be misrepresented;  you must not claim that you wrote the
- *        original software, nor file a patent application for SOFA
- *        software or algorithms embedded in the SOFA software.
- *
- *     f) These requirements must be reproduced intact in any source
- *        distribution and shall apply to anyone to whom you have granted
- *        a further right to modify the source code of your derived work.
- *
- *  4. In any published work or commercial products which includes
- *     results achieved by using the SOFA software, you shall acknowledge
- *     that the SOFA software was used in obtaining those results.
- *
- *  5. You shall not cause the SOFA software to be brought into
- *     disrepute, either by misuse, or use for inappropriate tasks, or by
- *     inappropriate modification.
- *
- *  6. The SOFA software is provided "as is" and the Board makes no
- *     warranty as to its use or performance.   The Board does not and
- *     cannot warrant the performance or results which the user may obtain
- *     by using the SOFA software.  The Board makes no warranties, express
- *     or implied, as to non-infringement of third party rights,
- *     merchantability, or fitness for any particular purpose.  In no
- *     event will the Board be liable to the user for any consequential,
- *     incidental, or special damages, including any lost profits or lost
- *     savings, even if a Board representative has been advised of such
- *     damages, or for any claim by any third party.
- *
- *  7. The provision of any version of the SOFA software under the terms
- *     and conditions specified herein does not imply that future
- *     versions will also be made available under the same terms and
- *     conditions.
-
- *  Correspondence concerning SOFA software should be addressed as
- *  follows:
- *
- *     Internet email: sofa@rl.ac.uk
- *     Postal address: IAU SOFA Center
- *                     Rutherford Appleton Laboratory
- *                     Chilton, Didcot, Oxon OX11 0QX
- *                     United Kingdom
+ *  Copyright (C) 2013-2014, NumFOCUS Foundation.
+ *  All rights reserved.
+ *  
+ *  This library is derived, with permission, from the International
+ *  Astronomical Union's "Standards of Fundamental Astronomy" library,
+ *  available from http://www.iausofa.org.
+ *  
+ *  The ERFA version is intended to retain identical
+ *  functionality to the SOFA library, but made distinct through
+ *  different function and file names, as set out in the SOFA license
+ *  conditions. The SOFA original has a role as a reference standard
+ *  for the IAU and IERS, and consequently redistribution is permitted only
+ *  in its unaltered state. The ERFA version is not subject to this
+ *  restriction and therefore can be included in distributions which do not
+ *  support the concept of "read only" software.
+ *  
+ *  Although the intent is to replicate the SOFA API (other than replacement of
+ *  prefix names) and results (with the exception of bugs; any that are
+ *  discovered will be fixed), SOFA is not responsible for any errors found
+ *  in this version of the library.
+ *  
+ *  If you wish to acknowledge the SOFA heritage, please acknowledge that
+ *  you are using a library derived from SOFA, rather than SOFA itself.
+ *  
+ *  
+ *  TERMS AND CONDITIONS
+ *  
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions are met:
+ *  
+ *  1 Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *  
+ *  2 Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ *  
+ *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
+ *     International Astronomical Union nor the names of its contributors
+ *     may be used to endorse or promote products derived from this software
+ *     without specific prior written permission.
+ *  
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+ *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+ *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+ *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *-----------------------------------------------------------------------
 */
