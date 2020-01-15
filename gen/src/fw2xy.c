@@ -1,7 +1,7 @@
 /* Generate Test Data for fw2xy */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -32,7 +32,7 @@ int main()
           printf(", ");
           printf("%.28e", t3);
           printf(", ");
-          iauFw2xy(t0, t1, t2, t3, &res0, &res1);
+          eraFw2xy(t0, t1, t2, t3, &res0, &res1);
           printf("%.28e", res0);
           printf(", ");
           printf("%.28e", res1);

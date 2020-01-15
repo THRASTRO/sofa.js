@@ -1,7 +1,7 @@
 /* Generate Test Data for zpv */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -12,7 +12,7 @@ int main()
 
   double res0[2][3] = {0};
   printf("  [");
-  iauZpv(res0);
+  eraZpv(res0);
   exportPV3(res0);
   printf("  ],\n");
 

@@ -1,7 +1,7 @@
 /* Generate Test Data for rv2m */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -17,7 +17,7 @@ int main()
     printf("  [");
     exportV3(t0);
     printf(", ");
-    iauRv2m(t0, res0);
+    eraRv2m(t0, res0);
     exportMAT33(res0);
     printf("  ],\n");
 

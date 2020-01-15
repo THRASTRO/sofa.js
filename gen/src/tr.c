@@ -1,7 +1,7 @@
 /* Generate Test Data for tr */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -29,7 +29,7 @@ int main()
     printf("  [");
     exportMAT33(t0);
     printf(", ");
-    iauTr(t0, res0);
+    eraTr(t0, res0);
     exportMAT33(res0);
     printf("  ],\n");
 

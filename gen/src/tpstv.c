@@ -1,7 +1,7 @@
 /* Generate Test Data for tpstv */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -25,7 +25,7 @@ int main()
         printf(", ");
         exportV3(t2);
         printf(", ");
-        iauTpstv(t0, t1, t2, res0);
+        eraTpstv(t0, t1, t2, res0);
         exportV3(res0);
         printf("  ],\n");
 

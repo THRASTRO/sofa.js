@@ -1,7 +1,7 @@
 /* Generate Test Data for eform */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -16,7 +16,7 @@ int main()
     printf("  [");
     printf("%d", t0);
     printf(", ");
-    printf("%d", iauEform(t0, &res0, &res1));
+    printf("%d", eraEform(t0, &res0, &res1));
     printf(", ");
     printf("%.28e", res0);
     printf(", ");

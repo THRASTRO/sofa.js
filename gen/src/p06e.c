@@ -1,7 +1,7 @@
 /* Generate Test Data for p06e */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -34,7 +34,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      iauP06e(t0, t1, &res0, &res1, &res2, &res3, &res4, &res5, &res6, &res7, &res8, &res9, &res10, &res11, &res12, &res13, &res14, &res15);
+      eraP06e(t0, t1, &res0, &res1, &res2, &res3, &res4, &res5, &res6, &res7, &res8, &res9, &res10, &res11, &res12, &res13, &res14, &res15);
       printf("%.28e", res0);
       printf(", ");
       printf("%.28e", res1);

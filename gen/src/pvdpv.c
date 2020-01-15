@@ -1,7 +1,7 @@
 /* Generate Test Data for pvdpv */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -33,7 +33,7 @@ int main()
       printf(", ");
       exportPV3(t1);
       printf(", ");
-      iauPvdpv(t0, t1, res0);
+      eraPvdpv(t0, t1, res0);
       exportV2(res0);
       printf("  ],\n");
 

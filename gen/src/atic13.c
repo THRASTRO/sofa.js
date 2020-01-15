@@ -1,7 +1,7 @@
 /* Generate Test Data for atic13 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -33,7 +33,7 @@ int main()
           printf(", ");
           printf("%.28e", t3);
           printf(", ");
-          iauAtic13(t0, t1, t2, t3, &res0, &res1, &res2);
+          eraAtic13(t0, t1, t2, t3, &res0, &res1, &res2);
           printf("%.28e", res0);
           printf(", ");
           printf("%.28e", res1);

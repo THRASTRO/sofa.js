@@ -1,7 +1,7 @@
 /* Generate Test Data for ttut1 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -24,7 +24,7 @@ int main()
         printf(", ");
         printf("%.28e", t2);
         printf(", ");
-        printf("%d", iauTtut1(t0, t1, t2, &res0, &res1));
+        printf("%d", eraTtut1(t0, t1, t2, &res0, &res1));
         printf(", ");
         printf("%.28e", res0);
         printf(", ");

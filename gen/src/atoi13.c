@@ -1,7 +1,7 @@
 /* Generate Test Data for atoi13 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -77,7 +77,7 @@ int main()
                                 printf(", ");
                                 printf("%.28e", t14);
                                 printf(", ");
-                                printf("%d", iauAtoi13(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, &res0, &res1));
+                                printf("%d", eraAtoi13(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, &res0, &res1));
                                 printf(", ");
                                 printf("%.28e", res0);
                                 printf(", ");

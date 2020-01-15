@@ -1,7 +1,7 @@
 /* Generate Test Data for s2xpv */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -32,7 +32,7 @@ int main()
         printf(", ");
         exportPV3(t2);
         printf(", ");
-        iauS2xpv(t0, t1, t2, res0);
+        eraS2xpv(t0, t1, t2, res0);
         exportPV3(res0);
         printf("  ],\n");
 

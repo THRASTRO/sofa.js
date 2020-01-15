@@ -1,7 +1,7 @@
 /* Generate Test Data for ldn */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -9,7 +9,7 @@ int main()
 {
   int t0;
   int ti1;;
-  iauLDBODY t1[100];;
+  eraLDBODY t1[100];;
   double t2[3];
   double t3[3];
   printf("var ldn_results = [\n");
@@ -44,7 +44,7 @@ int main()
           printf(", ");
           exportV3(t3);
           printf(", ");
-          iauLdn(t0, t1, t2, t3, res0);
+          eraLdn(t0, t1, t2, t3, res0);
           exportV3(res0);
           printf("  ],\n");
 

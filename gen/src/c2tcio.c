@@ -1,7 +1,7 @@
 /* Generate Test Data for c2tcio */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -55,7 +55,7 @@ int main()
         printf(", ");
         exportMAT33(t2);
         printf(", ");
-        iauC2tcio(t0, t1, t2, res0);
+        eraC2tcio(t0, t1, t2, res0);
         exportMAT33(res0);
         printf("  ],\n");
 

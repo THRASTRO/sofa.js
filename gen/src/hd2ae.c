@@ -1,7 +1,7 @@
 /* Generate Test Data for hd2ae */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -24,7 +24,7 @@ int main()
         printf(", ");
         printf("%.28e", t2);
         printf(", ");
-        iauHd2ae(t0, t1, t2, &res0, &res1);
+        eraHd2ae(t0, t1, t2, &res0, &res1);
         printf("%.28e", res0);
         printf(", ");
         printf("%.28e", res1);

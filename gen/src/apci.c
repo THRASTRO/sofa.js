@@ -1,7 +1,7 @@
 /* Generate Test Data for apci */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -35,7 +35,7 @@ int main()
             for (t5 = -28; t5 <= 28; t5 += 21) {
               for (t6 = -28; t6 <= 28; t6 += 21) {
 
-                iauASTROM res0 = {0};
+                eraASTROM res0 = {0};
                 modulo = modulo > 30131
                   ? 0 : modulo + 1;
                 if (modulo != 1) continue;
@@ -54,7 +54,7 @@ int main()
                 printf(", ");
                 printf("%.28e", t6);
                 printf(", ");
-                iauApci(t0, t1, t2, t3, t4, t5, t6, &res0);
+                eraApci(t0, t1, t2, t3, t4, t5, t6, &res0);
                 exportASTROM(res0);
                 printf("  ],\n");
 

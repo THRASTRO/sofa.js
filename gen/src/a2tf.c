@@ -1,7 +1,7 @@
 /* Generate Test Data for a2tf */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -20,7 +20,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      iauA2tf(t0, t1, &res0, res1);
+      eraA2tf(t0, t1, &res0, res1);
       printf("'%c'", res0);
       printf(", ");
       exportDMSF(res1);

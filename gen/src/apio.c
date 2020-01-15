@@ -1,7 +1,7 @@
 /* Generate Test Data for apio */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -28,7 +28,7 @@ int main()
                 for (t7 = -28; t7 <= 28; t7 += 21) {
                   for (t8 = -28; t8 <= 28; t8 += 21) {
 
-                    iauASTROM res0 = {0};
+                    eraASTROM res0 = {0};
                     modulo = modulo > 489178
                       ? 0 : modulo + 1;
                     if (modulo != 1) continue;
@@ -51,7 +51,7 @@ int main()
                     printf(", ");
                     printf("%.28e", t8);
                     printf(", ");
-                    iauApio(t0, t1, t2, t3, t4, t5, t6, t7, t8, &res0);
+                    eraApio(t0, t1, t2, t3, t4, t5, t6, t7, t8, &res0);
                     exportASTROM(res0);
                     printf("  ],\n");
 

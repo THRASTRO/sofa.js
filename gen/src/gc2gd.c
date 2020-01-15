@@ -1,7 +1,7 @@
 /* Generate Test Data for gc2gd */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -23,7 +23,7 @@ int main()
       printf(", ");
       exportV3(t1);
       printf(", ");
-      printf("%d", iauGc2gd(t0, t1, &res0, &res1, &res2));
+      printf("%d", eraGc2gd(t0, t1, &res0, &res1, &res2));
       printf(", ");
       printf("%.28e", res0);
       printf(", ");

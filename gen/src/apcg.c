@@ -1,7 +1,7 @@
 /* Generate Test Data for apcg */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -29,7 +29,7 @@ int main()
           if (mod3 > 1728) mod3 = 0;
           if (mod3 != 1) continue;
 
-          iauASTROM res0 = {0};
+          eraASTROM res0 = {0};
           modulo = modulo > 240
             ? 0 : modulo + 1;
           if (modulo != 1) continue;
@@ -42,7 +42,7 @@ int main()
           printf(", ");
           exportV3(t3);
           printf(", ");
-          iauApcg(t0, t1, t2, t3, &res0);
+          eraApcg(t0, t1, t2, t3, &res0);
           exportASTROM(res0);
           printf("  ],\n");
 

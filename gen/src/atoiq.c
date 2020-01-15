@@ -1,7 +1,7 @@
 /* Generate Test Data for atoiq */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -11,7 +11,7 @@ int main()
   int ti0;;
   double t1;
   double t2;
-  iauASTROM t3;
+  eraASTROM t3;
   int ti3;;
   printf("var atoiq_results = [\n");
   for (ti0 = 0; ti0 <= 2; ti0 += 1) { t0 = tcoordt[ti0];
@@ -31,7 +31,7 @@ int main()
           printf(", ");
           exportASTROM(t3);
           printf(", ");
-          iauAtoiq(t0, t1, t2, &t3, &res0, &res1);
+          eraAtoiq(t0, t1, t2, &t3, &res0, &res1);
           printf("%.28e", res0);
           printf(", ");
           printf("%.28e", res1);

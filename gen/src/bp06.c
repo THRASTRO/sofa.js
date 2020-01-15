@@ -1,7 +1,7 @@
 /* Generate Test Data for bp06 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -21,7 +21,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      iauBp06(t0, t1, res0, res1, res2);
+      eraBp06(t0, t1, res0, res1, res2);
       exportMAT33(res0);
       printf(", ");
       exportMAT33(res1);

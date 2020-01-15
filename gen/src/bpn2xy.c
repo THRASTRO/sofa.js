@@ -1,7 +1,7 @@
 /* Generate Test Data for bpn2xy */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -30,7 +30,7 @@ int main()
     printf("  [");
     exportMAT33(t0);
     printf(", ");
-    iauBpn2xy(t0, &res0, &res1);
+    eraBpn2xy(t0, &res0, &res1);
     printf("%.28e", res0);
     printf(", ");
     printf("%.28e", res1);

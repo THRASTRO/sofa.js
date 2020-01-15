@@ -1,7 +1,7 @@
 /* Generate Test Data for dtf2d */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -45,7 +45,7 @@ int main()
                 printf(", ");
                 printf("%.28e", t6);
                 printf(", ");
-                printf("%d", iauDtf2d(t0, t1, t2, t3, t4, t5, t6, &res0, &res1));
+                printf("%d", eraDtf2d(t0, t1, t2, t3, t4, t5, t6, &res0, &res1));
                 printf(", ");
                 printf("%.28e", res0);
                 printf(", ");

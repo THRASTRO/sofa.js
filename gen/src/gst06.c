@@ -1,7 +1,7 @@
 /* Generate Test Data for gst06 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -49,7 +49,7 @@ int main()
             printf(", ");
             exportMAT33(t4);
             printf(", ");
-            printf("%.28e", iauGst06(t0, t1, t2, t3, t4));
+            printf("%.28e", eraGst06(t0, t1, t2, t3, t4));
             printf("  ],\n");
 
           }

@@ -1,7 +1,7 @@
 /* Generate Test Data for atioq */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -9,7 +9,7 @@ int main()
 {
   double t0;
   double t1;
-  iauASTROM t2;
+  eraASTROM t2;
   int ti2;;
   printf("var atioq_results = [\n");
   for (t0 = -12; t0 <= 12; t0 += 3.75) {
@@ -29,7 +29,7 @@ int main()
         printf(", ");
         exportASTROM(t2);
         printf(", ");
-        iauAtioq(t0, t1, &t2, &res0, &res1, &res2, &res3, &res4);
+        eraAtioq(t0, t1, &t2, &res0, &res1, &res2, &res3, &res4);
         printf("%.28e", res0);
         printf(", ");
         printf("%.28e", res1);

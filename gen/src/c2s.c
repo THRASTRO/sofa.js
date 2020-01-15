@@ -1,7 +1,7 @@
 /* Generate Test Data for c2s */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -18,7 +18,7 @@ int main()
     printf("  [");
     exportV3(t0);
     printf(", ");
-    iauC2s(t0, &res0, &res1);
+    eraC2s(t0, &res0, &res1);
     printf("%.28e", res0);
     printf(", ");
     printf("%.28e", res1);

@@ -1,7 +1,7 @@
 /* Generate Test Data for pvm */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -21,7 +21,7 @@ int main()
     printf("  [");
     exportPV3(t0);
     printf(", ");
-    iauPvm(t0, &res0, &res1);
+    eraPvm(t0, &res0, &res1);
     printf("%.28e", res0);
     printf(", ");
     printf("%.28e", res1);

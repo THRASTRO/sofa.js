@@ -1,7 +1,7 @@
 /* Generate Test Data for atciqn */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -13,11 +13,11 @@ int main()
   double t3;
   double t4;
   double t5;
-  iauASTROM t6;
+  eraASTROM t6;
   int ti6;;
   int t7;
   int ti8;;
-  iauLDBODY t8[100];;
+  eraLDBODY t8[100];;
   unsigned long long modulo = 0;
   printf("var atciqn_results = [\n");
   for (t0 = -28; t0 <= 28; t0 += 21) {
@@ -59,7 +59,7 @@ int main()
                     printf(", ");
                     exportLDBODY(t7, t8);
                     printf(", ");
-                    iauAtciqn(t0, t1, t2, t3, t4, t5, &t6, t7, t8, &res0, &res1);
+                    eraAtciqn(t0, t1, t2, t3, t4, t5, &t6, t7, t8, &res0, &res1);
                     printf("%.28e", res0);
                     printf(", ");
                     printf("%.28e", res1);

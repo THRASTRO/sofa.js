@@ -1,7 +1,7 @@
 /* Generate Test Data for rxp */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -43,7 +43,7 @@ int main()
       printf(", ");
       exportV3(t1);
       printf(", ");
-      iauRxp(t0, t1, res0);
+      eraRxp(t0, t1, res0);
       exportV3(res0);
       printf("  ],\n");
 

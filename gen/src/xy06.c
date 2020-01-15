@@ -1,7 +1,7 @@
 /* Generate Test Data for xy06 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -20,7 +20,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      iauXy06(t0, t1, &res0, &res1);
+      eraXy06(t0, t1, &res0, &res1);
       printf("%.28e", res0);
       printf(", ");
       printf("%.28e", res1);

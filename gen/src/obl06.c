@@ -1,7 +1,7 @@
 /* Generate Test Data for obl06 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -19,7 +19,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      printf("%.28e", iauObl06(t0, t1));
+      printf("%.28e", eraObl06(t0, t1));
       printf("  ],\n");
 
     }

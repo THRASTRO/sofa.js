@@ -1,7 +1,7 @@
 /* Generate Test Data for nut80 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -20,7 +20,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      iauNut80(t0, t1, &res0, &res1);
+      eraNut80(t0, t1, &res0, &res1);
       printf("%.28e", res0);
       printf(", ");
       printf("%.28e", res1);

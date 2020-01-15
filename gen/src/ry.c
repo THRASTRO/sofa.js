@@ -1,7 +1,7 @@
 /* Generate Test Data for ry */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -15,7 +15,7 @@ int main()
     printf("  [");
     printf("%.28e", t0);
     printf(", ");
-    iauRy(t0, res0);
+    eraRy(t0, res0);
     exportMAT33(res0);
     printf("  ],\n");
 

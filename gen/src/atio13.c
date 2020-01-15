@@ -1,7 +1,7 @@
 /* Generate Test Data for atio13 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -75,7 +75,7 @@ int main()
                               printf(", ");
                               printf("%.28e", t13);
                               printf(", ");
-                              printf("%d", iauAtio13(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, &res0, &res1, &res2, &res3, &res4));
+                              printf("%d", eraAtio13(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, &res0, &res1, &res2, &res3, &res4));
                               printf(", ");
                               printf("%.28e", res0);
                               printf(", ");

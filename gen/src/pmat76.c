@@ -1,7 +1,7 @@
 /* Generate Test Data for pmat76 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -19,7 +19,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      iauPmat76(t0, t1, res0);
+      eraPmat76(t0, t1, res0);
       exportMAT33(res0);
       printf("  ],\n");
 

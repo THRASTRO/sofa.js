@@ -1,7 +1,7 @@
 /* Generate Test Data for ldsun */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -35,7 +35,7 @@ int main()
         printf(", ");
         printf("%.28e", t2);
         printf(", ");
-        iauLdsun(t0, t1, t2, res0);
+        eraLdsun(t0, t1, t2, res0);
         exportV3(res0);
         printf("  ],\n");
 

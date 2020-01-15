@@ -1,7 +1,7 @@
 /* Generate Test Data for tporv */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -26,7 +26,7 @@ int main()
         printf(", ");
         exportV3(t2);
         printf(", ");
-        printf("%d", iauTporv(t0, t1, t2, res0, res1));
+        printf("%d", eraTporv(t0, t1, t2, res0, res1));
         printf(", ");
         exportV3(res0);
         printf(", ");

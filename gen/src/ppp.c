@@ -1,7 +1,7 @@
 /* Generate Test Data for ppp */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -31,7 +31,7 @@ int main()
       printf(", ");
       exportV3(t1);
       printf(", ");
-      iauPpp(t0, t1, res0);
+      eraPpp(t0, t1, res0);
       exportV3(res0);
       printf("  ],\n");
 

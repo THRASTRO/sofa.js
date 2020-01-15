@@ -1,7 +1,7 @@
 /* Generate Test Data for s06 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -31,7 +31,7 @@ int main()
           printf(", ");
           printf("%.28e", t3);
           printf(", ");
-          printf("%.28e", iauS06(t0, t1, t2, t3));
+          printf("%.28e", eraS06(t0, t1, t2, t3));
           printf("  ],\n");
 
         }

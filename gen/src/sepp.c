@@ -1,7 +1,7 @@
 /* Generate Test Data for sepp */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -31,7 +31,7 @@ int main()
       printf(", ");
       exportV3(t1);
       printf(", ");
-      printf("%.28e", iauSepp(t0, t1));
+      printf("%.28e", eraSepp(t0, t1));
       printf("  ],\n");
 
     }
