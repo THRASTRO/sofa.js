@@ -1,7 +1,7 @@
 /* Generate Test Data for rxr */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -51,7 +51,7 @@ int main()
       printf(", ");
       exportMAT33(t1);
       printf(", ");
-      iauRxr(t0, t1, res0);
+      eraRxr(t0, t1, res0);
       exportMAT33(res0);
       printf("  ],\n");
 

@@ -1,7 +1,7 @@
 /* Generate Test Data for eors */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -37,7 +37,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      printf("%.28e", iauEors(t0, t1));
+      printf("%.28e", eraEors(t0, t1));
       printf("  ],\n");
 
     }

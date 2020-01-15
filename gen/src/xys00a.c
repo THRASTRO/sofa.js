@@ -1,7 +1,7 @@
 /* Generate Test Data for xys00a */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -21,7 +21,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      iauXys00a(t0, t1, &res0, &res1, &res2);
+      eraXys00a(t0, t1, &res0, &res1, &res2);
       printf("%.28e", res0);
       printf(", ");
       printf("%.28e", res1);

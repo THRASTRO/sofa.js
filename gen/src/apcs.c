@@ -1,7 +1,7 @@
 /* Generate Test Data for apcs */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -36,7 +36,7 @@ int main()
             if (mod4 > 3200000) mod4 = 0;
             if (mod4 != 1) continue;
 
-            iauASTROM res0 = {0};
+            eraASTROM res0 = {0};
             modulo = modulo > 11090
               ? 0 : modulo + 1;
             if (modulo != 1) continue;
@@ -51,7 +51,7 @@ int main()
             printf(", ");
             exportV3(t4);
             printf(", ");
-            iauApcs(t0, t1, t2, t3, t4, &res0);
+            eraApcs(t0, t1, t2, t3, t4, &res0);
             exportASTROM(res0);
             printf("  ],\n");
 

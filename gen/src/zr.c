@@ -1,7 +1,7 @@
 /* Generate Test Data for zr */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -12,7 +12,7 @@ int main()
 
   double res0[3][3] = {0};
   printf("  [");
-  iauZr(res0);
+  eraZr(res0);
   exportMAT33(res0);
   printf("  ],\n");
 

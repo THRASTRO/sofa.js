@@ -1,7 +1,7 @@
 /* Generate Test Data for faf03 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -15,7 +15,7 @@ int main()
     printf("  [");
     printf("%.28e", t0);
     printf(", ");
-    printf("%.28e", iauFaf03(t0));
+    printf("%.28e", eraFaf03(t0));
     printf("  ],\n");
 
   }

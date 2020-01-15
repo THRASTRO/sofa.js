@@ -1,7 +1,7 @@
 /* Generate Test Data for fasa03 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -15,7 +15,7 @@ int main()
     printf("  [");
     printf("%.28e", t0);
     printf(", ");
-    printf("%.28e", iauFasa03(t0));
+    printf("%.28e", eraFasa03(t0));
     printf("  ],\n");
 
   }

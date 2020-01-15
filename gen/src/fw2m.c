@@ -1,7 +1,7 @@
 /* Generate Test Data for fw2m */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -31,7 +31,7 @@ int main()
           printf(", ");
           printf("%.28e", t3);
           printf(", ");
-          iauFw2m(t0, t1, t2, t3, res0);
+          eraFw2m(t0, t1, t2, t3, res0);
           exportMAT33(res0);
           printf("  ],\n");
 

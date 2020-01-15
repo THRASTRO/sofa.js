@@ -1,7 +1,7 @@
 /* Generate Test Data for pvup */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -24,7 +24,7 @@ int main()
       printf(", ");
       exportPV3(t1);
       printf(", ");
-      iauPvup(t0, t1, res0);
+      eraPvup(t0, t1, res0);
       exportV3(res0);
       printf("  ],\n");
 

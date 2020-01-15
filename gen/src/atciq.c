@@ -1,7 +1,7 @@
 /* Generate Test Data for atciq */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -13,7 +13,7 @@ int main()
   double t3;
   double t4;
   double t5;
-  iauASTROM t6;
+  eraASTROM t6;
   int ti6;;
   unsigned long long modulo = 0;
   printf("var atciq_results = [\n");
@@ -46,7 +46,7 @@ int main()
                 printf(", ");
                 exportASTROM(t6);
                 printf(", ");
-                iauAtciq(t0, t1, t2, t3, t4, t5, &t6, &res0, &res1);
+                eraAtciq(t0, t1, t2, t3, t4, t5, &t6, &res0, &res1);
                 printf("%.28e", res0);
                 printf(", ");
                 printf("%.28e", res1);

@@ -1,7 +1,7 @@
 /* Generate Test Data for eqec06 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -32,7 +32,7 @@ int main()
           printf(", ");
           printf("%.28e", t3);
           printf(", ");
-          iauEqec06(t0, t1, t2, t3, &res0, &res1);
+          eraEqec06(t0, t1, t2, t3, &res0, &res1);
           printf("%.28e", res0);
           printf(", ");
           printf("%.28e", res1);

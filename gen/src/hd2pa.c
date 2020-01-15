@@ -1,7 +1,7 @@
 /* Generate Test Data for hd2pa */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -23,7 +23,7 @@ int main()
         printf(", ");
         printf("%.28e", t2);
         printf(", ");
-        printf("%.28e", iauHd2pa(t0, t1, t2));
+        printf("%.28e", eraHd2pa(t0, t1, t2));
         printf("  ],\n");
 
       }

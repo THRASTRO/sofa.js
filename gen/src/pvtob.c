@@ -1,7 +1,7 @@
 /* Generate Test Data for pvtob */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -43,7 +43,7 @@ int main()
                 printf(", ");
                 printf("%.28e", t6);
                 printf(", ");
-                iauPvtob(t0, t1, t2, t3, t4, t5, t6, res0);
+                eraPvtob(t0, t1, t2, t3, t4, t5, t6, res0);
                 exportPV3(res0);
                 printf("  ],\n");
 

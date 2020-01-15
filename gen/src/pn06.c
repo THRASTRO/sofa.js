@@ -1,7 +1,7 @@
 /* Generate Test Data for pn06 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -36,7 +36,7 @@ int main()
           printf(", ");
           printf("%.28e", t3);
           printf(", ");
-          iauPn06(t0, t1, t2, t3, &res0, res1, res2, res3, res4, res5);
+          eraPn06(t0, t1, t2, t3, &res0, res1, res2, res3, res4, res5);
           printf("%.28e", res0);
           printf(", ");
           exportMAT33(res1);

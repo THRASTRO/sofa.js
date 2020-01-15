@@ -1,7 +1,7 @@
 /* Generate Test Data for pvxpv */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -33,7 +33,7 @@ int main()
       printf(", ");
       exportPV3(t1);
       printf(", ");
-      iauPvxpv(t0, t1, res0);
+      eraPvxpv(t0, t1, res0);
       exportPV3(res0);
       printf("  ],\n");
 

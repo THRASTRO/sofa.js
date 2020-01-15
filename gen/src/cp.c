@@ -1,7 +1,7 @@
 /* Generate Test Data for cp */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -17,7 +17,7 @@ int main()
     printf("  [");
     exportV3(t0);
     printf(", ");
-    iauCp(t0, res0);
+    eraCp(t0, res0);
     exportV3(res0);
     printf("  ],\n");
 

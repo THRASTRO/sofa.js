@@ -1,7 +1,7 @@
 /* Generate Test Data for fk5hip */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -29,7 +29,7 @@ int main()
     printf("  [");
     exportMAT33(t0);
     printf(", ");
-    iauFk5hip(t0, res0);
+    eraFk5hip(t0, res0);
     exportV3(res0);
     printf("  ],\n");
 

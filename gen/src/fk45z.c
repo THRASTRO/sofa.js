@@ -1,4 +1,4 @@
-/* Generate Test Data for ae2hd */
+/* Generate Test Data for fk45z */
 
 #include <stdio.h>
 #include "erfa.h"
@@ -10,10 +10,10 @@ int main()
   double t0;
   double t1;
   double t2;
-  printf("var ae2hd_results = [\n");
-  for (t0 = - 180; t0 <= + 180; t0 += 180 / 3.0) {
-    for (t1 = - 180; t1 <= + 180; t1 += 180 / 3.0) {
-      for (t2 = - 180; t2 <= + 180; t2 += 180 / 3.0) {
+  printf("var fk45z_results = [\n");
+  for (t0 = -28; t0 <= 28; t0 += 21) {
+    for (t1 = -28; t1 <= 28; t1 += 21) {
+      for (t2 = -28; t2 <= 28; t2 += 21) {
 
         double res0 = {0};
         double res1 = {0};
@@ -24,7 +24,7 @@ int main()
         printf(", ");
         printf("%.28e", t2);
         printf(", ");
-        eraAe2hd(t0, t1, t2, &res0, &res1);
+        eraFk45z(t0, t1, t2, &res0, &res1);
         printf("%.28e", res0);
         printf(", ");
         printf("%.28e", res1);

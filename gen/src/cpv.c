@@ -1,7 +1,7 @@
 /* Generate Test Data for cpv */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -20,7 +20,7 @@ int main()
     printf("  [");
     exportPV3(t0);
     printf(", ");
-    iauCpv(t0, res0);
+    eraCpv(t0, res0);
     exportPV3(res0);
     printf("  ],\n");
 

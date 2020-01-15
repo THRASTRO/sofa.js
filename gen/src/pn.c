@@ -1,7 +1,7 @@
 /* Generate Test Data for pn */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -18,7 +18,7 @@ int main()
     printf("  [");
     exportV3(t0);
     printf(", ");
-    iauPn(t0, &res0, res1);
+    eraPn(t0, &res0, res1);
     printf("%.28e", res0);
     printf(", ");
     exportV3(res1);

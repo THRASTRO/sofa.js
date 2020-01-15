@@ -1,7 +1,7 @@
 /* Generate Test Data for ltpequ */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -15,7 +15,7 @@ int main()
     printf("  [");
     printf("%.28e", t0);
     printf(", ");
-    iauLtpequ(t0, res0);
+    eraLtpequ(t0, res0);
     exportV3(res0);
     printf("  ],\n");
 

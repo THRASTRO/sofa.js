@@ -1,7 +1,7 @@
 /* Generate Test Data for dtdb */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -39,7 +39,7 @@ int main()
               printf(", ");
               printf("%.28e", t5);
               printf(", ");
-              printf("%.28e", iauDtdb(t0, t1, t2, t3, t4, t5));
+              printf("%.28e", eraDtdb(t0, t1, t2, t3, t4, t5));
               printf("  ],\n");
 
             }

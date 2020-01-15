@@ -1,7 +1,7 @@
 /* Generate Test Data for rx */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -15,7 +15,7 @@ int main()
     printf("  [");
     printf("%.28e", t0);
     printf(", ");
-    iauRx(t0, res0);
+    eraRx(t0, res0);
     exportMAT33(res0);
     printf("  ],\n");
 

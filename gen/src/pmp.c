@@ -1,7 +1,7 @@
 /* Generate Test Data for pmp */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -31,7 +31,7 @@ int main()
       printf(", ");
       exportV3(t1);
       printf(", ");
-      iauPmp(t0, t1, res0);
+      eraPmp(t0, t1, res0);
       exportV3(res0);
       printf("  ],\n");
 

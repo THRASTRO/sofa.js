@@ -1,7 +1,7 @@
 /* Generate Test Data for c2txy */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -47,7 +47,7 @@ int main()
                   printf(", ");
                   printf("%.28e", t7);
                   printf(", ");
-                  iauC2txy(t0, t1, t2, t3, t4, t5, t6, t7, res0);
+                  eraC2txy(t0, t1, t2, t3, t4, t5, t6, t7, res0);
                   exportMAT33(res0);
                   printf("  ],\n");
 

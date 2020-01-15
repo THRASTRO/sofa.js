@@ -1,7 +1,7 @@
 /* Generate Test Data for p2s */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -19,7 +19,7 @@ int main()
     printf("  [");
     exportV3(t0);
     printf(", ");
-    iauP2s(t0, &res0, &res1, &res2);
+    eraP2s(t0, &res0, &res1, &res2);
     printf("%.28e", res0);
     printf(", ");
     printf("%.28e", res1);

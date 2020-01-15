@@ -1,7 +1,7 @@
 /* Generate Test Data for cr */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -29,7 +29,7 @@ int main()
     printf("  [");
     exportMAT33(t0);
     printf(", ");
-    iauCr(t0, res0);
+    eraCr(t0, res0);
     exportMAT33(res0);
     printf("  ],\n");
 

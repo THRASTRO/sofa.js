@@ -1,7 +1,7 @@
 /* Generate Test Data for utctai */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -20,7 +20,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      printf("%d", iauUtctai(t0, t1, &res0, &res1));
+      printf("%d", eraUtctai(t0, t1, &res0, &res1));
       printf(", ");
       printf("%.28e", res0);
       printf(", ");

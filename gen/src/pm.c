@@ -1,7 +1,7 @@
 /* Generate Test Data for pm */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -17,7 +17,7 @@ int main()
     printf("  [");
     exportV3(t0);
     printf(", ");
-    printf("%.28e", iauPm(t0));
+    printf("%.28e", eraPm(t0));
     printf("  ],\n");
 
   }

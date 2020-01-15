@@ -1,7 +1,7 @@
 /* Generate Test Data for taiut1 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -24,7 +24,7 @@ int main()
         printf(", ");
         printf("%.28e", t2);
         printf(", ");
-        printf("%d", iauTaiut1(t0, t1, t2, &res0, &res1));
+        printf("%d", eraTaiut1(t0, t1, t2, &res0, &res1));
         printf(", ");
         printf("%.28e", res0);
         printf(", ");

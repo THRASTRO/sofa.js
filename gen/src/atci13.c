@@ -1,7 +1,7 @@
 /* Generate Test Data for atci13 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -49,7 +49,7 @@ int main()
                   printf(", ");
                   printf("%.28e", t7);
                   printf(", ");
-                  iauAtci13(t0, t1, t2, t3, t4, t5, t6, t7, &res0, &res1, &res2);
+                  eraAtci13(t0, t1, t2, t3, t4, t5, t6, t7, &res0, &res1, &res2);
                   printf("%.28e", res0);
                   printf(", ");
                   printf("%.28e", res1);

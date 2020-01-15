@@ -1,7 +1,7 @@
 /* Generate Test Data for apco */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -53,7 +53,7 @@ int main()
                               for (t14 = -28; t14 <= 28; t14 += 21) {
                                 for (t15 = -28; t15 <= 28; t15 += 21) {
 
-                                  iauASTROM res0 = {0};
+                                  eraASTROM res0 = {0};
                                   modulo = modulo > 165544879472824288
                                     ? 0 : modulo + 1;
                                   if (modulo != 1) continue;
@@ -90,7 +90,7 @@ int main()
                                   printf(", ");
                                   printf("%.28e", t15);
                                   printf(", ");
-                                  iauApco(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, &res0);
+                                  eraApco(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, &res0);
                                   exportASTROM(res0);
                                   printf("  ],\n");
 

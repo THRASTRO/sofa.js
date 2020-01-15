@@ -1,7 +1,7 @@
 /* Generate Test Data for starpm */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -60,7 +60,7 @@ int main()
                       printf(", ");
                       printf("%.28e", t9);
                       printf(", ");
-                      printf("%d", iauStarpm(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, &res0, &res1, &res2, &res3, &res4, &res5));
+                      printf("%d", eraStarpm(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, &res0, &res1, &res2, &res3, &res4, &res5));
                       printf(", ");
                       printf("%.28e", res0);
                       printf(", ");

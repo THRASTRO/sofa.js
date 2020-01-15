@@ -1,7 +1,7 @@
 /* Generate Test Data for numat */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -23,7 +23,7 @@ int main()
         printf(", ");
         printf("%.28e", t2);
         printf(", ");
-        iauNumat(t0, t1, t2, res0);
+        eraNumat(t0, t1, t2, res0);
         exportMAT33(res0);
         printf("  ],\n");
 

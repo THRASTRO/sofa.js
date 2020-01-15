@@ -1,7 +1,7 @@
 /* Generate Test Data for hfk5z */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -34,7 +34,7 @@ int main()
           printf(", ");
           printf("%.28e", t3);
           printf(", ");
-          iauHfk5z(t0, t1, t2, t3, &res0, &res1, &res2, &res3);
+          eraHfk5z(t0, t1, t2, t3, &res0, &res1, &res2, &res3);
           printf("%.28e", res0);
           printf(", ");
           printf("%.28e", res1);

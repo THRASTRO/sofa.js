@@ -1,7 +1,7 @@
 /* Generate Test Data for eqeq94 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -19,7 +19,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      printf("%.28e", iauEqeq94(t0, t1));
+      printf("%.28e", eraEqeq94(t0, t1));
       printf("  ],\n");
 
     }

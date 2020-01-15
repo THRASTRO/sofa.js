@@ -1,7 +1,7 @@
 /* Generate Test Data for plan94 */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -23,7 +23,7 @@ int main()
         printf(", ");
         printf("%d", t2);
         printf(", ");
-        printf("%d", iauPlan94(t0, t1, t2, res0));
+        printf("%d", eraPlan94(t0, t1, t2, res0));
         printf(", ");
         exportPV3(res0);
         printf("  ],\n");

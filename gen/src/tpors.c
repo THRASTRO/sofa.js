@@ -1,7 +1,7 @@
 /* Generate Test Data for tpors */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -34,7 +34,7 @@ int main()
           printf(", ");
           printf("%.28e", t3);
           printf(", ");
-          printf("%d", iauTpors(t0, t1, t2, t3, &res0, &res1, &res2, &res3));
+          printf("%d", eraTpors(t0, t1, t2, t3, &res0, &res1, &res2, &res3));
           printf(", ");
           printf("%.28e", res0);
           printf(", ");

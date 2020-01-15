@@ -1,7 +1,7 @@
 /* Generate Test Data for c2t06a */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -39,7 +39,7 @@ int main()
               printf(", ");
               printf("%.28e", t5);
               printf(", ");
-              iauC2t06a(t0, t1, t2, t3, t4, t5, res0);
+              eraC2t06a(t0, t1, t2, t3, t4, t5, res0);
               exportMAT33(res0);
               printf("  ],\n");
 

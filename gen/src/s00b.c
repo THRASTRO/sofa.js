@@ -1,7 +1,7 @@
 /* Generate Test Data for s00b */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -19,7 +19,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      printf("%.28e", iauS00b(t0, t1));
+      printf("%.28e", eraS00b(t0, t1));
       printf("  ],\n");
 
     }

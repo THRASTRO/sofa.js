@@ -1,7 +1,7 @@
 /* Generate Test Data for cal2jd */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -28,7 +28,7 @@ int main()
         printf(", ");
         printf("%.28e", t2);
         printf(", ");
-        printf("%d", iauCal2jd(t0, t1, t2, &res0, &res1));
+        printf("%d", eraCal2jd(t0, t1, t2, &res0, &res1));
         printf(", ");
         printf("%.28e", res0);
         printf(", ");

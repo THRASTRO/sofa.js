@@ -1,7 +1,7 @@
 /* Generate Test Data for num00b */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -19,7 +19,7 @@ int main()
       printf(", ");
       printf("%.28e", t1);
       printf(", ");
-      iauNum00b(t0, t1, res0);
+      eraNum00b(t0, t1, res0);
       exportMAT33(res0);
       printf("  ],\n");
 

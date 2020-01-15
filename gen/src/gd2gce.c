@@ -1,7 +1,7 @@
 /* Generate Test Data for gd2gce */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -35,7 +35,7 @@ int main()
             printf(", ");
             printf("%.28e", t4);
             printf(", ");
-            printf("%d", iauGd2gce(t0, t1, t2, t3, t4, res0));
+            printf("%d", eraGd2gce(t0, t1, t2, t3, t4, res0));
             printf(", ");
             exportV3(res0);
             printf("  ],\n");

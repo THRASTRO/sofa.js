@@ -1,7 +1,7 @@
 /* Generate Test Data for p2pv */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -17,7 +17,7 @@ int main()
     printf("  [");
     exportV3(t0);
     printf(", ");
-    iauP2pv(t0, res0);
+    eraP2pv(t0, res0);
     exportPV3(res0);
     printf("  ],\n");
 

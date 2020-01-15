@@ -1,7 +1,7 @@
 /* Generate Test Data for pmpx */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -49,7 +49,7 @@ int main()
                   printf(", ");
                   exportV3(t7);
                   printf(", ");
-                  iauPmpx(t0, t1, t2, t3, t4, t5, t6, t7, res0);
+                  eraPmpx(t0, t1, t2, t3, t4, t5, t6, t7, res0);
                   exportV3(res0);
                   printf("  ],\n");
 
