@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>IAU SOFA QUnit Tests</title>
+	<title>ERFA/SOFA QUnit Tests</title>
 	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 	<link rel="stylesheet" href="lib/qunit-1.23.1.css">
 	<script src="lib/qunit-1.23.1.js"></script>
@@ -23,17 +23,15 @@
 	</script>
 
 	<!-- include actual unit tests -->
-	<script src="../src/sofam.js"></script>
-	<script src="../dist/sofa.min.js"></script>
+	<script src="../dist/erfa.min.js"></script>
 	<script>
 		// export with "regular" name
-		for(var name in IAU) {
-			window['iau' + name[0].toUpperCase()
-				+ name.substr(1)] = IAU[name];
+		for(var name in ERFA) {
+			window['era' + name[0].toUpperCase()
+				+ name.substr(1)] = ERFA[name];
 		}
 	</script>
-	<!-- <script src="inc.iau.js"></script> -->
-	<script src="chk.iau.js"></script>
+	<script src="chk.erfa.js"></script>
 
 </body>
 </html>
