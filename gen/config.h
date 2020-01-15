@@ -9,14 +9,14 @@ static const char* tcoordt[3] = {
 	"R", "H", "A"
 };
 
-static const iauLDBODY lbodys[4] = {
+static const eraLDBODY lbodys[4] = {
 	{ 1.0       , 6e-6 , { { 0.0, 0.0, 0.0 }, { 0.0, 0.0, 0.0 } }, }, // sun
 	{ 0.00095435, 3e-9 , { { 0.0, 0.0, 0.0 }, { 0.0, 0.0, 0.0 } }, }, // jup
 	{ 0.00028574, 3e-10, { { 0.0, 0.0, 0.0 }, { 0.0, 0.0, 0.0 } }, }, // sat
 	{ 0.00028574, 3e-10, { { 0.0, 0.0, 0.0 }, { 0.0, 0.0, 0.0 } }, }, // sat
 };
 
-static const iauASTROM astroms[] = {
+static const eraASTROM astroms[] = {
 	{
 		1.0, { 0.1, 1.0, 0.0 }, { 0.0, 0.0, 0.0 }, 0.1, { 0.0, 0.0, 0.0 }, 1.0,
 		{ { 0.3, 0.2, 0.4 }, { 0.0, 1.0, 0.0 }, { 0.0, 1.0, 0.0 } },
@@ -94,7 +94,7 @@ static const double end_double = + 1.73333 * 1.0 - 1;
 static const double d_double = 1.73333;
 /*
 
-**     b    iauLDBODY[n]  data for each of the n bodies (Notes 1,2):
+**     b    eraLDBODY[n]  data for each of the n bodies (Notes 1,2):
 **      bm   double         mass of the body (solar masses, Note 3)
 **      dl   double         deflection limiter (Note 4)
 **      pv   [2][3]         barycentric PV of the body (au, 	au/day)
@@ -134,7 +134,7 @@ void exportMAT33(double pv[3][3]) {
 }
 
 /*
-**  astrom iauASTROM* star-independent astrometry parameters:
+**  astrom eraASTROM* star-independent astrometry parameters:
 **   pmt    double       PM time interval (SSB, Julian years)
 **   eb     double[3]    SSB to observer (vector, au)
 **   eh     double[3]    Sun to observer (unit vector)
@@ -152,7 +152,7 @@ void exportMAT33(double pv[3][3]) {
 **   refa   double       refraction constant A (radians)
 **   refb   double       refraction constant B (radians)
 */
-void exportASTROM(iauASTROM astrom) {
+void exportASTROM(eraASTROM astrom) {
 	printf("{ ");
 	printf("pmt: %.24e, ", astrom.pmt);
 	printf("eb: ");
@@ -182,12 +182,12 @@ void exportASTROM(iauASTROM astrom) {
 }
 
 /*
-**  b     iauLDBODY[n] data for each of the n bodies (Notes 3,4):
+**  b     eraLDBODY[n] data for each of the n bodies (Notes 3,4):
 **   bm    double       mass of the body (solar masses, Note 5)
 **   dl    double       deflection limiter (Note 6)
 **   pv    [2][3]       barycentric PV of the body (au, au/day)
 */
-void exportLBODY(iauLDBODY ldbody) {
+void exportLBODY(eraLDBODY ldbody) {
 	printf("{ ");
 	printf("bm: %.24e, ", ldbody.bm);
 	printf("dl: %.24e, ", ldbody.dl);
@@ -196,7 +196,7 @@ void exportLBODY(iauLDBODY ldbody) {
 	printf("}");
 }
 
-void exportLDBODY(int n, iauLDBODY ldbody[]) {
+void exportLDBODY(int n, eraLDBODY ldbody[]) {
 	int i;
 	printf("[ ");
 	for(i = 0; i < n; i++) {

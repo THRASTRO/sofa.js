@@ -17,7 +17,7 @@ lib/%.o: ../data/src/%.c
 
 bin/%.exe: src/%.c
 	$(CC) -O3 -std=c99 $(CFLAGS) -isystem . -I../data/src -I. lib/*.o -o $@ $<
-	"$@" | perl clean-test.pl > ../test/iau/$*.rslt.js
+	"$@" | perl clean-test.pl > ../test/era/$*.rslt.js
 
 libs: lib/a2af.o      lib/c2i06a.o    lib/fae03.o     lib/ldsun.o     lib/pnm80.o     lib/seps.o       \
       lib/a2tf.o      lib/c2ibpn.o    lib/faf03.o     lib/num00a.o    lib/pom00.o     lib/sp00.o       \
@@ -59,7 +59,9 @@ libs: lib/a2af.o      lib/c2i06a.o    lib/fae03.o     lib/ldsun.o     lib/pnm80.
       lib/ltpequ.o    lib/ltpecl.o    lib/ltpb.o      lib/ltp.o       lib/lteqec.o    lib/ltecm.o      \
       lib/lteceq.o    lib/icrs2g.o    lib/g2icrs.o    lib/eqec06.o    lib/ecm06.o     lib/eceq06.o     \
       lib/ae2hd.o     lib/hd2ae.o     lib/hd2pa.o     lib/tpors.o     lib/tporv.o     lib/tpsts.o      \
-      lib/tpstv.o     lib/tpxes.o     lib/tpxev.o
+      lib/tpstv.o     lib/tpxes.o     lib/tpxev.o     \
+      lib/fk425.o     lib/fk45z.o     lib/fk524.o     lib/fk54z.o \
+      lib/erfadatextra.o
 
 bins: bin/a2af.exe    bin/c2i06a.exe  bin/fae03.exe   bin/ldsun.exe   bin/pnm80.exe   bin/seps.exe     \
       bin/a2tf.exe    bin/c2ibpn.exe  bin/faf03.exe   bin/num00a.exe  bin/pom00.exe   bin/sp00.exe     \
@@ -101,7 +103,8 @@ bins: bin/a2af.exe    bin/c2i06a.exe  bin/fae03.exe   bin/ldsun.exe   bin/pnm80.
       bin/ltpequ.exe  bin/ltpecl.exe  bin/ltpb.exe    bin/ltp.exe     bin/lteqec.exe  bin/ltecm.exe    \
       bin/lteceq.exe  bin/icrs2g.exe  bin/g2icrs.exe  bin/eqec06.exe  bin/ecm06.exe   bin/eceq06.exe   \
       bin/ae2hd.exe   bin/hd2ae.exe   bin/hd2pa.exe   bin/tpors.exe   bin/tporv.exe   bin/tpsts.exe    \
-      bin/tpstv.exe   bin/tpxes.exe   bin/tpxev.exe
+      bin/tpstv.exe   bin/tpxes.exe   bin/tpxev.exe   \
+      bin/fk425.exe   bin/fk45z.exe   bin/fk524.exe   bin/fk54z.exe
 
 
 all: libs bins
@@ -109,6 +112,6 @@ all: libs bins
 clean:
 	$(RM) bin/*.exe
 	$(RM) lib/*.o
-	$(RM) ../test/iau/*.js
+	$(RM) ../test/era/*.js
 
 .PHONY: all clean

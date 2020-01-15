@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 ################################################################################
-# IAU SOFA C functions to JS converter
+# ERFA/SOFA C functions to JS converter
 # http:://www.github.com/mgreter/sofa.js
 # (c) 2016-2018 by Marcel Greter
 ################################################################################
@@ -12,7 +12,7 @@ use warnings;
 # Copyright (C) Standards Of Fundamental Astronomy Review Board
 # of the International Astronomical Union. Please read their license!
 ################################################################################
-# - Converts iau C functions to JS functions
+# - Converts erfa C functions to JS functions
 # - Generates QUnit tests for all functions
 # - Creates C programs to gather test data
 # - Extracts documentation for functions
@@ -147,11 +147,11 @@ my %vtypes = (
 		'res' => "res%d",
 		'arg' => "%s"
 	},
-	'iauLDBODY' => {
+	'eraLDBODY' => {
 		'assert' => 'LDBODY',
 		'epsilon' => '1e-8',
 		'init' => '{bm:0,dl:0,pv:[]}',
-		# 'decl' => "iauLDBODY %s[100]",
+		# 'decl' => "eraLDBODY %s[100]",
 		'c2json' => "exportLDBODY(_%1\$s, %1\$s)",
 		'fmat' => "'%s'",
 		'var' => "t%d",
@@ -159,11 +159,11 @@ my %vtypes = (
 		'res' => "res%d",
 		'arg' => "&%s"
 	},
-	'iauASTROM' => {
+	'eraASTROM' => {
 		'assert' => 'ASTROM',
 		'epsilon' => '1e-6',
-		'init' => '{pmt:0,eb:iauZp(),eh:iauZp(),em:0,v:iauZp(),bm1:0,bpn:iauZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0}',
-		'decl' => "iauASTROM %s",
+		'init' => '{pmt:0,eb:eraZp(),eh:eraZp(),em:0,v:eraZp(),bm1:0,bpn:eraZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0}',
+		'decl' => "eraASTROM %s",
 		'c2json' => "exportASTROM(%s)",
 		'fmat' => "'%s'",
 		'var' => "t%d",
@@ -277,14 +277,14 @@ my %itypes = (
 	'mat33' => {
 		'vtype' => 'mat33',
 	},
-	'iauLDBODY' => {
-		'vtype' => 'iauLDBODY',
+	'eraLDBODY' => {
+		'vtype' => 'eraLDBODY',
 		'beg' => '0',
 		'end' => '1',
 		'd' => '1',
 	},
-	'iauASTROM' => {
-		'vtype' => 'iauASTROM',
+	'eraASTROM' => {
+		'vtype' => 'eraASTROM',
 		'beg' => '0',
 		'end' => '3',
 		'd' => '1',
@@ -364,6 +364,244 @@ my %itypes = (
 	}
 );
 
+my %categories = (
+	eform => 'canonical',
+	taitt => 'canonical',
+	taiut1 => 'canonical',
+	taiutc => 'canonical',
+	tcbtdb => 'canonical',
+	tcgtt => 'canonical',
+	tdbtcb => 'canonical',
+	tdbtt => 'canonical',
+	tttai => 'canonical',
+	tttcg => 'canonical',
+	tttdb => 'canonical',
+	ttut1 => 'canonical',
+	ut1tai => 'canonical',
+	ut1tt => 'canonical',
+	ut1utc => 'canonical',
+	utctai => 'canonical',
+	utcut1 => 'canonical',
+	bi00 => 'canonical model',
+	bp00 => 'canonical model',
+	ee00 => 'canonical model',
+	eect00 => 'canonical model',
+	eqeq94 => 'canonical model',
+	era00 => 'canonical model',
+	fad03 => 'canonical model',
+	fae03 => 'canonical model',
+	faf03 => 'canonical model',
+	faju03 => 'canonical model',
+	fal03 => 'canonical model',
+	falp03 => 'canonical model',
+	fama03 => 'canonical model',
+	fame03 => 'canonical model',
+	fane03 => 'canonical model',
+	faom03 => 'canonical model',
+	fapa03 => 'canonical model',
+	fasa03 => 'canonical model',
+	faur03 => 'canonical model',
+	fave03 => 'canonical model',
+	gmst00 => 'canonical model',
+	gmst06 => 'canonical model',
+	gmst82 => 'canonical model',
+	gst00a => 'canonical model',
+	gst06a => 'canonical model',
+	nut00a => 'canonical model',
+	nut00b => 'canonical model',
+	nut06a => 'canonical model',
+	nut80 => 'canonical model',
+	obl06 => 'canonical model',
+	obl80 => 'canonical model',
+	pfw06 => 'canonical model',
+	pr00 => 'canonical model',
+	prec76 => 'canonical model',
+	s00 => 'canonical model',
+	s06 => 'canonical model',
+	sp00 => 'canonical model',
+	xy06 => 'canonical model',
+	p06e => 'canonical models',
+	gc2gd => 'canonical transformation',
+	gd2gc => 'canonical transformation',
+	ab => 'support function',
+	af2a => 'support function',
+	apcg => 'support function',
+	apcg13 => 'support function',
+	apci => 'support function',
+	apci13 => 'support function',
+	apco => 'support function',
+	apco13 => 'support function',
+	apcs => 'support function',
+	apcs13 => 'support function',
+	aper => 'support function',
+	aper13 => 'support function',
+	apio => 'support function',
+	apio13 => 'support function',
+	atci13 => 'support function',
+	atciq => 'support function',
+	atciqn => 'support function',
+	atciqz => 'support function',
+	atco13 => 'support function',
+	atic13 => 'support function',
+	aticq => 'support function',
+	aticqn => 'support function',
+	atio13 => 'support function',
+	atioq => 'support function',
+	atoc13 => 'support function',
+	atoi13 => 'support function',
+	atoiq => 'support function',
+	bp06 => 'support function',
+	bpn2xy => 'support function',
+	c2i00a => 'support function',
+	c2i00b => 'support function',
+	c2i06a => 'support function',
+	c2ibpn => 'support function',
+	c2ixy => 'support function',
+	c2ixys => 'support function',
+	c2t00a => 'support function',
+	c2t00b => 'support function',
+	c2t06a => 'support function',
+	c2tcio => 'support function',
+	c2teqx => 'support function',
+	c2tpe => 'support function',
+	c2txy => 'support function',
+	cal2jd => 'support function',
+	d2dtf => 'support function',
+	dat => 'support function',
+	dtf2d => 'support function',
+	eceq06 => 'support function',
+	ecm06 => 'support function',
+	ee00a => 'support function',
+	ee00b => 'support function',
+	ee06a => 'support function',
+	eo06a => 'support function',
+	eors => 'support function',
+	epb => 'support function',
+	epb2jd => 'support function',
+	epj => 'support function',
+	epj2jd => 'support function',
+	epv00 => 'support function',
+	eqec06 => 'support function',
+	fk425 => 'support function',
+	fk45z => 'support function',
+	fk524 => 'support function',
+	fk54z => 'support function',
+	fk52h => 'support function',
+	fk5hip => 'support function',
+	fk5hz => 'support function',
+	fw2m => 'support function',
+	fw2xy => 'support function',
+	gc2gde => 'support function',
+	gd2gce => 'support function',
+	gst00b => 'support function',
+	gst06 => 'support function',
+	gst94 => 'support function',
+	h2fk5 => 'support function',
+	hfk5z => 'support function',
+	jd2cal => 'support function',
+	jdcalf => 'support function',
+	ld => 'support function',
+	ldn => 'support function',
+	ldsun => 'support function',
+	lteceq => 'support function',
+	ltecm => 'support function',
+	lteqec => 'support function',
+	ltp => 'support function',
+	ltpb => 'support function',
+	ltpecl => 'support function',
+	ltpequ => 'support function',
+	num00a => 'support function',
+	num00b => 'support function',
+	num06a => 'support function',
+	numat => 'support function',
+	nutm80 => 'support function',
+	pb06 => 'support function',
+	plan94 => 'support function',
+	pmat00 => 'support function',
+	pmat06 => 'support function',
+	pmat76 => 'support function',
+	pmpx => 'support function',
+	pmsafe => 'support function',
+	pn00 => 'support function',
+	pn00a => 'support function',
+	pn00b => 'support function',
+	pn06 => 'support function',
+	pn06a => 'support function',
+	pnm00a => 'support function',
+	pnm00b => 'support function',
+	pnm06a => 'support function',
+	pnm80 => 'support function',
+	pom00 => 'support function',
+	pvstar => 'support function',
+	pvtob => 'support function',
+	refco => 'support function',
+	s00a => 'support function',
+	s00b => 'support function',
+	s06a => 'support function',
+	starpm => 'support function',
+	starpv => 'support function',
+	tf2a => 'support function',
+	tf2d => 'support function',
+	xys00a => 'support function',
+	xys00b => 'support function',
+	xys06a => 'support function',
+	dtdb => 'support routine',
+	g2icrs => 'support routine',
+	icrs2g => 'support routine',
+	a2af => 'vector/matrix support function',
+	a2tf => 'vector/matrix support function',
+	anp => 'vector/matrix support function',
+	anpm => 'vector/matrix support function',
+	c2s => 'vector/matrix support function',
+	cp => 'vector/matrix support function',
+	cpv => 'vector/matrix support function',
+	cr => 'vector/matrix support function',
+	d2tf => 'vector/matrix support function',
+	ir => 'vector/matrix support function',
+	p2pv => 'vector/matrix support function',
+	p2s => 'vector/matrix support function',
+	pap => 'vector/matrix support function',
+	pas => 'vector/matrix support function',
+	pdp => 'vector/matrix support function',
+	pm => 'vector/matrix support function',
+	pmp => 'vector/matrix support function',
+	pn => 'vector/matrix support function',
+	ppp => 'vector/matrix support function',
+	ppsp => 'vector/matrix support function',
+	pv2p => 'vector/matrix support function',
+	pv2s => 'vector/matrix support function',
+	pvdpv => 'vector/matrix support function',
+	pvm => 'vector/matrix support function',
+	pvmpv => 'vector/matrix support function',
+	pvppv => 'vector/matrix support function',
+	pvu => 'vector/matrix support function',
+	pvup => 'vector/matrix support function',
+	pvxpv => 'vector/matrix support function',
+	pxp => 'vector/matrix support function',
+	rm2v => 'vector/matrix support function',
+	rv2m => 'vector/matrix support function',
+	rx => 'vector/matrix support function',
+	rxp => 'vector/matrix support function',
+	rxpv => 'vector/matrix support function',
+	rxr => 'vector/matrix support function',
+	ry => 'vector/matrix support function',
+	rz => 'vector/matrix support function',
+	s2c => 'vector/matrix support function',
+	s2p => 'vector/matrix support function',
+	s2pv => 'vector/matrix support function',
+	s2xpv => 'vector/matrix support function',
+	sepp => 'vector/matrix support function',
+	seps => 'vector/matrix support function',
+	sxp => 'vector/matrix support function',
+	sxpv => 'vector/matrix support function',
+	tr => 'vector/matrix support function',
+	trxp => 'vector/matrix support function',
+	trxpv => 'vector/matrix support function',
+	zp => 'vector/matrix support function',
+	zpv => 'vector/matrix support function',
+	zr => 'vector/matrix support function',
+);
+
 ################################################################################
 # regex are either copied or hacked together
 # could be more modular and names are arbitrary
@@ -399,11 +637,15 @@ $re_ops = qr/(?:$re_ops|\(\s*$re_ops\s*\))/;
 $re_arg = qr/$re_ops(?:\s*,\s*$re_ops)*/;
 $re_ops = qr/(?:$re_ops|$re_ops\s*\?\s*$re_ops\s*:\s*$re_ops\s*)/;
 our $re_va = qr/(?:$re_identifier(?:\s*=\s*$re_nr)?)/;
-our $re_itm = qr/(?:$re_nr|$re_identifier)/s;
-our $re_itm_list = qr/$re_itm(?:\s*,\s*$re_itm)*/s;
-our $re_entry = qr/$rc(?:$re_itm|\{$rc(?:$re_itm_list)$rc\})$rc/s;
-our $re_entries = qr/$re_entry(?:\s*,\s*$re_entry)+/s;
-our $re_array_def = qr/\{\s*(?:$re_entries)*\s*\}/s;
+# use "postponed" regular subexpression
+our $re_array_def; $re_array_def = qr/
+  $rc \{
+  (?:
+    (?s: [^\{\}]+ ) # match anything else
+    | (??{ $re_array_def }) # or nest level
+  )*
+  \} $rc
+/xs;
 
 # a bunch of regex magic to parse the enums/arrays
 our $re_sizeof_nm = qr/\s*(?:sizeof\s*(?:\([A-Za-z]+\)|$re_identifier)(?:\[$re_arr_size\])*|$re_nr)\s*/;
@@ -626,6 +868,10 @@ my %config = (
 	fasa03 => { arg => ['time'], rv => 'double' },
 	faur03 => { arg => ['time'], rv => 'double' },
 	fave03 => { arg => ['time'], rv => 'double' },
+	fk425 => { arg => [mt('sdouble', 6)], out => [mt('double', 6)] },
+	fk45z => { arg => [mt('sdouble', 3)], out => [mt('double', 2)] },
+	fk524 => { arg => [mt('sdouble', 6)], out => [mt('double', 6)] },
+	fk54z => { arg => [mt('sdouble', 3)], out => [mt('double', 4)] },
 	fk5hip => { arg => [mt('mat33', 1)], out => [mt('v3', 1)], mod => 1 },
 	fk5hz => { arg => [mt('sdouble', 4)], out => [mt('double', 2)] },
 	fk52h => { arg => [mt('sdouble', 6)], out => [mt('double', 6)] },
@@ -791,8 +1037,8 @@ foreach my $name (sort keys %config) {
 	my $v3 = 0; my $mod = -1;
 	$config{$name}->{'arg'} = [] unless $config{$name}->{'arg'};
 	foreach (@{$config{$name}->{'arg'} || []}) {
-		if ($_ eq "lbody") { $_ = "iauLDBODY" }
-		elsif ($_ eq "astrom") { $_ = "iauASTROM" }
+		if ($_ eq "lbody") { $_ = "eraLDBODY" }
+		elsif ($_ eq "astrom") { $_ = "eraASTROM" }
 		elsif ($_ eq "mat33") { $v3 += 3 }
 		elsif ($_ eq "pv3") { $v3 += 2 }
 		elsif ($_ eq "p3") { $v3 += 1 }
@@ -810,8 +1056,8 @@ foreach my $name (sort keys %config) {
 	foreach (@{$config{$name}->{'out'} || []}) {
 		if ($_ eq "sign") { $_ = "char" }
 		elsif ($_ eq "iy") { $_ = "int" }
-		elsif ($_ eq "lbody") { $_ = "iauLDBODY" }
-		elsif ($_ eq "astrom") { $_ = "iauASTROM" }
+		elsif ($_ eq "lbody") { $_ = "eraLDBODY" }
+		elsif ($_ eq "astrom") { $_ = "eraASTROM" }
 	}
 }
 
@@ -854,13 +1100,13 @@ sub create_test {
 	my $tmpl = <<EOTST;
 (function (tests) {
 
-	QUnit.module( "IAU", function ()
+	QUnit.module( "ERFA", function ()
 	{
 		QUnit.test( "$name", function( assert )
 		{
 			for (var i = 0; i < tests.length; i += 1)
 			{
-				var res = iauFname($fnargs);
+				var res = eraFname($fnargs);
 $assertions
 			}
 		});
@@ -873,8 +1119,8 @@ EOTST
 	$tmpl =~ s/fname/lc $name/eg;
 	$tmpl =~ s/Fname/ucfirst $name/eg;
 
-	open(my $fh, ">", "$root/test/iau/$name.chk.js");
-	die "could not write '$root/test/iau/$name.chk.js'\n" unless $fh;
+	open(my $fh, ">", "$root/test/era/$name.chk.js");
+	die "could not write '$root/test/era/$name.chk.js'\n" unless $fh;
 	print $fh $tmpl; close $fh;
 
 }
@@ -889,8 +1135,8 @@ sub create_lnk {
 		$_[1]->{$_[0]} = {
 			idx => $i,
 			use => 0,
-			txt => sprintf("[iau%s][%d]", $_[0], $i),
-			lnk => sprintf("[%d]: iau.%s.md", $i, lc $_[0])
+			txt => sprintf("[era%s][%d]", $_[0], $i),
+			lnk => sprintf("[%d]: era.%s.md", $i, lc $_[0])
 		}
 	}
 	$_[1]->{$_[0]}->{'use'} += 1;
@@ -904,13 +1150,13 @@ sub remove_lnk {
 			delete $_[1]->{$_[0]};
 		}
 	}
-	return "iau" . $_[0];
+	return "era" . $_[0];
 }
 
 sub remove_lnks {
 	my $txt = $_[0];
 	my $lnks = $_[1];
-	$txt =~ s/\[iau([^\]]+)\]\[(\d+)\]/remove_lnk($1, $lnks, $2)/eg;
+	$txt =~ s/\[era([^\]]+)\]\[(\d+)\]/remove_lnk($1, $lnks, $2)/eg;
 	return '```' . $txt . '```';
 }
 
@@ -932,8 +1178,9 @@ sub create_docu {
 
 	$text =~ s/\nThis function is part of the International Astronomical Union\'s\n//i;
 	$text =~ s/SOFA \(Standards Of Fundamental Astronomy\) software collection.\n\n//i;
+	$text =~ s/\s*See notes at end of file.//;
 
-	$text =~ s/iau([A-Z][a-zA-Z0-9]+)(?:\[\d+\])?/create_lnk($1, $links)/eg;
+	$text =~ s/era([A-Z][a-zA-Z0-9]+)(?:\[\d+\])?/create_lnk($1, $links)/eg;
 
 	if ($text =~ s/^Status:\s*(.*?)\s*$//m) {
 		$group = $1;
@@ -942,6 +1189,16 @@ sub create_docu {
 	}
 
 	$group = "support function" if ($name eq "ae2hd");
+	$group = "support function" if ($name eq "hd2ae");
+	$group = "support function" if ($name eq "hd2pa");
+	$group = "support function" if ($name eq "tpors");
+	$group = "support function" if ($name eq "tporv");
+	$group = "support function" if ($name eq "tpsts");
+	$group = "support function" if ($name eq "tpstv");
+	$group = "support function" if ($name eq "tpxes");
+	$group = "support function" if ($name eq "tpxev");
+
+	$group = $categories{$name} unless $group;
 
 	if ($text =~ m/- - -\n\n((?:[^\n]+\n)+)/) {
 		$extract = " - $1";
@@ -968,11 +1225,11 @@ sub create_docu {
 		$ret = "[" . join(", ", @outv) . "] = ";
 	}
 
-	$text =~ s/ i a u((?: [A-Za-z0-9])+)\r?\n/"# iau" . (ucfirst($name)) . "\n" .
-		"\n```js\n${ret}IAU." . $name . "(" . $proto . ")\n```\n"
+	$text =~ s/ e r a((?: [A-Za-z0-9])+)\r?\n/"# era" . (ucfirst($name)) . "\n" .
+		"\n```js\n${ret}ERFA." . $name . "(" . $proto . ")\n```\n"
 	/e;
 
-	die "missing function group" unless ($group);
+	die "missing function group for $name" unless ($group);
 	$groups->{$group} = [] unless exists $groups->{$group};
 	push(@{$groups->{$group}}, [$name, $extract]);
 
@@ -993,9 +1250,9 @@ sub create_docu {
 		}
 	}
 
-	print "write $root/docs/iau.$name.md\n";
-	my $rv = open(my $fh, ">", "$root/docs/iau.$name.md");
-	die "could not write '$root/docs/iau.$name.md'\n" unless $rv;
+	print "write $root/docs/era.$name.md\n";
+	my $rv = open(my $fh, ">", "$root/docs/era.$name.md");
+	die "could not write '$root/docs/era.$name.md'\n" unless $rv;
 	print $fh $text; close $fh;
 
 }
@@ -1082,7 +1339,7 @@ sub create_spec {
 				$loop_beg .= ("  " x $ind2) . "for (ti${i} = $beg; ti${i} <= $end; ti${i} += $d) { ${vn} = tcoordt[ti${i}];\n";
 				$loop_end = ("  " x $ind2) . "}\n" . $loop_end;
 			}
-			elsif ($input eq "iauLDBODY") {
+			elsif ($input eq "eraLDBODY") {
 				push @decl, "int ti${i};";
 				$loop_beg .= ("  " x $ind2) . "for (ti${i} = $beg; ti${i} <= $end; ti${i} += $d) {\n";
 				$body = ("  " x $ind2) . "  ${vn}[0] = lbodys[t".($i-1)."];\n" . $body;
@@ -1091,11 +1348,11 @@ sub create_spec {
 				$body = ("  " x $ind2) . "  ${vn}[3] = lbodys[0];\n" . $body;
 				$loop_end = ("  " x $ind2) . "}\n" . $loop_end;
 
-				push @decl, "iauLDBODY ${vn}[100];";
+				push @decl, "eraLDBODY ${vn}[100];";
 				push @args, "${vn}";
 				push @prefixes, "exportLDBODY(t".($i-1).", ${vn})";
 
-			} elsif ($input eq "iauASTROM") {
+			} elsif ($input eq "eraASTROM") {
 
 				push @decl, "int ti${i};";
 				$loop_beg .= ("  " x $ind2) . "for (ti${i} = $beg; ti${i} <= $end; ti${i} += $d) {\n";
@@ -1131,7 +1388,7 @@ sub create_spec {
 			}
 		}
 	}
-	my $iauFn = "iau" . ucfirst $name;
+	my $eraFn = "era" . ucfirst $name;
 	my $indent = "  " x ($ind + 1);
 
 	# prepare the output values
@@ -1147,9 +1404,9 @@ sub create_spec {
 		# $body = $indent . "memset(&$var, 0, sizeof($var));\n" . $body;
 	}
 
-	# prepare iau function call
+	# prepare era function call
 	my $argstr = join(", ", @args);
-	my $call = "${iauFn}($argstr)";
+	my $call = "${eraFn}($argstr)";
 	# prepare return value from call
 	if (my $rvt = $config->{'rv'}) {
 		my $itype = $itypes{$rvt};
@@ -1181,7 +1438,7 @@ sub create_spec {
 /* Generate Test Data for ${name} */
 
 #include <stdio.h>
-#include "sofa.h"
+#include "erfa.h"
 #include "config.h"
 #include <string.h>
 
@@ -1239,7 +1496,7 @@ sub convert_int_div {
 
 sub hoist_call {
 	my ($name, $args, $m, $_config, $fname, $decl, $wrap) = @_;
-	return "var __rv__ = iau$name($args);\n   if(__rv__)";
+	return "var __rv__ = era$name($args);\n   if(__rv__)";
 }
 
 sub convert_call {
@@ -1262,27 +1519,27 @@ sub convert_call {
 	$args = join(", ", @args);
 	if ($cfg->{'reuse'}) {
 		if ($cfg->{'rv'}) {
-			$code = "$rvs[0] = iau${name}(${args})[1]";
+			$code = "$rvs[0] = era${name}(${args})[1]";
 		} else {
-			$code = "$rvs[0] = iau${name}(${args})";
+			$code = "$rvs[0] = era${name}(${args})";
 		}
 	}
 	if (scalar(@rvs) == 0) {
-		$code = "iau${name}(${args})";
+		$code = "era${name}(${args})";
 	}
 	elsif (scalar(@rvs) == 1 && !$cfg->{'rv'}) {
 		if ($cfg->{'rv'}) {
-			$code = "$rvs[0] = iau${name}(${args})[1]";
+			$code = "$rvs[0] = era${name}(${args})[1]";
 		} else {
-			$code = "$rvs[0] = iau${name}(${args})";
+			$code = "$rvs[0] = era${name}(${args})";
 		}
 	}
 	else {
 		push @{$decl}, "_rv${m}";
 		if ($wrap) {
-			$code = "_rv${m} = iau${name}(${args});";
+			$code = "_rv${m} = era${name}(${args});";
 		} else {
-			$code = "(_rv${m} = iau${name}(${args}))[0]";
+			$code = "(_rv${m} = era${name}(${args}))[0]";
 		}
 		for (my $n = 0; $n  < scalar(@rvs); $n++) {
 			my $nn = $cfg->{'rv'} ? $n + 1 : $n;
@@ -1304,7 +1561,7 @@ sub convert_fn
 	my ($rvt, $fn, $proto, $config, $fname, $ptrs, $onames, $rnames, $ints, $floats) = @_;
 
 	# remove all attached types (manualy hardcoded in config -> could be automated more)
-	$proto =~ s/(?:int\s+|double\s+|char\s*\*?|iauASTROM\s*\*?|iauLDBODY\s*(?:\*|\[\])?)//g;
+	$proto =~ s/(?:int\s+|double\s+|char\s*\*?|eraASTROM\s*\*?|eraLDBODY\s*(?:\*|\[\])?)//g;
 
 	# normalize passed arrays (no length[x] needed in JS)
 	$proto =~ s/($re_identifier)(?:\[$re_arr_size?\])+/$1/g;
@@ -1378,6 +1635,9 @@ sub convert_astro_fn
 	# headers were converted manually
 	$src =~ s/(?:\#include (?:\<[^\>]*\>|$re_string)\s*)+//g;
 
+	# convert constant with ERFA_ prefixes
+	# $src =~ s/ERFA_([A-Z]+)/$1/g;
+
 	my @decl;
 	my $id = 1;
 	my $ptrs = {};
@@ -1396,7 +1656,7 @@ sub convert_astro_fn
 	$src =~ s/\*($re_identifier)\s*=\s*(?:\(char\)\s+)?/$1 = /g;
 
 	my $re_opss = qr/(?:\((?:long|int)\)\s*\((?:$re_ops)\)|$re_ops)/;
-	# convert integer divisions (pretty specific but catches all iau cases) - truncate the results
+	# convert integer divisions (pretty specific but catches all era cases) - truncate the results
 	$src =~ s/\((\s*(?:\d+L\s*[\*\+\-\/])?\s*$re_opss)\)\s*\/\s*(\d*)L/convert_int_div($1, $2)/eg;
 
 	# convert integer numbers
@@ -1405,24 +1665,24 @@ sub convert_astro_fn
 	# remove variable modifiers
 	$src =~ s/(static|const)\s+//g;
 
-	# re-organize iau function calls; in C some functions take basic value types pointers
+	# re-organize era function calls; in C some functions take basic value types pointers
 	# this enables the function to update those variables directly (much like $_[0] in perl)
 	# in JS this is only possibly via i.e. array references, but I've choosen to implement
 	# the function is JS to return an array if more than once output value is configured.
-	# NOTE: this also depends on whether or not the iau functions has a return value!
+	# NOTE: this also depends on whether or not the era functions has a return value!
 	# we need to assign the output from the JS return array to the variables after the call
-	$src =~ s/if\s*\(\s*iau([A-Z][a-z0-9]+)\s*\(\s*($re_arg)\s*\)\s*\)/hoist_call($1, $2, $id, \%config, $fname, \@decl, 1)/ge;
-	$src =~ s/iau([A-Z][a-z0-9]+)\s*\(\s*($re_arg)\s*\)/convert_call($1, $2, $id, \%config, $fname, \@decl)/ge;
+	$src =~ s/if\s*\(\s*era([A-Z][a-z0-9]+)\s*\(\s*($re_arg)\s*\)\s*\)/hoist_call($1, $2, $id, \%config, $fname, \@decl, 1)/ge;
+	$src =~ s/era([A-Z][a-z0-9]+)\s*\(\s*($re_arg)\s*\)/convert_call($1, $2, $id, \%config, $fname, \@decl)/ge;
 
 	# find the main function and its prototype with a very simple match
-	# all iau functions only return basic value types, so this should work
+	# all era functions only return basic value types, so this should work
 	$src =~ s/^\s*(void|int|double|char)\s*($re_identifier)\s*\((.*?)\)/
 		convert_fn($1, $2, $3, $config, $fname, $ptrs, \@onames, \@rnames, \%ints, \%floats)
 	/gesx;
 
 	# convert empty c struct var declaration (add initialization for js)
-	$src =~ s/iauASTROM\s+($re_identifier);/"var " . initVar($1, "iauASTROM")/ge;
-	$src =~ s/iauLDBODY\s+($re_identifier);/"var " . initVar($1, "iauLDBODY")/ge;
+	$src =~ s/eraASTROM\s+($re_identifier);/"var " . initVar($1, "eraASTROM")/ge;
+	$src =~ s/eraLDBODY\s+($re_identifier);/"var " . initVar($1, "eraLDBODY")/ge;
 
 	# convert array sizes from complex C logic to simple array.length access in JS
 	# in C the array length is determined by a complex sizeof logic (static for compilers)
@@ -1467,7 +1727,10 @@ sub convert_astro_fn
 
 	$src =~ s/\(void\)\s*//g;
 
-	my $idv = qr/\*?(?:$re_identifier)(?:\[(?:$re_identifier\s*\+\s*\d+|$re_identifier|\d*)\])+\s*=\s*(?:$re_array_def)/;
+	# parse array with sizes (needed for epv00)
+	$src =~ s/var ($re_sts)/parse_size_array($1)/es;
+
+	my $idv = qr/\*?(?:$re_identifier)(?:\[(?:$re_identifier\s*\+\s*\d+|$re_identifier|\d*)\])+\s*=\s*(?:$re_array_def)/s;
 	$src =~ s/var\s*\*?($idv(?:\s*,\s*$idv)*)/parse_array($1, \%structs)/gse;
 
 	# parse struct declarations and initialization (convert to a JS array and map to flat array access)
@@ -1485,8 +1748,6 @@ sub convert_astro_fn
 	$src =~ s/typedef struct \{[^\}]*\}\s+[A-Z]+;\s*//g;
 	# specific parser for terms struct arrays
 	$src =~ s/TERM ([a-zA-Z0-9]+)\[\]\s*=\s*\{(.*?)\};/convert_term($1, $2)/ges;
-	# parse array with sizes (needed for epv00)
-	$src =~ s/var ($re_sts)/parse_size_array($1)/es;
 
 	# convert remaining basic types to JS
 	$src =~ s/char\s+($re_identifier)/var $1/g;
@@ -1513,6 +1774,8 @@ sub convert_astro_fn
 	# we could also use ternary here, but perf should be on par nowadays
 	# future JS engines may be able to further optimize Math.min with SSE2
 	$src =~ s/g(min|max)\s*\(\s*($re_ops)\s*,\s*($re_ops)\s*\)/Math.$1($2, $3)/g;
+	$src =~ s/ERFA_GMIN\s*\(\s*($re_ops)\s*,\s*($re_ops)\s*\)/Math.min($1, $2)/g;
+	$src =~ s/ERFA_GMAX\s*\(\s*($re_ops)\s*,\s*($re_ops)\s*\)/Math.max($1, $2)/g;
 
 	#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	# main convert is done, now do some post processing
@@ -1556,7 +1819,7 @@ sub convert_astro_fn
 
 	# make sure certains types are valid for access
 	for (my $i = 0; $i < @outs; $i++) {
-		next if $outs[$i] ne "iauASTROM" && $outs[$i] ne "mat33" && ! $config->{'reuse'}; # && $outs[0] ne "double";
+		next if $outs[$i] ne "eraASTROM" && $outs[$i] ne "mat33" && ! $config->{'reuse'}; # && $outs[0] ne "double";
 		$fnhead .= sprintf "   if (typeof %s == 'undefined') {\n", $onames[$i];
 		$fnhead .= "      " . join("\n      ", initVar($onames[$i], $outs[0]));
 		$fnhead .= "\n   }";
@@ -1601,7 +1864,7 @@ sub convert_astro_fn
 	create_spec($fname, $config, \@rnames, \@args, \@rets);
 
 	foreach my $comment (@comments) {
-		if ($comment =~ m/ i a u /) {
+		if ($comment =~ m/ e r a /) {
 			create_docu($fname, $config, $comment, \@rnames, \@args, \@rets, $status);
 			last;
 		}
@@ -1610,10 +1873,10 @@ sub convert_astro_fn
 	return $src;
 }
 
-my $rvinc = open(my $incload, ">", "$root/test/inc.iau.js");
-die "could not open $root/test/chk.iau.js" unless $rvinc;
-my $rvchk = open(my $chkload, ">", "$root/test/chk.iau.js");
-die "could not open $root/test/chk.iau.js" unless $rvchk;
+my $rvinc = open(my $incload, ">", "$root/test/inc.erfa.js");
+die "could not open $root/test/chk.erfa.js" unless $rvinc;
+my $rvchk = open(my $chkload, ">", "$root/test/chk.erfa.js");
+die "could not open $root/test/chk.erfa.js" unless $rvchk;
 my $spr_include_js = "document.write('<script src=\"%s\"></scr'+'ipt>');";
 
 ################################################################################
@@ -1640,14 +1903,14 @@ foreach my $fname (sort keys %config) {
 	# invoke the main converted function
 	$src = convert_astro_fn($fname, $src, \%groups);
 	# open and write the converted js code
-	open(my $out, ">", "$root/src/iau/$fname.js");
-	print "write $root/src/iau/$fname.js\n";
+	open(my $out, ">", "$root/src/era/$fname.js");
+	print "write $root/src/era/$fname.js\n";
 	print $out $src; close($out);
 	# write the js includes for the test runner
-	print $incload sprintf($spr_include_js, "../src/iau/$fname.js"), "\n";
+	print $incload sprintf($spr_include_js, "../src/era/$fname.js"), "\n";
 	unless ($config{$fname}->{'skip'}) {
-		print $chkload sprintf($spr_include_js, "iau/$fname.rslt.js"), "\n";
-		print $chkload sprintf($spr_include_js, "iau/$fname.chk.js"), "\n";
+		print $chkload sprintf($spr_include_js, "era/$fname.rslt.js"), "\n";
+		print $chkload sprintf($spr_include_js, "era/$fname.chk.js"), "\n";
 	}
 }
 
@@ -1663,7 +1926,7 @@ foreach my $group (sort keys %groups) {
 		$fn->[1] =~ s/\s+SOFA \(Standards of Fundamental.*//;
 		$fn->[1] =~ s/In the tangent plane projection/In tangent plane/g;
 		my $avail = 76 - length($fn->[0]);
-		print $ofh sprintf('  - [IAU.%1$s](docs/iau.%1$s.md)%2$s' . "\n", $fn->[0],
+		print $ofh sprintf('  - [ERFA.%1$s](docs/era.%1$s.md)%2$s' . "\n", $fn->[0],
 			(length($fn->[1]) > $avail ? substr($fn->[1], 0, $avail - 3) . '...' : $fn->[1])
 		)
 	}
