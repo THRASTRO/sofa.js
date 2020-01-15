@@ -1,19 +1,14 @@
-#include "sofa.h"
+#include "erfa.h"
 
-void iauPmpx(double rc, double dc, double pr, double pd,
+void eraPmpx(double rc, double dc, double pr, double pd,
              double px, double rv, double pmt, double pob[3],
              double pco[3])
 /*
 **  - - - - - - - -
-**   i a u P m p x
+**   e r a P m p x
 **  - - - - - - - -
 **
 **  Proper motion and parallax.
-**
-**  This function is part of the International Astronomical Union's
-**  SOFA (Standards of Fundamental Astronomy) software collection.
-**
-**  Status:  support function.
 **
 **  Given:
 **     rc,dc  double     ICRS RA,Dec at catalog epoch (radians)
@@ -48,21 +43,18 @@ void iauPmpx(double rc, double dc, double pr, double pd,
 **     (2013), Section 7.2.
 **
 **  Called:
-**     iauPdp       scalar product of two p-vectors
-**     iauPn        decompose p-vector into modulus and direction
+**     eraPdp       scalar product of two p-vectors
+**     eraPn        decompose p-vector into modulus and direction
 **
-**  This revision:   2013 October 9
-**
-**  SOFA release 2018-01-30
-**
-**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
 /* Km/s to au/year */
-   const double VF = DAYSEC*DJM/DAU;
+   const double VF = ERFA_DAYSEC*ERFA_DJM/ERFA_DAU;
 
 /* Light time for 1 au, Julian years */
-   const double AULTY = AULT/DAYSEC/DJY;
+   const double AULTY = ERFA_AULT/ERFA_DAYSEC/ERFA_DJY;
 
    int i;
    double sr, cr, sd, cd, x, y, z, p[3], dt, pxr, w, pdz, pm[3];
@@ -78,10 +70,10 @@ void iauPmpx(double rc, double dc, double pr, double pd,
    p[2] = z = sd;
 
 /* Proper motion time interval (y) including Roemer effect. */
-   dt = pmt + iauPdp(p,pob)*AULTY;
+   dt = pmt + eraPdp(p,pob)*AULTY;
 
 /* Space motion (radians per year). */
-   pxr = px * DAS2R;
+   pxr = px * ERFA_DAS2R;
    w = VF * rv * pxr;
    pdz = pd * z;
    pm[0] = - pr*y - pdz*cr + w*x;
@@ -92,104 +84,70 @@ void iauPmpx(double rc, double dc, double pr, double pd,
    for (i = 0; i < 3; i++) {
       p[i] += dt*pm[i] - pxr*pob[i];
    }
-   iauPn(p, &w, pco);
+   eraPn(p, &w, pco);
 
 /* Finished. */
 
-/*----------------------------------------------------------------------
-**
-**  Copyright (C) 2018
-**  Standards Of Fundamental Astronomy Board
-**  of the International Astronomical Union.
-**
-**  =====================
-**  SOFA Software License
-**  =====================
-**
-**  NOTICE TO USER:
-**
-**  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING SIX TERMS AND
-**  CONDITIONS WHICH APPLY TO ITS USE.
-**
-**  1. The Software is owned by the IAU SOFA Board ("SOFA").
-**
-**  2. Permission is granted to anyone to use the SOFA software for any
-**     purpose, including commercial applications, free of charge and
-**     without payment of royalties, subject to the conditions and
-**     restrictions listed below.
-**
-**  3. You (the user) may copy and distribute SOFA source code to others,
-**     and use and adapt its code and algorithms in your own software,
-**     on a world-wide, royalty-free basis.  That portion of your
-**     distribution that does not consist of intact and unchanged copies
-**     of SOFA source code files is a "derived work" that must comply
-**     with the following requirements:
-**
-**     a) Your work shall be marked or carry a statement that it
-**        (i) uses routines and computations derived by you from
-**        software provided by SOFA under license to you; and
-**        (ii) does not itself constitute software provided by and/or
-**        endorsed by SOFA.
-**
-**     b) The source code of your derived work must contain descriptions
-**        of how the derived work is based upon, contains and/or differs
-**        from the original SOFA software.
-**
-**     c) The names of all routines in your derived work shall not
-**        include the prefix "iau" or "sofa" or trivial modifications
-**        thereof such as changes of case.
-**
-**     d) The origin of the SOFA components of your derived work must
-**        not be misrepresented;  you must not claim that you wrote the
-**        original software, nor file a patent application for SOFA
-**        software or algorithms embedded in the SOFA software.
-**
-**     e) These requirements must be reproduced intact in any source
-**        distribution and shall apply to anyone to whom you have
-**        granted a further right to modify the source code of your
-**        derived work.
-**
-**     Note that, as originally distributed, the SOFA software is
-**     intended to be a definitive implementation of the IAU standards,
-**     and consequently third-party modifications are discouraged.  All
-**     variations, no matter how minor, must be explicitly marked as
-**     such, as explained above.
-**
-**  4. You shall not cause the SOFA software to be brought into
-**     disrepute, either by misuse, or use for inappropriate tasks, or
-**     by inappropriate modification.
-**
-**  5. The SOFA software is provided "as is" and SOFA makes no warranty
-**     as to its use or performance.   SOFA does not and cannot warrant
-**     the performance or results which the user may obtain by using the
-**     SOFA software.  SOFA makes no warranties, express or implied, as
-**     to non-infringement of third party rights, merchantability, or
-**     fitness for any particular purpose.  In no event will SOFA be
-**     liable to the user for any consequential, incidental, or special
-**     damages, including any lost profits or lost savings, even if a
-**     SOFA representative has been advised of such damages, or for any
-**     claim by any third party.
-**
-**  6. The provision of any version of the SOFA software under the terms
-**     and conditions specified herein does not imply that future
-**     versions will also be made available under the same terms and
-**     conditions.
-*
-**  In any published work or commercial product which uses the SOFA
-**  software directly, acknowledgement (see www.iausofa.org) is
-**  appreciated.
-**
-**  Correspondence concerning SOFA software should be addressed as
-**  follows:
-**
-**      By email:  sofa@ukho.gov.uk
-**      By post:   IAU SOFA Center
-**                 HM Nautical Almanac Office
-**                 UK Hydrographic Office
-**                 Admiralty Way, Taunton
-**                 Somerset, TA1 2DN
-**                 United Kingdom
-**
-**--------------------------------------------------------------------*/
-
 }
+/*----------------------------------------------------------------------
+**  
+**  
+**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  All rights reserved.
+**  
+**  This library is derived, with permission, from the International
+**  Astronomical Union's "Standards of Fundamental Astronomy" library,
+**  available from http://www.iausofa.org.
+**  
+**  The ERFA version is intended to retain identical functionality to
+**  the SOFA library, but made distinct through different function and
+**  file names, as set out in the SOFA license conditions.  The SOFA
+**  original has a role as a reference standard for the IAU and IERS,
+**  and consequently redistribution is permitted only in its unaltered
+**  state.  The ERFA version is not subject to this restriction and
+**  therefore can be included in distributions which do not support the
+**  concept of "read only" software.
+**  
+**  Although the intent is to replicate the SOFA API (other than
+**  replacement of prefix names) and results (with the exception of
+**  bugs;  any that are discovered will be fixed), SOFA is not
+**  responsible for any errors found in this version of the library.
+**  
+**  If you wish to acknowledge the SOFA heritage, please acknowledge
+**  that you are using a library derived from SOFA, rather than SOFA
+**  itself.
+**  
+**  
+**  TERMS AND CONDITIONS
+**  
+**  Redistribution and use in source and binary forms, with or without
+**  modification, are permitted provided that the following conditions
+**  are met:
+**  
+**  1 Redistributions of source code must retain the above copyright
+**    notice, this list of conditions and the following disclaimer.
+**  
+**  2 Redistributions in binary form must reproduce the above copyright
+**    notice, this list of conditions and the following disclaimer in
+**    the documentation and/or other materials provided with the
+**    distribution.
+**  
+**  3 Neither the name of the Standards Of Fundamental Astronomy Board,
+**    the International Astronomical Union nor the names of its
+**    contributors may be used to endorse or promote products derived
+**    from this software without specific prior written permission.
+**  
+**  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+**  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+**  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+**  FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE
+**  COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+**  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+**  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+**  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+**  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+**  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+**  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+**  POSSIBILITY OF SUCH DAMAGE.
+**  
+*/

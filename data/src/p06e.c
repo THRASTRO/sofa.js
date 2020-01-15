@@ -1,6 +1,6 @@
-#include "sofa.h"
+#include "erfa.h"
 
-void iauP06e(double date1, double date2,
+void eraP06e(double date1, double date2,
              double *eps0, double *psia, double *oma, double *bpa,
              double *bqa, double *pia, double *bpia,
              double *epsa, double *chia, double *za, double *zetaa,
@@ -8,15 +8,10 @@ void iauP06e(double date1, double date2,
              double *gam, double *phi, double *psi)
 /*
 **  - - - - - - - -
-**   i a u P 0 6 e
+**   e r a P 0 6 e
 **  - - - - - - - -
 **
 **  Precession angles, IAU 2006, equinox based.
-**
-**  This function is part of the International Astronomical Union's
-**  SOFA (Standards Of Fundamental Astronomy) software collection.
-**
-**  Status:  canonical models.
 **
 **  Given:
 **     date1,date2   double   TT as a 2-part Julian Date (Note 1)
@@ -86,13 +81,13 @@ void iauP06e(double date1, double date2,
 **  3) Hilton et al. (2006) Table 1 also contains angles that depend on
 **     models distinct from the P03 precession theory itself, namely the
 **     IAU 2000A frame bias and nutation.  The quoted polynomials are
-**     used in other SOFA functions:
+**     used in other ERFA functions:
 **
-**     . iauXy06  contains the polynomial parts of the X and Y series.
+**     . eraXy06  contains the polynomial parts of the X and Y series.
 **
-**     . iauS06  contains the polynomial part of the s+XY/2 series.
+**     . eraS06  contains the polynomial part of the s+XY/2 series.
 **
-**     . iauPfw06  implements the series for the Fukushima-Williams
+**     . eraPfw06  implements the series for the Fukushima-Williams
 **       angles that are with respect to the GCRS pole (i.e. the variants
 **       that include frame bias).
 **
@@ -101,11 +96,11 @@ void iauP06e(double date1, double date2,
 **     implementation can be constructed using various combinations of
 **     the angles returned by the present function.
 **
-**  5) The parameterization used by SOFA is the version of the Fukushima-
+**  5) The parameterization used by ERFA is the version of the Fukushima-
 **     Williams angles that refers directly to the GCRS pole.  These
-**     angles may be calculated by calling the function iauPfw06.  SOFA
+**     angles may be calculated by calling the function eraPfw06.  ERFA
 **     also supports the direct computation of the CIP GCRS X,Y by
-**     series, available by calling iauXy06.
+**     series, available by calling eraXy06.
 **
 **  6) The agreement between the different parameterizations is at the
 **     1 microarcsecond level in the present era.
@@ -123,24 +118,21 @@ void iauP06e(double date1, double date2,
 **     Hilton, J. et al., 2006, Celest.Mech.Dyn.Astron. 94, 351
 **
 **  Called:
-**     iauObl06     mean obliquity, IAU 2006
+**     eraObl06     mean obliquity, IAU 2006
 **
-**  This revision:  2013 June 18
-**
-**  SOFA release 2018-01-30
-**
-**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
    double t;
 
 
 /* Interval between fundamental date J2000.0 and given date (JC). */
-   t = ((date1 - DJ00) + date2) / DJC;
+   t = ((date1 - ERFA_DJ00) + date2) / ERFA_DJC;
 
 /* Obliquity at J2000.0. */
 
-   *eps0 = 84381.406 * DAS2R;
+   *eps0 = 84381.406 * ERFA_DAS2R;
 
 /* Luni-solar precession. */
 
@@ -149,7 +141,7 @@ void iauP06e(double date1, double date2,
            (   -0.00114045   +
            (    0.000132851  +
            (   -0.0000000951 )
-           * t) * t) * t) * t) * t * DAS2R;
+           * t) * t) * t) * t) * t * ERFA_DAS2R;
 
 /* Inclination of mean equator with respect to the J2000.0 ecliptic. */
 
@@ -158,7 +150,7 @@ void iauP06e(double date1, double date2,
                   ( -0.00772503   +
                   ( -0.000000467  +
                   (  0.0000003337 )
-                  * t) * t) * t) * t) * t * DAS2R;
+                  * t) * t) * t) * t) * t * ERFA_DAS2R;
 
 /* Ecliptic pole x, J2000.0 ecliptic triad. */
 
@@ -167,7 +159,7 @@ void iauP06e(double date1, double date2,
           ( -0.00022466   +
           ( -0.000000912  +
           (  0.0000000120 )
-          * t) * t) * t) * t) * t * DAS2R;
+          * t) * t) * t) * t) * t * ERFA_DAS2R;
 
 /* Ecliptic pole -y, J2000.0 ecliptic triad. */
 
@@ -176,7 +168,7 @@ void iauP06e(double date1, double date2,
           (   0.00052413   +
           (  -0.000000646  +
           (  -0.0000000172 )
-          * t) * t) * t) * t) * t * DAS2R;
+          * t) * t) * t) * t) * t * ERFA_DAS2R;
 
 /* Angle between moving and J2000.0 ecliptics. */
 
@@ -185,7 +177,7 @@ void iauP06e(double date1, double date2,
           ( -0.00012559   +
           (  0.000000113  +
           ( -0.0000000022 )
-          * t) * t) * t) * t) * t * DAS2R;
+          * t) * t) * t) * t) * t * ERFA_DAS2R;
 
 /* Longitude of ascending node of the moving ecliptic. */
 
@@ -195,11 +187,11 @@ void iauP06e(double date1, double date2,
            (     -0.0005371   +
            (     -0.00004797  +
            (      0.000000072 )
-           * t) * t) * t) * t) * t) * DAS2R;
+           * t) * t) * t) * t) * t) * ERFA_DAS2R;
 
 /* Mean obliquity of the ecliptic. */
 
-   *epsa = iauObl06(date1, date2);
+   *epsa = eraObl06(date1, date2);
 
 /* Planetary precession. */
 
@@ -208,7 +200,7 @@ void iauP06e(double date1, double date2,
            ( -0.00121197   +
            (  0.000170663  +
            ( -0.0000000560 )
-           * t) * t) * t) * t) * t * DAS2R;
+           * t) * t) * t) * t) * t * ERFA_DAS2R;
 
 /* Equatorial precession: minus the third of the 323 Euler angles. */
 
@@ -218,7 +210,7 @@ void iauP06e(double date1, double date2,
          (    0.01826837   +
          (   -0.000028596  +
          (   -0.0000002904 )
-         * t) * t) * t) * t) * t) * DAS2R;
+         * t) * t) * t) * t) * t) * ERFA_DAS2R;
 
 /* Equatorial precession: minus the first of the 323 Euler angles. */
 
@@ -228,7 +220,7 @@ void iauP06e(double date1, double date2,
             (    0.01801828   +
             (   -0.000005971  +
             (   -0.0000003173 )
-            * t) * t) * t) * t) * t) * DAS2R;
+            * t) * t) * t) * t) * t) * ERFA_DAS2R;
 
 /* Equatorial precession: second of the 323 Euler angles. */
 
@@ -237,7 +229,7 @@ void iauP06e(double date1, double date2,
              (   -0.04182264   +
              (   -0.000007089  +
              (   -0.0000001274 )
-             * t) * t) * t) * t) * t * DAS2R;
+             * t) * t) * t) * t) * t * ERFA_DAS2R;
 
 /* General precession. */
 
@@ -246,7 +238,7 @@ void iauP06e(double date1, double date2,
          (    0.00007964   +
          (   -0.000023857  +
          (    0.0000000383 )
-         * t) * t) * t) * t) * t * DAS2R;
+         * t) * t) * t) * t) * t * ERFA_DAS2R;
 
 /* Fukushima-Williams angles for precession. */
 
@@ -255,117 +247,84 @@ void iauP06e(double date1, double date2,
           ( -0.00031238   +
           ( -0.000002788  +
           (  0.0000000260 )
-          * t) * t) * t) * t) * t * DAS2R;
+          * t) * t) * t) * t) * t * ERFA_DAS2R;
 
    *phi = *eps0 + ( -46.811015     +
                   (   0.0511269    +
                   (   0.00053289   +
                   (  -0.000000440  +
                   (  -0.0000000176 )
-                  * t) * t) * t) * t) * t * DAS2R;
+                  * t) * t) * t) * t) * t * ERFA_DAS2R;
 
    *psi = ( 5038.481507     +
           (    1.5584176    +
           (   -0.00018522   +
           (   -0.000026452  +
           (   -0.0000000148 )
-          * t) * t) * t) * t) * t * DAS2R;
+          * t) * t) * t) * t) * t * ERFA_DAS2R;
 
    return;
 
-/*----------------------------------------------------------------------
-**
-**  Copyright (C) 2018
-**  Standards Of Fundamental Astronomy Board
-**  of the International Astronomical Union.
-**
-**  =====================
-**  SOFA Software License
-**  =====================
-**
-**  NOTICE TO USER:
-**
-**  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING SIX TERMS AND
-**  CONDITIONS WHICH APPLY TO ITS USE.
-**
-**  1. The Software is owned by the IAU SOFA Board ("SOFA").
-**
-**  2. Permission is granted to anyone to use the SOFA software for any
-**     purpose, including commercial applications, free of charge and
-**     without payment of royalties, subject to the conditions and
-**     restrictions listed below.
-**
-**  3. You (the user) may copy and distribute SOFA source code to others,
-**     and use and adapt its code and algorithms in your own software,
-**     on a world-wide, royalty-free basis.  That portion of your
-**     distribution that does not consist of intact and unchanged copies
-**     of SOFA source code files is a "derived work" that must comply
-**     with the following requirements:
-**
-**     a) Your work shall be marked or carry a statement that it
-**        (i) uses routines and computations derived by you from
-**        software provided by SOFA under license to you; and
-**        (ii) does not itself constitute software provided by and/or
-**        endorsed by SOFA.
-**
-**     b) The source code of your derived work must contain descriptions
-**        of how the derived work is based upon, contains and/or differs
-**        from the original SOFA software.
-**
-**     c) The names of all routines in your derived work shall not
-**        include the prefix "iau" or "sofa" or trivial modifications
-**        thereof such as changes of case.
-**
-**     d) The origin of the SOFA components of your derived work must
-**        not be misrepresented;  you must not claim that you wrote the
-**        original software, nor file a patent application for SOFA
-**        software or algorithms embedded in the SOFA software.
-**
-**     e) These requirements must be reproduced intact in any source
-**        distribution and shall apply to anyone to whom you have
-**        granted a further right to modify the source code of your
-**        derived work.
-**
-**     Note that, as originally distributed, the SOFA software is
-**     intended to be a definitive implementation of the IAU standards,
-**     and consequently third-party modifications are discouraged.  All
-**     variations, no matter how minor, must be explicitly marked as
-**     such, as explained above.
-**
-**  4. You shall not cause the SOFA software to be brought into
-**     disrepute, either by misuse, or use for inappropriate tasks, or
-**     by inappropriate modification.
-**
-**  5. The SOFA software is provided "as is" and SOFA makes no warranty
-**     as to its use or performance.   SOFA does not and cannot warrant
-**     the performance or results which the user may obtain by using the
-**     SOFA software.  SOFA makes no warranties, express or implied, as
-**     to non-infringement of third party rights, merchantability, or
-**     fitness for any particular purpose.  In no event will SOFA be
-**     liable to the user for any consequential, incidental, or special
-**     damages, including any lost profits or lost savings, even if a
-**     SOFA representative has been advised of such damages, or for any
-**     claim by any third party.
-**
-**  6. The provision of any version of the SOFA software under the terms
-**     and conditions specified herein does not imply that future
-**     versions will also be made available under the same terms and
-**     conditions.
-*
-**  In any published work or commercial product which uses the SOFA
-**  software directly, acknowledgement (see www.iausofa.org) is
-**  appreciated.
-**
-**  Correspondence concerning SOFA software should be addressed as
-**  follows:
-**
-**      By email:  sofa@ukho.gov.uk
-**      By post:   IAU SOFA Center
-**                 HM Nautical Almanac Office
-**                 UK Hydrographic Office
-**                 Admiralty Way, Taunton
-**                 Somerset, TA1 2DN
-**                 United Kingdom
-**
-**--------------------------------------------------------------------*/
 }
+/*----------------------------------------------------------------------
+**  
+**  
+**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  All rights reserved.
+**  
+**  This library is derived, with permission, from the International
+**  Astronomical Union's "Standards of Fundamental Astronomy" library,
+**  available from http://www.iausofa.org.
+**  
+**  The ERFA version is intended to retain identical functionality to
+**  the SOFA library, but made distinct through different function and
+**  file names, as set out in the SOFA license conditions.  The SOFA
+**  original has a role as a reference standard for the IAU and IERS,
+**  and consequently redistribution is permitted only in its unaltered
+**  state.  The ERFA version is not subject to this restriction and
+**  therefore can be included in distributions which do not support the
+**  concept of "read only" software.
+**  
+**  Although the intent is to replicate the SOFA API (other than
+**  replacement of prefix names) and results (with the exception of
+**  bugs;  any that are discovered will be fixed), SOFA is not
+**  responsible for any errors found in this version of the library.
+**  
+**  If you wish to acknowledge the SOFA heritage, please acknowledge
+**  that you are using a library derived from SOFA, rather than SOFA
+**  itself.
+**  
+**  
+**  TERMS AND CONDITIONS
+**  
+**  Redistribution and use in source and binary forms, with or without
+**  modification, are permitted provided that the following conditions
+**  are met:
+**  
+**  1 Redistributions of source code must retain the above copyright
+**    notice, this list of conditions and the following disclaimer.
+**  
+**  2 Redistributions in binary form must reproduce the above copyright
+**    notice, this list of conditions and the following disclaimer in
+**    the documentation and/or other materials provided with the
+**    distribution.
+**  
+**  3 Neither the name of the Standards Of Fundamental Astronomy Board,
+**    the International Astronomical Union nor the names of its
+**    contributors may be used to endorse or promote products derived
+**    from this software without specific prior written permission.
+**  
+**  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+**  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+**  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+**  FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE
+**  COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+**  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+**  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+**  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+**  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+**  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+**  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+**  POSSIBILITY OF SUCH DAMAGE.
+**  
+*/

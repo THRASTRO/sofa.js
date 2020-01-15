@@ -1,11 +1,11 @@
-#include "sofa.h"
+#include "erfa.h"
 
-void iauAtoiq(const char *type,
-              double ob1, double ob2, iauASTROM *astrom,
+void eraAtoiq(const char *type,
+              double ob1, double ob2, eraASTROM *astrom,
               double *ri, double *di)
 /*
 **  - - - - - - - - -
-**   i a u A t o i q
+**   e r a A t o i q
 **  - - - - - - - - -
 **
 **  Quick observed place to CIRS, given the star-independent astrometry
@@ -14,15 +14,13 @@ void iauAtoiq(const char *type,
 **  Use of this function is appropriate when efficiency is important and
 **  where many star positions are all to be transformed for one date.
 **  The star-independent astrometry parameters can be obtained by
-**  calling iauApio[13] or iauApco[13].
-**
-**  Status:  support function.
+**  calling eraApio[13] or eraApco[13].
 **
 **  Given:
 **     type   char[]     type of coordinates: "R", "H" or "A" (Note 1)
 **     ob1    double     observed Az, HA or RA (radians; Az is N=0,E=90)
 **     ob2    double     observed ZD or Dec (radians)
-**     astrom iauASTROM* star-independent astrometry parameters:
+**     astrom eraASTROM* star-independent astrometry parameters:
 **      pmt    double       PM time interval (SSB, Julian years)
 **      eb     double[3]    SSB to observer (vector, au)
 **      eh     double[3]    Sun to observer (unit vector)
@@ -75,8 +73,8 @@ void iauAtoiq(const char *type,
 **     than 30 arcsec (optical or radio) at 85 degrees and better than
 **     20 arcmin (optical) or 30 arcmin (radio) at the horizon.
 **
-**     Without refraction, the complementary functions iauAtioq and
-**     iauAtoiq are self-consistent to better than 1 microarcsecond all
+**     Without refraction, the complementary functions eraAtioq and
+**     eraAtoiq are self-consistent to better than 1 microarcsecond all
 **     over the celestial sphere.  With refraction included, consistency
 **     falls off at high zenith distances, but is still better than
 **     0.05 arcsec at 85 degrees.
@@ -86,15 +84,12 @@ void iauAtoiq(const char *type,
 **     accordance with the models used.
 **
 **  Called:
-**     iauS2c       spherical coordinates to unit vector
-**     iauC2s       p-vector to spherical
-**     iauAnp       normalize angle into range 0 to 2pi
+**     eraS2c       spherical coordinates to unit vector
+**     eraC2s       p-vector to spherical
+**     eraAnp       normalize angle into range 0 to 2pi
 **
-**  This revision:   2013 October 9
-**
-**  SOFA release 2018-01-30
-**
-**  Copyright (C) 2018 IAU SOFA Board.  See notes at end.
+**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
    int c;
@@ -137,7 +132,7 @@ void iauAtoiq(const char *type,
       if ( c == 'R' ) c1 = astrom->eral - c1;
 
    /* To Cartesian -HA,Dec. */
-      iauS2c ( -c1, c2, v );
+      eraS2c ( -c1, c2, v );
       xmhdo = v[0];
       ymhdo = v[1];
       zmhdo = v[2];
@@ -193,107 +188,73 @@ void iauAtoiq(const char *type,
    v[2] = w - ( xpl*xpl + ypl*ypl ) * zhd;
 
 /* To spherical -HA,Dec. */
-   iauC2s(v, &hma, di);
+   eraC2s(v, &hma, di);
 
 /* Right ascension. */
-   *ri = iauAnp(astrom->eral + hma);
+   *ri = eraAnp(astrom->eral + hma);
 
 /* Finished. */
 
-/*----------------------------------------------------------------------
-**
-**  Copyright (C) 2018
-**  Standards Of Fundamental Astronomy Board
-**  of the International Astronomical Union.
-**
-**  =====================
-**  SOFA Software License
-**  =====================
-**
-**  NOTICE TO USER:
-**
-**  BY USING THIS SOFTWARE YOU ACCEPT THE FOLLOWING SIX TERMS AND
-**  CONDITIONS WHICH APPLY TO ITS USE.
-**
-**  1. The Software is owned by the IAU SOFA Board ("SOFA").
-**
-**  2. Permission is granted to anyone to use the SOFA software for any
-**     purpose, including commercial applications, free of charge and
-**     without payment of royalties, subject to the conditions and
-**     restrictions listed below.
-**
-**  3. You (the user) may copy and distribute SOFA source code to others,
-**     and use and adapt its code and algorithms in your own software,
-**     on a world-wide, royalty-free basis.  That portion of your
-**     distribution that does not consist of intact and unchanged copies
-**     of SOFA source code files is a "derived work" that must comply
-**     with the following requirements:
-**
-**     a) Your work shall be marked or carry a statement that it
-**        (i) uses routines and computations derived by you from
-**        software provided by SOFA under license to you; and
-**        (ii) does not itself constitute software provided by and/or
-**        endorsed by SOFA.
-**
-**     b) The source code of your derived work must contain descriptions
-**        of how the derived work is based upon, contains and/or differs
-**        from the original SOFA software.
-**
-**     c) The names of all routines in your derived work shall not
-**        include the prefix "iau" or "sofa" or trivial modifications
-**        thereof such as changes of case.
-**
-**     d) The origin of the SOFA components of your derived work must
-**        not be misrepresented;  you must not claim that you wrote the
-**        original software, nor file a patent application for SOFA
-**        software or algorithms embedded in the SOFA software.
-**
-**     e) These requirements must be reproduced intact in any source
-**        distribution and shall apply to anyone to whom you have
-**        granted a further right to modify the source code of your
-**        derived work.
-**
-**     Note that, as originally distributed, the SOFA software is
-**     intended to be a definitive implementation of the IAU standards,
-**     and consequently third-party modifications are discouraged.  All
-**     variations, no matter how minor, must be explicitly marked as
-**     such, as explained above.
-**
-**  4. You shall not cause the SOFA software to be brought into
-**     disrepute, either by misuse, or use for inappropriate tasks, or
-**     by inappropriate modification.
-**
-**  5. The SOFA software is provided "as is" and SOFA makes no warranty
-**     as to its use or performance.   SOFA does not and cannot warrant
-**     the performance or results which the user may obtain by using the
-**     SOFA software.  SOFA makes no warranties, express or implied, as
-**     to non-infringement of third party rights, merchantability, or
-**     fitness for any particular purpose.  In no event will SOFA be
-**     liable to the user for any consequential, incidental, or special
-**     damages, including any lost profits or lost savings, even if a
-**     SOFA representative has been advised of such damages, or for any
-**     claim by any third party.
-**
-**  6. The provision of any version of the SOFA software under the terms
-**     and conditions specified herein does not imply that future
-**     versions will also be made available under the same terms and
-**     conditions.
-*
-**  In any published work or commercial product which uses the SOFA
-**  software directly, acknowledgement (see www.iausofa.org) is
-**  appreciated.
-**
-**  Correspondence concerning SOFA software should be addressed as
-**  follows:
-**
-**      By email:  sofa@ukho.gov.uk
-**      By post:   IAU SOFA Center
-**                 HM Nautical Almanac Office
-**                 UK Hydrographic Office
-**                 Admiralty Way, Taunton
-**                 Somerset, TA1 2DN
-**                 United Kingdom
-**
-**--------------------------------------------------------------------*/
-
 }
+/*----------------------------------------------------------------------
+**  
+**  
+**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  All rights reserved.
+**  
+**  This library is derived, with permission, from the International
+**  Astronomical Union's "Standards of Fundamental Astronomy" library,
+**  available from http://www.iausofa.org.
+**  
+**  The ERFA version is intended to retain identical functionality to
+**  the SOFA library, but made distinct through different function and
+**  file names, as set out in the SOFA license conditions.  The SOFA
+**  original has a role as a reference standard for the IAU and IERS,
+**  and consequently redistribution is permitted only in its unaltered
+**  state.  The ERFA version is not subject to this restriction and
+**  therefore can be included in distributions which do not support the
+**  concept of "read only" software.
+**  
+**  Although the intent is to replicate the SOFA API (other than
+**  replacement of prefix names) and results (with the exception of
+**  bugs;  any that are discovered will be fixed), SOFA is not
+**  responsible for any errors found in this version of the library.
+**  
+**  If you wish to acknowledge the SOFA heritage, please acknowledge
+**  that you are using a library derived from SOFA, rather than SOFA
+**  itself.
+**  
+**  
+**  TERMS AND CONDITIONS
+**  
+**  Redistribution and use in source and binary forms, with or without
+**  modification, are permitted provided that the following conditions
+**  are met:
+**  
+**  1 Redistributions of source code must retain the above copyright
+**    notice, this list of conditions and the following disclaimer.
+**  
+**  2 Redistributions in binary form must reproduce the above copyright
+**    notice, this list of conditions and the following disclaimer in
+**    the documentation and/or other materials provided with the
+**    distribution.
+**  
+**  3 Neither the name of the Standards Of Fundamental Astronomy Board,
+**    the International Astronomical Union nor the names of its
+**    contributors may be used to endorse or promote products derived
+**    from this software without specific prior written permission.
+**  
+**  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+**  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+**  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+**  FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE
+**  COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+**  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+**  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+**  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+**  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+**  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+**  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+**  POSSIBILITY OF SUCH DAMAGE.
+**  
+*/
