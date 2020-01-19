@@ -95,7 +95,7 @@ function eraPb06(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.

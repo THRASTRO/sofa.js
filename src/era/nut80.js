@@ -67,7 +67,7 @@ function eraNut80(date1, date2)
 /* The units for the sine and cosine coefficients are 0.1 mas and */
 /* the same per Julian century */
 
-   x = [
+   var x = [
 
    /* 1-10 */
       [  0,  0,  0,  0,  1, -171996.0, -174.2,  92025.0,    8.9 ],
@@ -267,7 +267,7 @@ function eraNut80(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.

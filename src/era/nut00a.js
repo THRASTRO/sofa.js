@@ -167,7 +167,7 @@ function eraNut00a(date1, date2)
 /* The units for the sine and cosine coefficients are */
 /* 0.1 microarcsecond and the same per Julian century */
 
-   xls = [
+   var xls = [
 
    /* 1- 10 */
       [ 0, 0, 0, 0, 1,
@@ -996,7 +996,7 @@ function eraNut00a(date1, date2)
 /* The units for the sine and cosine coefficients are */
 /* 0.1 microarcsecond                                 */
 
-   xpl = [
+   var xpl = [
 
    /* 1-10 */
       [ 0, 0, 0, 0, 0,  0,  8,-16, 4, 5, 0, 0, 0, 1440,   0,    0,   0],
@@ -1975,7 +1975,7 @@ function eraNut00a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.

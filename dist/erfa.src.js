@@ -4,7 +4,7 @@
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -294,7 +294,7 @@ function eraA2af(ndp, angle)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -435,7 +435,7 @@ function eraA2tf(ndp, angle)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -638,7 +638,7 @@ function eraAf2a(s, ideg, iamin, asec)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -739,7 +739,7 @@ function eraAnp(a)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -840,7 +840,7 @@ function eraAnpm(a)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -1875,7 +1875,7 @@ function eraApco13(utc1, utc2, dut1, elong, phi, hm, xp, yp, phpa, tc, rh, wl)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -2840,7 +2840,7 @@ function eraApio13(utc1, utc2, dut1, elong, phi, hm, xp, yp, phpa, tc, rh, wl)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -3527,7 +3527,7 @@ function eraAtco13(rc, dc, pr, pd, px, rv, utc1, utc2, dut1, elong, phi, hm, xp,
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -4181,7 +4181,7 @@ function eraAtio13(ri, di, utc1, utc2, dut1, elong, phi, hm, xp, yp, phpa, tc, r
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -4614,7 +4614,7 @@ function eraAtoc13(type, ob1, ob2, utc1, utc2, dut1, elong, phi, hm, xp, yp, php
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -4854,7 +4854,7 @@ function eraAtoi13(type, ob1, ob2, utc1, utc2, dut1, elong, phi, hm, xp, yp, php
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -5192,7 +5192,7 @@ function eraBi00()
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -5397,7 +5397,7 @@ function eraBp00(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -5573,7 +5573,7 @@ function eraBp06(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -5696,7 +5696,7 @@ function eraBpn2xy(rbpn)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -5859,7 +5859,7 @@ function eraC2i00a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -6022,7 +6022,7 @@ function eraC2i00b(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -6184,7 +6184,7 @@ function eraC2i06a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -6351,7 +6351,7 @@ function eraC2ibpn(date1, date2, rbpn)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -6505,7 +6505,7 @@ function eraC2ixy(date1, date2, x, y)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -6652,7 +6652,7 @@ function eraC2ixys(x, y, s)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -6771,7 +6771,7 @@ function eraC2s(p)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -6948,7 +6948,7 @@ function eraC2t00a(tta, ttb, uta, utb, xp, yp)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -7121,7 +7121,7 @@ function eraC2t00b(tta, ttb, uta, utb, xp, yp)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -7296,7 +7296,7 @@ function eraC2t06a(tta, ttb, uta, utb, xp, yp)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -7441,7 +7441,7 @@ function eraC2tcio(rc2i, era, rpom)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -7586,7 +7586,7 @@ function eraC2teqx(rbpn, gst, rpom)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -7780,7 +7780,7 @@ function eraC2tpe(tta, ttb, uta, utb, dpsi, deps, xp, yp)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -7961,7 +7961,7 @@ function eraC2txy(tta, ttb, uta, utb, x, y, xp, yp)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -8122,7 +8122,7 @@ function eraCal2jd(iy, im, id)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -8224,7 +8224,7 @@ function eraCp(p)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -8328,7 +8328,7 @@ function eraCpv(pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -8435,7 +8435,7 @@ function eraCr(r)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -8711,7 +8711,7 @@ function eraD2dtf(scale, ndp, d1, d2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -8894,7 +8894,7 @@ function eraD2tf(ndp, days)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -10428,7 +10428,7 @@ function eraDtdb(date1, date2, ut, elong, u, v)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -10661,7 +10661,7 @@ function eraDtf2d(scale, iy, im, id, ihr, imn, sec)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -10808,7 +10808,7 @@ function eraEe00(date1, date2, epsa, dpsi)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -10968,7 +10968,7 @@ function eraEe00a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -11134,7 +11134,7 @@ function eraEe00b(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -11275,7 +11275,7 @@ function eraEe06a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -11573,7 +11573,7 @@ function eraEect00(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -11741,7 +11741,7 @@ function eraEform( n)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -11895,7 +11895,7 @@ function eraEo06a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -12022,7 +12022,7 @@ function eraEors(rnpb, s)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -12132,7 +12132,7 @@ function eraEpb(dj1, dj2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -12246,7 +12246,7 @@ function eraEpb2jd(epb)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -12358,7 +12358,7 @@ function eraEpj(dj1, dj2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -12472,7 +12472,7 @@ function eraEpj2jd(epj)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -15076,7 +15076,7 @@ function eraEpv00(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -15231,7 +15231,7 @@ function eraEqeq94(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -15386,7 +15386,7 @@ function eraEra00(dj1, dj2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -15508,7 +15508,7 @@ function eraFad03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -15629,7 +15629,7 @@ function eraFae03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -15754,7 +15754,7 @@ function eraFaf03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -15875,7 +15875,7 @@ function eraFaju03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -15997,7 +15997,7 @@ function eraFal03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -16119,7 +16119,7 @@ function eraFalp03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -16240,7 +16240,7 @@ function eraFama03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -16361,7 +16361,7 @@ function eraFame03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -16479,7 +16479,7 @@ function eraFane03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -16602,7 +16602,7 @@ function eraFaom03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -16724,7 +16724,7 @@ function eraFapa03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -16845,7 +16845,7 @@ function eraFasa03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -16963,7 +16963,7 @@ function eraFaur03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -17084,7 +17084,7 @@ function eraFave03(t)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -17258,7 +17258,7 @@ function eraFk52h(r5, d5, dr5, dd5, px5, rv5)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -17406,7 +17406,7 @@ function eraFk5hip(r5h)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -17589,7 +17589,7 @@ function eraFk5hz(r5, d5, date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -17746,7 +17746,7 @@ function eraFw2m(gamb, phib, psi, eps)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -17891,7 +17891,7 @@ function eraFw2xy(gamb, phib, psi, eps)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -18053,7 +18053,7 @@ function eraGc2gd( n, xyz)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -18273,7 +18273,7 @@ function eraGc2gde( a, f, xyz)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -18430,7 +18430,7 @@ function eraGd2gc( n, elong, phi, height)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -18588,7 +18588,7 @@ function eraGd2gce( a, f, elong, phi, height)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -18752,7 +18752,7 @@ function eraGmst00(uta, utb, tta, ttb)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -18907,7 +18907,7 @@ function eraGmst06(uta, utb, tta, ttb)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -19077,7 +19077,7 @@ function eraGmst82(dj1, dj2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -19234,7 +19234,7 @@ function eraGst00a(uta, utb, tta, ttb)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -19399,7 +19399,7 @@ function eraGst00b(uta, utb)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -19561,7 +19561,7 @@ function eraGst06(uta, utb, tta, ttb, rnpb)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -19711,7 +19711,7 @@ function eraGst06a(uta, utb, tta, ttb)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -19861,7 +19861,7 @@ function eraGst94(uta, utb)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -20040,7 +20040,7 @@ function eraH2fk5(rh, dh, drh, ddh, pxh, rvh)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -20243,7 +20243,7 @@ function eraHfk5z(rh, dh, date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -20350,7 +20350,7 @@ function eraIr()
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -20529,7 +20529,7 @@ function eraJd2cal(dj1, dj2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -20716,7 +20716,7 @@ function eraJdcalf(ndp, dj1, dj2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -21147,7 +21147,7 @@ function eraNum00a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -21299,7 +21299,7 @@ function eraNum00b(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -21450,7 +21450,7 @@ function eraNum06a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -21583,7 +21583,7 @@ function eraNumat(epsa, dpsi, deps)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -21822,7 +21822,7 @@ function eraNut00a(date1, date2)
 /* The units for the sine and cosine coefficients are */
 /* 0.1 microarcsecond and the same per Julian century */
 
-   xls = [
+   var xls = [
 
    /* 1- 10 */
       [ 0, 0, 0, 0, 1,
@@ -22651,7 +22651,7 @@ function eraNut00a(date1, date2)
 /* The units for the sine and cosine coefficients are */
 /* 0.1 microarcsecond                                 */
 
-   xpl = [
+   var xpl = [
 
    /* 1-10 */
       [ 0, 0, 0, 0, 0,  0,  8,-16, 4, 5, 0, 0, 0, 1440,   0,    0,   0],
@@ -23630,7 +23630,7 @@ function eraNut00a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -23844,7 +23844,7 @@ function eraNut00b(date1, date2)
 /* The units for the sine and cosine coefficients are */
 /* 0.1 microarcsec and the same per Julian century    */
 
-   x = [
+   var x = [
 
    /* 1-10 */
       [ 0, 0, 0, 0,1,
@@ -24019,7 +24019,7 @@ function eraNut00b(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -24197,7 +24197,7 @@ function eraNut06a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -24336,7 +24336,7 @@ function eraNut80(date1, date2)
 /* The units for the sine and cosine coefficients are 0.1 mas and */
 /* the same per Julian century */
 
-   x = [
+   var x = [
 
    /* 1-10 */
       [  0,  0,  0,  0,  1, -171996.0, -174.2,  92025.0,    8.9 ],
@@ -24536,7 +24536,7 @@ function eraNut80(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -24679,7 +24679,7 @@ function eraNutm80(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -24816,7 +24816,7 @@ function eraObl06(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -24953,7 +24953,7 @@ function eraObl80(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -25306,7 +25306,7 @@ function eraP06e(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -25411,7 +25411,7 @@ function eraP2pv(p)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -25528,7 +25528,7 @@ function eraP2s(p)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -25690,7 +25690,7 @@ function eraPap(a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -25805,7 +25805,7 @@ function eraPas(al, ap, bl, bp)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -25972,7 +25972,7 @@ function eraPb06(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -26075,7 +26075,7 @@ function eraPdp(a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -26264,7 +26264,7 @@ function eraPfw06(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -26798,7 +26798,7 @@ function eraPlan94(date1, date2, np)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -26893,7 +26893,7 @@ function eraPm(p)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -27038,7 +27038,7 @@ function eraPmat00(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -27188,7 +27188,7 @@ function eraPmat06(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -27356,7 +27356,7 @@ function eraPmat76(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -27463,7 +27463,7 @@ function eraPmp(a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -27779,7 +27779,7 @@ function eraPmsafe(ra1, dec1, pmr1, pmd1, px1, rv1, ep1a, ep1b, ep2a, ep2b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -27911,7 +27911,7 @@ function eraPn(p)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -28127,7 +28127,7 @@ function eraPn00(date1, date2, dpsi, deps)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -28334,7 +28334,7 @@ function eraPn00a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -28541,7 +28541,7 @@ function eraPn00b(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -28770,7 +28770,7 @@ function eraPn06(date1, date2, dpsi, deps)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -28967,7 +28967,7 @@ function eraPn06a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -29120,7 +29120,7 @@ function eraPnm00a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -29273,7 +29273,7 @@ function eraPnm00b(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -29427,7 +29427,7 @@ function eraPnm06a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -29577,7 +29577,7 @@ function eraPnm80(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -29715,7 +29715,7 @@ function eraPom00(xp, yp, sp)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -29822,7 +29822,7 @@ function eraPpp(a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -29938,7 +29938,7 @@ function eraPpsp(a, s, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -30103,7 +30103,7 @@ function eraPr00(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -30274,7 +30274,7 @@ function eraPrec76(date01, date02, date11, date12)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -30377,7 +30377,7 @@ function eraPv2p(pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -30546,7 +30546,7 @@ function eraPv2s(pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -30670,7 +30670,7 @@ function eraPvdpv(a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -30779,7 +30779,7 @@ function eraPvm(pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -30888,7 +30888,7 @@ function eraPvmpv(a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -30997,7 +30997,7 @@ function eraPvppv(a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -31237,7 +31237,7 @@ function eraPvstar(pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -31453,7 +31453,7 @@ function eraPvu(dt, pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -31563,7 +31563,7 @@ function eraPvup(dt, pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -31692,7 +31692,7 @@ function eraPvxpv(a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -31808,7 +31808,7 @@ function eraPxp(a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -32143,7 +32143,7 @@ function eraRm2v(r)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -32284,7 +32284,7 @@ function eraRv2m(w, r)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -32417,7 +32417,7 @@ function eraRx(phi, r)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -32538,7 +32538,7 @@ function eraRxp(r, p)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -32646,7 +32646,7 @@ function eraRxpv(r, pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -32769,7 +32769,7 @@ function eraRxr(a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -32902,7 +32902,7 @@ function eraRy(theta, r)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -33035,7 +33035,7 @@ function eraRz(psi, r)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -33425,7 +33425,7 @@ function eraS00(date1, date2, x, y)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -33591,7 +33591,7 @@ function eraS00a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -33757,7 +33757,7 @@ function eraS00b(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -34144,7 +34144,7 @@ function eraS06(date1, date2, x, y)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -34312,7 +34312,7 @@ function eraS06a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -34419,7 +34419,7 @@ function eraS2c(theta, phi)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -34529,7 +34529,7 @@ function eraS2p(theta, phi, r)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -34652,7 +34652,7 @@ function eraS2pv(theta, phi, r, td, pd, rd)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -34761,7 +34761,7 @@ function eraS2xpv(s1, s2, pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -34885,7 +34885,7 @@ function eraSepp(a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -34997,7 +34997,7 @@ function eraSeps(al, ap, bl, bp)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -35134,7 +35134,7 @@ function eraSp00(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -35368,7 +35368,7 @@ function eraStarpm(ra1, dec1, pmr1, pmd1, px1, rv1, ep1a, ep1b, ep2a, ep2b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -35652,7 +35652,7 @@ function eraStarpv(ra, dec, pmr, pmd, px, rv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -35758,7 +35758,7 @@ function eraSxp(s, p)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -35865,7 +35865,7 @@ function eraSxpv(s, pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -35997,7 +35997,7 @@ function eraTaitt(tai1, tai2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -36130,7 +36130,7 @@ function eraTaiut1(tai1, tai2, dta)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -36314,7 +36314,7 @@ function eraTaiutc(tai1, tai2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -36468,7 +36468,7 @@ function eraTcbtdb(tcb1, tcb2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -36599,7 +36599,7 @@ function eraTcgtt(tcg1, tcg2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -36758,7 +36758,7 @@ function eraTdbtcb(tdb1, tdb2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -36901,7 +36901,7 @@ function eraTdbtt(tdb1, tdb2, dtr)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -37028,7 +37028,7 @@ function eraTf2a(s, ihour, imin, sec)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -37155,7 +37155,7 @@ function eraTf2d(s, ihour, imin, sec)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -37272,7 +37272,7 @@ function eraTr(r)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -37387,7 +37387,7 @@ function eraTrxp(r, p)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -37502,7 +37502,7 @@ function eraTrxpv(r, pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -37634,7 +37634,7 @@ function eraTttai(tt1, tt2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -37768,7 +37768,7 @@ function eraTttcg(tt1, tt2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -37911,7 +37911,7 @@ function eraTttdb(tt1, tt2, dtr)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -38043,7 +38043,7 @@ function eraTtut1(tt1, tt2, dt)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -38176,7 +38176,7 @@ function eraUt1tai(ut11, ut12, dta)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -38308,7 +38308,7 @@ function eraUt1tt(ut11, ut12, dt)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -38532,7 +38532,7 @@ function eraUt1utc(ut11, ut12, dut1)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -38746,7 +38746,7 @@ function eraUtctai(utc1, utc2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -38926,7 +38926,7 @@ function eraUtcut1(utc1, utc2, dut1)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -41705,7 +41705,7 @@ function eraXy06(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -41863,7 +41863,7 @@ function eraXys00a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -42021,7 +42021,7 @@ function eraXys00b(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -42179,7 +42179,7 @@ function eraXys06a(date1, date2)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -42279,7 +42279,7 @@ function eraZp(p)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -42381,7 +42381,7 @@ function eraZpv(pv)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -42487,7 +42487,7 @@ function eraZr(r)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -43943,7 +43943,7 @@ function eraHd2pa(ha, dec, phi)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -44139,7 +44139,7 @@ function eraTpors(xi, eta, a, b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -44330,7 +44330,7 @@ function eraTporv(xi, eta, v)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -44667,7 +44667,7 @@ function eraTpxes(a, b, a0, b0)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -44863,7 +44863,7 @@ function eraTpxev(v, v0)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
@@ -45901,4 +45901,4 @@ era.fk524   = eraFk524;
 era.fk54z   = eraFk54z;
 			;
 })(ERFA)
-/* crc: 923A180BA6D8E0E6B0564F78679329DE */
+/* crc: 8271EBE5E498EC6B6FD45EEC44E0A4DA */

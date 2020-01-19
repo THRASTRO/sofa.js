@@ -700,7 +700,7 @@ sub parse_struct {
 			$structs->{$v}->{$var} = $i ++;
 		}
 	}
-	return "$var = $body";
+	return "var $var = $body";
 }
 
 # only needed in epv00

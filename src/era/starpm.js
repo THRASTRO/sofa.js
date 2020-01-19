@@ -162,7 +162,7 @@ function eraStarpm(ra1, dec1, pmr1, pmd1, px1, rv1, ep1a, ep1b, ep2a, ep2b)
  *+----------------------------------------------------------------------
  *
  *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2019 by Marcel Greter
+ *  Copyright (C) 2020 by Marcel Greter
  *  http:://www.github.com/mgreter/sofa.js
  *
  *  The conversion is done by a custom hacked perl script.
