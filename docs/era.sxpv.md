@@ -19,7 +19,7 @@ Multiply a pv-vector by a scalar.
 
 ## Note:
 ```
-   It is permissible for pv and spv to be the same array
+   It is permissible for pv and spv to be the same array.
 ```
 
 ## Called:
@@ -27,5 +27,7 @@ Multiply a pv-vector by a scalar.
    eraS2xpv     multiply pv-vector by two scalars
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

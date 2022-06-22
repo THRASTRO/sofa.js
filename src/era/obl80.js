@@ -42,7 +42,9 @@ function eraObl80(date1, date2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Expression 3.222-1 (p114).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -59,6 +61,8 @@ function eraObl80(date1, date2)
                   ( 0.001813) * t) * t) * t);
 
    return eps0;
+
+/* Finished. */
 
 }
 /*

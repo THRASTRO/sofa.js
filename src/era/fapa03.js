@@ -33,7 +33,9 @@ function eraFapa03(t)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -44,6 +46,8 @@ function eraFapa03(t)
    a = (0.024381750 + 0.00000538691 * t) * t;
 
    return a;
+
+/* Finished. */
 
 }
 /*

@@ -32,7 +32,9 @@ function eraTaiut1(tai1, tai2, dta)
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -55,6 +57,8 @@ function eraTaiut1(tai1, tai2, dta)
 
 /* Status (always OK). */
    return [ 0, ut11, ut12 ];
+
+/* Finished. */
 
 }
 /*

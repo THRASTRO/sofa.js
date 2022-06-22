@@ -74,7 +74,9 @@ function eraS00(date1, date2, x, y)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -265,43 +267,43 @@ function eraS00(date1, date2, x, y)
    w5 = sp[5];
 
    for (i = ~~(NS0-1); i >= 0; i--) {
-   a = 0.0;
-   for (j = 0; j < 8; j++) {
-       a += s0[i][j] * fa[j];
-   }
-   w0 += s0[i][8] * Math.sin(a) + s0[i][9] * Math.cos(a);
+      a = 0.0;
+      for (j = 0; j < 8; j++) {
+          a += s0[i][j] * fa[j];
+      }
+      w0 += s0[i][8] * Math.sin(a) + s0[i][9] * Math.cos(a);
    }
 
    for (i = ~~(NS1-1); i >= 0; i--) {
-   a = 0.0;
-   for (j = 0; j < 8; j++) {
-       a += s1[i][j] * fa[j];
-   }
-   w1 += s1[i][8] * Math.sin(a) + s1[i][9] * Math.cos(a);
+      a = 0.0;
+      for (j = 0; j < 8; j++) {
+          a += s1[i][j] * fa[j];
+      }
+      w1 += s1[i][8] * Math.sin(a) + s1[i][9] * Math.cos(a);
    }
 
    for (i = ~~(NS2-1); i >= 0; i--) {
-   a = 0.0;
-   for (j = 0; j < 8; j++) {
-       a += s2[i][j] * fa[j];
-   }
-   w2 += s2[i][8] * Math.sin(a) + s2[i][9] * Math.cos(a);
+      a = 0.0;
+      for (j = 0; j < 8; j++) {
+          a += s2[i][j] * fa[j];
+      }
+      w2 += s2[i][8] * Math.sin(a) + s2[i][9] * Math.cos(a);
    }
 
    for (i = ~~(NS3-1); i >= 0; i--) {
-   a = 0.0;
-   for (j = 0; j < 8; j++) {
-       a += s3[i][j] * fa[j];
-   }
-   w3 += s3[i][8] * Math.sin(a) + s3[i][9] * Math.cos(a);
+      a = 0.0;
+      for (j = 0; j < 8; j++) {
+          a += s3[i][j] * fa[j];
+      }
+      w3 += s3[i][8] * Math.sin(a) + s3[i][9] * Math.cos(a);
    }
 
    for (i = ~~(NS4-1); i >= 0; i--) {
-   a = 0.0;
-   for (j = 0; j < 8; j++) {
-       a += s4[i][j] * fa[j];
-   }
-   w4 += s4[i][8] * Math.sin(a) + s4[i][9] * Math.cos(a);
+      a = 0.0;
+      for (j = 0; j < 8; j++) {
+          a += s4[i][j] * fa[j];
+      }
+      w4 += s4[i][8] * Math.sin(a) + s4[i][9] * Math.cos(a);
    }
 
    s = (w0 +
@@ -312,6 +314,8 @@ function eraS00(date1, date2, x, y)
         w5 * t) * t) * t) * t) * t) * ERFA_DAS2R - x*y/2.0;
 
    return s;
+
+/* Finished. */
 
 }
 /*

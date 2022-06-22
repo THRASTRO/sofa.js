@@ -36,18 +36,27 @@ function eraJd2cal(dj1, dj2)
 **         2400000.5       50123.2       (MJD method)
 **         2450123.5           0.2       (date & time method)
 **
+**     Separating integer and fraction uses the "compensated summation"
+**     algorithm of Kahan-Neumaier to preserve as much precision as
+**     possible irrespective of the jd1+jd2 apportionment.
+**
 **  3) In early eras the conversion is from the "proleptic Gregorian
 **     calendar";  no account is taken of the date(s) of adoption of
 **     the Gregorian calendar, nor is the AD/BC numbering convention
 **     observed.
 **
-**  Reference:
+**  References:
 **
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 12.92 (p604).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**     Klein, A., A Generalized Kahan-Babuska-Summation-Algorithm.
+**     Computing, 76, 279-293 (2006), Section 3.
+**
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -61,31 +70,65 @@ function eraJd2cal(dj1, dj2)
    var DJMIN = -68569.5;
    var DJMAX = 1e9;
 
-   var jd, l, n, i, k;
-   var dj, d1, d2, f1, f2, f, d;
+   var jd, i, l, n, k;
+   var dj, f1, f2, d, s, cs, v = [], x, t, f;
 
 
 /* Verify date is acceptable. */
    dj = dj1 + dj2;
    if (dj < DJMIN || dj > DJMAX) return [ -1, iy, im, id, fd ];
 
-/* Copy the date, big then small, and re-align to midnight. */
-   if (Math.abs(dj1) >= Math.abs(dj2)) {
-      d1 = dj1;
-      d2 = dj2;
-   } else {
-      d1 = dj2;
-      d2 = dj1;
-   }
-   d2 -= 0.5;
+/* Separate day and fraction (where -0.5 <= fraction < 0.5). */
+   d = ERFA_DNINT(dj1);
+   f1 = dj1 - d;
+   jd = ~~(~~d);
+   d = ERFA_DNINT(dj2);
+   f2 = dj2 - d;
+   jd += ~~(~~d);
 
-/* Separate day and fraction. */
-   f1 = ((d1) % (1.0));
-   f2 = ((d2) % (1.0));
-   f = ((f1 + f2) % (1.0));
-   if (f < 0.0) f += 1.0;
-   d = ERFA_DNINT(d1-f1) + ERFA_DNINT(d2-f2) + ERFA_DNINT(f1+f2-f);
-   jd = ~~(~~ERFA_DNINT(d) + 1);
+/* Compute f1+f2+0.5 using compensated summation (Klein 2006). */
+   s = 0.5;
+   cs = 0.0;
+   v[0] = f1;
+   v[1] = f2;
+   for ( i = 0; i < 2; i++ ) {
+      x = v[i];
+      t = s + x;
+      cs += Math.abs(s) >= Math.abs(x) ? (s-t) + x : (x-t) + s;
+      s = t;
+      if ( s >= 1.0 ) {
+         jd++;
+         s -= 1.0;
+      }
+   }
+   f = s + cs;
+   cs = f - s;
+
+/* Deal with negative f. */
+   if ( f < 0.0 ) {
+
+   /* Compensated summation: assume that |s| <= 1.0. */
+      f = s + 1.0;
+      cs += (1.0-f) + s;
+      s  = f;
+      f = s + cs;
+      cs = f - s;
+      jd--;
+   }
+
+/* Deal with f that is 1.0 or more (when rounded to double). */
+   if ( (f-1.0) >= -DBL_EPSILON/4.0 ) {
+
+   /* Compensated summation: assume that |s| <= 1.0. */
+      t = s - 1.0;
+      cs += (s-t) - 1.0;
+      s = t;
+      f = s + cs;
+      if ( -DBL_EPSILON/2.0 < f ) {
+         jd++;
+         f = Math.max(f, 0.0);
+      }
+   }
 
 /* Express day in Gregorian calendar. */
    l = ~~(jd + 68569);
@@ -100,7 +143,10 @@ function eraJd2cal(dj1, dj2)
    iy = ~~(~~(100 * (n - 49) + i + l));
    fd = f;
 
+/* Success. */
    return [ 0, iy, im, id, fd ];
+
+/* Finished. */
 
 }
 /*

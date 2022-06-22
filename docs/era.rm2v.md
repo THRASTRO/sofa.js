@@ -31,7 +31,9 @@ Express an r-matrix as an r-vector.
 3) The reference frame rotates clockwise as seen looking along
    the rotation vector from the origin.
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

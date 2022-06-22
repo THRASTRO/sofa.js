@@ -57,5 +57,7 @@ Sidereal Time and the polar motion matrix).
    McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
    IERS Technical Note No. 32, BKG (2004)
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

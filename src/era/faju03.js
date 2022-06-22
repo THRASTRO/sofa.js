@@ -32,7 +32,9 @@ function eraFaju03(t)
 **     Souchay, J., Loysel, B., Kinoshita, H., Folgueira, M. 1999,
 **     Astron.Astrophys.Supp.Ser. 135, 111
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -43,6 +45,8 @@ function eraFaju03(t)
    a = ((0.599546497 + 52.9690962641 * t) % (ERFA_D2PI));
 
    return a;
+
+/* Finished. */
 
 }
 /*

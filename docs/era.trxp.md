@@ -14,7 +14,7 @@ Multiply a p-vector by the transpose of an r-matrix.
 
 ## Returned:
 ```
-   trp      double[3]      r * p
+   trp      double[3]      r^T * p
 ```
 
 ## Note:
@@ -28,5 +28,7 @@ Multiply a p-vector by the transpose of an r-matrix.
    eraRxp       product of r-matrix and p-vector
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

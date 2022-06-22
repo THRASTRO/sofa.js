@@ -24,7 +24,9 @@ function eraEpb(dj1, dj2)
 **
 **     Lieske, J.H., 1979. Astron.Astrophys., 73, 282.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -32,6 +34,8 @@ function eraEpb(dj1, dj2)
    var D1900 = 36524.68648;
 
    return 1900.0 + ((dj1 - ERFA_DJ00) + (dj2 + D1900)) / ERFA_DTY;
+
+/* Finished. */
 
 }
 /*

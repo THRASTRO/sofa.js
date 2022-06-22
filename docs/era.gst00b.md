@@ -21,8 +21,8 @@ resolutions but using the truncated nutation model IAU 2000B).
 
 1) The UT1 date uta+utb is a Julian Date, apportioned in any
    convenient way between the argument pair.  For example,
-   JD=2450123.7 could be expressed in any of these ways, among
-   others:
+   JD(UT1)=2450123.7 could be expressed in any of these ways,
+   among others:
 
 ```
            uta            utb
@@ -53,7 +53,7 @@ resolutions but using the truncated nutation model IAU 2000B).
      results in errors of order 0.1 mas at present.
 ```
 
-   . The IAU 2000B abridged nutation model (McCarthy & Luzum, 2001)
+   . The IAU 2000B abridged nutation model (McCarthy & Luzum, 2003)
      is used, introducing errors of up to 1 mas.
 
 3) This GAST is compatible with the IAU 2000 resolutions and must be
@@ -85,5 +85,7 @@ resolutions but using the truncated nutation model IAU 2000B).
    McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
    IERS Technical Note No. 32, BKG (2004)
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

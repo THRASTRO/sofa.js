@@ -35,7 +35,7 @@ function eraApco(date1, date2, ebpv, ehp, x, y, s, theta, elong, phi, hm, xp, yp
 **      v      double[3]    barycentric observer velocity (vector, c)
 **      bm1    double       sqrt(1-|v|^2): reciprocal of Lorenz factor
 **      bpn    double[3][3] bias-precession-nutation matrix
-**      along  double       longitude + s' (radians)
+**      along  double       adjusted longitude (radians)
 **      xpl    double       polar motion xp wrt local meridian (radians)
 **      ypl    double       polar motion yp wrt local meridian (radians)
 **      sphi   double       sine of geodetic latitude
@@ -79,6 +79,9 @@ function eraApco(date1, date2, ebpv, ehp, x, y, s, theta, elong, phi, hm, xp, yp
 **     CONVENTION:  the longitude required by the present function is
 **     right-handed, i.e. east-positive, in accordance with geographical
 **     convention.
+**
+**     The adjusted longitude stored in the astrom array takes into
+**     account the TIO locator and polar motion.
 **
 **  4) xp and yp are the coordinates (in radians) of the Celestial
 **     Intermediate Pole with respect to the International Terrestrial
@@ -137,14 +140,20 @@ function eraApco(date1, date2, ebpv, ehp, x, y, s, theta, elong, phi, hm, xp, yp
 **     eraAtioq, eraAtoiq, eraAtciq* and eraAticq*.
 **
 **  Called:
-**     eraAper      astrometry parameters: update ERA
+**     eraIr        initialize r-matrix to identity
+**     eraRz        rotate around Z-axis
+**     eraRy        rotate around Y-axis
+**     eraRx        rotate around X-axis
+**     eraAnpm      normalize angle into range +/- pi
 **     eraC2ixys    celestial-to-intermediate matrix, given X,Y and s
 **     eraPvtob     position/velocity of terrestrial station
 **     eraTrxpv     product of transpose of r-matrix and pv-vector
 **     eraApcs      astrometry parameters, ICRS-GCRS, space observer
 **     eraCr        copy r-matrix
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -153,17 +162,32 @@ function eraApco(date1, date2, ebpv, ehp, x, y, s, theta, elong, phi, hm, xp, yp
       astrom = {pmt:0,eb:eraZp(),eh:eraZp(),em:0,v:eraZp(),bm1:0,bpn:eraZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};
    }
 
-   var sl, cl, r = [[], [], []], pvc = [[], []], pv = [[], []];
+   var r = [[], [], []], a, b, eral, c, pvc = [[], []], pv = [[], []];
 
 
-/* Longitude with adjustment for TIO locator s'. */
-   astrom.along = elong + sp;
+/* Form the rotation matrix, CIRS to apparent [HA,Dec]. */
+   r = eraIr();
+   r = eraRz(theta+sp, r);
+   r = eraRy(-xp, r);
+   r = eraRx(-yp, r);
+   r = eraRz(elong, r);
 
-/* Polar motion, rotated onto the local meridian. */
-   sl = Math.sin(astrom.along);
-   cl = Math.cos(astrom.along);
-   astrom.xpl = xp*cl - yp*sl;
-   astrom.ypl = xp*sl + yp*cl;
+/* Solve for local Earth rotation angle. */
+   a = r[0][0];
+   b = r[0][1];
+   eral = ( a != 0.0 || b != 0.0 ) ?  Math.atan2(b, a) : 0.0;
+   astrom.eral = eral;
+
+/* Solve for polar motion [X,Y] with respect to local meridian. */
+   a = r[0][0];
+   c = r[0][2];
+   astrom.xpl = Math.atan2(c, Math.sqrt(a*a+b*b));
+   a = r[1][2];
+   b = r[2][2];
+   astrom.ypl = ( a != 0.0 || b != 0.0 ) ? -Math.atan2(a, b) : 0.0;
+
+/* Adjusted longitude. */
+   astrom.along = eraAnpm(eral - theta);
 
 /* Functions of latitude. */
    astrom.sphi = Math.sin(phi);
@@ -172,9 +196,6 @@ function eraApco(date1, date2, ebpv, ehp, x, y, s, theta, elong, phi, hm, xp, yp
 /* Refraction constants. */
    astrom.refa = refa;
    astrom.refb = refb;
-
-/* Local Earth rotation angle. */
-   astrom = eraAper(theta, astrom);
 
 /* Disable the (redundant) diurnal aberration step. */
    astrom.diurab = 0.0;

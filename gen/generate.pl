@@ -548,6 +548,9 @@ my %categories = (
 	dtdb => 'support routine',
 	g2icrs => 'support routine',
 	icrs2g => 'support routine',
+	atcc13 => 'support routine',
+	atccq => 'support routine',
+	moon98 => 'support routine',
 	a2af => 'vector/matrix support function',
 	a2tf => 'vector/matrix support function',
 	anp => 'vector/matrix support function',
@@ -1026,6 +1029,10 @@ my %config = (
 	tpstv => { arg => [mt('double',2),mt('v3',1)], out => [mt('v3',1)] },
 	tpxes => { arg => [mt('double',4)], out => [mt('double',2)], rv => 'int' },
 	tpxev => { arg => [mt('v3',2)], out => [mt('double',2)], rv => 'int' },
+	# added with liberfa version 2.0.0
+	atcc13 => { arg => [mt('double',6),mt('stime', 2)], out => [mt('double', 2)] },
+	atccq => { arg => [mt('double',6),'astrom'], out => [mt('double', 2)] },
+	moon98 => { arg => [mt('stime',2)], out => ['pv3'] },
 );
 
 ################################################################################
@@ -1613,6 +1620,61 @@ sub convert_fn
 }
 
 ################################################################################
+# generic struct parsing and replacing
+################################################################################
+
+sub parse_inline_field
+{
+	my ($struct, $field) = @_;
+	$struct->{$field} = $struct->{count};
+	$struct->{count} += 1;
+}
+
+sub parse_inline_struct
+{
+	my ($structs, $name, $fields) = @_;
+	die "overwriting struct $name" if exists $structs->{$name};
+	warn "Parsing $name\n";
+	my $struct = $structs->{$name} = { count => 0 }; my $parser = $fields;
+	$parser =~ s/(void|int|double|char)\s+($re_identifier)/parse_inline_field($struct, $2)/ge;
+	return "//" . join("\n//", split(/\n/, "struct $name { $fields }"));
+}
+
+sub parse_struct_array
+{
+	my ($structs, $vars, $name, $var, $data) = @_;
+	die "unknown struct $name" unless exists $structs->{$name};
+	my @converted;
+	$data =~ s/^\s*{//;
+	$data =~ s/}\s*$//;
+	foreach my $entry (split /}\s*,\s*{/, $data)
+	{
+		my @items = split(/\s*,\s*/, $entry);
+		die "struct mismatch" unless scalar(@items) == $structs->{$name}->{count};
+		push @converted, "[" . $entry . "]";
+	}
+	$vars->{$var} = [$name, scalar(@converted)];
+	return "var $var = [\n" . join(",\n", @converted) . "\n];";
+}
+
+sub replace_struct_size
+{
+	my ($structs, $vars, $var, $name) = @_;
+	die "invalid struct size fetch" if $vars->{$var}->[0] ne $name;
+	return $vars->{$var}->[1];
+}
+
+sub replace_struct_array_access
+{
+	my ($structs, $vars, $var, $idx, $field) = @_;
+	return "$var\[$idx\].$field" unless exists $vars->{$var};
+	die "variable $var is not a struct" unless exists $vars->{$var};
+	my $struct = $structs->{$vars->{$var}->[0]};
+	die "field $field for struct not valid" unless exists $struct->{$field};
+	return "$var\[$idx\][" . $struct->{$field} . "]";
+}
+
+################################################################################
 # main function to convert a function
 ################################################################################
 sub convert_astro_fn
@@ -1683,6 +1745,14 @@ sub convert_astro_fn
 	# convert empty c struct var declaration (add initialization for js)
 	$src =~ s/eraASTROM\s+($re_identifier);/"var " . initVar($1, "eraASTROM")/ge;
 	$src =~ s/eraLDBODY\s+($re_identifier);/"var " . initVar($1, "eraLDBODY")/ge;
+
+	my %inline_structs; my %struct_arrs;
+
+	$src =~ s/[\t ]*struct\s+($re_identifier)\s+{([^}]+)}/parse_inline_struct(\%inline_structs, $1, $2)/eg;
+	$src =~ s/[\t ]*struct\s+($re_identifier)\s+($re_identifier)\[\]\s*=\s*{((?:.|\n)*?)};/parse_struct_array(\%inline_structs, \%struct_arrs, $1, $2, $3)/eg;
+	$src =~ s/sizeof\s+($re_identifier)\s*\/\s*sizeof\s*\(\s*struct\s+($re_identifier)\s*\)/replace_struct_size(\%inline_structs, \%struct_arrs, $1, $2)/eg;
+	$src =~ s/($re_identifier)\[($re_identifier)\]\.($re_identifier)/replace_struct_array_access(\%inline_structs, \%struct_arrs, $1, $2, $3)/eg;
+
 
 	# convert array sizes from complex C logic to simple array.length access in JS
 	# in C the array length is determined by a complex sizeof logic (static for compilers)

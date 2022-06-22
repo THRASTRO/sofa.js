@@ -62,7 +62,9 @@ or [eraApcs][4].
    eraAnp       normalize angle into range +/- pi
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2013 October 9
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

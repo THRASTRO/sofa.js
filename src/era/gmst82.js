@@ -58,7 +58,9 @@ function eraGmst82(dj1, dj2)
 **
 **     Aoki et al., Astron.Astrophys., 105, 359-361 (1982).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -68,9 +70,8 @@ function eraGmst82(dj1, dj2)
    var C = 0.093104;
    var D =  -6.2e-6;
 
-/* Note: the first constant, A, has to be adjusted by 12 hours */
-/* because the UT1 is supplied as a Julian date, which begins  */
-/* at noon.                                                    */
+/* The first constant, A, has to be adjusted by 12 hours because the */
+/* UT1 is supplied as a Julian date, which begins at noon.           */
 
    var d1, d2, t, f, gmst;
 
@@ -92,6 +93,8 @@ function eraGmst82(dj1, dj2)
    gmst = eraAnp(ERFA_DS2R * ((A + (B + (C + D * t) * t) * t) + f));
 
    return gmst;
+
+/* Finished. */
 
 }
 /*

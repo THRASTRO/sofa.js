@@ -100,7 +100,9 @@ function eraStarpm(ra1, dec1, pmr1, pmd1, px1, rv1, ep1a, ep1b, ep2a, ep2b)
 **     eraPdp       scalar product of two p-vectors
 **     eraPvstar    space motion pv-vector to star catalog data
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -156,6 +158,8 @@ function eraStarpm(ra1, dec1, pmr1, pmd1, px1, rv1, ep1a, ep1b, ep2a, ep2b)
    j = ~~((j2 == 0) ? j1 : -1);
 
    return [ j, ra2, dec2, pmr2, pmd2, px2, rv2 ];
+
+/* Finished. */
 
 }
 /*

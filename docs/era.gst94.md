@@ -21,7 +21,7 @@ resolutions).
 
 1) The UT1 date uta+utb is a Julian Date, apportioned in any
    convenient way between the argument pair.  For example,
-   JD=2450123.7 could be expressed in any of these ways, among
+   JD(UT1)=2450123.7 could be expressed in any of these ways, among
    others:
 
 ```
@@ -68,5 +68,7 @@ resolutions).
 
    IAU Resolution C7, Recommendation 3 (1994)
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

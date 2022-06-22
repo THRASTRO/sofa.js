@@ -140,3 +140,6 @@ var ERFA_LEAPSEC = [
 
 /* Release year for eraDat */
 var ERFA_IYV = 2019;
+
+/* Epsilon for double floats */
+var DBL_EPSILON = Number.EPSILON;

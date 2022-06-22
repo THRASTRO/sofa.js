@@ -71,7 +71,9 @@ function eraS06(date1, date2, x, y)
 **     McCarthy, D.D., Petit, G. (eds.) 2004, IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -309,6 +311,8 @@ function eraS06(date1, date2, x, y)
         w5 * t) * t) * t) * t) * t) * ERFA_DAS2R - x*y/2.0;
 
    return s;
+
+/* Finished. */
 
 }
 /*

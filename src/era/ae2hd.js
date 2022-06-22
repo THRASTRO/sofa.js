@@ -56,9 +56,9 @@ function eraAe2hd(az, el, phi)
 **
 **  Last revision:   2017 September 12
 **
-**  ERFA release 2019-07-22
+**  ERFA release 2021-05-12
 **
-**  Copyright (C) 2019 IAU ERFA Board.  See notes at end.
+**  Copyright (C) 2021 IAU ERFA Board.  See notes at end.
 */
 {
    var ha = 0.0;;

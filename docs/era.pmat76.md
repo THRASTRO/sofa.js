@@ -72,5 +72,7 @@ Precession matrix from J2000.0 to a specified date, IAU 1976 model.
 
    Kaplan,G.H., 1981. USNO circular no. 163, pA2.
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

@@ -55,7 +55,13 @@ date, IAU 2006 model.
 
    Capitaine, N. & Wallace, P.T., 2006, Astron.Astrophys. 450, 855
 
+   IAU: Trans. International Astronomical Union, Vol. XXIVB;  Proc.
+   24th General Assembly, Manchester, UK.  Resolutions B1.3, B1.6.
+   (2000)
+
    Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

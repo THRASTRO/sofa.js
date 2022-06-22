@@ -30,7 +30,9 @@ function eraFaf03(t)
 **     Simon, J.-L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G., Laskar, J. 1994, Astron.Astrophys. 282, 663-683
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -47,6 +49,7 @@ function eraFaf03(t)
 
    return a;
 
+/* Finished. */
 
 }
 /*

@@ -38,7 +38,7 @@ site coordinates.
     v      double[3]    barycentric observer velocity (vector, c)
     bm1    double       sqrt(1-|v|^2): reciprocal of Lorenz factor
     bpn    double[3][3] bias-precession-nutation matrix
-    along  double       longitude + s' (radians)
+    along  double       adjusted longitude (radians)
     xpl    double       polar motion xp wrt local meridian (radians)
     ypl    double       polar motion yp wrt local meridian (radians)
     sphi   double       sine of geodetic latitude
@@ -85,6 +85,9 @@ site coordinates.
    CONVENTION:  the longitude required by the present function is
    right-handed, i.e. east-positive, in accordance with geographical
    convention.
+
+   The adjusted longitude stored in the astrom array takes into
+   account the TIO locator and polar motion.
 
 4) xp and yp are the coordinates (in radians) of the Celestial
    Intermediate Pole with respect to the International Terrestrial
@@ -146,7 +149,11 @@ site coordinates.
 
 ## Called:
 ```
-   eraAper      astrometry parameters: update ERA
+   eraIr        initialize r-matrix to identity
+   eraRz        rotate around Z-axis
+   eraRy        rotate around Y-axis
+   eraRx        rotate around X-axis
+   eraAnpm      normalize angle into range +/- pi
    eraC2ixys    celestial-to-intermediate matrix, given X,Y and s
    eraPvtob     position/velocity of terrestrial station
    eraTrxpv     product of transpose of r-matrix and pv-vector
@@ -154,7 +161,9 @@ site coordinates.
    eraCr        copy r-matrix
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2021 February 24
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

@@ -13,7 +13,9 @@ function eraPdp(a, b)
 **  Returned (function value):
 **            double        a . b
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -25,6 +27,8 @@ function eraPdp(a, b)
       + a[2] * b[2];
 
    return w;
+
+/* Finished. */
 
 }
 /*

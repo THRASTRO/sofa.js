@@ -109,7 +109,9 @@ special handling to handle the zero parallax case.
    eraStarpm    update star catalog data for space motion
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2014 July 1
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

@@ -4,8 +4,9 @@
 [dpsibi, depsbi, dra] = ERFA.bi00()
 ```
 
-Frame bias components of IAU 2000 precession-nutation models (part
-of MHB2000 with additions).
+Frame bias components of IAU 2000 precession-nutation models;  part
+of the Mathews-Herring-Buffett (MHB2000) nutation series, with
+additions.
 
 ## Returned:
 ```
@@ -36,10 +37,12 @@ of MHB2000 with additions).
    Astrophys., 387, 700, 2002.
 
    Mathews, P.M., Herring, T.A., Buffet, B.A., "Modeling of nutation
-   and precession   New nutation series for nonrigid Earth and
+   and precession:  New nutation series for nonrigid Earth and
    insights into the Earth's interior", J.Geophys.Res., 107, B4,
-   2002.  The MHB2000 code itself was obtained on 9th September 2002
+   2002.  The MHB2000 code itself was obtained on 2002 September 9
    from ftp://maia.usno.navy.mil/conv2000/chapter5/IAU2000A.
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

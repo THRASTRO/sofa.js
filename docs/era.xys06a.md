@@ -16,7 +16,7 @@ precession and IAU 2000A nutation models.
 ## Returned:
 ```
    x,y          double  Celestial Intermediate Pole (Note 2)
-   s            double  the CIO locator s (Note 2)
+   s            double  the CIO locator s (Note 3)
 ```
 
 ## Notes:
@@ -66,5 +66,7 @@ precession and IAU 2000A nutation models.
 
    Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

@@ -51,7 +51,9 @@ function eraTpxes(a, b, a0, b0)
 **     Green, R.M., "Spherical Astronomy", Cambridge University Press,
 **     1987, Chapter 13.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2018 January 2
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {

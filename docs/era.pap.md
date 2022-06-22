@@ -41,5 +41,7 @@ Position-angle from two p-vectors.
    eraPdp       scalar product of two p-vectors
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

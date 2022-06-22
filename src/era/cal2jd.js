@@ -41,7 +41,9 @@ function eraCal2jd(iy, im, id)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 12.92 (p604).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -83,6 +85,8 @@ function eraCal2jd(iy, im, id)
 
 /* Return status. */
    return [ j, djm0, djm ];
+
+/* Finished. */
 
 }
 /*

@@ -22,8 +22,8 @@ resolutions).
 
 1) The UT1 and TT dates uta+utb and tta+ttb respectively, are both
    Julian Dates, apportioned in any convenient way between the
-   argument pairs.  For example, JD=2450123.7 could be expressed in
-   any of these ways, among others:
+   argument pairs.  For example, JD(UT1)=2450123.7 could be
+   expressed in any of these ways, among others:
 
 ```
           Part A         Part B
@@ -74,5 +74,7 @@ resolutions).
    McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
    IERS Technical Note No. 32, BKG (2004)
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

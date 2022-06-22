@@ -50,7 +50,9 @@ function eraEceq06(date1, date2, dl, db)
 **     eraAnp       normalize angle into range 0 to 2pi
 **     eraAnpm      normalize angle into range +/- pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -78,6 +80,8 @@ function eraEceq06(date1, date2, dl, db)
 /* Express in conventional ranges. */
    dr = eraAnp(a);
    dd = eraAnpm(b);
+
+/* Finished. */
 
 return [dr, dd];
 }

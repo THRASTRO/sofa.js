@@ -52,7 +52,7 @@ the CIP coordinates and the polar motion.  IAU 2000.
 3) The arguments xp and yp are the coordinates (in radians) of the
    Celestial Intermediate Pole with respect to the International
    Terrestrial Reference System (see IERS Conventions 2003),
-   measured along the meridians to 0 and 90 deg west respectively.
+   measured along the meridians 0 and 90 deg west respectively.
 
 4) The matrix rc2t transforms from celestial to terrestrial
    coordinates:
@@ -85,5 +85,7 @@ the CIP coordinates and the polar motion.  IAU 2000.
    McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
    IERS Technical Note No. 32, BKG (2004)
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

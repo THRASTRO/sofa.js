@@ -97,7 +97,9 @@ function eraFk524(r2000, d2000, dr2000, dd2000, p2000, v2000)
 **     from FK4 B1950.0 to FK5 J2000.0 using matrices in 6-space".
 **     Astron.J. 97, 274.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -187,7 +189,7 @@ function eraFk524(r2000, d2000, dr2000, dd2000, p2000, v2000)
       }
    }
 
-/* Apply E-terms (equivalent to Seidelmann 3.592-3, two iterations). */
+/* Apply E-terms (equivalent to Seidelmann 3.592-3, one iteration). */
 
 /* Direction. */
    w = eraPm(r1[0]);

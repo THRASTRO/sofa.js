@@ -60,7 +60,9 @@ function eraPb06(date1, date2)
 **     eraPmat06    PB matrix, IAU 2006
 **     eraRz        rotate around Z-axis
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -69,98 +71,34 @@ function eraPb06(date1, date2)
    var btheta = 0.0;;
 
 
-   var r = [[], [], []], r31, r32;
+   var r = [[], [], []], y, x;
 
 
 /* Precession matrix via Fukushima-Williams angles. */
    r = eraPmat06(date1, date2);
 
-/* Solve for z. */
-   bz = Math.atan2(r[1][2], r[0][2]);
+/* Solve for z, choosing the +/- pi alternative. */
+   y = r[1][2];
+   x = -r[0][2];
+   if ( x < 0.0 ) {
+      y = -y;
+      x = -x;
+   }
+   bz = ( x != 0.0 || y != 0.0 ) ? - Math.atan2(y,x) : 0.0;
 
-/* Remove it from the matrix. */
+/* Derotate it out of the matrix. */
    r = eraRz(bz, r);
 
 /* Solve for the remaining two angles. */
-   bzeta = Math.atan2(r[1][0], r[1][1]);
-   r31 = r[2][0];
-   r32 = r[2][1];
-   btheta = Math.atan2(-ERFA_DSIGN(Math.sqrt(r31 * r31 + r32 * r32), r[0][2]),
-                   r[2][2]);
+   y = r[0][2];
+   x = r[2][2];
+   btheta = ( x != 0.0 || y != 0.0 ) ? - Math.atan2(y,x) : 0.0;
 
-   return [bzeta, bz, btheta];
+   y = -r[1][0];
+   x = r[1][1];
+   bzeta = ( x != 0.0 || y != 0.0 ) ? - Math.atan2(y,x) : 0.0;
 
+/* Finished. */
+
+return [bzeta, bz, btheta];
 }
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/

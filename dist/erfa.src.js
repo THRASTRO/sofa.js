@@ -218,6 +218,9 @@ var ERFA_LEAPSEC = [
 
 /* Release year for eraDat */
 var ERFA_IYV = 2019;
+
+/* Epsilon for double floats */
+var DBL_EPSILON = Number.EPSILON;
 ;
 function eraA2af(ndp, angle)
 /*
@@ -232,11 +235,8 @@ function eraA2af(ndp, angle)
 **     angle   double  angle in radians
 **
 **  Returned:
-**     sign    char    '+' or '-'
+**     sign    char*   '+' or '-'
 **     idmsf   int[4]  degrees, arcminutes, arcseconds, fraction
-**
-**  Called:
-**     eraD2tf      decompose days to hms
 **
 **  Notes:
 **
@@ -270,7 +270,12 @@ function eraA2af(ndp, angle)
 **     case where angle is very nearly 2pi and rounds up to 360 degrees,
 **     by testing for idmsf[0]=360 and setting idmsf[0-3] to zero.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Called:
+**     eraD2tf      decompose days to hms
+**
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -287,83 +292,10 @@ function eraA2af(ndp, angle)
    sign = _rv1[0];
    idmsf = _rv1[1];
 
-   return [sign, idmsf];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [sign, idmsf];
+};
 function eraA2tf(ndp, angle)
 /*
 **  - - - - - - - -
@@ -377,11 +309,8 @@ function eraA2tf(ndp, angle)
 **     angle   double  angle in radians
 **
 **  Returned:
-**     sign    char    '+' or '-'
+**     sign    char*   '+' or '-'
 **     ihmsf   int[4]  hours, minutes, seconds, fraction
-**
-**  Called:
-**     eraD2tf      decompose days to hms
 **
 **  Notes:
 **
@@ -415,7 +344,12 @@ function eraA2tf(ndp, angle)
 **     case where angle is very nearly 2pi and rounds up to 24 hours,
 **     by testing for ihmsf[0]=24 and setting ihmsf[0-3] to zero.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Called:
+**     eraD2tf      decompose days to hms
+**
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -428,83 +362,10 @@ function eraA2tf(ndp, angle)
    sign = _rv1[0];
    ihmsf = _rv1[1];
 
-   return [sign, ihmsf];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [sign, ihmsf];
+};
 function eraAb(pnat, v, s, bm1)
 /*
 **  - - - - - -
@@ -552,7 +413,9 @@ function eraAb(pnat, v, s, bm1)
 **  Called:
 **     eraPdp       scalar product of two p-vectors
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -614,7 +477,9 @@ function eraAf2a(s, ideg, iamin, asec)
 **  3)  If there are multiple errors, the status value reflects only the
 **      first, the smallest taking precedence.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -632,6 +497,8 @@ function eraAf2a(s, ideg, iamin, asec)
    if ( iamin < 0 || iamin > 59 ) return [ 2, rad ];
    if ( asec < 0.0 || asec >= 60.0 ) return [ 3, rad ];
    return [ 0, rad ];
+
+/* Finished. */
 
 }
 /*
@@ -722,7 +589,9 @@ function eraAnp(a)
 **  Returned (function value):
 **              double     angle in range 0-2pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -733,6 +602,8 @@ function eraAnp(a)
    if (w < 0) w += ERFA_D2PI;
 
    return w;
+
+/* Finished. */
 
 }
 /*
@@ -823,7 +694,9 @@ function eraAnpm(a)
 **  Returned (function value):
 **              double     angle in range +/-pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -834,6 +707,8 @@ function eraAnpm(a)
    if (Math.abs(w) >= ERFA_DPI) w -= ERFA_DSIGN(ERFA_D2PI, a);
 
    return w;
+
+/* Finished. */
 
 }
 /*
@@ -1010,7 +885,9 @@ function eraApcg(date1, date2, ebpv, ehp)
 **  Called:
 **     eraApcs      astrometry parameters, ICRS-GCRS, space observer
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 October 9
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -1135,7 +1012,9 @@ function eraApcg13(date1, date2)
 **     eraEpv00     Earth position and velocity
 **     eraApcg      astrometry parameters, ICRS-GCRS, geocenter
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 October 9
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -1268,7 +1147,9 @@ function eraApci(date1, date2, ebpv, ehp, x, y, s)
 **     eraApcg      astrometry parameters, ICRS-GCRS, geocenter
 **     eraC2ixys    celestial-to-intermediate matrix, given X,Y and s
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 September 25
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -1396,7 +1277,9 @@ function eraApci13(date1, date2)
 **     eraApci      astrometry parameters, ICRS-CIRS
 **     eraEors      equation of the origins, given NPB matrix and s
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 October 9
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -1472,7 +1355,7 @@ function eraApco(date1, date2, ebpv, ehp, x, y, s, theta, elong, phi, hm, xp, yp
 **      v      double[3]    barycentric observer velocity (vector, c)
 **      bm1    double       sqrt(1-|v|^2): reciprocal of Lorenz factor
 **      bpn    double[3][3] bias-precession-nutation matrix
-**      along  double       longitude + s' (radians)
+**      along  double       adjusted longitude (radians)
 **      xpl    double       polar motion xp wrt local meridian (radians)
 **      ypl    double       polar motion yp wrt local meridian (radians)
 **      sphi   double       sine of geodetic latitude
@@ -1516,6 +1399,9 @@ function eraApco(date1, date2, ebpv, ehp, x, y, s, theta, elong, phi, hm, xp, yp
 **     CONVENTION:  the longitude required by the present function is
 **     right-handed, i.e. east-positive, in accordance with geographical
 **     convention.
+**
+**     The adjusted longitude stored in the astrom array takes into
+**     account the TIO locator and polar motion.
 **
 **  4) xp and yp are the coordinates (in radians) of the Celestial
 **     Intermediate Pole with respect to the International Terrestrial
@@ -1574,14 +1460,20 @@ function eraApco(date1, date2, ebpv, ehp, x, y, s, theta, elong, phi, hm, xp, yp
 **     eraAtioq, eraAtoiq, eraAtciq* and eraAticq*.
 **
 **  Called:
-**     eraAper      astrometry parameters: update ERA
+**     eraIr        initialize r-matrix to identity
+**     eraRz        rotate around Z-axis
+**     eraRy        rotate around Y-axis
+**     eraRx        rotate around X-axis
+**     eraAnpm      normalize angle into range +/- pi
 **     eraC2ixys    celestial-to-intermediate matrix, given X,Y and s
 **     eraPvtob     position/velocity of terrestrial station
 **     eraTrxpv     product of transpose of r-matrix and pv-vector
 **     eraApcs      astrometry parameters, ICRS-GCRS, space observer
 **     eraCr        copy r-matrix
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -1590,17 +1482,32 @@ function eraApco(date1, date2, ebpv, ehp, x, y, s, theta, elong, phi, hm, xp, yp
       astrom = {pmt:0,eb:eraZp(),eh:eraZp(),em:0,v:eraZp(),bm1:0,bpn:eraZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};
    }
 
-   var sl, cl, r = [[], [], []], pvc = [[], []], pv = [[], []];
+   var r = [[], [], []], a, b, eral, c, pvc = [[], []], pv = [[], []];
 
 
-/* Longitude with adjustment for TIO locator s'. */
-   astrom.along = elong + sp;
+/* Form the rotation matrix, CIRS to apparent [HA,Dec]. */
+   r = eraIr();
+   r = eraRz(theta+sp, r);
+   r = eraRy(-xp, r);
+   r = eraRx(-yp, r);
+   r = eraRz(elong, r);
 
-/* Polar motion, rotated onto the local meridian. */
-   sl = Math.sin(astrom.along);
-   cl = Math.cos(astrom.along);
-   astrom.xpl = xp*cl - yp*sl;
-   astrom.ypl = xp*sl + yp*cl;
+/* Solve for local Earth rotation angle. */
+   a = r[0][0];
+   b = r[0][1];
+   eral = ( a != 0.0 || b != 0.0 ) ?  Math.atan2(b, a) : 0.0;
+   astrom.eral = eral;
+
+/* Solve for polar motion [X,Y] with respect to local meridian. */
+   a = r[0][0];
+   c = r[0][2];
+   astrom.xpl = Math.atan2(c, Math.sqrt(a*a+b*b));
+   a = r[1][2];
+   b = r[2][2];
+   astrom.ypl = ( a != 0.0 || b != 0.0 ) ? -Math.atan2(a, b) : 0.0;
+
+/* Adjusted longitude. */
+   astrom.along = eraAnpm(eral - theta);
 
 /* Functions of latitude. */
    astrom.sphi = Math.sin(phi);
@@ -1609,9 +1516,6 @@ function eraApco(date1, date2, ebpv, ehp, x, y, s, theta, elong, phi, hm, xp, yp
 /* Refraction constants. */
    astrom.refa = refa;
    astrom.refb = refb;
-
-/* Local Earth rotation angle. */
-   astrom = eraAper(theta, astrom);
 
 /* Disable the (redundant) diurnal aberration step. */
    astrom.diurab = 0.0;
@@ -1805,7 +1709,9 @@ function eraApco13(utc1, utc2, dut1, elong, phi, hm, xp, yp, phpa, tc, rh, wl)
 **     eraApco      astrometry parameters, ICRS-observed
 **     eraEors      equation of the origins, given NPB matrix and s
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -2065,7 +1971,9 @@ function eraApcs(date1, date2, pv, ebpv, ehp, astrom)
 **     eraPn        decompose p-vector into modulus and direction
 **     eraIr        initialize r-matrix to identity
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -2229,7 +2137,9 @@ function eraApcs13(date1, date2, pv)
 **     eraEpv00     Earth position and velocity
 **     eraApcs      astrometry parameters, ICRS-GCRS, space observer
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 October 9
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -2342,7 +2252,9 @@ function eraAper(theta, astrom)
 **     aberration and parallax (unless subsumed into the ICRS <-> GCRS
 **     transformation), and atmospheric refraction.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 September 25
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -2464,7 +2376,9 @@ function eraAper13(ut11, ut12)
 **     eraAper      astrometry parameters: update ERA
 **     eraEra00     Earth rotation angle, IAU 2000
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 September 25
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -2509,7 +2423,7 @@ function eraApio(sp, theta, elong, phi, hm, xp, yp, refa, refb)
 **      v      double[3]    unchanged
 **      bm1    double       unchanged
 **      bpn    double[3][3] unchanged
-**      along  double       longitude + s' (radians)
+**      along  double       adjusted longitude (radians)
 **      xpl    double       polar motion xp wrt local meridian (radians)
 **      ypl    double       polar motion yp wrt local meridian (radians)
 **      sphi   double       sine of geodetic latitude
@@ -2586,10 +2500,16 @@ function eraApio(sp, theta, elong, phi, hm, xp, yp, refa, refb)
 **     eraAtioq and eraAtoiq.
 **
 **  Called:
+**     eraIr        initialize r-matrix to identity
+**     eraRz        rotate around Z-axis
+**     eraRy        rotate around Y-axis
+**     eraRx        rotate around X-axis
+**     eraAnpm      normalize angle into range +/- pi
 **     eraPvtob     position/velocity of terrestrial station
-**     eraAper      astrometry parameters: update ERA
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -2598,17 +2518,32 @@ function eraApio(sp, theta, elong, phi, hm, xp, yp, refa, refb)
       astrom = {pmt:0,eb:eraZp(),eh:eraZp(),em:0,v:eraZp(),bm1:0,bpn:eraZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};
    }
 
-   var sl, cl, pv = [[], []];
+   var r = [[], [], []], a, b, eral, c, pv = [[], []];
 
 
-/* Longitude with adjustment for TIO locator s'. */
-   astrom.along = elong + sp;
+/* Form the rotation matrix, CIRS to apparent [HA,Dec]. */
+   r = eraIr();
+   r = eraRz(theta+sp, r);
+   r = eraRy(-xp, r);
+   r = eraRx(-yp, r);
+   r = eraRz(elong, r);
 
-/* Polar motion, rotated onto the local meridian. */
-   sl = Math.sin(astrom.along);
-   cl = Math.cos(astrom.along);
-   astrom.xpl = xp*cl - yp*sl;
-   astrom.ypl = xp*sl + yp*cl;
+/* Solve for local Earth rotation angle. */
+   a = r[0][0];
+   b = r[0][1];
+   eral = ( a != 0.0 || b != 0.0 ) ?  Math.atan2(b, a) : 0.0;
+   astrom.eral = eral;
+
+/* Solve for polar motion [X,Y] with respect to local meridian. */
+   a = r[0][0];
+   c = r[0][2];
+   astrom.xpl = Math.atan2(c, Math.sqrt(a*a+b*b));
+   a = r[1][2];
+   b = r[2][2];
+   astrom.ypl = ( a != 0.0 || b != 0.0 ) ? -Math.atan2(a, b) : 0.0;
+
+/* Adjusted longitude. */
+   astrom.along = eraAnpm(eral - theta);
 
 /* Functions of latitude. */
    astrom.sphi = Math.sin(phi);
@@ -2623,9 +2558,6 @@ function eraApio(sp, theta, elong, phi, hm, xp, yp, refa, refb)
 /* Refraction constants. */
    astrom.refa = refa;
    astrom.refb = refb;
-
-/* Local Earth rotation angle. */
-   astrom = eraAper(theta, astrom);
 
 /* Finished. */
 
@@ -2790,7 +2722,9 @@ function eraApio13(utc1, utc2, dut1, elong, phi, hm, xp, yp, phpa, tc, rh, wl)
 **     eraRefco     refraction constants for given ambient conditions
 **     eraApio      astrometry parameters, CIRS-observed
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -2921,7 +2855,7 @@ function eraAtci13(rc, dc, pr, pd, px, rv, date1, date2)
 **  Given:
 **     rc     double   ICRS right ascension at J2000.0 (radians, Note 1)
 **     dc     double   ICRS declination at J2000.0 (radians, Note 1)
-**     pr     double   RA proper motion (radians/year; Note 2)
+**     pr     double   RA proper motion (radians/year, Note 2)
 **     pd     double   Dec proper motion (radians/year)
 **     px     double   parallax (arcsec)
 **     rv     double   radial velocity (km/s, +ve if receding)
@@ -2985,7 +2919,9 @@ function eraAtci13(rc, dc, pr, pd, px, rv, date1, date2)
 **     eraApci13    astrometry parameters, ICRS-CIRS, 2013
 **     eraAtciq     quick ICRS to CIRS
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 April 3
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -3030,8 +2966,8 @@ function eraAtciq(rc, dc, pr, pd, px, rv, astrom)
 **  can be used instead.
 **
 **  Given:
-**     rc,dc  double     ICRS RA,Dec at J2000.0 (radians)
-**     pr     double     RA proper motion (radians/year; Note 3)
+**     rc,dc  double     ICRS RA,Dec at J2000.0 (radians, Note 1)
+**     pr     double     RA proper motion (radians/year, Note 2)
 **     pd     double     Dec proper motion (radians/year)
 **     px     double     parallax (arcsec)
 **     rv     double     radial velocity (km/s, +ve if receding)
@@ -3058,13 +2994,11 @@ function eraAtciq(rc, dc, pr, pd, px, rv, astrom)
 **
 **  Notes:
 **
-**  1) All the vectors are with respect to BCRS axes.
-**
-**  2) Star data for an epoch other than J2000.0 (for example from the
+**  1) Star data for an epoch other than J2000.0 (for example from the
 **     Hipparcos catalog, which has an epoch of J1991.25) will require a
 **     preliminary call to eraPmsafe before use.
 **
-**  3) The proper motion in RA is dRA/dt rather than cos(Dec)*dRA/dt.
+**  2) The proper motion in RA is dRA/dt rather than cos(Dec)*dRA/dt.
 **
 **  Called:
 **     eraPmpx      proper motion and parallax
@@ -3074,7 +3008,9 @@ function eraAtciq(rc, dc, pr, pd, px, rv, astrom)
 **     eraC2s       p-vector to spherical
 **     eraAnp       normalize angle into range 0 to 2pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 April 19
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -3130,7 +3066,7 @@ function eraAtciqn(rc, dc, pr, pd, px, rv, astrom, n, b)
 **
 **  Given:
 **     rc,dc  double       ICRS RA,Dec at J2000.0 (radians)
-**     pr     double       RA proper motion (radians/year; Note 3)
+**     pr     double       RA proper motion (radians/year, Note 3)
 **     pd     double       Dec proper motion (radians/year)
 **     px     double       parallax (arcsec)
 **     rv     double       radial velocity (km/s, +ve if receding)
@@ -3151,11 +3087,11 @@ function eraAtciqn(rc, dc, pr, pd, px, rv, astrom, n, b)
 **      eral   double       "local" Earth rotation angle (radians)
 **      refa   double       refraction constant A (radians)
 **      refb   double       refraction constant B (radians)
-**      n     int           number of bodies (Note 3)
-**      b     eraLDBODY[n] data for each of the n bodies (Notes 3,4):
-**       bm    double        mass of the body (solar masses, Note 5)
-**       dl    double        deflection limiter (Note 6)
-**       pv    [2][3]        barycentric PV of the body (au, au/day)
+**     n      int          number of bodies (Note 3)
+**     b      eraLDBODY[n] data for each of the n bodies (Notes 3,4):
+**      bm     double       mass of the body (solar masses, Note 5)
+**      dl     double       deflection limiter (Note 6)
+**      pv     [2][3]       barycentric PV of the body (au, au/day)
 **
 **  Returned:
 **     ri,di   double    CIRS RA,Dec (radians)
@@ -3206,7 +3142,9 @@ function eraAtciqn(rc, dc, pr, pd, px, rv, astrom, n, b)
 **     eraC2s       p-vector to spherical
 **     eraAnp       normalize angle into range 0 to 2pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 April 3
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -3301,7 +3239,9 @@ function eraAtciqz(rc, dc, astrom)
 **     eraC2s       p-vector to spherical
 **     eraAnp       normalize angle into range +/- pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 October 9
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -3348,7 +3288,7 @@ function eraAtco13(rc, dc, pr, pd, px, rv, utc1, utc2, dut1, elong, phi, hm, xp,
 **
 **  Given:
 **     rc,dc  double   ICRS right ascension at J2000.0 (radians, Note 1)
-**     pr     double   RA proper motion (radians/year; Note 2)
+**     pr     double   RA proper motion (radians/year, Note 2)
 **     pd     double   Dec proper motion (radians/year)
 **     px     double   parallax (arcsec)
 **     rv     double   radial velocity (km/s, +ve if receding)
@@ -3479,7 +3419,9 @@ function eraAtco13(rc, dc, pr, pd, px, rv, utc1, utc2, dut1, elong, phi, hm, xp,
 **     eraAtciq     quick ICRS to CIRS
 **     eraAtioq     quick CIRS to observed
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 April 3
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -3667,7 +3609,9 @@ function eraAtic13(ri, di, date1, date2)
 **     eraApci13    astrometry parameters, ICRS-CIRS, 2013
 **     eraAticq     quick CIRS to ICRS astrometric
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 October 9
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -3752,7 +3696,9 @@ function eraAticq(ri, di, astrom)
 **     eraC2s       p-vector to spherical
 **     eraAnp       normalize angle into range +/- pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 October 9
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -3872,11 +3818,11 @@ function eraAticqn(ri, di, astrom, n, b)
 **      eral   double       "local" Earth rotation angle (radians)
 **      refa   double       refraction constant A (radians)
 **      refb   double       refraction constant B (radians)
-**      n     int           number of bodies (Note 3)
-**      b     eraLDBODY[n] data for each of the n bodies (Notes 3,4):
-**       bm    double       mass of the body (solar masses, Note 5)
-**       dl    double       deflection limiter (Note 6)
-**       pv    [2][3]       barycentric PV of the body (au, au/day)
+**     n      int          number of bodies (Note 3)
+**     b      eraLDBODY[n] data for each of the n bodies (Notes 3,4):
+**      bm     double       mass of the body (solar masses, Note 5)
+**      dl     double       deflection limiter (Note 6)
+**      pv     [2][3]       barycentric PV of the body (au, au/day)
 **
 **  Returned:
 **     rc,dc  double     ICRS astrometric RA,Dec (radians)
@@ -3930,7 +3876,9 @@ function eraAticqn(ri, di, astrom, n, b)
 **     eraC2s       p-vector to spherical
 **     eraAnp       normalize angle into range +/- pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 January 6
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -4141,7 +4089,9 @@ function eraAtio13(ri, di, utc1, utc2, dut1, elong, phi, hm, xp, yp, phpa, tc, r
 **     eraApio13    astrometry parameters, CIRS-observed, 2013
 **     eraAtioq     quick CIRS to observed
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -4344,7 +4294,9 @@ function eraAtioq(ri, di, astrom)
 **     eraC2s       p-vector to spherical
 **     eraAnp       normalize angle into range 0 to 2pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2020 December 7
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -4359,7 +4311,7 @@ function eraAtioq(ri, di, astrom)
    var CELMIN = 1e-6;
    var SELMIN = 0.05;
 
-   var v = [], x, y, z, xhd, yhd, zhd, f, xhdt, yhdt, zhdt, xaet, yaet, zaet, azobs, r, tz, w, del, cosdel, xaeo, yaeo, zaeo, zdobs, hmobs, dcobs, raobs;
+   var v = [], x, y, z, sx, cx, sy, cy, xhd, yhd, zhd, f, xhdt, yhdt, zhdt, xaet, yaet, zaet, azobs, r, tz, w, del, cosdel, xaeo, yaeo, zaeo, zdobs, hmobs, dcobs, raobs;
 
 
 /* CIRS RA,Dec to Cartesian -HA,Dec. */
@@ -4369,9 +4321,13 @@ function eraAtioq(ri, di, astrom)
    z = v[2];
 
 /* Polar motion. */
-   xhd = x + astrom.xpl*z;
-   yhd = y - astrom.ypl*z;
-   zhd = z - astrom.xpl*x + astrom.ypl*y;
+   sx = Math.sin(astrom.xpl);
+   cx = Math.cos(astrom.xpl);
+   sy = Math.sin(astrom.ypl);
+   cy = Math.cos(astrom.ypl);
+   xhd = cx*x + sx*z;
+   yhd = sx*sy*x + cy*y - cx*sy*z;
+   zhd = -sx*cy*x + sy*y + cx*cy*z;
 
 /* Diurnal aberration. */
    f = ( 1.0 - astrom.diurab*yhd );
@@ -4573,7 +4529,9 @@ function eraAtoc13(type, ob1, ob2, utc1, utc2, dut1, elong, phi, hm, xp, yp, php
 **     eraAtoiq     quick observed to CIRS
 **     eraAticq     quick CIRS to ICRS
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -4820,7 +4778,9 @@ function eraAtoi13(type, ob1, ob2, utc1, utc2, dut1, elong, phi, hm, xp, yp, php
 **     eraApio13    astrometry parameters, CIRS-observed, 2013
 **     eraAtoiq     quick observed to CIRS
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -4989,11 +4949,11 @@ function eraAtoiq(type, ob1, ob2, astrom)
 **  3) The accuracy of the result is limited by the corrections for
 **     refraction, which use a simple A*tan(z) + B*tan^3(z) model.
 **     Providing the meteorological parameters are known accurately and
-**     there are no gross local effects, the predicted observed
+**     there are no gross local effects, the predicted intermediate
 **     coordinates should be within 0.05 arcsec (optical) or 1 arcsec
 **     (radio) for a zenith distance of less than 70 degrees, better
 **     than 30 arcsec (optical or radio) at 85 degrees and better than
-**     20 arcmin (optical) or 30 arcmin (radio) at the horizon.
+**     20 arcmin (optical) or 25 arcmin (radio) at the horizon.
 **
 **     Without refraction, the complementary functions eraAtioq and
 **     eraAtoiq are self-consistent to better than 1 microarcsecond all
@@ -5010,7 +4970,9 @@ function eraAtoiq(type, ob1, ob2, astrom)
 **     eraC2s       p-vector to spherical
 **     eraAnp       normalize angle into range 0 to 2pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2020 December 7
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -5018,8 +4980,11 @@ function eraAtoiq(type, ob1, ob2, astrom)
    var di = 0.0;;
    var _rv2;
 
+/* Minimum sin(alt) for refraction purposes */
+   var SELMIN = 0.05;
+
    var c;
-   var c1, c2, sphi, cphi, ce, xaeo, yaeo, zaeo, v = [], xmhdo, ymhdo, zmhdo, az, sz, zdo, refa, refb, tz, dref, zdt, xaet, yaet, zaet, xmhda, ymhda, zmhda, f, xhd, yhd, zhd, xpl, ypl, w, hma;
+   var c1, c2, sphi, cphi, ce, xaeo, yaeo, zaeo, v = [], xmhdo, ymhdo, zmhdo, az, sz, zdo, refa, refb, tz, dref, zdt, xaet, yaet, zaet, xmhda, ymhda, zmhda, f, xhd, yhd, zhd, sx, cx, sy, cy, hma;
 
 
 /* Coordinate type. */
@@ -5081,7 +5046,7 @@ function eraAtoiq(type, ob1, ob2, astrom)
 /* Fast algorithm using two constant model. */
    refa = astrom.refa;
    refb = astrom.refb;
-   tz = sz / zaeo;
+   tz = sz / ( zaeo > SELMIN ? zaeo : SELMIN );
    dref = ( refa + refb*tz*tz ) * tz;
    zdt = zdo + dref;
 
@@ -5103,12 +5068,13 @@ function eraAtoiq(type, ob1, ob2, astrom)
    zhd = f * zmhda;
 
 /* Polar motion. */
-   xpl = astrom.xpl;
-   ypl = astrom.ypl;
-   w = xpl*xhd - ypl*yhd + zhd;
-   v[0] = xhd - xpl*w;
-   v[1] = yhd + ypl*w;
-   v[2] = w - ( xpl*xpl + ypl*ypl ) * zhd;
+   sx = Math.sin(astrom.xpl);
+   cx = Math.cos(astrom.xpl);
+   sy = Math.sin(astrom.ypl);
+   cy = Math.cos(astrom.ypl);
+   v[0] = cx*xhd + sx*sy*yhd - sx*cy*zhd;
+   v[1] = cy*yhd + sy*zhd;
+   v[2] = sx*xhd - cx*sy*yhd + cx*cy*zhd;
 
 /* To spherical -HA,Dec. */
    (_rv2 = eraC2s(v))[0];
@@ -5128,8 +5094,9 @@ function eraBi00()
 **   e r a B i 0 0
 **  - - - - - - - -
 **
-**  Frame bias components of IAU 2000 precession-nutation models (part
-**  of MHB2000 with additions).
+**  Frame bias components of IAU 2000 precession-nutation models;  part
+**  of the Mathews-Herring-Buffett (MHB2000) nutation series, with
+**  additions.
 **
 **  Returned:
 **     dpsibi,depsbi  double  longitude and obliquity corrections
@@ -5158,12 +5125,14 @@ function eraBi00()
 **     Astrophys., 387, 700, 2002.
 **
 **     Mathews, P.M., Herring, T.A., Buffet, B.A., "Modeling of nutation
-**     and precession   New nutation series for nonrigid Earth and
+**     and precession:  New nutation series for nonrigid Earth and
 **     insights into the Earth's interior", J.Geophys.Res., 107, B4,
-**     2002.  The MHB2000 code itself was obtained on 9th September 2002
+**     2002.  The MHB2000 code itself was obtained on 2002 September 9
 **     from ftp://maia.usno.navy.mil/conv2000/chapter5/IAU2000A.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -5185,83 +5154,10 @@ function eraBi00()
    depsbi = DEBIAS;
    dra = DRA0;
 
-   return [dpsibi, depsbi, dra];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [dpsibi, depsbi, dra];
+};
 function eraBp00(date1, date2)
 /*
 **  - - - - - - - -
@@ -5331,7 +5227,9 @@ function eraBp00(date1, date2)
 **     n.b. The celestial ephemeris origin (CEO) was renamed "celestial
 **          intermediate origin" (CIO) by IAU 2006 Resolution 2.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -5390,83 +5288,10 @@ function eraBp00(date1, date2)
 /* Bias-precession matrix: GCRS to mean of date. */
    rbp = eraRxr(rp, rbw);
 
-   return [rb, rp, rbp];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [rb, rp, rbp];
+};
 function eraBp06(date1, date2)
 /*
 **  - - - - - - - -
@@ -5530,7 +5355,9 @@ function eraBp06(date1, date2)
 **
 **     Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -5566,83 +5393,10 @@ function eraBp06(date1, date2)
 /* PxB matrix. */
    rbp = eraCr(rbpw);
 
-   return [rb, rp, rbp];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [rb, rp, rbp];
+};
 function eraBpn2xy(rbpn)
 /*
 **  - - - - - - - - - -
@@ -5677,7 +5431,9 @@ function eraBpn2xy(rbpn)
 **     n.b. The celestial ephemeris origin (CEO) was renamed "celestial
 **          intermediate origin" (CIO) by IAU 2006 Resolution 2.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -5689,83 +5445,10 @@ function eraBpn2xy(rbpn)
    x = rbpn[2][0];
    y = rbpn[2][1];
 
-   return [x, y];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [x, y];
+};
 function eraC2i00a(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -5814,7 +5497,7 @@ function eraC2i00a(date1, date2)
 **     Reference System (see IERS Conventions 2003), ERA is the Earth
 **     Rotation Angle and RPOM is the polar motion matrix.
 **
-**  3) A faster, but slightly less accurate result (about 1 mas), can be
+**  3) A faster, but slightly less accurate, result (about 1 mas) can be
 **     obtained by using instead the eraC2i00b function.
 **
 **  Called:
@@ -5834,7 +5517,9 @@ function eraC2i00a(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -5852,83 +5537,10 @@ function eraC2i00a(date1, date2)
 /* Form the celestial-to-intermediate matrix. */
    rc2i = eraC2ibpn(date1, date2, rbpn);
 
-   return rc2i;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2i;
+};
 function eraC2i00b(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -5997,7 +5609,9 @@ function eraC2i00b(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -6015,83 +5629,10 @@ function eraC2i00b(date1, date2)
 /* Form the celestial-to-intermediate matrix. */
    rc2i = eraC2ibpn(date1, date2, rbpn);
 
-   return rc2i;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2i;
+};
 function eraC2i06a(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -6151,7 +5692,9 @@ function eraC2i06a(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), 2004, IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -6177,83 +5720,10 @@ function eraC2i06a(date1, date2)
 /* Form the celestial-to-intermediate matrix. */
    rc2i = eraC2ixys(x, y, s);
 
-   return rc2i;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2i;
+};
 function eraC2ibpn(date1, date2, rbpn)
 /*
 **  - - - - - - - - - -
@@ -6324,7 +5794,9 @@ function eraC2ibpn(date1, date2, rbpn)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -6344,83 +5816,10 @@ function eraC2ibpn(date1, date2, rbpn)
 /* Form the celestial-to-intermediate matrix (n.b. IAU 2000 specific). */
    rc2i = eraC2ixy(date1, date2, x, y);
 
-   return rc2i;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2i;
+};
 function eraC2ixy(date1, date2, x, y)
 /*
 **  - - - - - - - - -
@@ -6485,7 +5884,9 @@ function eraC2ixy(date1, date2, x, y)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 
@@ -6498,83 +5899,10 @@ function eraC2ixy(date1, date2, x, y)
 /* Compute s and then the matrix. */
    rc2i = eraC2ixys(x, y, eraS00(date1, date2, x, y));
 
-   return rc2i;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2i;
+};
 function eraC2ixys(x, y, s)
 /*
 **  - - - - - - - - - -
@@ -6622,7 +5950,9 @@ function eraC2ixys(x, y, s)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -6645,83 +5975,10 @@ function eraC2ixys(x, y, s)
    rc2i = eraRy(d, rc2i);
    rc2i = eraRz(-(e+s), rc2i);
 
-   return rc2i;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2i;
+};
 function eraC2s(p)
 /*
 **  - - - - - - -
@@ -6745,7 +6002,9 @@ function eraC2s(p)
 **
 **  3) At either pole, zero theta is returned.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -6764,83 +6023,10 @@ function eraC2s(p)
    theta = (d2 == 0.0) ? 0.0 : Math.atan2(y, x);
    phi = (z == 0.0) ? 0.0 : Math.atan2(z, Math.sqrt(d2));
 
-   return [theta, phi];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [theta, phi];
+};
 function eraC2t00a(tta, ttb, uta, utb, xp, yp)
 /*
 **  - - - - - - - - - -
@@ -6848,12 +6034,12 @@ function eraC2t00a(tta, ttb, uta, utb, xp, yp)
 **  - - - - - - - - - -
 **
 **  Form the celestial to terrestrial matrix given the date, the UT1 and
-**  the polar motion, using the IAU 2000A nutation model.
+**  the polar motion, using the IAU 2000A precession-nutation model.
 **
 **  Given:
 **     tta,ttb  double         TT as a 2-part Julian Date (Note 1)
 **     uta,utb  double         UT1 as a 2-part Julian Date (Note 1)
-**     xp,yp    double         coordinates of the pole (radians, Note 2)
+**     xp,yp    double         CIP coordinates (radians, Note 2)
 **
 **  Returned:
 **     rc2t     double[3][3]   celestial-to-terrestrial matrix (Note 3)
@@ -6884,7 +6070,7 @@ function eraC2t00a(tta, ttb, uta, utb, xp, yp)
 **  2) The arguments xp and yp are the coordinates (in radians) of the
 **     Celestial Intermediate Pole with respect to the International
 **     Terrestrial Reference System (see IERS Conventions 2003),
-**     measured along the meridians to 0 and 90 deg west respectively.
+**     measured along the meridians 0 and 90 deg west respectively.
 **
 **  3) The matrix rc2t transforms from celestial to terrestrial
 **     coordinates:
@@ -6899,7 +6085,7 @@ function eraC2t00a(tta, ttb, uta, utb, xp, yp)
 **     celestial-to-intermediate matrix, ERA is the Earth rotation
 **     angle and RPOM is the polar motion matrix.
 **
-**  4) A faster, but slightly less accurate result (about 1 mas), can
+**  4) A faster, but slightly less accurate, result (about 1 mas) can
 **     be obtained by using instead the eraC2t00b function.
 **
 **  Called:
@@ -6914,7 +6100,9 @@ function eraC2t00a(tta, ttb, uta, utb, xp, yp)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -6941,83 +6129,10 @@ function eraC2t00a(tta, ttb, uta, utb, xp, yp)
 /* Combine to form the celestial-to-terrestrial matrix. */
    rc2t = eraC2tcio(rc2i, era, rpom);
 
-   return rc2t;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2t;
+};
 function eraC2t00b(tta, ttb, uta, utb, xp, yp)
 /*
 **  - - - - - - - - - -
@@ -7025,7 +6140,7 @@ function eraC2t00b(tta, ttb, uta, utb, xp, yp)
 **  - - - - - - - - - -
 **
 **  Form the celestial to terrestrial matrix given the date, the UT1 and
-**  the polar motion, using the IAU 2000B nutation model.
+**  the polar motion, using the IAU 2000B precession-nutation model.
 **
 **  Given:
 **     tta,ttb  double         TT as a 2-part Julian Date (Note 1)
@@ -7061,7 +6176,7 @@ function eraC2t00b(tta, ttb, uta, utb, xp, yp)
 **  2) The arguments xp and yp are the coordinates (in radians) of the
 **     Celestial Intermediate Pole with respect to the International
 **     Terrestrial Reference System (see IERS Conventions 2003),
-**     measured along the meridians to 0 and 90 deg west respectively.
+**     measured along the meridians 0 and 90 deg west respectively.
 **
 **  3) The matrix rc2t transforms from celestial to terrestrial
 **     coordinates:
@@ -7090,7 +6205,9 @@ function eraC2t00b(tta, ttb, uta, utb, xp, yp)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -7114,83 +6231,10 @@ function eraC2t00b(tta, ttb, uta, utb, xp, yp)
 /* Combine to form the celestial-to-terrestrial matrix. */
    rc2t = eraC2tcio(rc2i, era, rpom);
 
-   return rc2t;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2t;
+};
 function eraC2t06a(tta, ttb, uta, utb, xp, yp)
 /*
 **  - - - - - - - - - -
@@ -7198,8 +6242,8 @@ function eraC2t06a(tta, ttb, uta, utb, xp, yp)
 **  - - - - - - - - - -
 **
 **  Form the celestial to terrestrial matrix given the date, the UT1 and
-**  the polar motion, using the IAU 2006 precession and IAU 2000A
-**  nutation models.
+**  the polar motion, using the IAU 2006/2000A precession-nutation
+**  model.
 **
 **  Given:
 **     tta,ttb  double         TT as a 2-part Julian Date (Note 1)
@@ -7235,7 +6279,7 @@ function eraC2t06a(tta, ttb, uta, utb, xp, yp)
 **  2) The arguments xp and yp are the coordinates (in radians) of the
 **     Celestial Intermediate Pole with respect to the International
 **     Terrestrial Reference System (see IERS Conventions 2003),
-**     measured along the meridians to 0 and 90 deg west respectively.
+**     measured along the meridians 0 and 90 deg west respectively.
 **
 **  3) The matrix rc2t transforms from celestial to terrestrial
 **     coordinates:
@@ -7262,7 +6306,9 @@ function eraC2t06a(tta, ttb, uta, utb, xp, yp)
 **     McCarthy, D. D., Petit, G. (eds.), 2004, IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -7289,83 +6335,10 @@ function eraC2t06a(tta, ttb, uta, utb, xp, yp)
 /* Combine to form the celestial-to-terrestrial matrix. */
    rc2t = eraC2tcio(rc2i, era, rpom);
 
-   return rc2t;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2t;
+};
 function eraC2tcio(rc2i, era, rpom)
 /*
 **  - - - - - - - - - -
@@ -7417,7 +6390,9 @@ function eraC2tcio(rc2i, era, rpom)
 **     McCarthy, D. D., Petit, G. (eds.), 2004, IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -7434,83 +6409,10 @@ function eraC2tcio(rc2i, era, rpom)
    r = eraRz(era, r);
    rc2t = eraRxr(rpom, r);
 
-   return rc2t;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2t;
+};
 function eraC2teqx(rbpn, gst, rpom)
 /*
 **  - - - - - - - - - -
@@ -7562,7 +6464,9 @@ function eraC2teqx(rbpn, gst, rpom)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -7579,83 +6483,10 @@ function eraC2teqx(rbpn, gst, rpom)
    r = eraRz(gst, r);
    rc2t = eraRxr(rpom, r);
 
-   return rc2t;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2t;
+};
 function eraC2tpe(tta, ttb, uta, utb, dpsi, deps, xp, yp)
 /*
 **  - - - - - - - - -
@@ -7706,7 +6537,7 @@ function eraC2tpe(tta, ttb, uta, utb, dpsi, deps, xp, yp)
 **  3) The arguments xp and yp are the coordinates (in radians) of the
 **     Celestial Intermediate Pole with respect to the International
 **     Terrestrial Reference System (see IERS Conventions 2003),
-**     measured along the meridians to 0 and 90 deg west respectively.
+**     measured along the meridians 0 and 90 deg west respectively.
 **
 **  4) The matrix rc2t transforms from celestial to terrestrial
 **     coordinates:
@@ -7737,7 +6568,9 @@ function eraC2tpe(tta, ttb, uta, utb, dpsi, deps, xp, yp)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -7773,83 +6606,10 @@ function eraC2tpe(tta, ttb, uta, utb, dpsi, deps, xp, yp)
 /* Combine to form the celestial-to-terrestrial matrix. */
    rc2t = eraC2teqx(rbpn, gmst + ee, rpom);
 
-   return rc2t;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2t;
+};
 function eraC2txy(tta, ttb, uta, utb, x, y, xp, yp)
 /*
 **  - - - - - - - - -
@@ -7898,7 +6658,7 @@ function eraC2txy(tta, ttb, uta, utb, x, y, xp, yp)
 **  3) The arguments xp and yp are the coordinates (in radians) of the
 **     Celestial Intermediate Pole with respect to the International
 **     Terrestrial Reference System (see IERS Conventions 2003),
-**     measured along the meridians to 0 and 90 deg west respectively.
+**     measured along the meridians 0 and 90 deg west respectively.
 **
 **  4) The matrix rc2t transforms from celestial to terrestrial
 **     coordinates:
@@ -7927,7 +6687,9 @@ function eraC2txy(tta, ttb, uta, utb, x, y, xp, yp)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -7954,83 +6716,10 @@ function eraC2txy(tta, ttb, uta, utb, x, y, xp, yp)
 /* Combine to form the celestial-to-terrestrial matrix. */
    rc2t = eraC2tcio(rc2i, era, rpom);
 
-   return rc2t;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rc2t;
+};
 function eraCal2jd(iy, im, id)
 /*
 **  - - - - - - - - - -
@@ -8074,7 +6763,9 @@ function eraCal2jd(iy, im, id)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 12.92 (p604).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -8116,6 +6807,8 @@ function eraCal2jd(iy, im, id)
 
 /* Return status. */
    return [ j, djm0, djm ];
+
+/* Finished. */
 
 }
 /*
@@ -8206,7 +6899,9 @@ function eraCp(p)
 **  Returned:
 **     c        double[3]     copy
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -8217,83 +6912,10 @@ function eraCp(p)
    c[1] = p[1];
    c[2] = p[2];
 
-   return c;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return c;
+};
 function eraCpv(pv)
 /*
 **  - - - - - - -
@@ -8311,7 +6933,9 @@ function eraCpv(pv)
 **  Called:
 **     eraCp        copy p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -8321,83 +6945,10 @@ function eraCpv(pv)
    c[0] = eraCp(pv[0]);
    c[1] = eraCp(pv[1]);
 
-   return c;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return c;
+};
 function eraCr(r)
 /*
 **  - - - - - -
@@ -8415,7 +6966,9 @@ function eraCr(r)
 **  Called:
 **     eraCp        copy p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -8428,83 +6981,10 @@ function eraCr(r)
    c[1] = eraCp(r[1]);
    c[2] = eraCp(r[2]);
 
-   return c;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return c;
+};
 function eraD2dtf(scale, ndp, d1, d2)
 /*
 **  - - - - - - - - -
@@ -8574,7 +7054,9 @@ function eraD2dtf(scale, ndp, d1, d2)
 **     eraD2tf      decompose days to hms
 **     eraDat       delta(AT) = TAI-UTC
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -8631,7 +7113,7 @@ function eraD2dtf(scale, ndp, d1, d2)
       dleap = dat24 - (2.0*dat12 - dat0);
 
    /* If leap second day, scale the fraction of a day into SI. */
-      leap = ~~((dleap != 0.0));
+      leap = ~~((Math.abs(dleap) > 0.5));
       if (leap) fd += fd * dleap/ERFA_DAYSEC;
    }
 
@@ -8705,6 +7187,8 @@ function eraD2dtf(scale, ndp, d1, d2)
 
 /* Status. */
    return [ js, iy, im, id, ihmsf ];
+
+/* Finished. */
 
 }
 /*
@@ -8794,7 +7278,7 @@ function eraD2tf(ndp, days)
 **     days    double  interval in days
 **
 **  Returned:
-**     sign    char    '+' or '-'
+**     sign    char*   '+' or '-'
 **     ihmsf   int[4]  hours, minutes, seconds, fraction
 **
 **  Notes:
@@ -8829,7 +7313,9 @@ function eraD2tf(ndp, days)
 **     case where days is very nearly 1.0 and rounds up to 24 hours,
 **     by testing for ihmsf[0]=24 and setting ihmsf[0-3] to zero.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -8887,83 +7373,10 @@ function eraD2tf(ndp, days)
    ihmsf[2] = ~~as;
    ihmsf[3] = ~~af;
 
-   return [sign, ihmsf];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [sign, ihmsf];
+};
 function eraDat(iy, im, id, fd)
 /*
 **  - - - - - - -
@@ -9424,7 +7837,9 @@ function eraDtdb(date1, date2, ut, elong, u, v)
 **     Simon, J.L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G. & Laskar, J., Astron.Astrophys., 282, 663-683 (1994).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -10423,6 +8838,8 @@ function eraDtdb(date1, date2, ut, elong, u, v)
 
    return w;
 
+/* Finished. */
+
 }
 /*
  *+----------------------------------------------------------------------
@@ -10571,7 +8988,9 @@ function eraDtf2d(scale, iy, im, id, ihr, imn, sec)
 **     eraDat       delta(AT) = TAI-UTC
 **     eraJd2cal    JD to Gregorian calendar
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -10655,6 +9074,8 @@ function eraDtf2d(scale, iy, im, id, ihr, imn, sec)
 
 /* Status. */
    return [ js, d1, d2 ];
+
+/* Finished. */
 
 }
 /*
@@ -10791,7 +9212,9 @@ function eraEe00(date1, date2, epsa, dpsi)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -10802,6 +9225,8 @@ function eraEe00(date1, date2, epsa, dpsi)
    ee = dpsi * Math.cos(epsa) + eraEect00(date1, date2);
 
    return ee;
+
+/* Finished. */
 
 }
 /*
@@ -10936,7 +9361,9 @@ function eraEe00a(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -10962,6 +9389,8 @@ function eraEe00a(date1, date2)
    ee = eraEe00(date1, date2, epsa, dpsi);
 
    return ee;
+
+/* Finished. */
 
 }
 /*
@@ -11079,9 +9508,9 @@ function eraEe00b(date1, date2)
 **        Greenwich apparent ST = GMST + equation of the equinoxes
 **
 **  3) The result is compatible with the IAU 2000 resolutions except
-**     that accuracy has been compromised for the sake of speed.  For
-**     further details, see McCarthy & Luzum (2001), IERS Conventions
-**     2003 and Capitaine et al. (2003).
+**     that accuracy has been compromised (1 mas) for the sake of speed.
+**     For further details, see McCarthy & Luzum (2003), IERS
+**     Conventions 2003 and Capitaine et al. (2003).
 **
 **  Called:
 **     eraPr00      IAU 2000 precession adjustments
@@ -11102,7 +9531,9 @@ function eraEe00b(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -11128,6 +9559,8 @@ function eraEe00b(date1, date2)
    ee = eraEe00(date1, date2, epsa, dpsi);
 
    return ee;
+
+/* Finished. */
 
 }
 /*
@@ -11254,7 +9687,9 @@ function eraEe06a(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), 2004, IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -11269,6 +9704,8 @@ function eraEe06a(date1, date2)
    ee  = eraAnpm(gst06a - gmst06);
 
    return ee;
+
+/* Finished. */
 
 }
 /*
@@ -11436,7 +9873,9 @@ function eraEect00(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -11568,6 +10007,8 @@ function eraEect00(date1, date2)
 
    return eect;
 
+/* Finished. */
+
 }
 /*
  *+----------------------------------------------------------------------
@@ -11698,7 +10139,9 @@ function eraEform( n)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     p220.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -11735,6 +10178,8 @@ function eraEform( n)
 
 /* OK status. */
    return [ 0, a, f  ];
+
+/* Finished. */
 
 }
 /*
@@ -11823,7 +10268,7 @@ function eraEo06a(date1, date2)
 **     date1,date2  double    TT as a 2-part Julian Date (Note 1)
 **
 **  Returned (function value):
-**                  double    equation of the origins in radians
+**                  double    the equation of the origins in radians
 **
 **  Notes:
 **
@@ -11865,7 +10310,9 @@ function eraEo06a(date1, date2)
 **
 **     Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -11889,6 +10336,8 @@ function eraEo06a(date1, date2)
    eo = eraEors(r, s);
 
    return eo;
+
+/* Finished. */
 
 }
 /*
@@ -11976,10 +10425,10 @@ function eraEors(rnpb, s)
 **
 **  Given:
 **     rnpb  double[3][3]  classical nutation x precession x bias matrix
-**     s     double        the quantity s (the CIO locator)
+**     s     double        the quantity s (the CIO locator) in radians
 **
 **  Returned (function value):
-**           double        the equation of the origins in radians.
+**           double        the equation of the origins in radians
 **
 **  Notes:
 **
@@ -11998,7 +10447,9 @@ function eraEors(rnpb, s)
 **
 **     Wallace, P. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -12016,6 +10467,8 @@ function eraEors(rnpb, s)
    eo = ((p != 0) || (q != 0)) ? s - Math.atan2(q, p) : s;
 
    return eo;
+
+/* Finished. */
 
 }
 /*
@@ -12118,7 +10571,9 @@ function eraEpb(dj1, dj2)
 **
 **     Lieske, J.H., 1979. Astron.Astrophys., 73, 282.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -12126,6 +10581,8 @@ function eraEpb(dj1, dj2)
    var D1900 = 36524.68648;
 
    return 1900.0 + ((dj1 - ERFA_DJ00) + (dj2 + D1900)) / ERFA_DTY;
+
+/* Finished. */
 
 }
 /*
@@ -12228,7 +10685,9 @@ function eraEpb2jd(epb)
 **
 **     Lieske, J.H., 1979, Astron.Astrophys. 73, 282.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -12239,83 +10698,10 @@ function eraEpb2jd(epb)
    djm0 = ERFA_DJM0;
    djm = 15019.81352 + (epb - 1900.0) * ERFA_DTY;
 
-   return [djm0, djm];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [djm0, djm];
+};
 function eraEpj(dj1, dj2)
 /*
 **  - - - - - - -
@@ -12342,7 +10728,9 @@ function eraEpj(dj1, dj2)
 **
 **     Lieske, J.H., 1979, Astron.Astrophys. 73, 282.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -12352,6 +10740,8 @@ function eraEpj(dj1, dj2)
    epj = 2000.0 + ((dj1 - ERFA_DJ00) + dj2) / ERFA_DJY;
 
    return epj;
+
+/* Finished. */
 
 }
 /*
@@ -12454,7 +10844,9 @@ function eraEpj2jd(epj)
 **
 **     Lieske, J.H., 1979, Astron.Astrophys. 73, 282.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -12465,83 +10857,10 @@ function eraEpj2jd(epj)
    djm0 = ERFA_DJM0;
    djm = ERFA_DJM00 + (epj - 2000.0) * 365.25;
 
-   return [djm0, djm];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [djm0, djm];
+};
 function eraEpv00(date1, date2)
 /*
 **  - - - - - - - - -
@@ -12635,7 +10954,9 @@ function eraEpv00(date1, date2)
 **  5) It is permissible to use the same array for pvh and pvb, which
 **     will receive the barycentric values.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -15071,6 +13392,8 @@ function eraEpv00(date1, date2)
 /* Return the status. */
    return [ jstat, pvh, pvb ];
 
+/* Finished. */
+
 }
 /*
  *+----------------------------------------------------------------------
@@ -15197,7 +13520,9 @@ function eraEqeq94(date1, date2)
 **     Capitaine, N. & Gontier, A.-M., 1993, Astron.Astrophys., 275,
 **     645-650.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -15225,6 +13550,8 @@ function eraEqeq94(date1, date2)
    ee = dpsi*Math.cos(eps0) + ERFA_DAS2R*(0.00264*Math.sin(om) + 0.000063*Math.sin(om+om));
 
    return ee;
+
+/* Finished. */
 
 }
 /*
@@ -15355,7 +13682,9 @@ function eraEra00(dj1, dj2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -15380,6 +13709,8 @@ function eraEra00(dj1, dj2)
                             + 0.00273781191135448 * t));
 
    return theta;
+
+/* Finished. */
 
 }
 /*
@@ -15487,7 +13818,9 @@ function eraFad03(t)
 **     Simon, J.-L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G., Laskar, J. 1994, Astron.Astrophys. 282, 663-683
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -15502,6 +13835,8 @@ function eraFad03(t)
              t * (        - 0.00003169 ) ) ) )) % (ERFA_TURNAS)) * ERFA_DAS2R;
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -15612,7 +13947,9 @@ function eraFae03(t)
 **     Souchay, J., Loysel, B., Kinoshita, H., Folgueira, M. 1999,
 **     Astron.Astrophys.Supp.Ser. 135, 111
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -15623,6 +13960,8 @@ function eraFae03(t)
    a = ((1.753470314 + 628.3075849991 * t) % (ERFA_D2PI));
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -15731,7 +14070,9 @@ function eraFaf03(t)
 **     Simon, J.-L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G., Laskar, J. 1994, Astron.Astrophys. 282, 663-683
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -15748,6 +14089,7 @@ function eraFaf03(t)
 
    return a;
 
+/* Finished. */
 
 }
 /*
@@ -15858,7 +14200,9 @@ function eraFaju03(t)
 **     Souchay, J., Loysel, B., Kinoshita, H., Folgueira, M. 1999,
 **     Astron.Astrophys.Supp.Ser. 135, 111
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -15869,6 +14213,8 @@ function eraFaju03(t)
    a = ((0.599546497 + 52.9690962641 * t) % (ERFA_D2PI));
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -15976,7 +14322,9 @@ function eraFal03(t)
 **     Simon, J.-L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G., Laskar, J. 1994, Astron.Astrophys. 282, 663-683
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -15991,6 +14339,8 @@ function eraFal03(t)
              t * (        - 0.00024470 ) ) ) )) % (ERFA_TURNAS)) * ERFA_DAS2R;
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -16098,7 +14448,9 @@ function eraFalp03(t)
 **     Simon, J.-L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G., Laskar, J. 1994, Astron.Astrophys. 282, 663-683
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -16113,6 +14465,8 @@ function eraFalp03(t)
              t * (       - 0.00001149 ) ) ) )) % (ERFA_TURNAS)) * ERFA_DAS2R;
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -16223,7 +14577,9 @@ function eraFama03(t)
 **     Souchay, J., Loysel, B., Kinoshita, H., Folgueira, M. 1999,
 **     Astron.Astrophys.Supp.Ser. 135, 111
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -16234,6 +14590,8 @@ function eraFama03(t)
    a = ((6.203480913 + 334.0612426700 * t) % (ERFA_D2PI));
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -16344,7 +14702,9 @@ function eraFame03(t)
 **     Souchay, J., Loysel, B., Kinoshita, H., Folgueira, M. 1999,
 **     Astron.Astrophys.Supp.Ser. 135, 111
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -16355,6 +14715,8 @@ function eraFame03(t)
    a = ((4.402608842 + 2608.7903141574 * t) % (ERFA_D2PI));
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -16462,7 +14824,9 @@ function eraFane03(t)
 **     Simon, J.-L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G., Laskar, J. 1994, Astron.Astrophys. 282, 663-683
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -16473,6 +14837,8 @@ function eraFane03(t)
    a = ((5.311886287 + 3.8133035638 * t) % (ERFA_D2PI));
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -16578,9 +14944,11 @@ function eraFaom03(t)
 **     IERS Technical Note No. 32, BKG (2004)
 **
 **     Simon, J.-L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
-**     Francou, G., Laskar, J. 1994, Astron.Astrophys. 282, 663-683
+**     Francou, G., Laskar, J., 1994, Astron.Astrophys. 282, 663-683.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -16596,6 +14964,8 @@ function eraFaom03(t)
              t * (       - 0.00005939 ) ) ) )) % (ERFA_TURNAS)) * ERFA_DAS2R;
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -16707,7 +15077,9 @@ function eraFapa03(t)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -16718,6 +15090,8 @@ function eraFapa03(t)
    a = (0.024381750 + 0.00000538691 * t) * t;
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -16828,7 +15202,9 @@ function eraFasa03(t)
 **     Souchay, J., Loysel, B., Kinoshita, H., Folgueira, M. 1999,
 **     Astron.Astrophys.Supp.Ser. 135, 111
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -16839,6 +15215,8 @@ function eraFasa03(t)
    a = ((0.874016757 + 21.3299104960 * t) % (ERFA_D2PI));
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -16946,7 +15324,9 @@ function eraFaur03(t)
 **     Simon, J.-L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G., Laskar, J. 1994, Astron.Astrophys. 282, 663-683
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -16957,6 +15337,8 @@ function eraFaur03(t)
    a = ((5.481293872 + 7.4781598567 * t) % (ERFA_D2PI));
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -17067,7 +15449,9 @@ function eraFave03(t)
 **     Souchay, J., Loysel, B., Kinoshita, H., Folgueira, M. 1999,
 **     Astron.Astrophys.Supp.Ser. 135, 111
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -17078,6 +15462,8 @@ function eraFave03(t)
    a = ((3.176146697 + 1021.3285546211 * t) % (ERFA_D2PI));
 
    return a;
+
+/* Finished. */
 
 }
 /*
@@ -17204,7 +15590,9 @@ function eraFk52h(r5, d5, dr5, dd5, px5, rv5)
 **
 **     F.Mignard & M.Froeschle, Astron.Astrophys., 354, 732-739 (2000).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -17251,83 +15639,10 @@ function eraFk52h(r5, d5, dr5, dd5, px5, rv5)
    pxh = _rv7[5];
    rvh = _rv7[6];
 
-   return [rh, dh, drh, ddh, pxh, rvh];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [rh, dh, drh, ddh, pxh, rvh];
+};
 function eraFk5hip(r5h)
 /*
 **  - - - - - - - - - -
@@ -17364,7 +15679,9 @@ function eraFk5hip(r5h)
 **
 **     F.Mignard & M.Froeschle, Astron.Astrophys., 354, 732-739 (2000).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -17399,83 +15716,10 @@ function eraFk5hip(r5h)
    s5h[1] = omy;
    s5h[2] = omz;
 
-   return s5h;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return s5h;
+};
 function eraFk5hz(r5, d5, date1, date2)
 /*
 **  - - - - - - - - -
@@ -17544,7 +15788,9 @@ function eraFk5hz(r5, d5, date1, date2)
 **
 **     F.Mignard & M.Froeschle, 2000, Astron.Astrophys. 354, 732-739.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -17582,83 +15828,10 @@ function eraFk5hz(r5, d5, date1, date2)
    dh = _rv7[1];
    rh = eraAnp(w);
 
-   return [rh, dh];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [rh, dh];
+};
 function eraFw2m(gamb, phib, psi, eps)
 /*
 **  - - - - - - - -
@@ -17697,13 +15870,16 @@ function eraFw2m(gamb, phib, psi, eps)
 **
 **        NxPxB = R_1(-eps).R_3(-psi).R_1(phib).R_3(gamb)
 **
-**  3) Three different matrices can be constructed, depending on the
-**     supplied angles:
+**  3) The present function can construct three different matrices,
+**     depending on which angles are supplied as the arguments gamb,
+**     phib, psi and eps:
 **
 **     o  To obtain the nutation x precession x frame bias matrix,
-**        generate the four precession angles, generate the nutation
-**        components and add them to the psi_bar and epsilon_A angles,
-**        and call the present function.
+**        first generate the four precession angles known conventionally
+**        as gamma_bar, phi_bar, psi_bar and epsilon_A, then generate
+**        the nutation components Dpsi and Depsilon and add them to
+**        psi_bar and epsilon_A, and finally call the present function
+**        using those four angles as arguments.
 **
 **     o  To obtain the precession x frame bias matrix, generate the
 **        four precession angles and call the present function.
@@ -17719,11 +15895,15 @@ function eraFw2m(gamb, phib, psi, eps)
 **     eraRz        rotate around Z-axis
 **     eraRx        rotate around X-axis
 **
-**  Reference:
+**  References:
+**
+**     Capitaine, N. & Wallace, P.T., 2006, Astron.Astrophys. 450, 855
 **
 **     Hilton, J. et al., 2006, Celest.Mech.Dyn.Astron. 94, 351
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -17739,83 +15919,10 @@ function eraFw2m(gamb, phib, psi, eps)
    r = eraRz(-psi, r);
    r = eraRx(-eps, r);
 
-   return r;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return r;
+};
 function eraFw2xy(gamb, phib, psi, eps)
 /*
 **  - - - - - - - - -
@@ -17865,7 +15972,9 @@ function eraFw2xy(gamb, phib, psi, eps)
 **
 **     Hilton, J. et al., 2006, Celest.Mech.Dyn.Astron. 94, 351
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -17884,83 +15993,10 @@ function eraFw2xy(gamb, phib, psi, eps)
    x = _rv2[0];
    y = _rv2[1];
 
-   return [x, y];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [x, y];
+};
 function eraGc2gd( n, xyz)
 /*
 **  - - - - - - - - -
@@ -18011,7 +16047,9 @@ function eraGc2gd( n, xyz)
 **     eraEform     Earth reference ellipsoids
 **     eraGc2gde    geocentric to geodetic transformation, general
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -18047,6 +16085,8 @@ function eraGc2gd( n, xyz)
 
 /* Return the status. */
    return [ j, elong, phi, height  ];
+
+/* Finished. */
 
 }
 /*
@@ -18178,7 +16218,9 @@ function eraGc2gde( a, f, xyz)
 **     coordinates accelerated by Halley's method", J.Geodesy (2006)
 **     79: 689-693
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -18267,6 +16309,8 @@ function eraGc2gde( a, f, xyz)
 
 /* OK status. */
    return [ 0, elong, phi, height  ];
+
+/* Finished. */
 
 }
 /*
@@ -18396,7 +16440,9 @@ function eraGd2gc( n, elong, phi, height)
 **     eraGd2gce    geodetic to geocentric transformation, general
 **     eraZp        zero p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -18424,6 +16470,8 @@ function eraGd2gc( n, elong, phi, height)
 
 /* Return the status. */
    return [ j, xyz  ];
+
+/* Finished. */
 
 }
 /*
@@ -18554,7 +16602,9 @@ function eraGd2gce( a, f, elong, phi, height)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 4.22, p202.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -18582,6 +16632,8 @@ function eraGd2gce( a, f, elong, phi, height)
 
 /* Success. */
    return [ 0, xyz  ];
+
+/* Finished. */
 
 }
 /*
@@ -18678,8 +16730,8 @@ function eraGmst00(uta, utb, tta, ttb)
 **
 **  1) The UT1 and TT dates uta+utb and tta+ttb respectively, are both
 **     Julian Dates, apportioned in any convenient way between the
-**     argument pairs.  For example, JD=2450123.7 could be expressed in
-**     any of these ways, among others:
+**     argument pairs.  For example, JD(UT1)=2450123.7 could be
+**     expressed in any of these ways, among others:
 **
 **            Part A         Part B
 **
@@ -18726,7 +16778,9 @@ function eraGmst00(uta, utb, tta, ttb)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -18746,6 +16800,8 @@ function eraGmst00(uta, utb, tta, ttb)
           * t) * t) * t) * t) * ERFA_DAS2R);
 
    return gmst;
+
+/* Finished. */
 
 }
 /*
@@ -18880,7 +16936,9 @@ function eraGmst06(uta, utb, tta, ttb)
 **     Capitaine, N., Wallace, P.T. & Chapront, J., 2005,
 **     Astron.Astrophys. 432, 355
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -18901,6 +16959,8 @@ function eraGmst06(uta, utb, tta, ttb)
           * t) * t) * t) * t) * t) * ERFA_DAS2R);
 
    return gmst;
+
+/* Finished. */
 
 }
 /*
@@ -19037,7 +17097,9 @@ function eraGmst82(dj1, dj2)
 **
 **     Aoki et al., Astron.Astrophys., 105, 359-361 (1982).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -19047,9 +17109,8 @@ function eraGmst82(dj1, dj2)
    var C = 0.093104;
    var D =  -6.2e-6;
 
-/* Note: the first constant, A, has to be adjusted by 12 hours */
-/* because the UT1 is supplied as a Julian date, which begins  */
-/* at noon.                                                    */
+/* The first constant, A, has to be adjusted by 12 hours because the */
+/* UT1 is supplied as a Julian date, which begins at noon.           */
 
    var d1, d2, t, f, gmst;
 
@@ -19071,6 +17132,8 @@ function eraGmst82(dj1, dj2)
    gmst = eraAnp(ERFA_DS2R * ((A + (B + (C + D * t) * t) * t) + f));
 
    return gmst;
+
+/* Finished. */
 
 }
 /*
@@ -19167,10 +17230,10 @@ function eraGst00a(uta, utb, tta, ttb)
 **
 **  1) The UT1 and TT dates uta+utb and tta+ttb respectively, are both
 **     Julian Dates, apportioned in any convenient way between the
-**     argument pairs.  For example, JD=2450123.7 could be expressed in
-**     any of these ways, among others:
+**     argument pairs.  For example, JD(UT1)=2450123.7 could be
+**     expressed in any of these ways, among others:
 **
-**            Part A        Part B
+**             uta            utb
 **
 **         2450123.7           0.0       (JD method)
 **         2451545.0       -1421.3       (J2000 method)
@@ -19216,7 +17279,9 @@ function eraGst00a(uta, utb, tta, ttb)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -19228,6 +17293,8 @@ function eraGst00a(uta, utb, tta, ttb)
    gst = eraAnp(gmst00 + ee00a);
 
    return gst;
+
+/* Finished. */
 
 }
 /*
@@ -19323,8 +17390,8 @@ function eraGst00b(uta, utb)
 **
 **  1) The UT1 date uta+utb is a Julian Date, apportioned in any
 **     convenient way between the argument pair.  For example,
-**     JD=2450123.7 could be expressed in any of these ways, among
-**     others:
+**     JD(UT1)=2450123.7 could be expressed in any of these ways,
+**     among others:
 **
 **             uta            utb
 **
@@ -19351,7 +17418,7 @@ function eraGst00b(uta, utb)
 **       component of GMST and the equation of the equinoxes.  This
 **       results in errors of order 0.1 mas at present.
 **
-**     . The IAU 2000B abridged nutation model (McCarthy & Luzum, 2001)
+**     . The IAU 2000B abridged nutation model (McCarthy & Luzum, 2003)
 **       is used, introducing errors of up to 1 mas.
 **
 **  3) This GAST is compatible with the IAU 2000 resolutions and must be
@@ -19381,7 +17448,9 @@ function eraGst00b(uta, utb)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -19393,6 +17462,8 @@ function eraGst00b(uta, utb)
    gst = eraAnp(gmst00 + ee00b);
 
    return gst;
+
+/* Finished. */
 
 }
 /*
@@ -19489,10 +17560,10 @@ function eraGst06(uta, utb, tta, ttb, rnpb)
 **
 **  1) The UT1 and TT dates uta+utb and tta+ttb respectively, are both
 **     Julian Dates, apportioned in any convenient way between the
-**     argument pairs.  For example, JD=2450123.7 could be expressed in
-**     any of these ways, among others:
+**     argument pairs.  For example, JD(UT1)=2450123.7 could be
+**     expressed in any of these ways, among others:
 **
-**            Part A        Part B
+**             uta            utb
 **
 **         2450123.7           0.0       (JD method)
 **         2451545.0       -1421.3       (J2000 method)
@@ -19532,7 +17603,9 @@ function eraGst06(uta, utb, tta, ttb, rnpb)
 **
 **     Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -19555,6 +17628,8 @@ function eraGst06(uta, utb, tta, ttb, rnpb)
    gst = eraAnp(era - eors);
 
    return gst;
+
+/* Finished. */
 
 }
 /*
@@ -19651,10 +17726,10 @@ function eraGst06a(uta, utb, tta, ttb)
 **
 **  1) The UT1 and TT dates uta+utb and tta+ttb respectively, are both
 **     Julian Dates, apportioned in any convenient way between the
-**     argument pairs.  For example, JD=2450123.7 could be expressed in
-**     any of these ways, among others:
+**     argument pairs.  For example, JD(UT1)=2450123.7 could be
+**     expressed in any of these ways, among others:
 **
-**            Part A        Part B
+**             uta            utb
 **
 **         2450123.7           0.0       (JD method)
 **         2451545.0       -1421.3       (J2000 method)
@@ -19691,7 +17766,9 @@ function eraGst06a(uta, utb, tta, ttb)
 **
 **     Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -19705,6 +17782,8 @@ function eraGst06a(uta, utb, tta, ttb)
    gst = eraGst06(uta, utb, tta, ttb, rnpb);
 
    return gst;
+
+/* Finished. */
 
 }
 /*
@@ -19800,7 +17879,7 @@ function eraGst94(uta, utb)
 **
 **  1) The UT1 date uta+utb is a Julian Date, apportioned in any
 **     convenient way between the argument pair.  For example,
-**     JD=2450123.7 could be expressed in any of these ways, among
+**     JD(UT1)=2450123.7 could be expressed in any of these ways, among
 **     others:
 **
 **             uta            utb
@@ -19843,7 +17922,9 @@ function eraGst94(uta, utb)
 **
 **     IAU Resolution C7, Recommendation 3 (1994)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -19855,6 +17936,8 @@ function eraGst94(uta, utb)
    gst = eraAnp(gmst82  + eqeq94);
 
    return gst;
+
+/* Finished. */
 
 }
 /*
@@ -19983,7 +18066,9 @@ function eraH2fk5(rh, dh, drh, ddh, pxh, rvh)
 **
 **     F.Mignard & M.Froeschle, Astron.Astrophys., 354, 732-739 (2000).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -20033,83 +18118,10 @@ function eraH2fk5(rh, dh, drh, ddh, pxh, rvh)
    px5 = _rv8[5];
    rv5 = _rv8[6];
 
-   return [r5, d5, dr5, dd5, px5, rv5];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [r5, d5, dr5, dd5, px5, rv5];
+};
 function eraHfk5z(rh, dh, date1, date2)
 /*
 **  - - - - - - - - -
@@ -20183,7 +18195,9 @@ function eraHfk5z(rh, dh, date1, date2)
 **
 **     F.Mignard & M.Froeschle, 2000, Astron.Astrophys. 354, 732-739.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -20236,83 +18250,10 @@ function eraHfk5z(rh, dh, date1, date2)
    v = _rv10[5];
    r5 = eraAnp(w);
 
-   return [r5, d5, dr5, dd5];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [r5, d5, dr5, dd5];
+};
 function eraIr()
 /*
 **  - - - - - -
@@ -20324,7 +18265,9 @@ function eraIr()
 **  Returned:
 **     r       double[3][3]    r-matrix
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -20343,83 +18286,10 @@ function eraIr()
    r[2][1] = 0.0;
    r[2][2] = 1.0;
 
-   return r;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return r;
+};
 function eraJd2cal(dj1, dj2)
 /*
 **  - - - - - - - - - -
@@ -20458,18 +18328,27 @@ function eraJd2cal(dj1, dj2)
 **         2400000.5       50123.2       (MJD method)
 **         2450123.5           0.2       (date & time method)
 **
+**     Separating integer and fraction uses the "compensated summation"
+**     algorithm of Kahan-Neumaier to preserve as much precision as
+**     possible irrespective of the jd1+jd2 apportionment.
+**
 **  3) In early eras the conversion is from the "proleptic Gregorian
 **     calendar";  no account is taken of the date(s) of adoption of
 **     the Gregorian calendar, nor is the AD/BC numbering convention
 **     observed.
 **
-**  Reference:
+**  References:
 **
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 12.92 (p604).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**     Klein, A., A Generalized Kahan-Babuska-Summation-Algorithm.
+**     Computing, 76, 279-293 (2006), Section 3.
+**
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -20483,31 +18362,65 @@ function eraJd2cal(dj1, dj2)
    var DJMIN = -68569.5;
    var DJMAX = 1e9;
 
-   var jd, l, n, i, k;
-   var dj, d1, d2, f1, f2, f, d;
+   var jd, i, l, n, k;
+   var dj, f1, f2, d, s, cs, v = [], x, t, f;
 
 
 /* Verify date is acceptable. */
    dj = dj1 + dj2;
    if (dj < DJMIN || dj > DJMAX) return [ -1, iy, im, id, fd ];
 
-/* Copy the date, big then small, and re-align to midnight. */
-   if (Math.abs(dj1) >= Math.abs(dj2)) {
-      d1 = dj1;
-      d2 = dj2;
-   } else {
-      d1 = dj2;
-      d2 = dj1;
-   }
-   d2 -= 0.5;
+/* Separate day and fraction (where -0.5 <= fraction < 0.5). */
+   d = ERFA_DNINT(dj1);
+   f1 = dj1 - d;
+   jd = ~~(~~d);
+   d = ERFA_DNINT(dj2);
+   f2 = dj2 - d;
+   jd += ~~(~~d);
 
-/* Separate day and fraction. */
-   f1 = ((d1) % (1.0));
-   f2 = ((d2) % (1.0));
-   f = ((f1 + f2) % (1.0));
-   if (f < 0.0) f += 1.0;
-   d = ERFA_DNINT(d1-f1) + ERFA_DNINT(d2-f2) + ERFA_DNINT(f1+f2-f);
-   jd = ~~(~~ERFA_DNINT(d) + 1);
+/* Compute f1+f2+0.5 using compensated summation (Klein 2006). */
+   s = 0.5;
+   cs = 0.0;
+   v[0] = f1;
+   v[1] = f2;
+   for ( i = 0; i < 2; i++ ) {
+      x = v[i];
+      t = s + x;
+      cs += Math.abs(s) >= Math.abs(x) ? (s-t) + x : (x-t) + s;
+      s = t;
+      if ( s >= 1.0 ) {
+         jd++;
+         s -= 1.0;
+      }
+   }
+   f = s + cs;
+   cs = f - s;
+
+/* Deal with negative f. */
+   if ( f < 0.0 ) {
+
+   /* Compensated summation: assume that |s| <= 1.0. */
+      f = s + 1.0;
+      cs += (1.0-f) + s;
+      s  = f;
+      f = s + cs;
+      cs = f - s;
+      jd--;
+   }
+
+/* Deal with f that is 1.0 or more (when rounded to double). */
+   if ( (f-1.0) >= -DBL_EPSILON/4.0 ) {
+
+   /* Compensated summation: assume that |s| <= 1.0. */
+      t = s - 1.0;
+      cs += (s-t) - 1.0;
+      s = t;
+      f = s + cs;
+      if ( -DBL_EPSILON/2.0 < f ) {
+         jd++;
+         f = Math.max(f, 0.0);
+      }
+   }
 
 /* Express day in Gregorian calendar. */
    l = ~~(jd + 68569);
@@ -20522,7 +18435,10 @@ function eraJd2cal(dj1, dj2)
    iy = ~~(~~(100 * (n - 49) + i + l));
    fd = f;
 
+/* Success. */
    return [ 0, iy, im, id, fd ];
+
+/* Finished. */
 
 }
 /*
@@ -20640,10 +18556,11 @@ function eraJdcalf(ndp, dj1, dj2)
 **     the Gregorian Calendar, nor is the AD/BC numbering convention
 **     observed.
 **
-**  3) Refer to the function eraJd2cal.
+**  3) See also the function eraJd2cal.
 **
-**  4) NDP should be 4 or less if internal overflows are to be
-**     avoided on machines which use 16-bit integers.
+**  4) The number of decimal places ndp should be 4 or less if internal
+**     overflows are to be avoided on platforms which use 16-bit
+**     integers.
 **
 **  Called:
 **     eraJd2cal    JD to Gregorian calendar
@@ -20654,7 +18571,9 @@ function eraJdcalf(ndp, dj1, dj2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 12.92 (p604).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -20662,7 +18581,7 @@ function eraJdcalf(ndp, dj1, dj2)
    var _rv1;
 
    var j, js;
-   var denom, d1, d2, f1, f2, f;
+   var denom, d1, d2, f1, f2, d, djd, f, rf;
 
 
 /* Denominator of fraction (e.g. 100 for 2 decimal places). */
@@ -20674,7 +18593,7 @@ function eraJdcalf(ndp, dj1, dj2)
       denom = 1.0;
    }
 
-/* Copy the date, big then small, and realign to midnight. */
+/* Copy the date, big then small. */
    if (Math.abs(dj1) >= Math.abs(dj2)) {
       d1 = dj1;
       d2 = dj2;
@@ -20682,34 +18601,47 @@ function eraJdcalf(ndp, dj1, dj2)
       d1 = dj2;
       d2 = dj1;
    }
-   d2 -= 0.5;
 
-/* Separate days and fractions. */
-   f1 = ((d1) % (1.0));
-   f2 = ((d2) % (1.0));
-   d1 = ERFA_DNINT(d1-f1);
-   d2 = ERFA_DNINT(d2-f2);
+/* Realign to midnight (without rounding error). */
+   d1 -= 0.5;
+
+/* Separate day and fraction (as precisely as possible). */
+   d = ERFA_DNINT(d1);
+   f1 = d1 - d;
+   djd = d;
+   d = ERFA_DNINT(d2);
+   f2 = d2 - d;
+   djd += d;
+   d = ERFA_DNINT(f1 + f2);
+   f = (f1 - d) + f2;
+   if (f < 0.0) {
+       f += 1.0;
+       d -= 1.0;
+   }
+   djd += d;
 
 /* Round the total fraction to the specified number of places. */
-   f = ERFA_DNINT((f1+f2)*denom) / denom;
+   rf = ERFA_DNINT(f*denom) / denom;
 
-/* Re-assemble the rounded date and re-align to noon. */
-   d2 += f + 0.5;
+/* Re-align to noon. */
+   djd += 0.5;
 
 /* Convert to Gregorian calendar. */
-   js = ~~((_rv1 = eraJd2cal(d1, d2))[0]);
+   js = ~~((_rv1 = eraJd2cal(djd, rf))[0]);
    iymdf[0] = _rv1[1];
    iymdf[1] = _rv1[2];
    iymdf[2] = _rv1[3];
    f = _rv1[4];
    if (js == 0) {
-      iymdf[3] = ~~(f * denom);
+      iymdf[3] = ~~ERFA_DNINT(f * denom);
    } else {
       j = ~~(js);
    }
 
 /* Return the status. */
    return [ j, iymdf ];
+
+/* Finished. */
 
 }
 /*
@@ -20853,7 +18785,9 @@ function eraLd(bm, p, q, e, em, dlim)
 **     eraPdp       scalar product of two p-vectors
 **     eraPxp       vector product of two p-vectors
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -20963,7 +18897,9 @@ function eraLdn(n, b, ob, sc)
 **     eraPn        decompose p-vector into modulus and direction
 **     eraLd        light deflection by a solar-system body
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -21043,7 +18979,9 @@ function eraLdsun(p, e, em)
 **  Called:
 **     eraLd        light deflection by a solar-system body
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2016 June 16
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -21105,7 +19043,7 @@ function eraNum00a(date1, date2)
 **     of date and the p-vector V(mean) is with respect to the mean
 **     equatorial triad of date.
 **
-**  3) A faster, but slightly less accurate result (about 1 mas), can be
+**  3) A faster, but slightly less accurate, result (about 1 mas) can be
 **     obtained by using instead the eraNum00b function.
 **
 **  Called:
@@ -21117,7 +19055,9 @@ function eraNum00a(date1, date2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 3.222-3 (p114).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -21140,83 +19080,10 @@ function eraNum00a(date1, date2)
    rmatn = _rv1[6];
    rbpn = _rv1[7];
 
-   return rmatn;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rmatn;
+};
 function eraNum00b(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -21269,7 +19136,9 @@ function eraNum00b(date1, date2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 3.222-3 (p114).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -21292,83 +19161,10 @@ function eraNum00b(date1, date2)
    rmatn = _rv1[6];
    rbpn = _rv1[7];
 
-   return rmatn;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rmatn;
+};
 function eraNum06a(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -21420,7 +19216,9 @@ function eraNum06a(date1, date2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 3.222-3 (p114).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -21443,83 +19241,10 @@ function eraNum06a(date1, date2)
 /* Nutation matrix. */
    rmatn = eraNumat(eps, dp, de);
 
-   return rmatn;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rmatn;
+};
 function eraNumat(epsa, dpsi, deps)
 /*
 **  - - - - - - - - -
@@ -21561,7 +19286,9 @@ function eraNumat(epsa, dpsi, deps)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 3.222-3 (p114).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -21576,83 +19303,10 @@ function eraNumat(epsa, dpsi, deps)
    rmatn = eraRz(-dpsi, rmatn);
    rmatn = eraRx(-(epsa + deps), rmatn);
 
-   return rmatn;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rmatn;
+};
 function eraNut00a(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -21801,7 +19455,9 @@ function eraNut00a(date1, date2)
 **     Wallace, P.T., "Software for Implementing the IAU 2000
 **     Resolutions", in IERS Workshop 5.1 (2002)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -23623,83 +21279,10 @@ function eraNut00a(date1, date2)
    dpsi = dpsils + dpsipl;
    deps = depsls + depspl;
 
-   return [dpsi, deps];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [dpsi, deps];
+};
 function eraNut00b(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -23816,7 +21399,9 @@ function eraNut00b(date1, date2)
 **     Simon, J.-L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G., Laskar, J., Astron.Astrophys. 282, 663-683 (1994)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -24012,83 +21597,10 @@ function eraNut00b(date1, date2)
    dpsi = dpsils + dpsipl;
    deps = depsls + depspl;
 
-   return [dpsi, deps];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [dpsi, deps];
+};
 function eraNut06a(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -24164,7 +21676,9 @@ function eraNut06a(date1, date2)
 **     Wallace, P.T., "Software for Implementing the IAU 2000
 **     Resolutions", in IERS Workshop 5.1 (2002)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -24190,83 +21704,10 @@ function eraNut06a(date1, date2)
    dpsi = dp + dp * (0.4697e-6 + fj2);
    deps = de + de * fj2;
 
-   return [dpsi, deps];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [dpsi, deps];
+};
 function eraNut80(date1, date2)
 /*
 **  - - - - - - - - -
@@ -24315,7 +21756,9 @@ function eraNut80(date1, date2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 3.222 (p111).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -24529,83 +21972,10 @@ function eraNut80(date1, date2)
    dpsi = dp * U2R;
    deps = de * U2R;
 
-   return [dpsi, deps];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [dpsi, deps];
+};
 function eraNutm80(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -24651,7 +22021,9 @@ function eraNutm80(date1, date2)
 **     eraObl80     mean obliquity, IAU 1980
 **     eraNumat     form nutation matrix
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -24672,83 +22044,10 @@ function eraNutm80(date1, date2)
 /* Build the rotation matrix. */
    rmatn = eraNumat(epsa, dpsi, deps);
 
-   return rmatn;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rmatn;
+};
 function eraObl06(date1, date2)
 /*
 **  - - - - - - - - -
@@ -24791,7 +22090,9 @@ function eraObl06(date1, date2)
 **
 **     Hilton, J. et al., 2006, Celest.Mech.Dyn.Astron. 94, 351
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -24810,6 +22111,8 @@ function eraObl06(date1, date2)
           ( -0.0000000434) * t) * t) * t) * t) * t) * ERFA_DAS2R;
 
    return eps0;
+
+/* Finished. */
 
 }
 /*
@@ -24930,7 +22233,9 @@ function eraObl80(date1, date2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Expression 3.222-1 (p114).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -24947,6 +22252,8 @@ function eraObl80(date1, date2)
                   ( 0.001813) * t) * t) * t);
 
    return eps0;
+
+/* Finished. */
 
 }
 /*
@@ -25089,12 +22396,16 @@ function eraP06e(date1, date2)
 **     za     z_A         equatorial precession: -3rd 323 Euler angle
 **     zetaa  zeta_A      equatorial precession: -1st 323 Euler angle
 **     thetaa theta_A     equatorial precession: 2nd 323 Euler angle
-**     pa     p_A         general precession
+**     pa     p_A         general precession (n.b. see below)
 **     gam    gamma_J2000 J2000.0 RA difference of ecliptic poles
 **     phi    phi_J2000   J2000.0 codeclination of ecliptic pole
 **     psi    psi_J2000   longitude difference of equator poles, J2000.0
 **
 **     The returned values are all radians.
+**
+**     Note that the t^5 coefficient in the series for p_A from
+**     Capitaine et al. (2003) is incorrectly signed in Hilton et al.
+**     (2006).
 **
 **  3) Hilton et al. (2006) Table 1 also contains angles that depend on
 **     models distinct from the P03 precession theory itself, namely the
@@ -25131,14 +22442,19 @@ function eraP06e(date1, date2)
 **  8) It is permissible to re-use the same variable in the returned
 **     arguments.  The quantities are stored in the stated order.
 **
-**  Reference:
+**  References:
+**
+**     Capitaine, N., Wallace, P.T. & Chapront, J., 2003,
+**     Astron.Astrophys., 412, 567
 **
 **     Hilton, J. et al., 2006, Celest.Mech.Dyn.Astron. 94, 351
 **
 **  Called:
 **     eraObl06     mean obliquity, IAU 2006
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -25273,7 +22589,7 @@ function eraP06e(date1, date2)
          (    1.1054348    +
          (    0.00007964   +
          (   -0.000023857  +
-         (    0.0000000383 )
+         (   -0.0000000383 )
          * t) * t) * t) * t) * t * ERFA_DAS2R;
 
 /* Fukushima-Williams angles for precession. */
@@ -25299,83 +22615,10 @@ function eraP06e(date1, date2)
           (   -0.0000000148 )
           * t) * t) * t) * t) * t * ERFA_DAS2R;
 
-   return [eps0, psia, oma, bpa, bqa, pia, bpia, epsa, chia, za, zetaa, thetaa, pa, gam, phi, psi];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [eps0, psia, oma, bpa, bqa, pia, bpia, epsa, chia, za, zetaa, thetaa, pa, gam, phi, psi];
+};
 function eraP2pv(p)
 /*
 **  - - - - - - - -
@@ -25394,7 +22637,9 @@ function eraP2pv(p)
 **     eraCp        copy p-vector
 **     eraZp        zero p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -25404,83 +22649,10 @@ function eraP2pv(p)
    pv[0] = eraCp(p);
    pv[1] = eraZp(pv[1]);
 
-   return pv;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return pv;
+};
 function eraP2s(p)
 /*
 **  - - - - - - -
@@ -25507,7 +22679,9 @@ function eraP2s(p)
 **     eraC2s       p-vector to spherical
 **     eraPm        modulus of p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -25521,83 +22695,10 @@ function eraP2s(p)
    phi = _rv1[1];
    r = eraPm(p);
 
-   return [theta, phi, r];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [theta, phi, r];
+};
 function eraPap(a, b)
 /*
 **  - - - - - - -
@@ -25635,7 +22736,9 @@ function eraPap(a, b)
 **     eraPmp       p-vector minus p-vector
 **     eraPdp       scalar product of two p-vectors
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -25684,6 +22787,8 @@ function eraPap(a, b)
    pa = Math.atan2(st, ct);
 
    return pa;
+
+/* Finished. */
 
 }
 /*
@@ -25786,7 +22891,9 @@ function eraPas(al, ap, bl, bp)
 **
 **  2) Zero is returned if the two points are coincident.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -25799,6 +22906,8 @@ function eraPas(al, ap, bl, bp)
    pa = ((x != 0.0) || (y != 0.0)) ? Math.atan2(y, x) : 0.0;
 
    return pa;
+
+/* Finished. */
 
 }
 /*
@@ -25937,7 +23046,9 @@ function eraPb06(date1, date2)
 **     eraPmat06    PB matrix, IAU 2006
 **     eraRz        rotate around Z-axis
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -25946,102 +23057,37 @@ function eraPb06(date1, date2)
    var btheta = 0.0;;
 
 
-   var r = [[], [], []], r31, r32;
+   var r = [[], [], []], y, x;
 
 
 /* Precession matrix via Fukushima-Williams angles. */
    r = eraPmat06(date1, date2);
 
-/* Solve for z. */
-   bz = Math.atan2(r[1][2], r[0][2]);
+/* Solve for z, choosing the +/- pi alternative. */
+   y = r[1][2];
+   x = -r[0][2];
+   if ( x < 0.0 ) {
+      y = -y;
+      x = -x;
+   }
+   bz = ( x != 0.0 || y != 0.0 ) ? - Math.atan2(y,x) : 0.0;
 
-/* Remove it from the matrix. */
+/* Derotate it out of the matrix. */
    r = eraRz(bz, r);
 
 /* Solve for the remaining two angles. */
-   bzeta = Math.atan2(r[1][0], r[1][1]);
-   r31 = r[2][0];
-   r32 = r[2][1];
-   btheta = Math.atan2(-ERFA_DSIGN(Math.sqrt(r31 * r31 + r32 * r32), r[0][2]),
-                   r[2][2]);
+   y = r[0][2];
+   x = r[2][2];
+   btheta = ( x != 0.0 || y != 0.0 ) ? - Math.atan2(y,x) : 0.0;
 
-   return [bzeta, bz, btheta];
+   y = -r[1][0];
+   x = r[1][1];
+   bzeta = ( x != 0.0 || y != 0.0 ) ? - Math.atan2(y,x) : 0.0;
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+/* Finished. */
+
+return [bzeta, bz, btheta];
+};
 function eraPdp(a, b)
 /*
 **  - - - - - - -
@@ -26057,7 +23103,9 @@ function eraPdp(a, b)
 **  Returned (function value):
 **            double        a . b
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -26069,6 +23117,8 @@ function eraPdp(a, b)
       + a[2] * b[2];
 
    return w;
+
+/* Finished. */
 
 }
 /*
@@ -26217,7 +23267,9 @@ function eraPfw06(date1, date2)
 **  Called:
 **     eraObl06     mean obliquity, IAU 2006
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -26257,83 +23309,10 @@ function eraPfw06(date1, date2)
            * t) * t) * t) * t) * t) * ERFA_DAS2R;
    epsa = eraObl06(date1, date2);
 
-   return [gamb, phib, psib, epsa];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [gamb, phib, psib, epsa];
+};
 function eraPlan94(date1, date2, np)
 /*
 **  - - - - - - - - - -
@@ -26343,6 +23322,8 @@ function eraPlan94(date1, date2, np)
 **  Approximate heliocentric position and velocity of a nominated major
 **  planet:  Mercury, Venus, EMB, Mars, Jupiter, Saturn, Uranus or
 **  Neptune (but not the Earth itself).
+**
+**  n.b. Not IAU-endorsed and without canonical status.
 **
 **  Given:
 **     date1  double       TDB date part A (Note 1)
@@ -26485,13 +23466,15 @@ function eraPlan94(date1, date2, np)
 **     which in turn takes precedence over the remote date warning.
 **
 **  Called:
-**     eraAnp       normalize angle into range 0 to 2pi
+**     eraAnpm      normalize angle into range +/- pi
 **
 **  Reference:  Simon, J.L, Bretagnon, P., Chapront, J.,
 **              Chapront-Touze, M., Francou, G., and Laskar, J.,
 **              Astron.Astrophys., 282, 663 (1994).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -26793,6 +23776,8 @@ function eraPlan94(date1, date2, np)
 /* Return the status. */
    return [ jstat, pv ];
 
+/* Finished. */
+
 }
 /*
  *+----------------------------------------------------------------------
@@ -26882,11 +23867,15 @@ function eraPm(p)
 **  Returned (function value):
 **            double        modulus
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
    return Math.sqrt( p[0]*p[0] + p[1]*p[1] + p[2]*p[2] );
+
+/* Finished. */
 
 }
 /*
@@ -27013,7 +24002,9 @@ function eraPmat00(date1, date2)
 **     24th General Assembly, Manchester, UK.  Resolutions B1.3, B1.6.
 **     (2000)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -27031,83 +24022,10 @@ function eraPmat00(date1, date2)
    rp = _rv1[1];
    rbp = _rv1[2];
 
-   return rbp;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rbp;
+};
 function eraPmat06(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -27157,9 +24075,15 @@ function eraPmat06(date1, date2)
 **
 **     Capitaine, N. & Wallace, P.T., 2006, Astron.Astrophys. 450, 855
 **
+**     IAU: Trans. International Astronomical Union, Vol. XXIVB;  Proc.
+**     24th General Assembly, Manchester, UK.  Resolutions B1.3, B1.6.
+**     (2000)
+**
 **     Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -27181,83 +24105,10 @@ function eraPmat06(date1, date2)
 /* Form the matrix. */
    rbp = eraFw2m(gamb, phib, psib, epsa);
 
-   return rbp;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rbp;
+};
 function eraPmat76(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -27324,7 +24175,9 @@ function eraPmat76(date1, date2)
 **
 **     Kaplan,G.H., 1981. USNO circular no. 163, pA2.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -27349,83 +24202,10 @@ function eraPmat76(date1, date2)
    wmat = eraRz(-z, wmat);
    rmatp = eraCr(wmat);
 
-   return rmatp;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rmatp;
+};
 function eraPmp(a, b)
 /*
 **  - - - - - - -
@@ -27445,7 +24225,9 @@ function eraPmp(a, b)
 **     It is permissible to re-use the same array for any of the
 **     arguments.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -27456,83 +24238,10 @@ function eraPmp(a, b)
    amb[1] = a[1] - b[1];
    amb[2] = a[2] - b[2];
 
-   return amb;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return amb;
+};
 function eraPmpx(rc, dc, pr, pd, px, rv, pmt, pob)
 /*
 **  - - - - - - - -
@@ -27543,7 +24252,7 @@ function eraPmpx(rc, dc, pr, pd, px, rv, pmt, pob)
 **
 **  Given:
 **     rc,dc  double     ICRS RA,Dec at catalog epoch (radians)
-**     pr     double     RA proper motion (radians/year; Note 1)
+**     pr     double     RA proper motion (radians/year, Note 1)
 **     pd     double     Dec proper motion (radians/year)
 **     px     double     parallax (arcsec)
 **     rv     double     radial velocity (km/s, +ve if receding)
@@ -27577,7 +24286,9 @@ function eraPmpx(rc, dc, pr, pd, px, rv, pmt, pob)
 **     eraPdp       scalar product of two p-vectors
 **     eraPn        decompose p-vector into modulus and direction
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 April 3
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -27727,7 +24438,9 @@ function eraPmsafe(ra1, dec1, pmr1, pmd1, px1, rv1, ep1a, ep1b, ep2a, ep2b)
 **     eraSeps      angle between two points
 **     eraStarpm    update star catalog data for space motion
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2014 July 1
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -27877,7 +24590,9 @@ function eraPn(p)
 **     eraZp        zero p-vector
 **     eraSxp       multiply p-vector by scalar
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -27904,83 +24619,10 @@ function eraPn(p)
 /* Return the modulus. */
    r = w;
 
-   return [r, u];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [r, u];
+};
 function eraPn00(date1, date2, dpsi, deps)
 /*
 **  - - - - - - - -
@@ -28073,7 +24715,9 @@ function eraPn00(date1, date2, dpsi, deps)
 **     n.b. The celestial ephemeris origin (CEO) was renamed "celestial
 **          intermediate origin" (CIO) by IAU 2006 Resolution 2.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -28120,83 +24764,10 @@ function eraPn00(date1, date2, dpsi, deps)
 /* Bias-precession-nutation matrix (classical). */
    rbpn = eraRxr(rnw, rbpw);
 
-   return [epsa, rb, rp, rbp, rn, rbpn];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [epsa, rb, rp, rbp, rn, rbpn];
+};
 function eraPn00a(date1, date2)
 /*
 **  - - - - - - - - -
@@ -28243,7 +24814,7 @@ function eraPn00a(date1, date2)
 **  2)  The nutation components (luni-solar + planetary, IAU 2000A) in
 **      longitude and obliquity are in radians and with respect to the
 **      equinox and ecliptic of date.  Free core nutation is omitted;
-**      for the utmost accuracy, use the eraPn00  function, where the
+**      for the utmost accuracy, use the eraPn00 function, where the
 **      nutation components are caller-specified.  For faster but
 **      slightly less accurate results, use the eraPn00b function.
 **
@@ -28273,7 +24844,7 @@ function eraPn00a(date1, date2)
 **      i.e. rbpn[2][0-2].
 **
 **  10) It is permissible to re-use the same array in the returned
-**      arguments.  The arrays are filled in the order given.
+**      arguments.  The arrays are filled in the stated order.
 **
 **  Called:
 **     eraNut00a    nutation, IAU 2000A
@@ -28289,7 +24860,9 @@ function eraPn00a(date1, date2)
 **     n.b. The celestial ephemeris origin (CEO) was renamed "celestial
 **          intermediate origin" (CIO) by IAU 2006 Resolution 2.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -28327,83 +24900,10 @@ function eraPn00a(date1, date2)
    rn = _rv2[4];
    rbpn = _rv2[5];
 
-   return [dpsi, deps, epsa, rb, rp, rbp, rn, rbpn];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [dpsi, deps, epsa, rb, rp, rbp, rn, rbpn];
+};
 function eraPn00b(date1, date2)
 /*
 **  - - - - - - - - -
@@ -28451,7 +24951,7 @@ function eraPn00b(date1, date2)
 **      longitude and obliquity are in radians and with respect to the
 **      equinox and ecliptic of date.  For more accurate results, but
 **      at the cost of increased computation, use the eraPn00a function.
-**      For the utmost accuracy, use the eraPn00  function, where the
+**      For the utmost accuracy, use the eraPn00 function, where the
 **      nutation components are caller-specified.
 **
 **  3)  The mean obliquity is consistent with the IAU 2000 precession.
@@ -28496,7 +24996,9 @@ function eraPn00b(date1, date2)
 **     n.b. The celestial ephemeris origin (CEO) was renamed "celestial
 **          intermediate origin" (CIO) by IAU 2006 Resolution 2.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -28534,83 +25036,10 @@ function eraPn00b(date1, date2)
    rn = _rv2[4];
    rbpn = _rv2[5];
 
-   return [dpsi, deps, epsa, rb, rp, rbp, rn, rbpn];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [dpsi, deps, epsa, rb, rp, rbp, rn, rbpn];
+};
 function eraPn06(date1, date2, dpsi, deps)
 /*
 **  - - - - - - - -
@@ -28631,7 +25060,7 @@ function eraPn06(date1, date2, dpsi, deps)
 **     rp           double[3][3]    precession matrix (Note 5)
 **     rbp          double[3][3]    bias-precession matrix (Note 6)
 **     rn           double[3][3]    nutation matrix (Note 7)
-**     rbpn         double[3][3]    GCRS-to-true matrix (Note 8)
+**     rbpn         double[3][3]    GCRS-to-true matrix (Notes 8,9)
 **
 **  Notes:
 **
@@ -28701,7 +25130,9 @@ function eraPn06(date1, date2, dpsi, deps)
 **
 **     Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -28763,83 +25194,10 @@ function eraPn06(date1, date2, dpsi, deps)
 /* Obliquity, mean of date. */
    epsa = eps;
 
-   return [epsa, rb, rp, rbp, rn, rbpn];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [epsa, rb, rp, rbp, rn, rbpn];
+};
 function eraPn06a(date1, date2)
 /*
 **  - - - - - - - - -
@@ -28922,7 +25280,9 @@ function eraPn06a(date1, date2)
 **
 **     Capitaine, N. & Wallace, P.T., 2006, Astron.Astrophys. 450, 855
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -28960,83 +25320,10 @@ function eraPn06a(date1, date2)
    rn = _rv2[4];
    rbpn = _rv2[5];
 
-   return [dpsi, deps, epsa, rb, rp, rbp, rn, rbpn];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [dpsi, deps, epsa, rb, rp, rbp, rn, rbpn];
+};
 function eraPnm00a(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -29044,20 +25331,20 @@ function eraPnm00a(date1, date2)
 **  - - - - - - - - - -
 **
 **  Form the matrix of precession-nutation for a given date (including
-**  frame bias), equinox-based, IAU 2000A model.
+**  frame bias), equinox based, IAU 2000A model.
 **
 **  Given:
-**     date1,date2  double     TT as a 2-part Julian Date (Note 1)
+**     date1,date2 double       TT as a 2-part Julian Date (Note 1)
 **
 **  Returned:
-**     rbpn         double[3][3]    classical NPB matrix (Note 2)
+**     rbpn        double[3][3] bias-precession-nutation matrix (Note 2)
 **
 **  Notes:
 **
 **  1) The TT date date1+date2 is a Julian Date, apportioned in any
 **     convenient way between the two arguments.  For example,
-**     JD(TT)=2450123.7 could be expressed in any of these ways,
-**     among others:
+**     JD(TT)=2450123.7 could be expressed in any of these ways, among
+**     others:
 **
 **            date1          date2
 **
@@ -29078,7 +25365,7 @@ function eraPnm00a(date1, date2)
 **     of date date1+date2 and the p-vector V(GCRS) is with respect to
 **     the Geocentric Celestial Reference System (IAU, 2000).
 **
-**  3) A faster, but slightly less accurate result (about 1 mas), can be
+**  3) A faster, but slightly less accurate, result (about 1 mas) can be
 **     obtained by using instead the eraPnm00b function.
 **
 **  Called:
@@ -29090,7 +25377,9 @@ function eraPnm00a(date1, date2)
 **     24th General Assembly, Manchester, UK.  Resolutions B1.3, B1.6.
 **     (2000)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -29113,83 +25402,10 @@ function eraPnm00a(date1, date2)
    rn = _rv1[6];
    rbpn = _rv1[7];
 
-   return rbpn;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rbpn;
+};
 function eraPnm00b(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -29209,8 +25425,8 @@ function eraPnm00b(date1, date2)
 **
 **  1) The TT date date1+date2 is a Julian Date, apportioned in any
 **     convenient way between the two arguments.  For example,
-**     JD(TT)=2450123.7 could be expressed in any of these ways,
-**     among others:
+**     JD(TT)=2450123.7 could be expressed in any of these ways, among
+**     others:
 **
 **            date1          date2
 **
@@ -29243,7 +25459,9 @@ function eraPnm00b(date1, date2)
 **     24th General Assembly, Manchester, UK.  Resolutions B1.3, B1.6.
 **     (2000)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -29266,83 +25484,10 @@ function eraPnm00b(date1, date2)
    rn = _rv1[6];
    rbpn = _rv1[7];
 
-   return rbpn;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rbpn;
+};
 function eraPnm06a(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -29350,20 +25495,21 @@ function eraPnm06a(date1, date2)
 **  - - - - - - - - - -
 **
 **  Form the matrix of precession-nutation for a given date (including
-**  frame bias), IAU 2006 precession and IAU 2000A nutation models.
+**  frame bias), equinox based, IAU 2006 precession and IAU 2000A
+**  nutation models.
 **
 **  Given:
 **     date1,date2 double       TT as a 2-part Julian Date (Note 1)
 **
 **  Returned:
-**     rnpb        double[3][3] bias-precession-nutation matrix (Note 2)
+**     rbpn        double[3][3] bias-precession-nutation matrix (Note 2)
 **
 **  Notes:
 **
 **  1) The TT date date1+date2 is a Julian Date, apportioned in any
 **     convenient way between the two arguments.  For example,
-**     JD(TT)=2450123.7 could be expressed in any of these ways,
-**     among others:
+**     JD(TT)=2450123.7 could be expressed in any of these ways, among
+**     others:
 **
 **            date1          date2
 **
@@ -29379,7 +25525,7 @@ function eraPnm06a(date1, date2)
 **     optimum resolution.  The MJD method and the date & time methods
 **     are both good compromises between resolution and convenience.
 **
-**  2) The matrix operates in the sense V(date) = rnpb * V(GCRS), where
+**  2) The matrix operates in the sense V(date) = rbpn * V(GCRS), where
 **     the p-vector V(date) is with respect to the true equatorial triad
 **     of date date1+date2 and the p-vector V(GCRS) is with respect to
 **     the Geocentric Celestial Reference System (IAU, 2000).
@@ -29393,13 +25539,15 @@ function eraPnm06a(date1, date2)
 **
 **     Capitaine, N. & Wallace, P.T., 2006, Astron.Astrophys. 450, 855.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
-   var rnpb = [ [0,0,0], [0,0,0], [0,0,0] ];;
-   if (typeof rnpb == 'undefined') {
-      rnpb = [ [0,0,0], [0,0,0], [0,0,0] ];
+   var rbpn = [ [0,0,0], [0,0,0], [0,0,0] ];;
+   if (typeof rbpn == 'undefined') {
+      rbpn = [ [0,0,0], [0,0,0], [0,0,0] ];
    }   var _rv1, _rv2;
 
    var gamb, phib, psib, epsa, dp, de;
@@ -29418,85 +25566,12 @@ function eraPnm06a(date1, date2)
    de = _rv2[1];
 
 /* Equinox based nutation x precession x bias matrix. */
-   rnpb = eraFw2m(gamb, phib, psib + dp, epsa + de);
+   rbpn = eraFw2m(gamb, phib, psib + dp, epsa + de);
 
-   return rnpb;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rbpn;
+};
 function eraPnm80(date1, date2)
 /*
 **  - - - - - - - - -
@@ -29507,16 +25582,16 @@ function eraPnm80(date1, date2)
 **  precession model, IAU 1980 nutation model.
 **
 **  Given:
-**     date1,date2    double         TDB date (Note 1)
+**     date1,date2 double       TT as a 2-part Julian Date (Note 1)
 **
 **  Returned:
 **     rmatpn         double[3][3]   combined precession/nutation matrix
 **
 **  Notes:
 **
-**  1) The TDB date date1+date2 is a Julian Date, apportioned in any
+**  1) The TT date date1+date2 is a Julian Date, apportioned in any
 **     convenient way between the two arguments.  For example,
-**     JD(TDB)=2450123.7 could be expressed in any of these ways,
+**     JD(TT)=2450123.7 could be expressed in any of these ways,
 **     among others:
 **
 **            date1          date2
@@ -29549,7 +25624,9 @@ function eraPnm80(date1, date2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 3.3 (p145).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -29570,83 +25647,10 @@ function eraPnm80(date1, date2)
 /* Combine the matrices:  PN = N x P. */
    rmatpn = eraRxr(rmatn, rmatp);
 
-   return rmatpn;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rmatpn;
+};
 function eraPom00(xp, yp, sp)
 /*
 **  - - - - - - - - - -
@@ -29667,7 +25671,7 @@ function eraPom00(xp, yp, sp)
 **  1) The arguments xp and yp are the coordinates (in radians) of the
 **     Celestial Intermediate Pole with respect to the International
 **     Terrestrial Reference System (see IERS Conventions 2003),
-**     measured along the meridians to 0 and 90 deg west respectively.
+**     measured along the meridians 0 and 90 deg west respectively.
 **
 **  2) The argument sp is the TIO locator s', in radians, which
 **     positions the Terrestrial Intermediate Origin on the equator.  It
@@ -29693,7 +25697,9 @@ function eraPom00(xp, yp, sp)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -29708,83 +25714,10 @@ function eraPom00(xp, yp, sp)
    rpom = eraRy(-xp, rpom);
    rpom = eraRx(-yp, rpom);
 
-   return rpom;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rpom;
+};
 function eraPpp(a, b)
 /*
 **  - - - - - - -
@@ -29804,7 +25737,9 @@ function eraPpp(a, b)
 **     It is permissible to re-use the same array for any of the
 **     arguments.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -29815,83 +25750,10 @@ function eraPpp(a, b)
    apb[1] = a[1] + b[1];
    apb[2] = a[2] + b[2];
 
-   return apb;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return apb;
+};
 function eraPpsp(a, s, b)
 /*
 **  - - - - - - - -
@@ -29915,7 +25777,9 @@ function eraPpsp(a, s, b)
 **     eraSxp       multiply p-vector by scalar
 **     eraPpp       p-vector plus p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -29931,83 +25795,10 @@ function eraPpsp(a, s, b)
 /* a + s*b. */
    apsb = eraPpp(a, sb);
 
-   return apsb;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return apsb;
+};
 function eraPr00(date1, date2)
 /*
 **  - - - - - - - -
@@ -30074,7 +25865,9 @@ function eraPr00(date1, date2)
 **     Wallace, P.T., "Software for Implementing the IAU 2000
 **     Resolutions", in IERS Workshop 5.1 (2002).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -30096,83 +25889,10 @@ function eraPr00(date1, date2)
    dpsipr = PRECOR * t;
    depspr = OBLCOR * t;
 
-   return [dpsipr, depspr];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [dpsipr, depspr];
+};
 function eraPrec76(date01, date02, date11, date12)
 /*
 **  - - - - - - - - - -
@@ -30238,7 +25958,9 @@ function eraPrec76(date01, date02, date11, date12)
 **     Lieske, J.H., 1979, Astron.Astrophys. 73, 282, equations
 **     (6) & (7), p283.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -30267,83 +25989,10 @@ function eraPrec76(date01, date02, date11, date12)
    theta = ((2004.3109 + (-0.85330 - 0.000217 * t0) * t0)
           + ((-0.42665 - 0.000217 * t0) - 0.041833 * t) * t) * tas2r;
 
-   return [zeta, z, theta];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [zeta, z, theta];
+};
 function eraPv2p(pv)
 /*
 **  - - - - - - - -
@@ -30361,7 +26010,9 @@ function eraPv2p(pv)
 **  Called:
 **     eraCp        copy p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -30370,83 +26021,10 @@ function eraPv2p(pv)
 
    p = eraCp(pv[0]);
 
-   return p;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return p;
+};
 function eraPv2s(pv)
 /*
 **  - - - - - - - -
@@ -30479,7 +26057,9 @@ function eraPv2s(pv)
 **  2) If the position is a pole, theta, td and pd are indeterminate.
 **     In such cases zeroes are returned for all three.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -30539,83 +26119,10 @@ function eraPv2s(pv)
    r = rtrue;
    rd = (rw != 0.0) ? (xyp + z*zd) / rw : 0.0;
 
-   return [theta, phi, r, td, pd, rd];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [theta, phi, r, td, pd, rd];
+};
 function eraPvdpv(a, b)
 /*
 **  - - - - - - - - -
@@ -30641,7 +26148,9 @@ function eraPvdpv(a, b)
 **  Called:
 **     eraPdp       scalar product of two p-vectors
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -30663,83 +26172,10 @@ function eraPvdpv(a, b)
 /* Velocity part of result. */
    adb[1] = adbd + addb;
 
-   return adb;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return adb;
+};
 function eraPvm(pv)
 /*
 **  - - - - - - -
@@ -30758,7 +26194,9 @@ function eraPvm(pv)
 **  Called:
 **     eraPm        modulus of p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -30772,83 +26210,10 @@ function eraPvm(pv)
 /* Speed. */
    s = eraPm(pv[1]);
 
-   return [r, s];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [r, s];
+};
 function eraPvmpv(a, b)
 /*
 **  - - - - - - - - -
@@ -30871,7 +26236,9 @@ function eraPvmpv(a, b)
 **  Called:
 **     eraPmp       p-vector minus p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -30881,83 +26248,10 @@ function eraPvmpv(a, b)
    amb[0] = eraPmp(a[0], b[0]);
    amb[1] = eraPmp(a[1], b[1]);
 
-   return amb;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return amb;
+};
 function eraPvppv(a, b)
 /*
 **  - - - - - - - - -
@@ -30980,7 +26274,9 @@ function eraPvppv(a, b)
 **  Called:
 **     eraPpp       p-vector plus p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -30990,83 +26286,10 @@ function eraPvppv(a, b)
    apb[0] = eraPpp(a[0], b[0]);
    apb[1] = eraPpp(a[1], b[1]);
 
-   return apb;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return apb;
+};
 function eraPvstar(pv)
 /*
 **  - - - - - - - - - -
@@ -31159,7 +26382,9 @@ function eraPvstar(pv)
 **
 **     Stumpff, P., 1985, Astron.Astrophys. 144, 232-240.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -31229,8 +26454,10 @@ function eraPvstar(pv)
 /* Return radial velocity in km/s. */
    rv = 1e-3 * rd * ERFA_DAU / ERFA_DAYSEC;
 
-/* OK status. */
+/* Success. */
    return [ 0, ra, dec, pmr, pmd, px, rv ];
+
+/* Finished. */
 
 }
 /*
@@ -31366,7 +26593,9 @@ function eraPvtob(elong, phi, hm, xp, yp, sp, theta)
 **     eraPom00     polar motion matrix
 **     eraTrxp      product of transpose of r-matrix and p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -31436,7 +26665,9 @@ function eraPvu(dt, pv)
 **     eraPpsp      p-vector plus scaled p-vector
 **     eraCp        copy p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -31446,83 +26677,10 @@ function eraPvu(dt, pv)
    upv[0] = eraPpsp(pv[0], dt, pv[1]);
    upv[1] = eraCp(pv[1]);
 
-   return upv;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return upv;
+};
 function eraPvup(dt, pv)
 /*
 **  - - - - - - - -
@@ -31545,7 +26703,9 @@ function eraPvup(dt, pv)
 **
 **  2) The time units of dt must match those of the velocity.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -31556,83 +26716,10 @@ function eraPvup(dt, pv)
    p[1] = pv[0][1] + dt * pv[1][1];
    p[2] = pv[0][2] + dt * pv[1][2];
 
-   return p;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return p;
+};
 function eraPvxpv(a, b)
 /*
 **  - - - - - - - - -
@@ -31663,7 +26750,9 @@ function eraPvxpv(a, b)
 **     eraPxp       vector product of two p-vectors
 **     eraPpp       p-vector plus p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -31685,83 +26774,10 @@ function eraPvxpv(a, b)
    adxb = eraPxp(wa[1], wb[0]);
    axb[1] = eraPpp(axbd, adxb);
 
-   return axb;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return axb;
+};
 function eraPxp(a, b)
 /*
 **  - - - - - - -
@@ -31781,7 +26797,9 @@ function eraPxp(a, b)
 **     It is permissible to re-use the same array for any of the
 **     arguments.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -31801,83 +26819,10 @@ function eraPxp(a, b)
    axb[1] = za*xb - xa*zb;
    axb[2] = xa*yb - ya*xb;
 
-   return axb;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return axb;
+};
 function eraRefco(phpa, tc, rh, wl)
 /*
 **  - - - - - - - - -
@@ -31989,6 +26934,7 @@ function eraRefco(phpa, tc, rh, wl)
 **        total pressure, water-vapour pressure and, in the case
 **        of optical/IR, wavelength.  The formulae for the two cases are
 **        developed from Hohenkerk & Sinclair (1985) and Rueger (2002).
+**        The IAG (1999) optical refractivity for dry air is used.
 **
 **     d) The formula for beta, the ratio of the scale height of the
 **        atmosphere to the geocentric distance of the observer, is
@@ -32015,6 +26961,9 @@ function eraRefco(phpa, tc, rh, wl)
 **     Hohenkerk, C.Y., & Sinclair, A.T., NAO Technical Note No. 63,
 **     1985.
 **
+**     IAG Resolutions adopted at the XXIIth General Assembly in
+**     Birmingham, 1999, Resolution 3.
+**
 **     Rueger, J.M., "Refractive Index Formulae for Electronic Distance
 **     Measurement with Radio and Millimetre Waves", in Unisurv Report
 **     S-68, School of Surveying and Spatial Information Systems,
@@ -32022,7 +26971,9 @@ function eraRefco(phpa, tc, rh, wl)
 **
 **     Stone, Ronald C., P.A.S.P. 108, 1051-1058, 1996.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -32109,7 +27060,9 @@ function eraRm2v(r)
 **  3) The reference frame rotates clockwise as seen looking along
 **     the rotation vector from the origin.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -32136,83 +27089,10 @@ function eraRm2v(r)
       w[2] = 0.0;
    }
 
-   return w;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return w;
+};
 function eraRv2m(w, r)
 /*
 **  - - - - - - - -
@@ -32234,12 +27114,14 @@ function eraRv2m(w, r)
 **     supplied to This function has the same direction as the Euler
 **     axis, and its magnitude is the angle in radians.
 **
-**  2) If w is null, the unit matrix is returned.
+**  2) If w is null, the identity matrix is returned.
 **
 **  3) The reference frame rotates clockwise as seen looking along the
 **     rotation vector from the origin.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -32277,83 +27159,10 @@ function eraRv2m(w, r)
    r[2][1] = z*y*f - x*s;
    r[2][2] = z*z*f + c;
 
-   return r;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return r;
+};
 function eraRx(phi, r)
 /*
 **  - - - - - -
@@ -32382,7 +27191,9 @@ function eraRx(phi, r)
 **         (                               )
 **         (  0   - sin(phi)   + cos(phi)  )
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -32410,83 +27221,10 @@ function eraRx(phi, r)
    r[2][1] = a21;
    r[2][2] = a22;
 
-   return r;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return r;
+};
 function eraRxp(r, p)
 /*
 **  - - - - - - -
@@ -32508,7 +27246,9 @@ function eraRxp(r, p)
 **  Called:
 **     eraCp        copy p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -32531,83 +27271,10 @@ function eraRxp(r, p)
 /* Return the result. */
    rp = eraCp(wrp);
 
-   return rp;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rp;
+};
 function eraRxpv(r, pv)
 /*
 **  - - - - - - - -
@@ -32623,13 +27290,21 @@ function eraRxpv(r, pv)
 **  Returned:
 **     rpv      double[2][3]    r * pv
 **
-**  Note:
-**     It is permissible for pv and rpv to be the same array.
+**  Notes:
+**
+**  1) The algorithm is for the simple case where the r-matrix r is not
+**     a function of time.  The case where r is a function of time leads
+**     to an additional velocity component equal to the product of the
+**     derivative of r and the position vector.
+**
+**  2) It is permissible for pv and rpv to be the same array.
 **
 **  Called:
 **     eraRxp       product of r-matrix and p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -32639,83 +27314,10 @@ function eraRxpv(r, pv)
    rpv[0] = eraRxp(r, pv[0]);
    rpv[1] = eraRxp(r, pv[1]);
 
-   return rpv;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rpv;
+};
 function eraRxr(a, b)
 /*
 **  - - - - - - -
@@ -32738,7 +27340,9 @@ function eraRxr(a, b)
 **  Called:
 **     eraCr        copy r-matrix
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -32762,83 +27366,10 @@ function eraRxr(a, b)
    }
    atb = eraCr(wm);
 
-   return atb;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return atb;
+};
 function eraRy(theta, r)
 /*
 **  - - - - - -
@@ -32867,7 +27398,9 @@ function eraRy(theta, r)
 **         (                                        )
 **         (  + sin(theta)     0      + cos(theta)  )
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -32895,83 +27428,10 @@ function eraRy(theta, r)
    r[2][1] = a21;
    r[2][2] = a22;
 
-   return r;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return r;
+};
 function eraRz(psi, r)
 /*
 **  - - - - - -
@@ -33000,7 +27460,9 @@ function eraRz(psi, r)
 **         (                                 )
 **         (       0            0         1  )
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -33028,83 +27490,10 @@ function eraRz(psi, r)
    r[1][1] = a11;
    r[1][2] = a12;
 
-   return r;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return r;
+};
 function eraS00(date1, date2, x, y)
 /*
 **  - - - - - - -
@@ -33181,7 +27570,9 @@ function eraS00(date1, date2, x, y)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -33372,43 +27763,43 @@ function eraS00(date1, date2, x, y)
    w5 = sp[5];
 
    for (i = ~~(NS0-1); i >= 0; i--) {
-   a = 0.0;
-   for (j = 0; j < 8; j++) {
-       a += s0[i][j] * fa[j];
-   }
-   w0 += s0[i][8] * Math.sin(a) + s0[i][9] * Math.cos(a);
+      a = 0.0;
+      for (j = 0; j < 8; j++) {
+          a += s0[i][j] * fa[j];
+      }
+      w0 += s0[i][8] * Math.sin(a) + s0[i][9] * Math.cos(a);
    }
 
    for (i = ~~(NS1-1); i >= 0; i--) {
-   a = 0.0;
-   for (j = 0; j < 8; j++) {
-       a += s1[i][j] * fa[j];
-   }
-   w1 += s1[i][8] * Math.sin(a) + s1[i][9] * Math.cos(a);
+      a = 0.0;
+      for (j = 0; j < 8; j++) {
+          a += s1[i][j] * fa[j];
+      }
+      w1 += s1[i][8] * Math.sin(a) + s1[i][9] * Math.cos(a);
    }
 
    for (i = ~~(NS2-1); i >= 0; i--) {
-   a = 0.0;
-   for (j = 0; j < 8; j++) {
-       a += s2[i][j] * fa[j];
-   }
-   w2 += s2[i][8] * Math.sin(a) + s2[i][9] * Math.cos(a);
+      a = 0.0;
+      for (j = 0; j < 8; j++) {
+          a += s2[i][j] * fa[j];
+      }
+      w2 += s2[i][8] * Math.sin(a) + s2[i][9] * Math.cos(a);
    }
 
    for (i = ~~(NS3-1); i >= 0; i--) {
-   a = 0.0;
-   for (j = 0; j < 8; j++) {
-       a += s3[i][j] * fa[j];
-   }
-   w3 += s3[i][8] * Math.sin(a) + s3[i][9] * Math.cos(a);
+      a = 0.0;
+      for (j = 0; j < 8; j++) {
+          a += s3[i][j] * fa[j];
+      }
+      w3 += s3[i][8] * Math.sin(a) + s3[i][9] * Math.cos(a);
    }
 
    for (i = ~~(NS4-1); i >= 0; i--) {
-   a = 0.0;
-   for (j = 0; j < 8; j++) {
-       a += s4[i][j] * fa[j];
-   }
-   w4 += s4[i][8] * Math.sin(a) + s4[i][9] * Math.cos(a);
+      a = 0.0;
+      for (j = 0; j < 8; j++) {
+          a += s4[i][j] * fa[j];
+      }
+      w4 += s4[i][8] * Math.sin(a) + s4[i][9] * Math.cos(a);
    }
 
    s = (w0 +
@@ -33419,6 +27810,8 @@ function eraS00(date1, date2, x, y)
         w5 * t) * t) * t) * t) * t) * ERFA_DAS2R - x*y/2.0;
 
    return s;
+
+/* Finished. */
 
 }
 /*
@@ -33564,7 +27957,9 @@ function eraS00a(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -33585,6 +27980,8 @@ function eraS00a(date1, date2)
    s = eraS00(date1, date2, x, y);
 
    return s;
+
+/* Finished. */
 
 }
 /*
@@ -33730,7 +28127,9 @@ function eraS00b(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -33751,6 +28150,8 @@ function eraS00b(date1, date2)
    s = eraS00(date1, date2, x, y);
 
    return s;
+
+/* Finished. */
 
 }
 /*
@@ -33900,7 +28301,9 @@ function eraS06(date1, date2, x, y)
 **     McCarthy, D.D., Petit, G. (eds.) 2004, IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -34139,6 +28542,8 @@ function eraS06(date1, date2, x, y)
 
    return s;
 
+/* Finished. */
+
 }
 /*
  *+----------------------------------------------------------------------
@@ -34285,7 +28690,9 @@ function eraS06a(date1, date2)
 **
 **     Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -34306,6 +28713,8 @@ function eraS06a(date1, date2)
    s = eraS06(date1, date2, x, y);
 
    return s;
+
+/* Finished. */
 
 }
 /*
@@ -34397,7 +28806,9 @@ function eraS2c(theta, phi)
 **  Returned:
 **     c        double[3]    direction cosines
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -34412,83 +28823,10 @@ function eraS2c(theta, phi)
    c[1] = Math.sin(theta) * cp;
    c[2] = Math.sin(phi);
 
-   return c;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return c;
+};
 function eraS2p(theta, phi, r)
 /*
 **  - - - - - - -
@@ -34509,7 +28847,9 @@ function eraS2p(theta, phi, r)
 **     eraS2c       spherical coordinates to unit vector
 **     eraSxp       multiply p-vector by scalar
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -34522,83 +28862,10 @@ function eraS2p(theta, phi, r)
    u = eraS2c(theta, phi);
    p = eraSxp(r, u);
 
-   return p;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return p;
+};
 function eraS2pv(theta, phi, r, td, pd, rd)
 /*
 **  - - - - - - - -
@@ -34618,7 +28885,9 @@ function eraS2pv(theta, phi, r, td, pd, rd)
 **  Returned:
 **     pv       double[2][3]    pv-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -34645,83 +28914,10 @@ function eraS2pv(theta, phi, r, td, pd, rd)
    pv[1][1] =  x*td - w*st;
    pv[1][2] = rpd*cp + sp*rd;
 
-   return pv;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return pv;
+};
 function eraS2xpv(s1, s2, pv)
 /*
 **  - - - - - - - - -
@@ -34744,7 +28940,9 @@ function eraS2xpv(s1, s2, pv)
 **  Called:
 **     eraSxp       multiply p-vector by scalar
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -34754,83 +28952,10 @@ function eraS2xpv(s1, s2, pv)
    spv[0] = eraSxp(s1, pv[0]);
    spv[1] = eraSxp(s2, pv[1]);
 
-   return spv;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return spv;
+};
 function eraSepp(a, b)
 /*
 **  - - - - - - - -
@@ -34861,7 +28986,9 @@ function eraSepp(a, b)
 **     eraPm        modulus of p-vector
 **     eraPdp       scalar product of two p-vectors
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -34879,6 +29006,8 @@ function eraSepp(a, b)
    s = ((ss != 0.0) || (cs != 0.0)) ? Math.atan2(ss, cs) : 0.0;
 
    return s;
+
+/* Finished. */
 
 }
 /*
@@ -34976,7 +29105,9 @@ function eraSeps(al, ap, bl, bp)
 **     eraS2c       spherical coordinates to unit vector
 **     eraSepp      angular separation between two p-vectors
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -34991,6 +29122,8 @@ function eraSeps(al, ap, bl, bp)
    s = eraSepp(ac, bc);
 
    return s;
+
+/* Finished. */
 
 }
 /*
@@ -35114,7 +29247,9 @@ function eraSp00(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -35128,6 +29263,8 @@ function eraSp00(date1, date2)
    sp = -47e-6 * t * ERFA_DAS2R;
 
    return sp;
+
+/* Finished. */
 
 }
 /*
@@ -35306,7 +29443,9 @@ function eraStarpm(ra1, dec1, pmr1, pmd1, px1, rv1, ep1a, ep1b, ep2a, ep2b)
 **     eraPdp       scalar product of two p-vectors
 **     eraPvstar    space motion pv-vector to star catalog data
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -35362,6 +29501,8 @@ function eraStarpm(ra1, dec1, pmr1, pmd1, px1, rv1, ep1a, ep1b, ep2a, ep2b)
    j = ~~((j2 == 0) ? j1 : -1);
 
    return [ j, ra2, dec2, pmr2, pmd2, px2, rv2 ];
+
+/* Finished. */
 
 }
 /*
@@ -35549,7 +29690,9 @@ function eraStarpv(ra, dec, pmr, pmd, px, rv)
 **
 **     Stumpff, P., 1985, Astron.Astrophys. 144, 232-240.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -35647,6 +29790,8 @@ function eraStarpv(ra, dec, pmr, pmd, px, rv)
 /* Return the status. */
    return [ iwarn, pv ];
 
+/* Finished. */
+
 }
 /*
  *+----------------------------------------------------------------------
@@ -35740,7 +29885,9 @@ function eraSxp(s, p)
 **  Note:
 **     It is permissible for p and sp to be the same array.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -35751,83 +29898,10 @@ function eraSxp(s, p)
    sp[1] = s * p[1];
    sp[2] = s * p[2];
 
-   return sp;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return sp;
+};
 function eraSxpv(s, pv)
 /*
 **  - - - - - - - -
@@ -35844,12 +29918,14 @@ function eraSxpv(s, pv)
 **     spv     double[2][3]    s * pv
 **
 **  Note:
-**     It is permissible for pv and spv to be the same array
+**     It is permissible for pv and spv to be the same array.
 **
 **  Called:
 **     eraS2xpv     multiply pv-vector by two scalars
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -35858,83 +29934,10 @@ function eraSxpv(s, pv)
 
    spv = eraS2xpv(s, s, pv);
 
-   return spv;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return spv;
+};
 function eraTaitt(tai1, tai2)
 /*
 **  - - - - - - - - -
@@ -35968,7 +29971,9 @@ function eraTaitt(tai1, tai2)
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -35991,6 +29996,8 @@ function eraTaitt(tai1, tai2)
 
 /* Status (always OK). */
    return [ 0, tt1, tt2 ];
+
+/* Finished. */
 
 }
 /*
@@ -36101,7 +30108,9 @@ function eraTaiut1(tai1, tai2, dta)
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -36124,6 +30133,8 @@ function eraTaiut1(tai1, tai2, dta)
 
 /* Status (always OK). */
    return [ 0, ut11, ut12 ];
+
+/* Finished. */
 
 }
 /*
@@ -36256,7 +30267,9 @@ function eraTaiutc(tai1, tai2)
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -36308,6 +30321,8 @@ function eraTaiutc(tai1, tai2)
 
 /* Status. */
    return [ j, utc1, utc2 ];
+
+/* Finished. */
 
 }
 /*
@@ -36431,7 +30446,9 @@ function eraTcbtdb(tcb1, tcb2)
 **
 **     IAU 2006 Resolution B3
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -36462,6 +30479,8 @@ function eraTcbtdb(tcb1, tcb2)
 
 /* Status (always OK). */
    return [ 0, tdb1, tdb2 ];
+
+/* Finished. */
 
 }
 /*
@@ -36565,12 +30584,14 @@ function eraTcgtt(tcg1, tcg2)
 **
 **  References:
 **
-**     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),.
+**     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
 **     IAU 2000 Resolution B1.9
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -36593,6 +30614,8 @@ function eraTcgtt(tcg1, tcg2)
 
 /* OK status. */
    return [ 0, tt1, tt2 ];
+
+/* Finished. */
 
 }
 /*
@@ -36716,7 +30739,9 @@ function eraTdbtcb(tdb1, tdb2)
 **
 **     IAU 2006 Resolution B3
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -36752,6 +30777,8 @@ function eraTdbtcb(tdb1, tdb2)
 
 /* Status (always OK). */
    return [ 0, tcb1, tcb2 ];
+
+/* Finished. */
 
 }
 /*
@@ -36872,7 +30899,9 @@ function eraTdbtt(tdb1, tdb2, dtr)
 **
 **     IAU 2006 Resolution 3
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -36895,6 +30924,8 @@ function eraTdbtt(tdb1, tdb2, dtr)
 
 /* Status (always OK). */
    return [ 0, tt1, tt2  ];
+
+/* Finished. */
 
 }
 /*
@@ -37004,7 +31035,9 @@ function eraTf2a(s, ihour, imin, sec)
 **  3)  If there are multiple errors, the status value reflects only the
 **      first, the smallest taking precedence.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -37022,6 +31055,8 @@ function eraTf2a(s, ihour, imin, sec)
    if ( imin < 0 || imin > 59 ) return [ 2, rad ];
    if ( sec < 0.0 || sec >= 60.0 ) return [ 3, rad ];
    return [ 0, rad ];
+
+/* Finished. */
 
 }
 /*
@@ -37131,7 +31166,9 @@ function eraTf2d(s, ihour, imin, sec)
 **  3)  If there are multiple errors, the status value reflects only the
 **      first, the smallest taking precedence.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -37149,6 +31186,8 @@ function eraTf2d(s, ihour, imin, sec)
    if ( imin < 0 || imin > 59 ) return [ 2, days ];
    if ( sec < 0.0 || sec >= 60.0 ) return [ 3, days ];
    return [ 0, days ];
+
+/* Finished. */
 
 }
 /*
@@ -37245,7 +31284,9 @@ function eraTr(r)
 **  Called:
 **     eraCr        copy r-matrix
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -37265,83 +31306,10 @@ function eraTr(r)
    }
    rt = eraCr(wm);
 
-   return rt;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return rt;
+};
 function eraTrxp(r, p)
 /*
 **  - - - - - - - -
@@ -37355,7 +31323,7 @@ function eraTrxp(r, p)
 **     p        double[3]      p-vector
 **
 **  Returned:
-**     trp      double[3]      r * p
+**     trp      double[3]      r^T * p
 **
 **  Note:
 **     It is permissible for p and trp to be the same array.
@@ -37364,7 +31332,9 @@ function eraTrxp(r, p)
 **     eraTr        transpose r-matrix
 **     eraRxp       product of r-matrix and p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -37380,83 +31350,10 @@ function eraTrxp(r, p)
 /* Matrix tr * vector p -> vector trp. */
    trp = eraRxp(tr, p);
 
-   return trp;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return trp;
+};
 function eraTrxpv(r, pv)
 /*
 **  - - - - - - - - -
@@ -37470,16 +31367,24 @@ function eraTrxpv(r, pv)
 **     pv       double[2][3]    pv-vector
 **
 **  Returned:
-**     trpv     double[2][3]    r * pv
+**     trpv     double[2][3]    r^T * pv
 **
-**  Note:
-**     It is permissible for pv and trpv to be the same array.
+**  Notes:
+**
+**  1) The algorithm is for the simple case where the r-matrix r is not
+**     a function of time.  The case where r is a function of time leads
+**     to an additional velocity component equal to the product of the
+**     derivative of the transpose of r and the position vector.
+**
+**  2) It is permissible for pv and rpv to be the same array.
 **
 **  Called:
 **     eraTr        transpose r-matrix
 **     eraRxpv      product of r-matrix and pv-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -37495,83 +31400,10 @@ function eraTrxpv(r, pv)
 /* Matrix tr * vector pv -> vector trpv. */
    trpv = eraRxpv(tr, pv);
 
-   return trpv;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return trpv;
+};
 function eraTttai(tt1, tt2)
 /*
 **  - - - - - - - - -
@@ -37605,7 +31437,9 @@ function eraTttai(tt1, tt2)
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -37628,6 +31462,8 @@ function eraTttai(tt1, tt2)
 
 /* Status (always OK). */
    return [ 0, tai1, tai2 ];
+
+/* Finished. */
 
 }
 /*
@@ -37736,7 +31572,9 @@ function eraTttcg(tt1, tt2)
 **
 **     IAU 2000 Resolution B1.9
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -37762,6 +31600,8 @@ function eraTttcg(tt1, tt2)
 
 /* Status (always OK). */
    return [ 0, tcg1, tcg2 ];
+
+/* Finished. */
 
 }
 /*
@@ -37882,7 +31722,9 @@ function eraTttdb(tt1, tt2, dtr)
 **
 **     IAU 2006 Resolution 3
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -37905,6 +31747,8 @@ function eraTttdb(tt1, tt2, dtr)
 
 /* Status (always OK). */
    return [ 0, tdb1, tdb2 ];
+
+/* Finished. */
 
 }
 /*
@@ -38014,7 +31858,9 @@ function eraTtut1(tt1, tt2, dt)
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -38037,6 +31883,8 @@ function eraTtut1(tt1, tt2, dt)
 
 /* Status (always OK). */
    return [ 0, ut11, ut12 ];
+
+/* Finished. */
 
 }
 /*
@@ -38147,7 +31995,9 @@ function eraUt1tai(ut11, ut12, dta)
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -38170,6 +32020,8 @@ function eraUt1tai(ut11, ut12, dta)
 
 /* Status (always OK). */
    return [ 0, tai1, tai2 ];
+
+/* Finished. */
 
 }
 /*
@@ -38279,7 +32131,9 @@ function eraUt1tt(ut11, ut12, dt)
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -38302,6 +32156,8 @@ function eraUt1tt(ut11, ut12, dt)
 
 /* Status (always OK). */
    return [ 0, tt1, tt2 ];
+
+/* Finished. */
 
 }
 /*
@@ -38415,8 +32271,8 @@ function eraUt1utc(ut11, ut12, dut1)
 **
 **  3) JD cannot unambiguously represent UTC during a leap second unless
 **     special measures are taken.  The convention in the present
-**     function is that the returned quasi JD day UTC1+UTC2 represents
-**     UTC days whether the length is 86399, 86400 or 86401 SI seconds.
+**     function is that the returned quasi-JD UTC1+UTC2 represents UTC
+**     days whether the length is 86399, 86400 or 86401 SI seconds.
 **
 **  4) The function eraD2dtf can be used to transform the UTC quasi-JD
 **     into calendar date and clock time, including UTC leap second
@@ -38439,7 +32295,9 @@ function eraUt1utc(ut11, ut12, dut1)
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -38526,6 +32384,8 @@ function eraUt1utc(ut11, ut12, dut1)
 
 /* Status. */
    return [ js, utc1, utc2 ];
+
+/* Finished. */
 
 }
 /*
@@ -38660,7 +32520,9 @@ function eraUtctai(utc1, utc2)
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -38740,6 +32602,8 @@ function eraUtctai(utc1, utc2)
 
 /* Status. */
    return [ j, tai1, tai2 ];
+
+/* Finished. */
 
 }
 /*
@@ -38878,7 +32742,9 @@ function eraUtcut1(utc1, utc2, dut1)
 **     eraUtctai    UTC to TAI
 **     eraTaiut1    TAI to UT1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -38920,6 +32786,8 @@ function eraUtcut1(utc1, utc2, dut1)
 
 /* Status. */
    return [ js, ut11, ut12 ];
+
+/* Finished. */
 
 }
 /*
@@ -39081,7 +32949,9 @@ function eraXy06(date1, date2)
 **
 **     Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -41698,83 +35568,10 @@ function eraXy06(date1, date2)
    x = ERFA_DAS2R * (xypr[0] + (xyls[0] + xypl[0]) / 1e6);
    y = ERFA_DAS2R * (xypr[1] + (xyls[1] + xypl[1]) / 1e6);
 
-   return [x, y];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [x, y];
+};
 function eraXys00a(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -41790,7 +35587,7 @@ function eraXys00a(date1, date2)
 **
 **  Returned:
 **     x,y          double   Celestial Intermediate Pole (Note 2)
-**     s            double   the CIO locator s (Note 2)
+**     s            double   the CIO locator s (Note 3)
 **
 **  Notes:
 **
@@ -41833,7 +35630,9 @@ function eraXys00a(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -41856,83 +35655,10 @@ function eraXys00a(date1, date2)
 /* Obtain s. */
    s = eraS00(date1, date2, x, y);
 
-   return [x, y, s];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [x, y, s];
+};
 function eraXys00b(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -41948,7 +35674,7 @@ function eraXys00b(date1, date2)
 **
 **  Returned:
 **     x,y          double   Celestial Intermediate Pole (Note 2)
-**     s            double   the CIO locator s (Note 2)
+**     s            double   the CIO locator s (Note 3)
 **
 **  Notes:
 **
@@ -41991,7 +35717,9 @@ function eraXys00b(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -42014,83 +35742,10 @@ function eraXys00b(date1, date2)
 /* Obtain s. */
    s = eraS00(date1, date2, x, y);
 
-   return [x, y, s];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [x, y, s];
+};
 function eraXys06a(date1, date2)
 /*
 **  - - - - - - - - - -
@@ -42106,7 +35761,7 @@ function eraXys06a(date1, date2)
 **
 **  Returned:
 **     x,y          double  Celestial Intermediate Pole (Note 2)
-**     s            double  the CIO locator s (Note 2)
+**     s            double  the CIO locator s (Note 3)
 **
 **  Notes:
 **
@@ -42149,7 +35804,9 @@ function eraXys06a(date1, date2)
 **
 **     Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -42172,83 +35829,10 @@ function eraXys06a(date1, date2)
 /* Obtain s. */
    s = eraS06(date1, date2, x, y);
 
-   return [x, y, s];
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return [x, y, s];
+};
 function eraZp(p)
 /*
 **  - - - - - -
@@ -42258,9 +35842,11 @@ function eraZp(p)
 **  Zero a p-vector.
 **
 **  Returned:
-**     p        double[3]      p-vector
+**     p        double[3]      zero p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -42272,83 +35858,10 @@ function eraZp(p)
    p[1] = 0.0;
    p[2] = 0.0;
 
-   return p;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return p;
+};
 function eraZpv(pv)
 /*
 **  - - - - - - -
@@ -42358,12 +35871,14 @@ function eraZpv(pv)
 **  Zero a pv-vector.
 **
 **  Returned:
-**     pv       double[2][3]      pv-vector
+**     pv       double[2][3]      zero pv-vector
 **
 **  Called:
 **     eraZp        zero p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -42374,83 +35889,10 @@ function eraZpv(pv)
    pv[0] = eraZp(pv[0]);
    pv[1] = eraZp(pv[1]);
 
-   return pv;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return pv;
+};
 function eraZr(r)
 /*
 **  - - - - - -
@@ -42462,7 +35904,9 @@ function eraZr(r)
 **  Returned:
 **     r        double[3][3]    r-matrix
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -42480,83 +35924,10 @@ function eraZr(r)
    r[2][1] = 0.0;
    r[2][2] = 0.0;
 
-   return r;
+/* Finished. */
 
-}
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/
-;
+return r;
+};
 function eraLtpequ(epj)
 /*
 **  - - - - - - - - - -
@@ -42593,7 +35964,9 @@ function eraLtpequ(epj)
 **    expressions, valid for long time intervals (Corrigendum),
 **    Astron.Astrophys. 541, C1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -42672,6 +36045,8 @@ function eraLtpequ(epj)
    w = 1.0 - x*x - y*y;
    veq[2] = w < 0.0 ? 0.0 : Math.sqrt(w);
 
+/* Finished. */
+
 return veq;
 };
 function eraLtpecl(epj)
@@ -42710,7 +36085,9 @@ function eraLtpecl(epj)
 **    expressions, valid for long time intervals (Corrigendum),
 **    Astron.Astrophys. 541, C1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -42789,6 +36166,8 @@ function eraLtpecl(epj)
    vec[1] = - q*c - w*s;
    vec[2] = - q*s + w*c;
 
+/* Finished. */
+
 return vec;
 };
 function eraLtpb(epj)
@@ -42836,7 +36215,9 @@ function eraLtpb(epj)
 **    expressions, valid for long time intervals (Corrigendum),
 **    Astron.Astrophys. 541, C1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -42863,6 +36244,8 @@ function eraLtpb(epj)
       rpb[i][1] =  rp[i][0]*dr + rp[i][1]    + rp[i][2]*de;
       rpb[i][2] = -rp[i][0]*dx - rp[i][1]*de + rp[i][2];
    }
+
+/* Finished. */
 
 return rpb;
 };
@@ -42913,7 +36296,9 @@ function eraLtp(epj)
 **    expressions, valid for long time intervals (Corrigendum),
 **    Astron.Astrophys. 541, C1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -42947,6 +36332,8 @@ function eraLtp(epj)
       rp[1][i] = v[i];
       rp[2][i] = peqr[i];
    }
+
+/* Finished. */
 
 return rp;
 };
@@ -43001,7 +36388,9 @@ function eraLteqec(epj, dr, dd)
 **    expressions, valid for long time intervals (Corrigendum),
 **    Astron.Astrophys. 541, C1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -43029,6 +36418,8 @@ function eraLteqec(epj, dr, dd)
 /* Express in conventional ranges. */
    dl = eraAnp(a);
    db = eraAnpm(b);
+
+/* Finished. */
 
 return [dl, db];
 };
@@ -43088,7 +36479,9 @@ function eraLtecm(epj)
 **    expressions, valid for long time intervals (Corrigendum),
 **    Astron.Astrophys. 541, C1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -43130,6 +36523,8 @@ function eraLtecm(epj)
    rm[2][0] =   z[0]    - z[1]*dr + z[2]*dx;
    rm[2][1] =   z[0]*dr + z[1]    + z[2]*de;
    rm[2][2] = - z[0]*dx - z[1]*de + z[2];
+
+/* Finished. */
 
 return rm;
 };
@@ -43183,7 +36578,9 @@ function eraLteceq(epj, dl, db)
 **    expressions, valid for long time intervals (Corrigendum),
 **    Astron.Astrophys. 541, C1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -43211,6 +36608,8 @@ function eraLteceq(epj, dl, db)
 /* Express in conventional ranges. */
    dr = eraAnp(a);
    dd = eraAnpm(b);
+
+/* Finished. */
 
 return [dr, dd];
 };
@@ -43275,7 +36674,9 @@ function eraIcrs2g( dr, dd)
 **     derived from the ESA Hipparcos Space Astrometry Mission.  ESA
 **     Publications Division, Noordwijk, Netherlands.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 January 25
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -43291,8 +36692,8 @@ function eraIcrs2g( dr, dd)
 **
 **  P = 192.85948    right ascension of the Galactic north pole in ICRS
 **  Q =  27.12825    declination of the Galactic north pole in ICRS
-**  R =  32.93192    longitude of the ascending node of the Galactic
-**                   plane on the ICRS equator
+**  R =  32.93192    Galactic longitude of the ascending node of
+**                   the Galactic equator on the ICRS equator
 **
 **  ICRS to galactic rotation matrix, obtained by computing
 **  R_3(-R) R_1(pi/2-Q) R_3(pi/2+P) to the full precision shown:
@@ -43388,7 +36789,9 @@ function eraG2icrs( dl, db)
 **     derived from the ESA Hipparcos Space Astrometry Mission.  ESA
 **     Publications Division, Noordwijk, Netherlands.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 January 25
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -43404,8 +36807,8 @@ function eraG2icrs( dl, db)
 **
 **  P = 192.85948    right ascension of the Galactic north pole in ICRS
 **  Q =  27.12825    declination of the Galactic north pole in ICRS
-**  R =  32.93192    longitude of the ascending node of the Galactic
-**                   plane on the ICRS equator
+**  R =  32.93192    Galactic longitude of the ascending node of
+**                   the Galactic equator on the ICRS equator
 **
 **  ICRS to galactic rotation matrix, obtained by computing
 **  R_3(-R) R_1(pi/2-Q) R_3(pi/2+P) to the full precision shown:
@@ -43493,7 +36896,9 @@ function eraEqec06(date1, date2, dr, dd)
 **     eraAnp       normalize angle into range 0 to 2pi
 **     eraAnpm      normalize angle into range +/- pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -43521,6 +36926,8 @@ function eraEqec06(date1, date2, dr, dd)
 /* Express in conventional ranges. */
    dl = eraAnp(a);
    db = eraAnpm(b);
+
+/* Finished. */
 
 return [dl, db];
 };
@@ -43583,7 +36990,9 @@ function eraEcm06(date1, date2)
 **     eraRx        rotate around X-axis
 **     eraRxr       product of two r-matrices
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -43607,6 +37016,8 @@ function eraEcm06(date1, date2)
 
 /* ICRS to ecliptic coordinates rotation matrix, IAU 2006. */
    rm = eraRxr(e, bp);
+
+/* Finished. */
 
 return rm;
 };
@@ -43662,7 +37073,9 @@ function eraEceq06(date1, date2, dl, db)
 **     eraAnp       normalize angle into range 0 to 2pi
 **     eraAnpm      normalize angle into range +/- pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -43690,6 +37103,8 @@ function eraEceq06(date1, date2, dl, db)
 /* Express in conventional ranges. */
    dr = eraAnp(a);
    dd = eraAnpm(b);
+
+/* Finished. */
 
 return [dr, dd];
 };
@@ -43751,9 +37166,9 @@ function eraAe2hd(az, el, phi)
 **
 **  Last revision:   2017 September 12
 **
-**  ERFA release 2019-07-22
+**  ERFA release 2021-05-12
 **
-**  Copyright (C) 2019 IAU ERFA Board.  See notes at end.
+**  Copyright (C) 2021 IAU ERFA Board.  See notes at end.
 */
 {
    var ha = 0.0;;
@@ -43840,11 +37255,11 @@ function eraHd2ae(ha, dec, phi)
 **  7)  Again for efficiency, no range checking of arguments is carried
 **      out.
 **
-**  Last revision:   2017 September 12
+**  Last revision:   2021 February 24
 **
-**  ERFA release 2019-07-22
+**  ERFA release 2021-05-12
 **
-**  Copyright (C) 2019 IAU ERFA Board.  See notes at end.
+**  Copyright (C) 2021 IAU ERFA Board.  See notes at end.
 */
 {
    var az = 0.0;;
@@ -43923,9 +37338,9 @@ function eraHd2pa(ha, dec, phi)
 **
 **  Last revision:   2017 September 12
 **
-**  ERFA release 2019-07-22
+**  ERFA release 2021-05-12
 **
-**  Copyright (C) 2019 IAU ERFA Board.  See notes at end.
+**  Copyright (C) 2021 IAU ERFA Board.  See notes at end.
 */
 {
    var cp, cqsz, sqsz;
@@ -44095,7 +37510,9 @@ function eraTpors(xi, eta, a, b)
 **     Green, R.M., "Spherical Astronomy", Cambridge University Press,
 **     1987, Chapter 13.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2018 January 2
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -44286,7 +37703,9 @@ function eraTporv(xi, eta, v)
 **     Green, R.M., "Spherical Astronomy", Cambridge University Press,
 **     1987, Chapter 13.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2018 January 2
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -44449,7 +37868,9 @@ function eraTpsts(xi, eta, a0, b0)
 **     Green, R.M., "Spherical Astronomy", Cambridge University Press,
 **     1987, Chapter 13.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2018 January 2
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -44528,7 +37949,9 @@ function eraTpstv(xi, eta, v0)
 **     Green, R.M., "Spherical Astronomy", Cambridge University Press,
 **     1987, Chapter 13.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2018 January 2
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -44615,7 +38038,9 @@ function eraTpxes(a, b, a0, b0)
 **     Green, R.M., "Spherical Astronomy", Cambridge University Press,
 **     1987, Chapter 13.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2018 January 2
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -44802,7 +38227,9 @@ function eraTpxev(v, v0)
 **     Green, R.M., "Spherical Astronomy", Cambridge University Press,
 **     1987, Chapter 13.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2018 January 2
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -45038,7 +38465,9 @@ function eraFk425(r1950, d1950, dr1950, dd1950, p1950, v1950)
 **     from FK4 B1950.0 to FK5 J2000.0 using matrices in 6-space".
 **     Astron.J. 97, 274.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -45172,12 +38601,12 @@ function eraFk45z(r1950, d1950, bepoch)
 **  (Bessel-Newcomb) system to the later IAU 1976 FK5 (Fricke) system,
 **  in such a way that the FK5 proper motion is zero.  Because such a
 **  star has, in general, a non-zero proper motion in the FK4 system,
-**  the routine requires the epoch at which the position in the FK4
+**  the function requires the epoch at which the position in the FK4
 **  system was determined.
 **
 **  Given:
 **     r1950,d1950    double   B1950.0 FK4 RA,Dec at epoch (rad)
-**     bepoch         double   Besselian epoch (e.g. 1979.3D0)
+**     bepoch         double   Besselian epoch (e.g. 1979.3)
 **
 **  Returned:
 **     r2000,d2000    double   J2000.0 FK5 RA,Dec (rad)
@@ -45189,7 +38618,7 @@ function eraFk45z(r1950, d1950, bepoch)
 **     negligible extent.
 **
 **  2) The method is from Appendix 2 of Aoki et al. (1983), but using
-**     the constants of Seidelmann (1992).  See the routine eraFk425
+**     the constants of Seidelmann (1992).  See the function eraFk425
 **     for a general introduction to the FK4 to FK5 conversion.
 **
 **  3) Conversion from equinox B1950.0 FK4 to equinox J2000.0 FK5 only
@@ -45236,7 +38665,9 @@ function eraFk45z(r1950, d1950, bepoch)
 **     eraPvu       update a pv-vector
 **     eraS2c       spherical to p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -45412,7 +38843,9 @@ function eraFk524(r2000, d2000, dr2000, dd2000, p2000, v2000)
 **     from FK4 B1950.0 to FK5 J2000.0 using matrices in 6-space".
 **     Astron.J. 97, 274.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -45502,7 +38935,7 @@ function eraFk524(r2000, d2000, dr2000, dd2000, p2000, v2000)
       }
    }
 
-/* Apply E-terms (equivalent to Seidelmann 3.592-3, two iterations). */
+/* Apply E-terms (equivalent to Seidelmann 3.592-3, one iteration). */
 
 /* Direction. */
    w = eraPm(r1[0]);
@@ -45570,7 +39003,7 @@ function eraFk54z(r2000, d2000, bepoch)
 **
 **  Notes:
 **
-**  1) In contrast to the eraFk524  routine, here the FK5 proper
+**  1) In contrast to the eraFk524 function, here the FK5 proper
 **     motions, the parallax and the radial velocity are presumed zero.
 **
 **  2) This function converts a star position from the IAU 1976 FK5
@@ -45578,14 +39011,14 @@ function eraFk54z(r2000, d2000, bepoch)
 **     cases such as distant radio sources where it is presumed there is
 **     zero parallax and no proper motion.  Because of the E-terms of
 **     aberration, such objects have (in general) non-zero proper motion
-**     in FK4, and the present routine returns those fictitious proper
+**     in FK4, and the present function returns those fictitious proper
 **     motions.
 **
 **  3) Conversion from B1950.0 FK4 to J2000.0 FK5 only is provided for.
 **     Conversions involving other equinoxes would require additional
 **     treatment for precession.
 **
-**  4) The position returned by this routine is in the B1950.0 FK4
+**  4) The position returned by this function is in the B1950.0 FK4
 **     reference system but at Besselian epoch BEPOCH.  For comparison
 **     with catalogs the BEPOCH argument will frequently be 1950.0. (In
 **     this context the distinction between Besselian and Julian epoch
@@ -45600,7 +39033,9 @@ function eraFk54z(r2000, d2000, bepoch)
 **     eraFk524     FK4 to FK5
 **     eraS2c       spherical to p-vector
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2020 November 19
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -45650,6 +39085,727 @@ function eraFk54z(r2000, d2000, bepoch)
 /* Finished. */
 
 return [r1950, d1950, dr1950, dd1950];
+};
+function eraAtcc13(rc, dc, pr, pd, px, rv, date1, date2)
+/*
+**  - - - - - - - - - -
+**   e r a A t c c 1 3
+**  - - - - - - - - - -
+**
+**  Transform a star's ICRS catalog entry (epoch J2000.0) into ICRS
+**  astrometric place.
+**
+**  Given:
+**     rc     double   ICRS right ascension at J2000.0 (radians, Note 1)
+**     dc     double   ICRS declination at J2000.0 (radians, Note 1)
+**     pr     double   RA proper motion (radians/year, Note 2)
+**     pd     double   Dec proper motion (radians/year)
+**     px     double   parallax (arcsec)
+**     rv     double   radial velocity (km/s, +ve if receding)
+**     date1  double   TDB as a 2-part...
+**     date2  double   ...Julian Date (Note 3)
+**
+**  Returned:
+**     ra,da  double*  ICRS astrometric RA,Dec (radians)
+**
+**  Notes:
+**
+**  1) Star data for an epoch other than J2000.0 (for example from the
+**     Hipparcos catalog, which has an epoch of J1991.25) will require a
+**     preliminary call to eraPmsafe before use.
+**
+**  2) The proper motion in RA is dRA/dt rather than cos(Dec)*dRA/dt.
+**
+**  3) The TDB date date1+date2 is a Julian Date, apportioned in any
+**     convenient way between the two arguments.  For example,
+**     JD(TDB)=2450123.7 could be expressed in any of these ways, among
+**     others:
+**
+**            date1          date2
+**
+**         2450123.7           0.0       (JD method)
+**         2451545.0       -1421.3       (J2000 method)
+**         2400000.5       50123.2       (MJD method)
+**         2450123.5           0.2       (date & time method)
+**
+**     The JD method is the most natural and convenient to use in cases
+**     where the loss of several decimal digits of resolution is
+**     acceptable.  The J2000 method is best matched to the way the
+**     argument is handled internally and will deliver the optimum
+**     resolution.  The MJD method and the date & time methods are both
+**     good compromises between resolution and convenience.  For most
+**     applications of this function the choice will not be at all
+**     critical.
+**
+**     TT can be used instead of TDB without any significant impact on
+**     accuracy.
+**
+**  Called:
+**     eraApci13    astrometry parameters, ICRS-CIRS, 2013
+**     eraAtccq     quick catalog ICRS to astrometric
+**
+**  This revision:   2021 April 18
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
+**  Derived, with permission, from the SOFA library.  See notes at end of file.
+*/
+{
+   var ra = 0.0;;
+   var da = 0.0;;
+   var _rv1, _rv2;
+
+/* Star-independent astrometry parameters */
+   var astrom = {pmt:0,eb:eraZp(),eh:eraZp(),em:0,v:eraZp(),bm1:0,bpn:eraZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};
+
+   var w;
+
+
+/* The transformation parameters. */
+   (_rv1 = eraApci13(date1, date2))[0];
+   astrom = _rv1[0];
+   w = _rv1[1];
+
+/* Catalog ICRS (epoch J2000.0) to astrometric. */
+   (_rv2 = eraAtccq(rc, dc, pr, pd, px, rv, astrom))[0];
+   ra = _rv2[0];
+   da = _rv2[1];
+
+/* Finished. */
+
+return [ra, da];
+};
+function eraAtccq(rc, dc, pr, pd, px, rv, astrom)
+/*
+**  - - - - - - - - -
+**   e r a A t c c q
+**  - - - - - - - - -
+**
+**  Quick transformation of a star's ICRS catalog entry (epoch J2000.0)
+**  into ICRS astrometric place, given precomputed star-independent
+**  astrometry parameters.
+**
+**  Use of this function is appropriate when efficiency is important and
+**  where many star positions are to be transformed for one date.  The
+**  star-independent parameters can be obtained by calling one of the
+**  functions eraApci[13], eraApcg[13], eraApco[13] or eraApcs[13].
+**
+**  If the parallax and proper motions are zero the transformation has
+**  no effect.
+**
+**  Given:
+**     rc,dc  double     ICRS RA,Dec at J2000.0 (radians)
+**     pr     double     RA proper motion (radians/year, Note 3)
+**     pd     double     Dec proper motion (radians/year)
+**     px     double     parallax (arcsec)
+**     rv     double     radial velocity (km/s, +ve if receding)
+**     astrom eraASTROM* star-independent astrometry parameters:
+**      pmt    double       PM time interval (SSB, Julian years)
+**      eb     double[3]    SSB to observer (vector, au)
+**      eh     double[3]    Sun to observer (unit vector)
+**      em     double       distance from Sun to observer (au)
+**      v      double[3]    barycentric observer velocity (vector, c)
+**      bm1    double       sqrt(1-|v|^2): reciprocal of Lorenz factor
+**      bpn    double[3][3] bias-precession-nutation matrix
+**      along  double       longitude + s' (radians)
+**      xpl    double       polar motion xp wrt local meridian (radians)
+**      ypl    double       polar motion yp wrt local meridian (radians)
+**      sphi   double       sine of geodetic latitude
+**      cphi   double       cosine of geodetic latitude
+**      diurab double       magnitude of diurnal aberration vector
+**      eral   double       "local" Earth rotation angle (radians)
+**      refa   double       refraction constant A (radians)
+**      refb   double       refraction constant B (radians)
+**
+**  Returned:
+**     ra,da  double*    ICRS astrometric RA,Dec (radians)
+**
+**  Notes:
+**
+**  1) All the vectors are with respect to BCRS axes.
+**
+**  2) Star data for an epoch other than J2000.0 (for example from the
+**     Hipparcos catalog, which has an epoch of J1991.25) will require a
+**     preliminary call to eraPmsafe before use.
+**
+**  3) The proper motion in RA is dRA/dt rather than cos(Dec)*dRA/dt.
+**
+**  Called:
+**     eraPmpx      proper motion and parallax
+**     eraC2s       p-vector to spherical
+**     eraAnp       normalize angle into range 0 to 2pi
+**
+**  This revision:   2021 April 18
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
+**  Derived, with permission, from the SOFA library.  See notes at end of file.
+*/
+{
+   var ra = 0.0;;
+   var da = 0.0;;
+   var _rv2;
+
+   var p = [], w;
+
+
+/* Proper motion and parallax, giving BCRS coordinate direction. */
+   p = eraPmpx(rc, dc, pr, pd, px, rv, astrom.pmt, astrom.eb);
+
+/* ICRS astrometric RA,Dec. */
+   (_rv2 = eraC2s(p))[0];
+   w = _rv2[0];
+   da = _rv2[1];
+   ra = eraAnp(w);
+
+/* Finished. */
+
+return [ra, da];
+};
+function eraMoon98( date1, date2)
+/*
+**  - - - - - - - - - -
+**   e r a M o o n 9 8
+**  - - - - - - - - - -
+**
+**  Approximate geocentric position and velocity of the Moon.
+**
+**  n.b. Not IAU-endorsed and without canonical status.
+**
+**  Given:
+**     date1  double         TT date part A (Notes 1,4)
+**     date2  double         TT date part B (Notes 1,4)
+**
+**  Returned:
+**     pv     double[2][3]   Moon p,v, GCRS (AU, AU/d, Note 5)
+**
+**  Notes:
+**
+**  1) The TT date date1+date2 is a Julian Date, apportioned in any
+**     convenient way between the two arguments.  For example,
+**     JD(TT)=2450123.7 could be expressed in any of these ways, among
+**     others:
+**
+**            date1          date2
+**
+**         2450123.7           0.0       (JD method)
+**         2451545.0       -1421.3       (J2000 method)
+**         2400000.5       50123.2       (MJD method)
+**         2450123.5           0.2       (date & time method)
+**
+**     The JD method is the most natural and convenient to use in cases
+**     where the loss of several decimal digits of resolution is
+**     acceptable.  The J2000 method is best matched to the way the
+**     argument is handled internally and will deliver the optimum
+**     resolution.  The MJD method and the date & time methods are both
+**     good compromises between resolution and convenience.  The limited
+**     accuracy of the present algorithm is such that any of the methods
+**     is satisfactory.
+**
+**  2) This function is a full implementation of the algorithm
+**     published by Meeus (see reference) except that the light-time
+**     correction to the Moon's mean longitude has been omitted.
+**
+**  3) Comparisons with ELP/MPP02 over the interval 1950-2100 gave RMS
+**     errors of 2.9 arcsec in geocentric direction, 6.1 km in position
+**     and 36 mm/s in velocity.  The worst case errors were 18.3 arcsec
+**     in geocentric direction, 31.7 km in position and 172 mm/s in
+**     velocity.
+**
+**  4) The original algorithm is expressed in terms of "dynamical time",
+**     which can either be TDB or TT without any significant change in
+**     accuracy.  UT cannot be used without incurring significant errors
+**     (30 arcsec in the present era) due to the Moon's 0.5 arcsec/sec
+**     movement.
+**
+**  5) The result is with respect to the GCRS (the same as J2000.0 mean
+**     equator and equinox to within 23 mas).
+**
+**  6) Velocity is obtained by a complete analytical differentiation
+**     of the Meeus model.
+**
+**  7) The Meeus algorithm generates position and velocity in mean
+**     ecliptic coordinates of date, which the present function then
+**     rotates into GCRS.  Because the ecliptic system is precessing,
+**     there is a coupling between this spin (about 1.4 degrees per
+**     century) and the Moon position that produces a small velocity
+**     contribution.  In the present function this effect is neglected
+**     as it corresponds to a maximum difference of less than 3 mm/s and
+**     increases the RMS error by only 0.4%.
+**
+**  References:
+**
+**     Meeus, J., Astronomical Algorithms, 2nd edition, Willmann-Bell,
+**     1998, p337.
+**
+**     Simon, J.L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
+**     Francou, G. & Laskar, J., Astron.Astrophys., 1994, 282, 663
+**
+**  Defined in erfam.h:
+**     ERFA_DAU           astronomical unit (m)
+**     ERFA_DJC           days per Julian century
+**     ERFA_DJ00          reference epoch (J2000.0), Julian Date
+**     ERFA_DD2R          degrees to radians
+**
+**  Called:
+**     eraS2pv      spherical coordinates to pv-vector
+**     eraPfw06     bias-precession F-W angles, IAU 2006
+**     eraIr        initialize r-matrix to identity
+**     eraRz        rotate around Z-axis
+**     eraRx        rotate around X-axis
+**     eraRxpv      product of r-matrix and pv-vector
+**
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
+**  Derived, with permission, from the SOFA library.  See notes at end of file.
+*/
+{
+   var pv = [ [0,0,0], [0,0,0] ];;
+   var _rv2;
+
+/*
+**  Coefficients for fundamental arguments:
+**
+**  . Powers of time in Julian centuries
+**  . Units are degrees.
+*/
+
+/* Moon's mean longitude (wrt mean equinox and ecliptic of date) */
+   var elp0 = 218.31665436,        /* Simon et al. (1994). */
+                 elp1 = 481267.88123421,
+                 elp2 = -0.0015786,
+                 elp3 = 1.0 / 538841.0,
+                 elp4 = -1.0 / 65194000.0;
+   var elp, delp;
+
+/* Moon's mean elongation */
+   var d0 = 297.8501921,
+                 d1 = 445267.1114034,
+                 d2 = -0.0018819,
+                 d3 = 1.0 / 545868.0,
+                 d4 = 1.0 / 113065000.0;
+   var d, dd;
+
+/* Sun's mean anomaly */
+   var em0 = 357.5291092,
+                 em1 = 35999.0502909,
+                 em2 = -0.0001536,
+                 em3 = 1.0 / 24490000.0,
+                 em4 = 0.0;
+   var em, dem;
+
+/* Moon's mean anomaly */
+   var emp0 = 134.9633964,
+                 emp1 = 477198.8675055,
+                 emp2 = 0.0087414,
+                 emp3 = 1.0 / 69699.0,
+                 emp4 = -1.0 / 14712000.0;
+   var emp, demp;
+
+/* Mean distance of the Moon from its ascending node */
+   var f0 = 93.2720950,
+                 f1 = 483202.0175233,
+                 f2 = -0.0036539,
+                 f3 = 1.0 / 3526000.0,
+                 f4 = 1.0 / 863310000.0;
+   var f, df;
+
+/*
+** Other arguments
+*/
+
+/* Meeus A_1, due to Venus (deg) */
+   var a10 = 119.75, a11 = 131.849;
+   var a1, da1;
+
+/* Meeus A_2, due to Jupiter (deg) */
+   var a20 = 53.09, a21 = 479264.290;
+   var a2, da2;
+
+/* Meeus A_3, due to sidereal motion of the Moon in longitude (deg) */
+   var a30 = 313.45, a31 = 481266.484;
+   var a3, da3;
+
+/* Coefficients for Meeus "additive terms" (deg) */
+   var al1 =  0.003958, al2 =  0.001962, al3 =  0.000318;
+   var ab1 = -0.002235, ab2 =  0.000382, ab3 =  0.000175, ab4 =  0.000175, ab5 =  0.000127, ab6 = -0.000115;
+
+/* Fixed term in distance (m) */
+   var r0 = 385000560.0;
+
+/* Coefficients for (dimensionless) E factor */
+   var e1 = -0.002516, e2 = -0.0000074;
+   var e, de, esq, desq;
+
+/*
+** Coefficients for Moon longitude and distance series
+*/
+//struct termlr { 
+//      var nd;           /* multiple of D  in argument           */
+//      var nem;          /*     "    "  M   "    "               */
+//      var nemp;         /*     "    "  M'  "    "               */
+//      var nf;           /*     "    "  F   "    "               */
+//      var coefl;     /* coefficient of L sine argument (deg) */
+//      var coefr;     /* coefficient of R cosine argument (m) */
+//    };
+
+var tlr = [
+[0,  0,  1,  0,  6.288774, -20905355.0],
+[2,  0, -1,  0,  1.274027,  -3699111.0],
+[2,  0,  0,  0,  0.658314,  -2955968.0],
+[0,  0,  2,  0,  0.213618,   -569925.0],
+[0,  1,  0,  0, -0.185116,     48888.0],
+[0,  0,  0,  2, -0.114332,     -3149.0],
+[2,  0, -2,  0,  0.058793,    246158.0],
+[2, -1, -1,  0,  0.057066,   -152138.0],
+[2,  0,  1,  0,  0.053322,   -170733.0],
+[2, -1,  0,  0,  0.045758,   -204586.0],
+[0,  1, -1,  0, -0.040923,   -129620.0],
+[1,  0,  0,  0, -0.034720,    108743.0],
+[0,  1,  1,  0, -0.030383,    104755.0],
+[2,  0,  0, -2,  0.015327,     10321.0],
+[0,  0,  1,  2, -0.012528,         0.0],
+[0,  0,  1, -2,  0.010980,     79661.0],
+[4,  0, -1,  0,  0.010675,    -34782.0],
+[0,  0,  3,  0,  0.010034,    -23210.0],
+[4,  0, -2,  0,  0.008548,    -21636.0],
+[2,  1, -1,  0, -0.007888,     24208.0],
+[2,  1,  0,  0, -0.006766,     30824.0],
+[1,  0, -1,  0, -0.005163,     -8379.0],
+[1,  1,  0,  0,  0.004987,    -16675.0],
+[2, -1,  1,  0,  0.004036,    -12831.0],
+[2,  0,  2,  0,  0.003994,    -10445.0],
+[4,  0,  0,  0,  0.003861,    -11650.0],
+[2,  0, -3,  0,  0.003665,     14403.0],
+[0,  1, -2,  0, -0.002689,     -7003.0],
+[2,  0, -1,  2, -0.002602,         0.0],
+[2, -1, -2,  0,  0.002390,     10056.0],
+[1,  0,  1,  0, -0.002348,      6322.0],
+[2, -2,  0,  0,  0.002236,     -9884.0],
+[0,  1,  2,  0, -0.002120,      5751.0],
+[0,  2,  0,  0, -0.002069,         0.0],
+[2, -2, -1,  0,  0.002048,     -4950.0],
+[2,  0,  1, -2, -0.001773,      4130.0],
+[2,  0,  0,  2, -0.001595,         0.0],
+[4, -1, -1,  0,  0.001215,     -3958.0],
+[0,  0,  2,  2, -0.001110,         0.0],
+[3,  0, -1,  0, -0.000892,      3258.0],
+[2,  1,  1,  0, -0.000810,      2616.0],
+[4, -1, -2,  0,  0.000759,     -1897.0],
+[0,  2, -1,  0, -0.000713,     -2117.0],
+[2,  2, -1,  0, -0.000700,      2354.0],
+[2,  1, -2,  0,  0.000691,         0.0],
+[2, -1,  0, -2,  0.000596,         0.0],
+[4,  0,  1,  0,  0.000549,     -1423.0],
+[0,  0,  4,  0,  0.000537,     -1117.0],
+[4, -1,  0,  0,  0.000520,     -1571.0],
+[1,  0, -2,  0, -0.000487,     -1739.0],
+[2,  1,  0, -2, -0.000399,         0.0],
+[0,  0,  2, -2, -0.000381,     -4421.0],
+[1,  1,  1,  0,  0.000351,         0.0],
+[3,  0, -2,  0, -0.000340,         0.0],
+[4,  0, -3,  0,  0.000330,         0.0],
+[2, -1,  2,  0,  0.000327,         0.0],
+[0,  2,  1,  0, -0.000323,      1165.0],
+[1,  1, -1,  0,  0.000299,         0.0],
+[2,  0,  3,  0,  0.000294,         0.0],
+[2,  0, -1, -2,  0.000000,      8752.0]
+];
+
+   var NLR = ~~(( 60 ));
+
+/*
+** Coefficients for Moon latitude series
+*/
+//struct termb { 
+//      var nd;           /* multiple of D  in argument           */
+//      var nem;          /*     "    "  M   "    "               */
+//      var nemp;         /*     "    "  M'  "    "               */
+//      var nf;           /*     "    "  F   "    "               */
+//      var coefb;     /* coefficient of B sine argument (deg) */
+//    };
+
+var tb = [
+[0,  0,  0,  1,  5.128122],
+[0,  0,  1,  1,  0.280602],
+[0,  0,  1, -1,  0.277693],
+[2,  0,  0, -1,  0.173237],
+[2,  0, -1,  1,  0.055413],
+[2,  0, -1, -1,  0.046271],
+[2,  0,  0,  1,  0.032573],
+[0,  0,  2,  1,  0.017198],
+[2,  0,  1, -1,  0.009266],
+[0,  0,  2, -1,  0.008822],
+[2, -1,  0, -1,  0.008216],
+[2,  0, -2, -1,  0.004324],
+[2,  0,  1,  1,  0.004200],
+[2,  1,  0, -1, -0.003359],
+[2, -1, -1,  1,  0.002463],
+[2, -1,  0,  1,  0.002211],
+[2, -1, -1, -1,  0.002065],
+[0,  1, -1, -1, -0.001870],
+[4,  0, -1, -1,  0.001828],
+[0,  1,  0,  1, -0.001794],
+[0,  0,  0,  3, -0.001749],
+[0,  1, -1,  1, -0.001565],
+[1,  0,  0,  1, -0.001491],
+[0,  1,  1,  1, -0.001475],
+[0,  1,  1, -1, -0.001410],
+[0,  1,  0, -1, -0.001344],
+[1,  0,  0, -1, -0.001335],
+[0,  0,  3,  1,  0.001107],
+[4,  0,  0, -1,  0.001021],
+[4,  0, -1,  1,  0.000833],
+[0,  0,  1, -3,  0.000777],
+[4,  0, -2,  1,  0.000671],
+[2,  0,  0, -3,  0.000607],
+[2,  0,  2, -1,  0.000596],
+[2, -1,  1, -1,  0.000491],
+[2,  0, -2,  1, -0.000451],
+[0,  0,  3, -1,  0.000439],
+[2,  0,  2,  1,  0.000422],
+[2,  0, -3, -1,  0.000421],
+[2,  1, -1,  1, -0.000366],
+[2,  1,  0,  1, -0.000351],
+[4,  0,  0,  1,  0.000331],
+[2, -1,  1,  1,  0.000315],
+[2, -2,  0, -1,  0.000302],
+[0,  0,  1,  3, -0.000283],
+[2,  1,  1, -1, -0.000229],
+[1,  1,  0, -1,  0.000223],
+[1,  1,  0,  1,  0.000223],
+[0,  1, -2, -1, -0.000220],
+[2,  1, -1, -1, -0.000220],
+[1,  0,  1,  1, -0.000185],
+[2, -1, -2, -1,  0.000181],
+[0,  1,  2,  1, -0.000177],
+[4,  0, -2, -1,  0.000176],
+[4, -1, -1, -1,  0.000166],
+[1,  0,  1, -1, -0.000164],
+[4,  0,  1, -1,  0.000132],
+[1,  0, -1, -1, -0.000119],
+[4, -1,  0, -1,  0.000115],
+[2, -2,  0,  1,  0.000107]
+];
+
+   var NB = ~~(( 60 ));
+
+/* Miscellaneous */
+   var n, i;
+   var t, elpmf, delpmf, vel, vdel, vr, vdr, a1mf, da1mf, a1pf, da1pf, dlpmp, slpmp, vb, vdb, v, dv, emn, empn, dn, fn, en, den, arg, darg, farg, coeff, el, del, r, dr, b, db, gamb, phib, psib, epsa, rm = [[], [], []];
+
+/* ------------------------------------------------------------------ */
+
+/* Centuries since J2000.0 */
+   t = ((date1 - ERFA_DJ00) + date2) / ERFA_DJC;
+
+/* --------------------- */
+/* Fundamental arguments */
+/* --------------------- */
+
+/* Arguments (radians) and derivatives (radians per Julian century)
+   for the current date. */
+
+/* Moon's mean longitude. */
+   elp = ERFA_DD2R * ((elp0
+                   + ( elp1
+                   + ( elp2
+                   + ( elp3
+                   +   elp4 * t ) * t ) * t ) * t) % (360.0));
+   delp = ERFA_DD2R * (     elp1
+                   + ( elp2 * 2.0
+                   + ( elp3 * 3.0
+                   +   elp4 * 4.0 * t ) * t ) * t );
+
+/* Moon's mean elongation. */
+   d = ERFA_DD2R * ((d0
+                 + ( d1
+                 + ( d2
+                 + ( d3
+                 +   d4 * t ) * t ) * t ) * t) % (360.0));
+   dd = ERFA_DD2R * (     d1
+                 + ( d2 * 2.0
+                 + ( d3 * 3.0
+                 +   d4 * 4.0 * t ) * t ) * t );
+
+/* Sun's mean anomaly. */
+   em = ERFA_DD2R * ((em0
+                  + ( em1
+                  + ( em2
+                  + ( em3
+                  +   em4 * t ) * t ) * t ) * t) % (360.0));
+   dem = ERFA_DD2R * (     em1
+                  + ( em2 * 2.0
+                  + ( em3 * 3.0
+                  +   em4 * 4.0 * t ) * t ) * t );
+
+/* Moon's mean anomaly. */
+   emp = ERFA_DD2R * ((emp0
+                   + ( emp1
+                   + ( emp2
+                   + ( emp3
+                   +   emp4 * t ) * t ) * t ) * t) % (360.0));
+   demp = ERFA_DD2R * (     emp1
+                   + ( emp2 * 2.0
+                   + ( emp3 * 3.0
+                   +   emp4 * 4.0 * t ) * t ) * t );
+
+/* Mean distance of the Moon from its ascending node. */
+   f = ERFA_DD2R * ((f0
+                 + ( f1
+                 + ( f2
+                 + ( f3
+                 +   f4 * t ) * t ) * t ) * t) % (360.0));
+   df = ERFA_DD2R * (     f1
+                 + ( f2 * 2.0
+                 + ( f3 * 3.0
+                 +   f4 * 4.0 * t ) * t ) * t );
+
+/* Meeus further arguments. */
+   a1 = ERFA_DD2R * ( a10 + a11*t );
+   da1 = ERFA_DD2R * al1;
+   a2 = ERFA_DD2R * ( a20 + a21*t );
+   da2 = ERFA_DD2R * a21;
+   a3 = ERFA_DD2R * ( a30 + a31*t );
+   da3 = ERFA_DD2R * a31;
+
+/* E-factor, and square. */
+   e = 1.0 + ( e1 + e2*t ) * t;
+   de = e1 + 2.0*e2*t;
+   esq = e*e;
+   desq = 2.0*e*de;
+
+/* Use the Meeus additive terms (deg) to start off the summations. */
+   elpmf = elp - f;
+   delpmf = delp - df;
+   vel = al1 * Math.sin(a1)
+       + al2 * Math.sin(elpmf)
+       + al3 * Math.sin(a2);
+   vdel = al1 * Math.cos(a1) * da1
+        + al2 * Math.cos(elpmf) * delpmf
+        + al3 * Math.cos(a2) * da2;
+
+   vr = 0.0;
+   vdr = 0.0;
+
+   a1mf = a1 - f;
+   da1mf = da1 - df;
+   a1pf = a1 + f;
+   da1pf = da1 + df;
+   dlpmp = elp - emp;
+   slpmp = elp + emp;
+   vb = ab1 * Math.sin(elp)
+      + ab2 * Math.sin(a3)
+      + ab3 * Math.sin(a1mf)
+      + ab4 * Math.sin(a1pf)
+      + ab5 * Math.sin(dlpmp)
+      + ab6 * Math.sin(slpmp);
+   vdb = ab1 * Math.cos(elp) * delp
+       + ab2 * Math.cos(a3) * da3
+       + ab3 * Math.cos(a1mf) * da1mf
+       + ab4 * Math.cos(a1pf) * da1pf
+       + ab5 * Math.cos(dlpmp) * (delp-demp)
+       + ab6 * Math.cos(slpmp) * (delp+demp);
+
+/* ----------------- */
+/* Series expansions */
+/* ----------------- */
+
+/* Longitude and distance plus derivatives. */
+   for ( n = ~~(NLR-1); n >= 0; n-- ) {
+      dn = tlr[n][0];
+      emn = ( i = ~~(tlr[n][1] ));
+      empn = tlr[n][2];
+      fn = tlr[n][3];
+      switch ( Math.abs(i) ) {
+      case 1:
+         en = e;
+         den = de;
+         break;
+      case 2:
+         en = esq;
+         den = desq;
+         break;
+      default:
+         en = 1.0;
+         den = 0.0;
+      }
+      arg = dn*d + emn*em + empn*emp + fn*f;
+      darg = dn*dd + emn*dem + empn*demp + fn*df;
+      farg = Math.sin(arg);
+      v = farg * en;
+      dv = Math.cos(arg)*darg*en + farg*den;
+      coeff = tlr[n][4];
+      vel += coeff * v;
+      vdel += coeff * dv;
+      farg = Math.cos(arg);
+      v = farg * en;
+      dv = -Math.sin(arg)*darg*en + farg*den;
+      coeff = tlr[n][5];
+      vr += coeff * v;
+      vdr += coeff * dv;
+   }
+   el = elp + ERFA_DD2R*vel;
+   del = ( delp + ERFA_DD2R*vdel ) / ERFA_DJC;
+   r = ( vr + r0 ) / ERFA_DAU;
+   dr = vdr / ERFA_DAU / ERFA_DJC;
+
+/* Latitude plus derivative. */
+   for ( n = ~~(NB-1); n >= 0; n-- ) {
+      dn = tb[n][0];
+      emn = ( i = ~~(tb[n][1] ));
+      empn = tb[n][2];
+      fn = tb[n][3];
+      switch ( Math.abs(i) ) {
+      case 1:
+         en = e;
+         den = de;
+         break;
+      case 2:
+         en = esq;
+         den = desq;
+         break;
+      default:
+         en = 1.0;
+         den = 0.0;
+      }
+      arg = dn*d + emn*em + empn*emp + fn*f;
+      darg = dn*dd + emn*dem + empn*demp + fn*df;
+      farg = Math.sin(arg);
+      v = farg * en;
+      dv = Math.cos(arg)*darg*en + farg*den;
+      coeff = tb[n][4];
+      vb += coeff * v;
+      vdb += coeff * dv;
+   }
+   b = vb * ERFA_DD2R;
+   db = vdb * ERFA_DD2R / ERFA_DJC;
+
+/* ------------------------------ */
+/* Transformation into final form */
+/* ------------------------------ */
+
+/* Longitude, latitude to x, y, z (AU). */
+   pv = eraS2pv(el, b, r, del, db, dr);
+
+/* IAU 2006 Fukushima-Williams bias+precession angles. */
+   (_rv2 = eraPfw06(date1, date2))[0];
+   gamb = _rv2[0];
+   phib = _rv2[1];
+   psib = _rv2[2];
+   epsa = _rv2[3];
+
+/* Mean ecliptic coordinates to GCRS rotation matrix. */
+   rm = eraIr();
+   rm = eraRz(psib, rm);
+   rm = eraRx(-phib, rm);
+   rm = eraRz(-gamb, rm);
+
+/* Rotate the Moon position and velocity into GCRS (Note 6). */
+   pv = eraRxpv(rm, pv);
+
+/* Finished. */
+
+return pv ;
 };
 
 // export functions
@@ -45899,6 +40055,10 @@ era.fk425   = eraFk425;
 era.fk45z   = eraFk45z;
 era.fk524   = eraFk524;
 era.fk54z   = eraFk54z;
+// added with liberfa 2.0.0
+era.atcc13   = eraAtcc13;
+era.atccq   = eraAtccq;
+era.moon98   = eraMoon98;
 			;
 })(ERFA)
-/* crc: 8271EBE5E498EC6B6FD45EEC44E0A4DA */
+/* crc: D13BDEFE84C5862130D42CFD90FB510D */

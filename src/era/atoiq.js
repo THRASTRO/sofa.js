@@ -63,11 +63,11 @@ function eraAtoiq(type, ob1, ob2, astrom)
 **  3) The accuracy of the result is limited by the corrections for
 **     refraction, which use a simple A*tan(z) + B*tan^3(z) model.
 **     Providing the meteorological parameters are known accurately and
-**     there are no gross local effects, the predicted observed
+**     there are no gross local effects, the predicted intermediate
 **     coordinates should be within 0.05 arcsec (optical) or 1 arcsec
 **     (radio) for a zenith distance of less than 70 degrees, better
 **     than 30 arcsec (optical or radio) at 85 degrees and better than
-**     20 arcmin (optical) or 30 arcmin (radio) at the horizon.
+**     20 arcmin (optical) or 25 arcmin (radio) at the horizon.
 **
 **     Without refraction, the complementary functions eraAtioq and
 **     eraAtoiq are self-consistent to better than 1 microarcsecond all
@@ -84,7 +84,9 @@ function eraAtoiq(type, ob1, ob2, astrom)
 **     eraC2s       p-vector to spherical
 **     eraAnp       normalize angle into range 0 to 2pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2020 December 7
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -92,8 +94,11 @@ function eraAtoiq(type, ob1, ob2, astrom)
    var di = 0.0;;
    var _rv2;
 
+/* Minimum sin(alt) for refraction purposes */
+   var SELMIN = 0.05;
+
    var c;
-   var c1, c2, sphi, cphi, ce, xaeo, yaeo, zaeo, v = [], xmhdo, ymhdo, zmhdo, az, sz, zdo, refa, refb, tz, dref, zdt, xaet, yaet, zaet, xmhda, ymhda, zmhda, f, xhd, yhd, zhd, xpl, ypl, w, hma;
+   var c1, c2, sphi, cphi, ce, xaeo, yaeo, zaeo, v = [], xmhdo, ymhdo, zmhdo, az, sz, zdo, refa, refb, tz, dref, zdt, xaet, yaet, zaet, xmhda, ymhda, zmhda, f, xhd, yhd, zhd, sx, cx, sy, cy, hma;
 
 
 /* Coordinate type. */
@@ -155,7 +160,7 @@ function eraAtoiq(type, ob1, ob2, astrom)
 /* Fast algorithm using two constant model. */
    refa = astrom.refa;
    refb = astrom.refb;
-   tz = sz / zaeo;
+   tz = sz / ( zaeo > SELMIN ? zaeo : SELMIN );
    dref = ( refa + refb*tz*tz ) * tz;
    zdt = zdo + dref;
 
@@ -177,12 +182,13 @@ function eraAtoiq(type, ob1, ob2, astrom)
    zhd = f * zmhda;
 
 /* Polar motion. */
-   xpl = astrom.xpl;
-   ypl = astrom.ypl;
-   w = xpl*xhd - ypl*yhd + zhd;
-   v[0] = xhd - xpl*w;
-   v[1] = yhd + ypl*w;
-   v[2] = w - ( xpl*xpl + ypl*ypl ) * zhd;
+   sx = Math.sin(astrom.xpl);
+   cx = Math.cos(astrom.xpl);
+   sy = Math.sin(astrom.ypl);
+   cy = Math.cos(astrom.ypl);
+   v[0] = cx*xhd + sx*sy*yhd - sx*cy*zhd;
+   v[1] = cy*yhd + sy*zhd;
+   v[2] = sx*xhd - cx*sy*yhd + cx*cy*zhd;
 
 /* To spherical -HA,Dec. */
    (_rv2 = eraC2s(v))[0];

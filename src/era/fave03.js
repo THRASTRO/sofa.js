@@ -32,7 +32,9 @@ function eraFave03(t)
 **     Souchay, J., Loysel, B., Kinoshita, H., Folgueira, M. 1999,
 **     Astron.Astrophys.Supp.Ser. 135, 111
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -43,6 +45,8 @@ function eraFave03(t)
    a = ((3.176146697 + 1021.3285546211 * t) % (ERFA_D2PI));
 
    return a;
+
+/* Finished. */
 
 }
 /*

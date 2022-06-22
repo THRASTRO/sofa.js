@@ -117,7 +117,9 @@ parts of the astrometric transformation chain.
    eraC2ixys    celestial-to-intermediate matrix, given X,Y and s
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2013 September 25
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

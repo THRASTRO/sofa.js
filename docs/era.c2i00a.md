@@ -54,7 +54,7 @@ IAU 2000A precession-nutation model.
    Reference System (see IERS Conventions 2003), ERA is the Earth
    Rotation Angle and RPOM is the polar motion matrix.
 
-3) A faster, but slightly less accurate result (about 1 mas), can be
+3) A faster, but slightly less accurate, result (about 1 mas) can be
    obtained by using instead the [eraC2i00b][1] function.
 
 ## Called:
@@ -76,7 +76,9 @@ IAU 2000A precession-nutation model.
    McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
    IERS Technical Note No. 32, BKG (2004)
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

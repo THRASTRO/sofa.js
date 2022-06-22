@@ -16,8 +16,8 @@ function eraAtciq(rc, dc, pr, pd, px, rv, astrom)
 **  can be used instead.
 **
 **  Given:
-**     rc,dc  double     ICRS RA,Dec at J2000.0 (radians)
-**     pr     double     RA proper motion (radians/year; Note 3)
+**     rc,dc  double     ICRS RA,Dec at J2000.0 (radians, Note 1)
+**     pr     double     RA proper motion (radians/year, Note 2)
 **     pd     double     Dec proper motion (radians/year)
 **     px     double     parallax (arcsec)
 **     rv     double     radial velocity (km/s, +ve if receding)
@@ -44,13 +44,11 @@ function eraAtciq(rc, dc, pr, pd, px, rv, astrom)
 **
 **  Notes:
 **
-**  1) All the vectors are with respect to BCRS axes.
-**
-**  2) Star data for an epoch other than J2000.0 (for example from the
+**  1) Star data for an epoch other than J2000.0 (for example from the
 **     Hipparcos catalog, which has an epoch of J1991.25) will require a
 **     preliminary call to eraPmsafe before use.
 **
-**  3) The proper motion in RA is dRA/dt rather than cos(Dec)*dRA/dt.
+**  2) The proper motion in RA is dRA/dt rather than cos(Dec)*dRA/dt.
 **
 **  Called:
 **     eraPmpx      proper motion and parallax
@@ -60,7 +58,9 @@ function eraAtciq(rc, dc, pr, pd, px, rv, astrom)
 **     eraC2s       p-vector to spherical
 **     eraAnp       normalize angle into range 0 to 2pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 April 19
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {

@@ -154,7 +154,9 @@ function eraDtdb(date1, date2, ut, elong, u, v)
 **     Simon, J.L., Bretagnon, P., Chapront, J., Chapront-Touze, M.,
 **     Francou, G. & Laskar, J., Astron.Astrophys., 282, 663-683 (1994).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -1152,6 +1154,8 @@ function eraDtdb(date1, date2, ut, elong, u, v)
    w = wt + wf + wj;
 
    return w;
+
+/* Finished. */
 
 }
 /*

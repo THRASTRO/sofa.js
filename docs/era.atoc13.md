@@ -145,7 +145,9 @@ and observing wavelength.
    eraAticq     quick CIRS to ICRS
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2021 February 24
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

@@ -64,12 +64,16 @@ function eraP06e(date1, date2)
 **     za     z_A         equatorial precession: -3rd 323 Euler angle
 **     zetaa  zeta_A      equatorial precession: -1st 323 Euler angle
 **     thetaa theta_A     equatorial precession: 2nd 323 Euler angle
-**     pa     p_A         general precession
+**     pa     p_A         general precession (n.b. see below)
 **     gam    gamma_J2000 J2000.0 RA difference of ecliptic poles
 **     phi    phi_J2000   J2000.0 codeclination of ecliptic pole
 **     psi    psi_J2000   longitude difference of equator poles, J2000.0
 **
 **     The returned values are all radians.
+**
+**     Note that the t^5 coefficient in the series for p_A from
+**     Capitaine et al. (2003) is incorrectly signed in Hilton et al.
+**     (2006).
 **
 **  3) Hilton et al. (2006) Table 1 also contains angles that depend on
 **     models distinct from the P03 precession theory itself, namely the
@@ -106,14 +110,19 @@ function eraP06e(date1, date2)
 **  8) It is permissible to re-use the same variable in the returned
 **     arguments.  The quantities are stored in the stated order.
 **
-**  Reference:
+**  References:
+**
+**     Capitaine, N., Wallace, P.T. & Chapront, J., 2003,
+**     Astron.Astrophys., 412, 567
 **
 **     Hilton, J. et al., 2006, Celest.Mech.Dyn.Astron. 94, 351
 **
 **  Called:
 **     eraObl06     mean obliquity, IAU 2006
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -248,7 +257,7 @@ function eraP06e(date1, date2)
          (    1.1054348    +
          (    0.00007964   +
          (   -0.000023857  +
-         (    0.0000000383 )
+         (   -0.0000000383 )
          * t) * t) * t) * t) * t * ERFA_DAS2R;
 
 /* Fukushima-Williams angles for precession. */
@@ -274,79 +283,7 @@ function eraP06e(date1, date2)
           (   -0.0000000148 )
           * t) * t) * t) * t) * t * ERFA_DAS2R;
 
-   return [eps0, psia, oma, bpa, bqa, pia, bpia, epsa, chia, za, zetaa, thetaa, pa, gam, phi, psi];
+/* Finished. */
 
+return [eps0, psia, oma, bpa, bqa, pia, bpia, epsa, chia, za, zetaa, thetaa, pa, gam, phi, psi];
 }
-/*
- *+----------------------------------------------------------------------
- *
- *  ERFA/SOFA functions converted to JS
- *  Copyright (C) 2020 by Marcel Greter
- *  http:://www.github.com/mgreter/sofa.js
- *
- *  The conversion is done by a custom hacked perl script.
- *  Automatically generates QUnit tests for all functions.
- *
- *  Conversion is made from liberfa sources:
- *  https://github.com/liberfa/erfa
- *
- *+----------------------------------------------------------------------
- *  THIS WORK IS RELEASED UNDER THE SAME TERMS AS ERFA:
- *+----------------------------------------------------------------------
- *
- *  Copyright (C) 2013-2014, NumFOCUS Foundation.
- *  All rights reserved.
- *  
- *  This library is derived, with permission, from the International
- *  Astronomical Union's "Standards of Fundamental Astronomy" library,
- *  available from http://www.iausofa.org.
- *  
- *  The ERFA version is intended to retain identical
- *  functionality to the SOFA library, but made distinct through
- *  different function and file names, as set out in the SOFA license
- *  conditions. The SOFA original has a role as a reference standard
- *  for the IAU and IERS, and consequently redistribution is permitted only
- *  in its unaltered state. The ERFA version is not subject to this
- *  restriction and therefore can be included in distributions which do not
- *  support the concept of "read only" software.
- *  
- *  Although the intent is to replicate the SOFA API (other than replacement of
- *  prefix names) and results (with the exception of bugs; any that are
- *  discovered will be fixed), SOFA is not responsible for any errors found
- *  in this version of the library.
- *  
- *  If you wish to acknowledge the SOFA heritage, please acknowledge that
- *  you are using a library derived from SOFA, rather than SOFA itself.
- *  
- *  
- *  TERMS AND CONDITIONS
- *  
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  
- *  1 Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  
- *  2 Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  
- *  3 Neither the name of the Standards Of Fundamental Astronomy Board, the
- *     International Astronomical Union nor the names of its contributors
- *     may be used to endorse or promote products derived from this software
- *     without specific prior written permission.
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- *-----------------------------------------------------------------------
-*/

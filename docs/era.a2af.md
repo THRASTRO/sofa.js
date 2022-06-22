@@ -14,13 +14,8 @@ Decompose radians into degrees, arcminutes, arcseconds, fraction.
 
 ## Returned:
 ```
-   sign    char    '+' or '-'
+   sign    char*   '+' or '-'
    idmsf   int[4]  degrees, arcminutes, arcseconds, fraction
-```
-
-## Called:
-```
-   eraD2tf      decompose days to hms
 ```
 
 ## Notes:
@@ -57,5 +52,12 @@ Decompose radians into degrees, arcminutes, arcseconds, fraction.
    case where angle is very nearly 2pi and rounds up to 360 degrees,
    by testing for idmsf[0]=360 and setting idmsf[0-3] to zero.
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+## Called:
+```
+   eraD2tf      decompose days to hms
+```
+
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

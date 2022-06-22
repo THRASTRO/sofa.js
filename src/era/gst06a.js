@@ -18,10 +18,10 @@ function eraGst06a(uta, utb, tta, ttb)
 **
 **  1) The UT1 and TT dates uta+utb and tta+ttb respectively, are both
 **     Julian Dates, apportioned in any convenient way between the
-**     argument pairs.  For example, JD=2450123.7 could be expressed in
-**     any of these ways, among others:
+**     argument pairs.  For example, JD(UT1)=2450123.7 could be
+**     expressed in any of these ways, among others:
 **
-**            Part A        Part B
+**             uta            utb
 **
 **         2450123.7           0.0       (JD method)
 **         2451545.0       -1421.3       (J2000 method)
@@ -58,7 +58,9 @@ function eraGst06a(uta, utb, tta, ttb)
 **
 **     Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -72,6 +74,8 @@ function eraGst06a(uta, utb, tta, ttb)
    gst = eraGst06(uta, utb, tta, ttb, rnpb);
 
    return gst;
+
+/* Finished. */
 
 }
 /*

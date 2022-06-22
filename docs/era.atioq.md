@@ -97,7 +97,9 @@ calling [eraApio][1] or [eraApco][2].
    eraAnp       normalize angle into range 0 to 2pi
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2020 December 7
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

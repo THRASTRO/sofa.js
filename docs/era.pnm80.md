@@ -9,7 +9,7 @@ precession model, IAU 1980 nutation model.
 
 ## Given:
 ```
-   date1,date2    double         TDB date (Note 1)
+   date1,date2 double       TT as a 2-part Julian Date (Note 1)
 ```
 
 ## Returned:
@@ -19,9 +19,9 @@ precession model, IAU 1980 nutation model.
 
 ## Notes:
 
-1) The TDB date date1+date2 is a Julian Date, apportioned in any
+1) The TT date date1+date2 is a Julian Date, apportioned in any
    convenient way between the two arguments.  For example,
-   JD(TDB)=2450123.7 could be expressed in any of these ways,
+   JD(TT)=2450123.7 could be expressed in any of these ways,
    among others:
 
 ```
@@ -58,5 +58,7 @@ precession model, IAU 1980 nutation model.
    P. Kenneth Seidelmann (ed), University Science Books (1992),
    Section 3.3 (p145).
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

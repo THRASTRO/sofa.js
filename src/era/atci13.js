@@ -9,7 +9,7 @@ function eraAtci13(rc, dc, pr, pd, px, rv, date1, date2)
 **  Given:
 **     rc     double   ICRS right ascension at J2000.0 (radians, Note 1)
 **     dc     double   ICRS declination at J2000.0 (radians, Note 1)
-**     pr     double   RA proper motion (radians/year; Note 2)
+**     pr     double   RA proper motion (radians/year, Note 2)
 **     pd     double   Dec proper motion (radians/year)
 **     px     double   parallax (arcsec)
 **     rv     double   radial velocity (km/s, +ve if receding)
@@ -73,7 +73,9 @@ function eraAtci13(rc, dc, pr, pd, px, rv, date1, date2)
 **     eraApci13    astrometry parameters, ICRS-CIRS, 2013
 **     eraAtciq     quick ICRS to CIRS
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 April 3
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {

@@ -21,8 +21,8 @@ frame bias), equinox-based, IAU 2000B model.
 
 1) The TT date date1+date2 is a Julian Date, apportioned in any
    convenient way between the two arguments.  For example,
-   JD(TT)=2450123.7 could be expressed in any of these ways,
-   among others:
+   JD(TT)=2450123.7 could be expressed in any of these ways, among
+   others:
 
 ```
           date1          date2
@@ -59,7 +59,9 @@ frame bias), equinox-based, IAU 2000B model.
    24th General Assembly, Manchester, UK.  Resolutions B1.3, B1.6.
    (2000)
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

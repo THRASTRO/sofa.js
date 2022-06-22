@@ -31,7 +31,9 @@ function eraTf2d(s, ihour, imin, sec)
 **  3)  If there are multiple errors, the status value reflects only the
 **      first, the smallest taking precedence.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -49,6 +51,8 @@ function eraTf2d(s, ihour, imin, sec)
    if ( imin < 0 || imin > 59 ) return [ 2, days ];
    if ( sec < 0.0 || sec >= 60.0 ) return [ 3, days ];
    return [ 0, days ];
+
+/* Finished. */
 
 }
 /*

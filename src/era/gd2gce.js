@@ -52,7 +52,9 @@ function eraGd2gce( a, f, elong, phi, height)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 4.22, p202.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -80,6 +82,8 @@ function eraGd2gce( a, f, elong, phi, height)
 
 /* Success. */
    return [ 0, xyz  ];
+
+/* Finished. */
 
 }
 /*

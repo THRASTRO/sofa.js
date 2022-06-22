@@ -12,11 +12,15 @@ function eraPm(p)
 **  Returned (function value):
 **            double        modulus
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
    return Math.sqrt( p[0]*p[0] + p[1]*p[1] + p[2]*p[2] );
+
+/* Finished. */
 
 }
 /*

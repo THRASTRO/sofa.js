@@ -107,7 +107,9 @@ function eraApci(date1, date2, ebpv, ehp, x, y, s)
 **     eraApcg      astrometry parameters, ICRS-GCRS, geocenter
 **     eraC2ixys    celestial-to-intermediate matrix, given X,Y and s
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 September 25
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {

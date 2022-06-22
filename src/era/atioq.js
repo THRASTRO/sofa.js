@@ -91,7 +91,9 @@ function eraAtioq(ri, di, astrom)
 **     eraC2s       p-vector to spherical
 **     eraAnp       normalize angle into range 0 to 2pi
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2020 December 7
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -106,7 +108,7 @@ function eraAtioq(ri, di, astrom)
    var CELMIN = 1e-6;
    var SELMIN = 0.05;
 
-   var v = [], x, y, z, xhd, yhd, zhd, f, xhdt, yhdt, zhdt, xaet, yaet, zaet, azobs, r, tz, w, del, cosdel, xaeo, yaeo, zaeo, zdobs, hmobs, dcobs, raobs;
+   var v = [], x, y, z, sx, cx, sy, cy, xhd, yhd, zhd, f, xhdt, yhdt, zhdt, xaet, yaet, zaet, azobs, r, tz, w, del, cosdel, xaeo, yaeo, zaeo, zdobs, hmobs, dcobs, raobs;
 
 
 /* CIRS RA,Dec to Cartesian -HA,Dec. */
@@ -116,9 +118,13 @@ function eraAtioq(ri, di, astrom)
    z = v[2];
 
 /* Polar motion. */
-   xhd = x + astrom.xpl*z;
-   yhd = y - astrom.ypl*z;
-   zhd = z - astrom.xpl*x + astrom.ypl*y;
+   sx = Math.sin(astrom.xpl);
+   cx = Math.cos(astrom.xpl);
+   sy = Math.sin(astrom.ypl);
+   cy = Math.cos(astrom.ypl);
+   xhd = cx*x + sx*z;
+   yhd = sx*sy*x + cy*y - cx*sy*z;
+   zhd = -sx*cy*x + sy*y + cx*cy*z;
 
 /* Diurnal aberration. */
    f = ( 1.0 - astrom.diurab*yhd );

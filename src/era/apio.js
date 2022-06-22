@@ -28,7 +28,7 @@ function eraApio(sp, theta, elong, phi, hm, xp, yp, refa, refb)
 **      v      double[3]    unchanged
 **      bm1    double       unchanged
 **      bpn    double[3][3] unchanged
-**      along  double       longitude + s' (radians)
+**      along  double       adjusted longitude (radians)
 **      xpl    double       polar motion xp wrt local meridian (radians)
 **      ypl    double       polar motion yp wrt local meridian (radians)
 **      sphi   double       sine of geodetic latitude
@@ -105,10 +105,16 @@ function eraApio(sp, theta, elong, phi, hm, xp, yp, refa, refb)
 **     eraAtioq and eraAtoiq.
 **
 **  Called:
+**     eraIr        initialize r-matrix to identity
+**     eraRz        rotate around Z-axis
+**     eraRy        rotate around Y-axis
+**     eraRx        rotate around X-axis
+**     eraAnpm      normalize angle into range +/- pi
 **     eraPvtob     position/velocity of terrestrial station
-**     eraAper      astrometry parameters: update ERA
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -117,17 +123,32 @@ function eraApio(sp, theta, elong, phi, hm, xp, yp, refa, refb)
       astrom = {pmt:0,eb:eraZp(),eh:eraZp(),em:0,v:eraZp(),bm1:0,bpn:eraZr(),along:0,xpl:0,ypl:0,sphi:0,cphi:0,diurab:0,eral:0,refa:0,refb:0};
    }
 
-   var sl, cl, pv = [[], []];
+   var r = [[], [], []], a, b, eral, c, pv = [[], []];
 
 
-/* Longitude with adjustment for TIO locator s'. */
-   astrom.along = elong + sp;
+/* Form the rotation matrix, CIRS to apparent [HA,Dec]. */
+   r = eraIr();
+   r = eraRz(theta+sp, r);
+   r = eraRy(-xp, r);
+   r = eraRx(-yp, r);
+   r = eraRz(elong, r);
 
-/* Polar motion, rotated onto the local meridian. */
-   sl = Math.sin(astrom.along);
-   cl = Math.cos(astrom.along);
-   astrom.xpl = xp*cl - yp*sl;
-   astrom.ypl = xp*sl + yp*cl;
+/* Solve for local Earth rotation angle. */
+   a = r[0][0];
+   b = r[0][1];
+   eral = ( a != 0.0 || b != 0.0 ) ?  Math.atan2(b, a) : 0.0;
+   astrom.eral = eral;
+
+/* Solve for polar motion [X,Y] with respect to local meridian. */
+   a = r[0][0];
+   c = r[0][2];
+   astrom.xpl = Math.atan2(c, Math.sqrt(a*a+b*b));
+   a = r[1][2];
+   b = r[2][2];
+   astrom.ypl = ( a != 0.0 || b != 0.0 ) ? -Math.atan2(a, b) : 0.0;
+
+/* Adjusted longitude. */
+   astrom.along = eraAnpm(eral - theta);
 
 /* Functions of latitude. */
    astrom.sphi = Math.sin(phi);
@@ -142,9 +163,6 @@ function eraApio(sp, theta, elong, phi, hm, xp, yp, refa, refb)
 /* Refraction constants. */
    astrom.refa = refa;
    astrom.refb = refb;
-
-/* Local Earth rotation angle. */
-   astrom = eraAper(theta, astrom);
 
 /* Finished. */
 

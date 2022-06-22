@@ -43,7 +43,9 @@ function eraLtpb(epj)
 **    expressions, valid for long time intervals (Corrigendum),
 **    Astron.Astrophys. 541, C1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -70,6 +72,8 @@ function eraLtpb(epj)
       rpb[i][1] =  rp[i][0]*dr + rp[i][1]    + rp[i][2]*de;
       rpb[i][2] = -rp[i][0]*dx - rp[i][1]*de + rp[i][2];
    }
+
+/* Finished. */
 
 return rpb;
 }

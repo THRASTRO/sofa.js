@@ -64,5 +64,7 @@ Greenwich mean sidereal time (consistent with IAU 2006 precession).
    Capitaine, N., Wallace, P.T. & Chapront, J., 2005,
    Astron.Astrophys. 432, 355
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

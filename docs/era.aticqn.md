@@ -37,11 +37,11 @@ or [eraApcs][4].
     eral   double       "local" Earth rotation angle (radians)
     refa   double       refraction constant A (radians)
     refb   double       refraction constant B (radians)
-    n     int           number of bodies (Note 3)
-    b     LDBODY[n] data for each of the n bodies (Notes 3,4):
-     bm    double       mass of the body (solar masses, Note 5)
-     dl    double       deflection limiter (Note 6)
-     pv    [2][3]       barycentric PV of the body (au, au/day)
+   n      int          number of bodies (Note 3)
+   b      LDBODY[n] data for each of the n bodies (Notes 3,4):
+    bm     double       mass of the body (solar masses, Note 5)
+    dl     double       deflection limiter (Note 6)
+    pv     [2][3]       barycentric PV of the body (au, au/day)
 ```
 
 ## Returned:
@@ -102,7 +102,9 @@ or [eraApcs][4].
    eraAnp       normalize angle into range +/- pi
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2021 January 6
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

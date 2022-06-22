@@ -56,7 +56,9 @@ function eraEe00a(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -82,6 +84,8 @@ function eraEe00a(date1, date2)
    ee = eraEe00(date1, date2, epsa, dpsi);
 
    return ee;
+
+/* Finished. */
 
 }
 /*

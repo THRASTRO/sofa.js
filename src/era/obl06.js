@@ -40,7 +40,9 @@ function eraObl06(date1, date2)
 **
 **     Hilton, J. et al., 2006, Celest.Mech.Dyn.Astron. 94, 351
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -59,6 +61,8 @@ function eraObl06(date1, date2)
           ( -0.0000000434) * t) * t) * t) * t) * t) * ERFA_DAS2R;
 
    return eps0;
+
+/* Finished. */
 
 }
 /*

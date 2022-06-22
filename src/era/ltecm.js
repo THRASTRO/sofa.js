@@ -54,7 +54,9 @@ function eraLtecm(epj)
 **    expressions, valid for long time intervals (Corrigendum),
 **    Astron.Astrophys. 541, C1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -96,6 +98,8 @@ function eraLtecm(epj)
    rm[2][0] =   z[0]    - z[1]*dr + z[2]*dx;
    rm[2][1] =   z[0]*dr + z[1]    + z[2]*de;
    rm[2][2] = - z[0]*dx - z[1]*de + z[2];
+
+/* Finished. */
 
 return rm;
 }

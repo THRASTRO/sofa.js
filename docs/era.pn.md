@@ -32,5 +32,7 @@ Convert a p-vector into modulus and unit vector.
    eraSxp       multiply p-vector by scalar
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

@@ -56,7 +56,9 @@ function eraGmst06(uta, utb, tta, ttb)
 **     Capitaine, N., Wallace, P.T. & Chapront, J., 2005,
 **     Astron.Astrophys. 432, 355
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -77,6 +79,8 @@ function eraGmst06(uta, utb, tta, ttb)
           * t) * t) * t) * t) * t) * ERFA_DAS2R);
 
    return gmst;
+
+/* Finished. */
 
 }
 /*

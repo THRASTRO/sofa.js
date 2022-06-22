@@ -68,7 +68,9 @@ function eraAtic13(ri, di, date1, date2)
 **     eraApci13    astrometry parameters, ICRS-CIRS, 2013
 **     eraAticq     quick CIRS to ICRS astrometric
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 October 9
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {

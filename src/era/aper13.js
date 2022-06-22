@@ -106,7 +106,9 @@ function eraAper13(ut11, ut12)
 **     eraAper      astrometry parameters: update ERA
 **     eraEra00     Earth rotation angle, IAU 2000
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 September 25
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {

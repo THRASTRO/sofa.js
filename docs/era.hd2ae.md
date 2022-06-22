@@ -57,8 +57,8 @@ declination to azimuth and altitude.
 7)  Again for efficiency, no range checking of arguments is carried
     out.
 
-Last revision:   2017 September 12
+Last revision:   2021 February 24
 
-ERFA release 2019-07-22
+ERFA release 2021-05-12
 
-Copyright (C) 2019 IAU ERFA Board.
+Copyright (C) 2021 IAU ERFA Board.

@@ -109,6 +109,7 @@ function eraRefco(phpa, tc, rh, wl)
 **        total pressure, water-vapour pressure and, in the case
 **        of optical/IR, wavelength.  The formulae for the two cases are
 **        developed from Hohenkerk & Sinclair (1985) and Rueger (2002).
+**        The IAG (1999) optical refractivity for dry air is used.
 **
 **     d) The formula for beta, the ratio of the scale height of the
 **        atmosphere to the geocentric distance of the observer, is
@@ -135,6 +136,9 @@ function eraRefco(phpa, tc, rh, wl)
 **     Hohenkerk, C.Y., & Sinclair, A.T., NAO Technical Note No. 63,
 **     1985.
 **
+**     IAG Resolutions adopted at the XXIIth General Assembly in
+**     Birmingham, 1999, Resolution 3.
+**
 **     Rueger, J.M., "Refractive Index Formulae for Electronic Distance
 **     Measurement with Radio and Millimetre Waves", in Unisurv Report
 **     S-68, School of Surveying and Spatial Information Systems,
@@ -142,7 +146,9 @@ function eraRefco(phpa, tc, rh, wl)
 **
 **     Stone, Ronald C., P.A.S.P. 108, 1051-1058, 1996.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {

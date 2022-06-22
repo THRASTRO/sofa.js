@@ -8,7 +8,7 @@ function eraPmpx(rc, dc, pr, pd, px, rv, pmt, pob)
 **
 **  Given:
 **     rc,dc  double     ICRS RA,Dec at catalog epoch (radians)
-**     pr     double     RA proper motion (radians/year; Note 1)
+**     pr     double     RA proper motion (radians/year, Note 1)
 **     pd     double     Dec proper motion (radians/year)
 **     px     double     parallax (arcsec)
 **     rv     double     radial velocity (km/s, +ve if receding)
@@ -42,7 +42,9 @@ function eraPmpx(rc, dc, pr, pd, px, rv, pmt, pob)
 **     eraPdp       scalar product of two p-vectors
 **     eraPn        decompose p-vector into modulus and direction
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 April 3
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {

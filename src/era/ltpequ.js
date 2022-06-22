@@ -34,7 +34,9 @@ function eraLtpequ(epj)
 **    expressions, valid for long time intervals (Corrigendum),
 **    Astron.Astrophys. 541, C1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -112,6 +114,8 @@ function eraLtpequ(epj)
    veq[1] = y;
    w = 1.0 - x*x - y*y;
    veq[2] = w < 0.0 ? 0.0 : Math.sqrt(w);
+
+/* Finished. */
 
 return veq;
 }

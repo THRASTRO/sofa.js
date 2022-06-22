@@ -31,7 +31,7 @@ and the refraction constants as well as the site coordinates.
     v      double[3]    unchanged
     bm1    double       unchanged
     bpn    double[3][3] unchanged
-    along  double       longitude + s' (radians)
+    along  double       adjusted longitude (radians)
     xpl    double       polar motion xp wrt local meridian (radians)
     ypl    double       polar motion yp wrt local meridian (radians)
     sphi   double       sine of geodetic latitude
@@ -112,11 +112,17 @@ and the refraction constants as well as the site coordinates.
 
 ## Called:
 ```
+   eraIr        initialize r-matrix to identity
+   eraRz        rotate around Z-axis
+   eraRy        rotate around Y-axis
+   eraRx        rotate around X-axis
+   eraAnpm      normalize angle into range +/- pi
    eraPvtob     position/velocity of terrestrial station
-   eraAper      astrometry parameters: update ERA
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2021 February 24
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

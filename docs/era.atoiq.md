@@ -67,11 +67,11 @@ calling [eraApio][1] or [eraApco][2].
 3) The accuracy of the result is limited by the corrections for
    refraction, which use a simple A*tan(z) + B*tan^3(z) model.
    Providing the meteorological parameters are known accurately and
-   there are no gross local effects, the predicted observed
+   there are no gross local effects, the predicted intermediate
    coordinates should be within 0.05 arcsec (optical) or 1 arcsec
    (radio) for a zenith distance of less than 70 degrees, better
    than 30 arcsec (optical or radio) at 85 degrees and better than
-   20 arcmin (optical) or 30 arcmin (radio) at the horizon.
+   20 arcmin (optical) or 25 arcmin (radio) at the horizon.
 
    Without refraction, the complementary functions [eraAtioq][3] and
    [eraAtoiq][4] are self-consistent to better than 1 microarcsecond all
@@ -90,7 +90,9 @@ calling [eraApio][1] or [eraApco][2].
    eraAnp       normalize angle into range 0 to 2pi
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2020 December 7
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

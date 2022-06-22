@@ -60,6 +60,6 @@ to hour angle and declination.
 
 Last revision:   2017 September 12
 
-ERFA release 2019-07-22
+ERFA release 2021-05-12
 
-Copyright (C) 2019 IAU ERFA Board.
+Copyright (C) 2021 IAU ERFA Board.

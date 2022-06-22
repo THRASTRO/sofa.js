@@ -116,7 +116,9 @@ Earth rotation angle.  The caller provides UT1, (n.b. not UTC).
    eraEra00     Earth rotation angle, IAU 2000
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2013 September 25
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

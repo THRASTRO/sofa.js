@@ -10,7 +10,7 @@ function eraEo06a(date1, date2)
 **     date1,date2  double    TT as a 2-part Julian Date (Note 1)
 **
 **  Returned (function value):
-**                  double    equation of the origins in radians
+**                  double    the equation of the origins in radians
 **
 **  Notes:
 **
@@ -52,7 +52,9 @@ function eraEo06a(date1, date2)
 **
 **     Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -76,6 +78,8 @@ function eraEo06a(date1, date2)
    eo = eraEors(r, s);
 
    return eo;
+
+/* Finished. */
 
 }
 /*

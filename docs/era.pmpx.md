@@ -9,7 +9,7 @@ Proper motion and parallax.
 ## Given:
 ```
    rc,dc  double     ICRS RA,Dec at catalog epoch (radians)
-   pr     double     RA proper motion (radians/year; Note 1)
+   pr     double     RA proper motion (radians/year, Note 1)
    pd     double     Dec proper motion (radians/year)
    px     double     parallax (arcsec)
    rv     double     radial velocity (km/s, +ve if receding)
@@ -48,5 +48,7 @@ Proper motion and parallax.
    eraPn        decompose p-vector into modulus and direction
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2021 April 3
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

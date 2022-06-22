@@ -276,6 +276,10 @@
 			<input path="src/era/fk45z.js" />
 			<input path="src/era/fk524.js" />
 			<input path="src/era/fk54z.js" />
+			<!-- added with liberfa 2.0.0 -->
+			<input path="src/era/atcc13.js" />
+			<input path="src/era/atccq.js" />
+			<input path="src/era/moon98.js" />
 
 			<append>
 // export functions
@@ -525,6 +529,10 @@ era.fk425   = eraFk425;
 era.fk45z   = eraFk45z;
 era.fk524   = eraFk524;
 era.fk54z   = eraFk54z;
+// added with liberfa 2.0.0
+era.atcc13   = eraAtcc13;
+era.atccq   = eraAtccq;
+era.moon98   = eraMoon98;
 			</append>
 
 			<append>})(ERFA)</append>

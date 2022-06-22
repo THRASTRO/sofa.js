@@ -57,7 +57,9 @@ function eraEcm06(date1, date2)
 **     eraRx        rotate around X-axis
 **     eraRxr       product of two r-matrices
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -81,6 +83,8 @@ function eraEcm06(date1, date2)
 
 /* ICRS to ecliptic coordinates rotation matrix, IAU 2006. */
    rm = eraRxr(e, bp);
+
+/* Finished. */
 
 return rm;
 }

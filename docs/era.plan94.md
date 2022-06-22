@@ -8,6 +8,8 @@ Approximate heliocentric position and velocity of a nominated major
 planet:  Mercury, Venus, EMB, Mars, Jupiter, Saturn, Uranus or
 Neptune (but not the Earth itself).
 
+n.b. Not IAU-endorsed and without canonical status.
+
 ## Given:
 ```
    date1  double       TDB date part A (Note 1)
@@ -166,14 +168,16 @@ Neptune (but not the Earth itself).
 
 ## Called:
 ```
-   eraAnp       normalize angle into range 0 to 2pi
+   eraAnpm      normalize angle into range +/- pi
 ```
 
 Reference:  Simon, J.L, Bretagnon, P., Chapront, J.,
             Chapront-Touze, M., Francou, G., and Laskar, J.,
             Astron.Astrophys., 282, 663 (1994).
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

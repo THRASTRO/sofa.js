@@ -35,8 +35,8 @@ function eraUt1utc(ut11, ut12, dut1)
 **
 **  3) JD cannot unambiguously represent UTC during a leap second unless
 **     special measures are taken.  The convention in the present
-**     function is that the returned quasi JD day UTC1+UTC2 represents
-**     UTC days whether the length is 86399, 86400 or 86401 SI seconds.
+**     function is that the returned quasi-JD UTC1+UTC2 represents UTC
+**     days whether the length is 86399, 86400 or 86401 SI seconds.
 **
 **  4) The function eraD2dtf can be used to transform the UTC quasi-JD
 **     into calendar date and clock time, including UTC leap second
@@ -59,7 +59,9 @@ function eraUt1utc(ut11, ut12, dut1)
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -146,6 +148,8 @@ function eraUt1utc(ut11, ut12, dut1)
 
 /* Status. */
    return [ js, utc1, utc2 ];
+
+/* Finished. */
 
 }
 /*

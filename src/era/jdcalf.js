@@ -39,10 +39,11 @@ function eraJdcalf(ndp, dj1, dj2)
 **     the Gregorian Calendar, nor is the AD/BC numbering convention
 **     observed.
 **
-**  3) Refer to the function eraJd2cal.
+**  3) See also the function eraJd2cal.
 **
-**  4) NDP should be 4 or less if internal overflows are to be
-**     avoided on machines which use 16-bit integers.
+**  4) The number of decimal places ndp should be 4 or less if internal
+**     overflows are to be avoided on platforms which use 16-bit
+**     integers.
 **
 **  Called:
 **     eraJd2cal    JD to Gregorian calendar
@@ -53,7 +54,9 @@ function eraJdcalf(ndp, dj1, dj2)
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 12.92 (p604).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -61,7 +64,7 @@ function eraJdcalf(ndp, dj1, dj2)
    var _rv1;
 
    var j, js;
-   var denom, d1, d2, f1, f2, f;
+   var denom, d1, d2, f1, f2, d, djd, f, rf;
 
 
 /* Denominator of fraction (e.g. 100 for 2 decimal places). */
@@ -73,7 +76,7 @@ function eraJdcalf(ndp, dj1, dj2)
       denom = 1.0;
    }
 
-/* Copy the date, big then small, and realign to midnight. */
+/* Copy the date, big then small. */
    if (Math.abs(dj1) >= Math.abs(dj2)) {
       d1 = dj1;
       d2 = dj2;
@@ -81,34 +84,47 @@ function eraJdcalf(ndp, dj1, dj2)
       d1 = dj2;
       d2 = dj1;
    }
-   d2 -= 0.5;
 
-/* Separate days and fractions. */
-   f1 = ((d1) % (1.0));
-   f2 = ((d2) % (1.0));
-   d1 = ERFA_DNINT(d1-f1);
-   d2 = ERFA_DNINT(d2-f2);
+/* Realign to midnight (without rounding error). */
+   d1 -= 0.5;
+
+/* Separate day and fraction (as precisely as possible). */
+   d = ERFA_DNINT(d1);
+   f1 = d1 - d;
+   djd = d;
+   d = ERFA_DNINT(d2);
+   f2 = d2 - d;
+   djd += d;
+   d = ERFA_DNINT(f1 + f2);
+   f = (f1 - d) + f2;
+   if (f < 0.0) {
+       f += 1.0;
+       d -= 1.0;
+   }
+   djd += d;
 
 /* Round the total fraction to the specified number of places. */
-   f = ERFA_DNINT((f1+f2)*denom) / denom;
+   rf = ERFA_DNINT(f*denom) / denom;
 
-/* Re-assemble the rounded date and re-align to noon. */
-   d2 += f + 0.5;
+/* Re-align to noon. */
+   djd += 0.5;
 
 /* Convert to Gregorian calendar. */
-   js = ~~((_rv1 = eraJd2cal(d1, d2))[0]);
+   js = ~~((_rv1 = eraJd2cal(djd, rf))[0]);
    iymdf[0] = _rv1[1];
    iymdf[1] = _rv1[2];
    iymdf[2] = _rv1[3];
    f = _rv1[4];
    if (js == 0) {
-      iymdf[3] = ~~(f * denom);
+      iymdf[3] = ~~ERFA_DNINT(f * denom);
    } else {
       j = ~~(js);
    }
 
 /* Return the status. */
    return [ j, iymdf ];
+
+/* Finished. */
 
 }
 /*

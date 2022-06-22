@@ -47,10 +47,11 @@ for formatting messages:  rounded to a specified precision.
    the Gregorian Calendar, nor is the AD/BC numbering convention
    observed.
 
-3) Refer to the function [eraJd2cal][1].
+3) See also the function [eraJd2cal][1].
 
-4) NDP should be 4 or less if internal overflows are to be
-   avoided on machines which use 16-bit integers.
+4) The number of decimal places ndp should be 4 or less if internal
+   overflows are to be avoided on platforms which use 16-bit
+   integers.
 
 ## Called:
 ```
@@ -63,7 +64,9 @@ for formatting messages:  rounded to a specified precision.
    P. Kenneth Seidelmann (ed), University Science Books (1992),
    Section 12.92 (p604).
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

@@ -55,5 +55,7 @@ precession model.
   expressions, valid for long time intervals (Corrigendum),
   Astron.Astrophys. 541, C1
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

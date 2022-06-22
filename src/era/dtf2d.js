@@ -71,7 +71,9 @@ function eraDtf2d(scale, iy, im, id, ihr, imn, sec)
 **     eraDat       delta(AT) = TAI-UTC
 **     eraJd2cal    JD to Gregorian calendar
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -155,6 +157,8 @@ function eraDtf2d(scale, iy, im, id, ihr, imn, sec)
 
 /* Status. */
    return [ js, d1, d2 ];
+
+/* Finished. */
 
 }
 /*

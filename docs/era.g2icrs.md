@@ -67,7 +67,9 @@ Transformation from Galactic Coordinates to ICRS.
    derived from the ESA Hipparcos Space Astrometry Mission.  ESA
    Publications Division, Noordwijk, Netherlands.
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2021 January 25
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

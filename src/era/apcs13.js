@@ -108,7 +108,9 @@ function eraApcs13(date1, date2, pv)
 **     eraEpv00     Earth position and velocity
 **     eraApcs      astrometry parameters, ICRS-GCRS, space observer
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2013 October 9
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {

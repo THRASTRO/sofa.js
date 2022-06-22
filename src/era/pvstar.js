@@ -90,7 +90,9 @@ function eraPvstar(pv)
 **
 **     Stumpff, P., 1985, Astron.Astrophys. 144, 232-240.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -160,8 +162,10 @@ function eraPvstar(pv)
 /* Return radial velocity in km/s. */
    rv = 1e-3 * rd * ERFA_DAU / ERFA_DAYSEC;
 
-/* OK status. */
+/* Success. */
    return [ 0, ra, dec, pmr, pmd, px, rv ];
+
+/* Finished. */
 
 }
 /*

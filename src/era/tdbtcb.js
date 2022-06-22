@@ -45,7 +45,9 @@ function eraTdbtcb(tdb1, tdb2)
 **
 **     IAU 2006 Resolution B3
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -81,6 +83,8 @@ function eraTdbtcb(tdb1, tdb2)
 
 /* Status (always OK). */
    return [ 0, tcb1, tcb2 ];
+
+/* Finished. */
 
 }
 /*

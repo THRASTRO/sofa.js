@@ -91,7 +91,9 @@ function eraEpv00(date1, date2)
 **  5) It is permissible to use the same array for pvh and pvb, which
 **     will receive the barycentric values.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -2526,6 +2528,8 @@ function eraEpv00(date1, date2)
 
 /* Return the status. */
    return [ jstat, pvh, pvb ];
+
+/* Finished. */
 
 }
 /*

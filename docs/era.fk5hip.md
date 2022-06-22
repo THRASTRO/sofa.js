@@ -40,5 +40,7 @@ FK5 to Hipparcos rotation and spin.
 
    F.Mignard & M.Froeschle, Astron.Astrophys., 354, 732-739 (2000).
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

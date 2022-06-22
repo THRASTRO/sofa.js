@@ -49,7 +49,9 @@ function eraEqeq94(date1, date2)
 **     Capitaine, N. & Gontier, A.-M., 1993, Astron.Astrophys., 275,
 **     645-650.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -77,6 +79,8 @@ function eraEqeq94(date1, date2)
    ee = dpsi*Math.cos(eps0) + ERFA_DAS2R*(0.00264*Math.sin(om) + 0.000063*Math.sin(om+om));
 
    return ee;
+
+/* Finished. */
 
 }
 /*

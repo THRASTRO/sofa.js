@@ -34,5 +34,7 @@ Convert position/velocity from Cartesian to spherical coordinates.
 2) If the position is a pole, theta, td and pd are indeterminate.
    In such cases zeroes are returned for all three.
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

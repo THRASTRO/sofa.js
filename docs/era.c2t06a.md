@@ -5,8 +5,8 @@ rc2t = ERFA.c2t06a(tta, ttb, uta, utb, xp, yp)
 ```
 
 Form the celestial to terrestrial matrix given the date, the UT1 and
-the polar motion, using the IAU 2006 precession and IAU 2000A
-nutation models.
+the polar motion, using the IAU 2006/2000A precession-nutation
+model.
 
 ## Given:
 ```
@@ -48,7 +48,7 @@ nutation models.
 2) The arguments xp and yp are the coordinates (in radians) of the
    Celestial Intermediate Pole with respect to the International
    Terrestrial Reference System (see IERS Conventions 2003),
-   measured along the meridians to 0 and 90 deg west respectively.
+   measured along the meridians 0 and 90 deg west respectively.
 
 3) The matrix rc2t transforms from celestial to terrestrial
    coordinates:
@@ -79,5 +79,7 @@ nutation models.
    McCarthy, D. D., Petit, G. (eds.), 2004, IERS Conventions (2003),
    IERS Technical Note No. 32, BKG
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

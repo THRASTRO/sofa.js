@@ -37,5 +37,7 @@ Deflection of starlight by the Sun.
    eraLd        light deflection by a solar-system body
 ```
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2016 June 16
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

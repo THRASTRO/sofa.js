@@ -45,7 +45,9 @@ function eraLtp(epj)
 **    expressions, valid for long time intervals (Corrigendum),
 **    Astron.Astrophys. 541, C1
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -79,6 +81,8 @@ function eraLtp(epj)
       rp[1][i] = v[i];
       rp[2][i] = peqr[i];
    }
+
+/* Finished. */
 
 return rp;
 }

@@ -35,7 +35,9 @@ function eraPap(a, b)
 **     eraPmp       p-vector minus p-vector
 **     eraPdp       scalar product of two p-vectors
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -84,6 +86,8 @@ function eraPap(a, b)
    pa = Math.atan2(st, ct);
 
    return pa;
+
+/* Finished. */
 
 }
 /*

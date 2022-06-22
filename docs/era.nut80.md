@@ -54,5 +54,7 @@ Nutation, IAU 1980 model.
    P. Kenneth Seidelmann (ed), University Science Books (1992),
    Section 3.222 (p111).
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

@@ -14,7 +14,7 @@ Decompose days to hours, minutes, seconds, fraction.
 
 ## Returned:
 ```
-   sign    char    '+' or '-'
+   sign    char*   '+' or '-'
    ihmsf   int[4]  hours, minutes, seconds, fraction
 ```
 
@@ -52,5 +52,7 @@ Decompose days to hours, minutes, seconds, fraction.
    case where days is very nearly 1.0 and rounds up to 24 hours,
    by testing for ihmsf[0]=24 and setting ihmsf[0-3] to zero.
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

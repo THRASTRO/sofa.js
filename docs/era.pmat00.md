@@ -56,5 +56,7 @@ date, IAU 2000 model.
    24th General Assembly, Manchester, UK.  Resolutions B1.3, B1.6.
    (2000)
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

@@ -44,16 +44,25 @@ Julian Date to Gregorian year, month, day, and fraction of a day.
        2450123.5           0.2       (date & time method)
 ```
 
+   Separating integer and fraction uses the "compensated summation"
+   algorithm of Kahan-Neumaier to preserve as much precision as
+   possible irrespective of the jd1+jd2 apportionment.
+
 3) In early eras the conversion is from the "proleptic Gregorian
    calendar";  no account is taken of the date(s) of adoption of
    the Gregorian calendar, nor is the AD/BC numbering convention
    observed.
 
-## Reference:
+## References:
 
    Explanatory Supplement to the Astronomical Almanac,
    P. Kenneth Seidelmann (ed), University Science Books (1992),
    Section 12.92 (p604).
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+   Klein, A., A Generalized Kahan-Babuska-Summation-Algorithm.
+   Computing, 76, 279-293 (2006), Section 3.
+
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

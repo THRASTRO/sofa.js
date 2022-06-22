@@ -30,7 +30,9 @@ function eraTttcg(tt1, tt2)
 **
 **     IAU 2000 Resolution B1.9
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -56,6 +58,8 @@ function eraTttcg(tt1, tt2)
 
 /* Status (always OK). */
    return [ 0, tcg1, tcg2 ];
+
+/* Finished. */
 
 }
 /*

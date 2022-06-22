@@ -93,7 +93,9 @@ Earth rotation angle, supplied by the caller explicitly.
    aberration and parallax (unless subsumed into the ICRS <-> GCRS
    transformation), and atmospheric refraction.
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:   2013 September 25
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

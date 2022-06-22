@@ -44,7 +44,7 @@ Form the matrix of nutation for a given date, IAU 2000A model.
    of date and the p-vector V(mean) is with respect to the mean
    equatorial triad of date.
 
-3) A faster, but slightly less accurate result (about 1 mas), can be
+3) A faster, but slightly less accurate, result (about 1 mas) can be
    obtained by using instead the [eraNum00b][1] function.
 
 ## Called:
@@ -58,7 +58,9 @@ Form the matrix of nutation for a given date, IAU 2000A model.
    P. Kenneth Seidelmann (ed), University Science Books (1992),
    Section 3.222-3 (p114).
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.
 
 

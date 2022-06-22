@@ -48,7 +48,9 @@ function eraEe06a(date1, date2)
 **     McCarthy, D. D., Petit, G. (eds.), 2004, IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -63,6 +65,8 @@ function eraEe06a(date1, date2)
    ee  = eraAnpm(gst06a - gmst06);
 
    return ee;
+
+/* Finished. */
 
 }
 /*

@@ -4,7 +4,7 @@ This JS library is a conversion from [liberfa][1] (by [NumFOCUS Foundation][2]),
 which is in turn a derived work from [IAU SOFA][3] (by [Standards Of
 Fundamental Astronomy Board of the International Astronomical Union][4]).
 
-Converted 2020-01-15 by Marcel Greter (Version 1.7.0 / RELEASE 20190722).
+Converted 2022-06-23 by Marcel Greter (Version 2.0.0 / RELEASE 20210512).
 
 - The conversion is done by a [custom hacked perl script][5].
 - Automatically generates [QUnit tests][6] for all functions.

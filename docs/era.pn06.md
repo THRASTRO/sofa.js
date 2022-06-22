@@ -21,7 +21,7 @@ indirectly.
    rp           double[3][3]    precession matrix (Note 5)
    rbp          double[3][3]    bias-precession matrix (Note 6)
    rn           double[3][3]    nutation matrix (Note 7)
-   rbpn         double[3][3]    GCRS-to-true matrix (Note 8)
+   rbpn         double[3][3]    GCRS-to-true matrix (Notes 8,9)
 ```
 
 ## Notes:
@@ -96,5 +96,7 @@ indirectly.
 
    Wallace, P.T. & Capitaine, N., 2006, Astron.Astrophys. 459, 981
 
-Copyright (C) 2013-2019, NumFOCUS Foundation.
+This revision:  2021 May 11
+
+Copyright (C) 2013-2021, NumFOCUS Foundation.
 Derived, with permission, from the SOFA library.

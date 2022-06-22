@@ -18,8 +18,8 @@ function eraGmst00(uta, utb, tta, ttb)
 **
 **  1) The UT1 and TT dates uta+utb and tta+ttb respectively, are both
 **     Julian Dates, apportioned in any convenient way between the
-**     argument pairs.  For example, JD=2450123.7 could be expressed in
-**     any of these ways, among others:
+**     argument pairs.  For example, JD(UT1)=2450123.7 could be
+**     expressed in any of these ways, among others:
 **
 **            Part A         Part B
 **
@@ -66,7 +66,9 @@ function eraGmst00(uta, utb, tta, ttb)
 **     McCarthy, D. D., Petit, G. (eds.), IERS Conventions (2003),
 **     IERS Technical Note No. 32, BKG (2004)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -86,6 +88,8 @@ function eraGmst00(uta, utb, tta, ttb)
           * t) * t) * t) * t) * ERFA_DAS2R);
 
    return gmst;
+
+/* Finished. */
 
 }
 /*
