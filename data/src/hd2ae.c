@@ -1,4 +1,5 @@
 #include "erfa.h"
+#include "erfam.h"
 
 void eraHd2ae (double ha, double dec, double phi,
                double *az, double *el)
@@ -56,11 +57,11 @@ void eraHd2ae (double ha, double dec, double phi,
 **  7)  Again for efficiency, no range checking of arguments is carried
 **      out.
 **
-**  Last revision:   2017 September 12
+**  Last revision:   2021 February 24
 **
-**  ERFA release 2019-07-22
+**  ERFA release 2021-05-12
 **
-**  Copyright (C) 2019 IAU ERFA Board.  See notes at end.
+**  Copyright (C) 2021 IAU ERFA Board.  See notes at end.
 */
 {
    double sh, ch, sd, cd, sp, cp, x, y, z, r, a;
@@ -91,7 +92,7 @@ void eraHd2ae (double ha, double dec, double phi,
 /*----------------------------------------------------------------------
 **  
 **  
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  All rights reserved.
 **  
 **  This library is derived, with permission, from the International

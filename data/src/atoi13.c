@@ -1,4 +1,5 @@
 #include "erfa.h"
+#include "erfam.h"
 
 int eraAtoi13(const char *type, double ob1, double ob2,
               double utc1, double utc2, double dut1,
@@ -140,7 +141,9 @@ int eraAtoi13(const char *type, double ob1, double ob2,
 **     eraApio13    astrometry parameters, CIRS-observed, 2013
 **     eraAtoiq     quick observed to CIRS
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 February 24
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -167,7 +170,7 @@ int eraAtoi13(const char *type, double ob1, double ob2,
 /*----------------------------------------------------------------------
 **  
 **  
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  All rights reserved.
 **  
 **  This library is derived, with permission, from the International

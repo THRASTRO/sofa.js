@@ -1,4 +1,5 @@
 #include "erfa.h"
+#include "erfam.h"
 
 int eraUt1tt(double ut11, double ut12, double dt,
              double *tt1, double *tt2)
@@ -34,7 +35,9 @@ int eraUt1tt(double ut11, double ut12, double dt,
 **     Explanatory Supplement to the Astronomical Almanac,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992)
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -54,11 +57,13 @@ int eraUt1tt(double ut11, double ut12, double dt,
 /* Status (always OK). */
    return 0;
 
+/* Finished. */
+
 }
 /*----------------------------------------------------------------------
 **  
 **  
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  All rights reserved.
 **  
 **  This library is derived, with permission, from the International

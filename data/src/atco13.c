@@ -1,4 +1,5 @@
 #include "erfa.h"
+#include "erfam.h"
 
 int eraAtco13(double rc, double dc,
               double pr, double pd, double px, double rv,
@@ -20,7 +21,7 @@ int eraAtco13(double rc, double dc,
 **
 **  Given:
 **     rc,dc  double   ICRS right ascension at J2000.0 (radians, Note 1)
-**     pr     double   RA proper motion (radians/year; Note 2)
+**     pr     double   RA proper motion (radians/year, Note 2)
 **     pd     double   Dec proper motion (radians/year)
 **     px     double   parallax (arcsec)
 **     rv     double   radial velocity (km/s, +ve if receding)
@@ -151,7 +152,9 @@ int eraAtco13(double rc, double dc,
 **     eraAtciq     quick ICRS to CIRS
 **     eraAtioq     quick CIRS to observed
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:   2021 April 3
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -182,7 +185,7 @@ int eraAtco13(double rc, double dc,
 /*----------------------------------------------------------------------
 **  
 **  
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  All rights reserved.
 **  
 **  This library is derived, with permission, from the International

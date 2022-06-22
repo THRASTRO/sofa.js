@@ -1,4 +1,5 @@
 #include "erfa.h"
+#include "erfam.h"
 
 int eraGd2gce ( double a, double f, double elong, double phi,
                 double height, double xyz[3] )
@@ -55,7 +56,9 @@ int eraGd2gce ( double a, double f, double elong, double phi,
 **     P. Kenneth Seidelmann (ed), University Science Books (1992),
 **     Section 4.22, p202.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -81,11 +84,13 @@ int eraGd2gce ( double a, double f, double elong, double phi,
 /* Success. */
    return 0;
 
+/* Finished. */
+
 }
 /*----------------------------------------------------------------------
 **  
 **  
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  All rights reserved.
 **  
 **  This library is derived, with permission, from the International

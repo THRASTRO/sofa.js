@@ -1,4 +1,5 @@
 #include "erfa.h"
+#include "erfam.h"
 
 int eraEpv00(double date1, double date2,
              double pvh[2][3], double pvb[2][3])
@@ -94,7 +95,9 @@ int eraEpv00(double date1, double date2,
 **  5) It is permissible to use the same array for pvh and pvb, which
 **     will receive the barycentric values.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -2533,11 +2536,13 @@ int eraEpv00(double date1, double date2,
 /* Return the status. */
    return jstat;
 
+/* Finished. */
+
 }
 /*----------------------------------------------------------------------
 **  
 **  
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  All rights reserved.
 **  
 **  This library is derived, with permission, from the International

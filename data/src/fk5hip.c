@@ -1,4 +1,5 @@
 #include "erfa.h"
+#include "erfam.h"
 
 void eraFk5hip(double r5h[3][3], double s5h[3])
 /*
@@ -36,7 +37,9 @@ void eraFk5hip(double r5h[3][3], double s5h[3])
 **
 **     F.Mignard & M.Froeschle, Astron.Astrophys., 354, 732-739 (2000).
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -68,13 +71,13 @@ void eraFk5hip(double r5h[3][3], double s5h[3])
    s5h[1] = omy;
    s5h[2] = omz;
 
-   return;
+/* Finished. */
 
 }
 /*----------------------------------------------------------------------
 **  
 **  
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  All rights reserved.
 **  
 **  This library is derived, with permission, from the International

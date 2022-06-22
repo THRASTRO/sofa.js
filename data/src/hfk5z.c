@@ -1,4 +1,5 @@
 #include "erfa.h"
+#include "erfam.h"
 
 void eraHfk5z(double rh, double dh, double date1, double date2,
               double *r5, double *d5, double *dr5, double *dd5)
@@ -74,7 +75,9 @@ void eraHfk5z(double rh, double dh, double date1, double date2,
 **
 **     F.Mignard & M.Froeschle, 2000, Astron.Astrophys. 354, 732-739.
 **
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  This revision:  2021 May 11
+**
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  Derived, with permission, from the SOFA library.  See notes at end of file.
 */
 {
@@ -117,13 +120,13 @@ void eraHfk5z(double rh, double dh, double date1, double date2,
    eraPv2s(pv5e, &w, d5, &r, dr5, dd5, &v);
    *r5 = eraAnp(w);
 
-   return;
+/* Finished. */
 
 }
 /*----------------------------------------------------------------------
 **  
 **  
-**  Copyright (C) 2013-2019, NumFOCUS Foundation.
+**  Copyright (C) 2013-2021, NumFOCUS Foundation.
 **  All rights reserved.
 **  
 **  This library is derived, with permission, from the International

@@ -7,6 +7,12 @@
 **
 */
 
+
+#ifndef _ERFA_DAT_EXTRA_H
+#define _ERFA_DAT_EXTRA_H
+
+#include "erfaextra.h"
+
 /*
 **  Get the leap second table, initializing it to the built-in version
 **  if necessary.
@@ -16,3 +22,5 @@
 */
 int eraDatini(const eraLEAPSECOND *builtin, int n_builtin,
               eraLEAPSECOND **leapseconds);
+
+#endif
