@@ -17,7 +17,7 @@ issue on [github](https://github.com/mgreter/sofa.js/issues).
 [3]: http://www.iausofa.org/
 [4]: https://www.iau.org/
 [5]: gen/generate.pl
-[6]: https://rawgit.com/mgreter/sofa.js/develop/test/index.html
+[6]: https://www.ocbnet.ch/thrastro/sofa.js/test/index.html
 
 ## Preface
 
@@ -115,7 +115,7 @@ C functions from the SOFA distribution. This is manually configured in
 the converter script for every function, since I needed to control how
 many results are generated and over which ranges (fine-tuning needed).
 
-- https://rawgit.com/mgreter/sofa.js/develop/test/index.html
+- https://www.ocbnet.ch/thrastro/sofa.js/test/index.html
 
 [7]: https://github.com/mgreter/sofa.js/tree/develop/gen/src
 
